@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import numpy
+import numpy as np
 import synthesizer_algorithm.drawing_households
 import synthesizer_algorithm.pseudo_sparse_matrix
 import time

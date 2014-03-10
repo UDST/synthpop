@@ -1,9 +1,9 @@
 import os
 import pandas as pd
-import numpy
-import synthesizer_algorithm.adjusting_sample_joint_distribution
-import synthesizer_algorithm.drawing_households
-import synthesizer_algorithm.pseudo_sparse_matrix
+import numpy as np
+import adjusting_sample_joint_distribution
+import drawing_households
+import synthesizer_algorithm.pseudo_sparse_matrix as ps
 import time
 from scipy import sparse
 
@@ -33,9 +33,9 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
     per_vars_dims = dict(zip(per_vars, per_dims))
     per_marginals = pd.read_csv(per_marginals_file, header = 0)
     
-    matrix = populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample)
-    sparse_matrix = pseudo_sparse_matrix(data_dir, hh_sample)
-    index_matrix = generate_index_matrix(sparse_matrix)
+    matrix = ps.populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample)
+    sparse_matrix = ps.pseudo_sparse_matrix(data_dir, hh_sample)
+    index_matrix = ps.generate_index_matrix(sparse_matrix)
     
     housing_synthetic_data = pd.DataFrame(columns=['state','county','tract','bg','hhid','serialno','frequency','hhuniqueid'])
     person_synthetic_data = pd.DataFrame(columns=['state','county','tract','bg','hhid','serialno','pnum','frequency','personuniqueid'])

@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import numpy
+import numpy as np
 import synthesizer_algorithm.adjusting_sample_joint_distribution
 import synthesizer_algorithm.drawing_households
 import time
