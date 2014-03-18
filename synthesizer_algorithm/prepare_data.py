@@ -44,9 +44,9 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
     per_vars_dims = dict(zip(per_vars, per_dims))
     per_marginals = pd.read_csv(per_marginals_file, header = 0)
     
-    matrix = ps.populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample)
-    sparse_matrix = ps.pseudo_sparse_matrix(data_dir, hh_sample)
-    index_matrix = ps.generate_index_matrix(sparse_matrix)
+    matrix = ps.populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample, per_sample)
+    sparse_matrix = ps.pseudo_sparse_matrix(data_dir, hh_sample, hh_dims, per_sample)
+    sparse_matrix1, index_matrix = ps.generate_index_matrix(sparse_matrix)
     
     housing_synthetic_data = pd.DataFrame(columns=['state','county','tract','bg','hhid','serialno','frequency','hhuniqueid'])
     person_synthetic_data = pd.DataFrame(columns=['state','county','tract','bg','hhid','serialno','pnum','frequency','personuniqueid'])
@@ -56,5 +56,5 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
     hhld_0_joint_dist = jd.hhld_0_joint_dist(hh_sample, hh_var_list)
     person_0_joint_dist = jd.person_0_joint_dist(per_sample, per_vars)
 
-    return {'matrix':matrix, 'sparse_matrix':sparse_matrix, 'index_matrix':index_matrix, 'housing_synthetic_data':housing_synthetic_data, 'person_synthetic_data':person_synthetic_data, 'hhld_0_joint_dist':hhld_0_joint_dist, 'person_0_joint_dist':person_0_joint_dist}
+    return {'matrix':matrix, 'sparse_matrix':sparse_matrix, 'sparse_matrix1':sparse_matrix, 'index_matrix':index_matrix, 'housing_synthetic_data':housing_synthetic_data, 'person_synthetic_data':person_synthetic_data, 'hhld_0_joint_dist':hhld_0_joint_dist, 'person_0_joint_dist':person_0_joint_dist}
 
