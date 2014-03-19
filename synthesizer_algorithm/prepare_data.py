@@ -45,6 +45,7 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
 
     per_sample = pd.read_csv(per_sample_file, header = 0)
     per_vars = list(per_sample.columns)[5:] # identifies the person control variables
+    per_dims = np.array(per_sample.astype('int').max())[5:]
     per_sample['group_id'] = ''
     for var in per_vars:
         per_sample[var + '_str'] = per_sample[var].astype('str')
@@ -68,7 +69,6 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
     #pid = pid_var[['group_id', 'person_uniqueid']]
     per_sample = pd.merge(per_sample, pid, how='left', left_on='group_id', right_on='group_id')
     per_sample = per_sample.drop('group_id', axis=1)
-    per_dims = np.array(per_sample.astype('int').max())[5:-1] # identifies number of categories per household control variable
     per_vars_dims = dict(zip(per_vars, per_dims))
     per_marginals = pd.read_csv(per_marginals_file, header = 0)
     
