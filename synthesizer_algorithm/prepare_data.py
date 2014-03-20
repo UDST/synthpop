@@ -72,6 +72,11 @@ def prepare_data(data_dir, hh_sample_file, per_sample_file, hh_marginals_file, p
     per_vars_dims = dict(zip(per_vars, per_dims))
     per_marginals = pd.read_csv(per_marginals_file, header = 0)
     
+    varcorrdict = {}
+    for var in range(len(hh_var_list)):
+        for i in range(1,hh_dims[var]+1):
+            varcorrdict[hh_var_list[var]+str(i)] = [hh_var_list[var], i]
+    
     matrix = ps.populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample, per_sample)
     sparse_matrix = ps.pseudo_sparse_matrix(data_dir, hh_sample, hh_dims, per_sample)
     sparse_matrix1, index_matrix = ps.generate_index_matrix(sparse_matrix)
