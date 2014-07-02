@@ -1,10 +1,5 @@
-import os
 import pandas as pd
-import numpy as np
-import synthesizer_algorithm.drawing_households
-import synthesizer_algorithm.pseudo_sparse_matrix
-import time
-from scipy import sparse
+
 
 def hhld_0_joint_dist(hh_sample, hh_var_list):
     hhld_0_joint_dist = hh_sample
@@ -21,7 +16,7 @@ def hhld_0_joint_dist(hh_sample, hh_var_list):
     cols.extend(['frequency','hhld_uniqueid'])
     hhld_0_joint_dist = hhld_0_joint_dist[cols]
     return hhld_0_joint_dist
-    
+
 def person_0_joint_dist(per_sample, per_vars):
     person_0_joint_dist = per_sample
     person_0_joint_dist['frequency'] = 1
@@ -36,7 +31,7 @@ def person_0_joint_dist(per_sample, per_vars):
     cols.extend(per_vars)
     cols.extend(['frequency','person_uniqueid'])
     person_0_joint_dist = person_0_joint_dist[cols]
-    
+
 def create_person_joint_dist(data_dir, geocorr_file, per_vars, per_sample):
     geocorr = pd.read_csv(geocorr_file, header=0)
     pumas = list(geocorr.pumano.unique())
@@ -63,7 +58,7 @@ def create_person_joint_dist(data_dir, geocorr_file, per_vars, per_sample):
             jd = jd[cols]
             person_joint_dists[puma_jd] = jd
     return person_joint_dists
-    
+
 def create_hhld_joint_dist():
     geocorr = pd.read_csv(geocorr_file, header=0)
     pumas = list(geocorr.pumano.unique())
@@ -91,7 +86,7 @@ def create_hhld_joint_dist():
             hhld_joint_dists[puma_jd] = jd
     return hhld_joint_dists
 
-def hhld_estimated_constraint(hhld_joint_dists, geogs):    
+def hhld_estimated_constraint(hhld_joint_dists, geogs):
     hhld_estimated_constraint = {}
     for name in hhld_joint_dists:
         puma_id = int(name[5:8])
@@ -106,7 +101,7 @@ def hhld_estimated_constraint(hhld_joint_dists, geogs):
             ec_id = '%s, %s, %s' %(county, tract, bg)
             hhld_estimated_constraint[puma_name][ec_id] = bg_jd
     return hhld_estimated_constraint
-    
+
 def person_estimated_constraint(person_joint_dists, geogs):
     person_estimated_constraint = {}
     for name in person_joint_dists:

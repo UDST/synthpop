@@ -1,10 +1,6 @@
-import os
-import pandas as pd
 import numpy as np
-import synthesizer_algorithm.adjusting_sample_joint_distribution
-import synthesizer_algorithm.drawing_households
-import time
-from scipy import sparse
+import pandas as pd
+
 
 def populate_master_matrix(hh_dims, per_dims, hhld_units, hh_sample, per_sample):
     total_cols = 4 + hh_dims.prod() + per_dims.prod()
