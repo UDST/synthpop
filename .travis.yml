@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.7'
+install:
+- sudo pip install conda
+- sudo conda init
+- |
+  conda create -p $HOME/py --yes pip numpy pandas scipy pytest "python=$TRAVIS_PYTHON_VERSION"
+- export PATH=$HOME/py/bin:$PATH
+- easy_install -U setuptools
+- pip install pytest-cov coveralls pep8
+- pip install .
+script:
+- pep8 popgen
+- py.test --cov popgen --cov-report term-missing
+after_success:
+- coveralls
+notifications:
+  slack:
+    secure: deqrimqjqc76bZNuqFZQC/299jZ4W3cwS/4XcMFq0rYYaxGyefnSryDLBh4IMr3uLtTj08cPbvK2IdabiQEtqpwXBVmfIM5z/tiNknHK+MpNn5QHsJnJl71Z7KaZf2aAMdHkJUzqs2qy0P7176ttpO1zWKEwMk+wKFWYZskzpMw=
