@@ -45,3 +45,11 @@ class FrequencyTable(object):
 
     def __len__(self):
         return len(self.index)
+
+    @property
+    def ncols(self):
+        """
+        Number of combined household and person columns.
+
+        """
+        return len(self.household) + len(self.person)

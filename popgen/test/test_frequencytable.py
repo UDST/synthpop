@@ -20,6 +20,7 @@ def test_frequency_table():
     ft = FrequencyTable(index, household_cols=hhcols, person_cols=pcols)
 
     assert len(ft) == 5
+    assert ft.ncols == 5
     pdt.assert_index_equal(ft.index, pd.Index(index))
     pdt.assert_series_equal(ft.household[1], hhcols[1])
     pdt.assert_series_equal(ft['person'][1], pcols[1])

@@ -3,7 +3,7 @@
 from __future__ import division
 
 
-def calculate_fit_quality(column, weights, constraint):
+def fit_quality(column, weights, constraint):
     """
     Calculate quality of fit metric for a column of the frequency table.
     (The 𝛿 parameter described in the IPU paper.)
@@ -23,6 +23,24 @@ def calculate_fit_quality(column, weights, constraint):
 
     """
     return abs((column * weights).sum() - constraint) / constraint
+
+
+def average_fit_quality(frequency_table, weights, constraints):
+    """
+    Parameters
+    ----------
+    frequency_table : FrequencyTable
+    weights : pandas.Series
+        Weights for each household. Index must match `frequency_table`.
+    constraints : pandas.Series
+        Target marginal constraints. Must be indexable in the same
+        way as `frequency_table`.
+
+    """
+    return sum(
+        fit_quality(col, weights, constraints[hp][name])
+        for hp, name, col in frequency_table.itercols()
+        ) / frequency_table.ncols
 
 
 def update_weights(column, weights, constraint):

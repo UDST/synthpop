@@ -40,14 +40,14 @@ def constraints(frequency_columns):
         [35, 65, 91, 65, 104], index=frequency_columns, dtype='float')
 
 
-def test_calculate_fit_quality(frequency_table, constraints):
+def test_fit_quality(frequency_table, constraints):
     weights = pd.Series(
         np.ones(len(frequency_table)), index=frequency_table.index)
     column = frequency_table['household'][1]
     constraint = constraints['household'][1]
 
     npt.assert_allclose(
-        ipu.calculate_fit_quality(column, weights, constraint), 0.9143,
+        ipu.fit_quality(column, weights, constraint), 0.9143,
         atol=0.0001)
 
     weights = pd.Series(
@@ -57,8 +57,25 @@ def test_calculate_fit_quality(frequency_table, constraints):
     constraint = constraints['person'][2]
 
     npt.assert_allclose(
-        ipu.calculate_fit_quality(column, weights, constraint), 0.3222,
+        ipu.fit_quality(column, weights, constraint), 0.3222,
         atol=0.0003)
+
+
+def test_average_fit_quality(frequency_table, constraints):
+    weights = pd.Series(
+        np.ones(len(frequency_table)), index=frequency_table.index)
+    npt.assert_allclose(
+        ipu.average_fit_quality(frequency_table, weights, constraints),
+        0.9127,
+        atol=0.0001)
+
+    weights = pd.Series(
+        [12.37, 14.61, 8.05, 16.28, 16.91, 8.97, 13.78, 8.97],
+        index=frequency_table.index)
+    npt.assert_allclose(
+        ipu.average_fit_quality(frequency_table, weights, constraints),
+        0.0954,
+        atol=0.0001)
 
 
 def test_update_weights(frequency_table, constraints):
