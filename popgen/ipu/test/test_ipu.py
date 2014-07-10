@@ -100,3 +100,14 @@ def test_update_weights(frequency_table, constraints):
         ipu.update_weights(column, weights, constraint),
         [12.37, 14.61, 16.28, 16.91, 13.78],
         atol=0.01)
+
+
+def test_household_weights(frequency_table, constraints):
+    weights, fit_qual, iterations = ipu.household_weights(
+        frequency_table, constraints, convergence=1e-7)
+    npt.assert_allclose(
+        weights.as_matrix(),
+        [1.36, 25.66, 7.98, 27.79, 18.45, 8.64, 1.47, 8.64],
+        atol=0.02)
+    npt.assert_allclose(fit_qual, 8.51e-6, atol=1e-8)
+    npt.assert_allclose(iterations, 638, atol=5)
