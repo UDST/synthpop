@@ -1,4 +1,5 @@
 import numpy as np
+import numpy.testing as npt
 import pandas as pd
 import pytest
 from pandas.util import testing as pdt
@@ -35,20 +36,24 @@ def num():
 
 
 def test_draw_no_weights(df, num, seed):
-    draws = draw.draw(df, num)
+    draws, drawn_indexes = draw.draw(df, num)
 
     expected = pd.DataFrame(
         {'a': [3, 4, 4, 3, 3, 4, 3, 5, 5, 2]},
         index=range(num))
 
+    npt.assert_array_equal(
+        drawn_indexes, ['x', 'y', 'y', 'x', 'x', 'y', 'x', 'z', 'z', 'w'])
     pdt.assert_frame_equal(draws, expected)
 
 
 def test_draw_with_weights(df, weights, num, seed):
-    draws = draw.draw(df, num, weights)
+    draws, drawn_indexes = draw.draw(df, num, weights)
 
     expected = pd.DataFrame(
         {'a': [4, 5, 4, 4, 4, 4, 4, 5, 5, 3]},
         index=range(num))
 
+    npt.assert_array_equal(
+        drawn_indexes, ['y', 'z', 'y', 'y', 'y', 'y', 'y', 'z', 'z', 'x'])
     pdt.assert_frame_equal(draws, expected)

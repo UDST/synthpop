@@ -17,6 +17,13 @@ def draw(frame, num, weights=None):
         Should have the same index as `households`.
         If not given each row has equal weight.
 
+    Returns
+    -------
+    draws : pandas.DataFrame
+        New DataFrame of rows drawn. Index is reset to range(len(draws)).
+    drawn_indexes : ndarray
+        The array of index values used to create `draws`.
+
     """
     if weights is None:
         weights = pd.Series(np.ones(len(frame)), index=frame.index)
@@ -24,7 +31,7 @@ def draw(frame, num, weights=None):
     weights = weights / weights.sum()
     idx = np.random.choice(weights.index, size=num, p=weights.values)
 
-    draw = frame.loc[idx]
-    draw.index = range(len(draw))
+    draws = frame.loc[idx]
+    draws.index = range(len(draws))
 
-    return draw
+    return draws, idx
