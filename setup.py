@@ -19,7 +19,6 @@ setup(
     packages=find_packages(exclude=['*.tests']),
     install_requires=[
         'numpy>=1.8.0',
-        'pandas>=0.13.1',
-        'scipy>=0.13.3'
+        'pandas>=0.13.1'
     ]
 )
