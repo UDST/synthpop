@@ -12,10 +12,10 @@ class FrequencyTable(object):
     ----------
     index : sequence
         The full index of household IDs.
-    household_cols : dict, optional
-        Dictionary of household category columns (as Series).
-    person_cols : dict, optional
-        Dictionary of person category columns (as Series).
+    household_cols : dict or DataFrame, optional
+        Keyed object of household category columns (as Series).
+    person_cols : dict or DataFrame, optional
+        Keyed object of person category columns (as Series).
 
     """
     def __init__(self, index, household_cols=None, person_cols=None):
