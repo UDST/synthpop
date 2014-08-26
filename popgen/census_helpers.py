@@ -141,5 +141,3 @@ class Census:
         if puma is None:
             return self._read_csv(self.pums_household_state_base_url % (state))
         return self._read_csv(self.pums_household_base_url % (state, puma))
-
-
