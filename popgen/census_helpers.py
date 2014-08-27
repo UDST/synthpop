@@ -21,9 +21,6 @@ class Census:
         self.pums_household_state_base_url = \
             self.base_url + "puma_h_%s.csv"
 
-    def state_fips(self, fips):
-        return getattr()
-
     # df1 is the disaggregate data frame (e.g. block groups)
     # df2 is the aggregate data frame (e.g. tracts)
     # need to scale down df2 variables to df1 level totals
