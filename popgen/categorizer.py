@@ -1,4 +1,5 @@
 import pandas as pd
+import itertools
 
 
 def aggregate_categorize(df, eval_d, index_cols=None):
@@ -30,3 +31,42 @@ def aggregate_sum_accross_category(df, subtract_mean=True):
     if subtract_mean:
         df = df.sub(df.mean(axis=1), axis="rows")
     return df
+
+
+def cross_product_of_categories(index):
+    """
+    THis method converts a hierarchical multindex of category names and
+    category values and concerts to the cross-product of all possible
+    category combinations.
+    """
+    d = {}
+    for cat_name, cat_value in index:
+        d.setdefault(cat_name, [])
+        d[cat_name].append(cat_value)
+    for cat_name in d.keys():
+        if len(d[cat_name]) == 1:
+            del d[cat_name]
+    df = pd.DataFrame(list(itertools.product(*d.values())))
+    df.columns = cols = d.keys()
+    df.index.name = "id"
+    df = df.reset_index().set_index(cols)
+    return df
+
+
+def freq_of_cats_in_sample(sample_df, category_df, mapping_functions):
+
+    # set counts to zero
+    category_df["frequency"] = 0
+
+    category_names = category_df.index.names
+    for name in category_names:
+        assert name in mapping_functions, "Every category needs to have a " \
+                                          "mapping function with the same " \
+                                          "name to define that category for " \
+                                          "the pums sample records"
+        sample_df[name] = sample_df.apply(mapping_functions[name], axis=1)
+
+    category_df["frequency"] = sample_df.groupby(category_names).size()
+    category_df["frequency"] = category_df["frequency"].fillna(0)
+
+    return sample_df, category_df
