@@ -21,6 +21,6 @@ setup(
         'numpy>=1.8.0',
         'pandas>=0.13.1',
         'scipy>=0.13.3',
-        'census>=0.5'
+        'census>=0.6'
     ]
 )
