@@ -71,5 +71,3 @@ def test_download_pums(c):
     c.download_household_pums("06", puma)
     c.download_population_pums("10")
     c.download_household_pums("10")
-
-
