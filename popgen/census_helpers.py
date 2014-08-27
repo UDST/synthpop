@@ -1,5 +1,6 @@
 import census
 import pandas as pd
+import numpy as np
 
 
 class Census:
@@ -10,14 +11,15 @@ class Census:
                                           "maps-data/data/docs/rel/2010_"\
                                           "Census_Tract_to_2010_PUMA.txt"
         self.pums_relationship_df = None
+        self.base_url = "http://paris.urbansim.org/data/pums/"
         self.pums_population_base_url = \
-            "http://paris.urbansim.org/data/pums/puma_p_%s_%s.csv"
+            self.base_url + "puma_p_%s_%s.csv"
         self.pums_household_base_url = \
-            "http://paris.urbansim.org/data/pums/puma_h_%s_%s.csv"
+            self.base_url + "puma_h_%s_%s.csv"
         self.pums_population_state_base_url = \
-            "http://paris.urbansim.org/data/pums/puma_p_%s.csv"
+            self.base_url + "puma_p_%s.csv"
         self.pums_household_state_base_url = \
-            "http://paris.urbansim.org/data/pums/puma_h_%s.csv"
+            self.base_url + "puma_h_%s.csv"
 
     def state_fips(self, fips):
         return getattr()
@@ -29,12 +31,17 @@ class Census:
                          merge_columns, suffixes):
         df = pd.merge(df1, df2, left_on=merge_columns, right_on=merge_columns,
                       suffixes=suffixes)
+
         # going to scale these too so store current values
         tot2, tot1 = df[tot2], df[tot1]
+        # if agg number if 0, disaggregate should be 0
+        # note this is filled by fillna below
+        assert np.all(tot1[tot2 == 0] == 0)
+
         for col in columns_to_scale:
             df[col] = df[col] / tot2 * tot1
             # round?
-            df[col] = df[col].astype('int')
+            df[col] = df[col].fillna(0).astype('int')
         return df
 
     def block_group_query(self, census_columns, state, county, tract=None,
