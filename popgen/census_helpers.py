@@ -79,9 +79,9 @@ class Census:
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
             d = c.acs.get(['NAME'] + census_column_batch,
-                           geo={'for': forstr,
-                                'in': in_str},
-                           year=year)
+                          geo={'for': forstr,
+                               'in': in_str},
+                          year=year)
             df = pd.DataFrame(d)
             df[census_column_batch] = df[census_column_batch].astype('int')
             dfs.append(df)
