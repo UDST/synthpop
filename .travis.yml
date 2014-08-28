@@ -5,7 +5,7 @@ install:
 - sudo pip install conda
 - sudo conda init
 - |
-  conda create -p $HOME/py --yes pip numpy pandas scipy pytest "python=$TRAVIS_PYTHON_VERSION"
+  conda create -p $HOME/py --yes pip numexpr numpy pandas scipy pytest "python=$TRAVIS_PYTHON_VERSION"
 - export PATH=$HOME/py/bin:$PATH
 - easy_install -U setuptools
 - pip install pytest-cov coveralls pep8
