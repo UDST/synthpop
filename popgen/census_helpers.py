@@ -143,7 +143,7 @@ class Census:
             del self.fips_df["ANSI Cl"]
         return self.fips_df
 
-    def tract_to_pums(self, state, county, tract):
+    def tract_to_puma(self, state, county, tract):
 
         state, county = self.try_fips_lookup(state, county)
 
@@ -152,6 +152,16 @@ class Census:
             (state, county, tract)
         r = df.query(q)
         return r["PUMA5CE"].values[0]
+
+    def tracts_to_pumas(self, state, county, tracts):
+
+        state, county = self.try_fips_lookup(state, county)
+
+        df = self._get_pums_relationship()
+        q = "STATEFP == '%s' and COUNTYFP == '%s'" % (state, county)
+        r = df.query(q)
+        r = r[r["TRACTCE"].isin(tracts)]
+        return list(r["PUMA5CE"].unique())
 
     def _read_csv(self, loc):
         return pd.read_csv(loc, dtype={

@@ -18,9 +18,6 @@ def test_starter(c):
 
 def test_starter_no_tract(c):
     hmarg, pmarg, h_jd, p_jd = \
-        starter.marginals_and_joint_distribution(c, "CA", "San Francisco "
-                                                          "County")
-    print hmarg
-    print pmarg
-    print h_jd
-    print p_jd
+        starter.marginals_and_joint_distribution(c,
+                                                 "CA",
+                                                 "San Francisco County")

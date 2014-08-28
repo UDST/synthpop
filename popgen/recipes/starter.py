@@ -1,4 +1,5 @@
 from .. import categorizer as cat
+import pandas as pd
 
 
 def marginals_and_joint_distribution(c, state, county, tract=None):
@@ -26,9 +27,13 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
     person_marginals : DataFrame
         Marginals per block group for the person data (from ACS)
     household_jointdist : DataFrame
-        Joint distribution for the households (from PUMS)
+        joint distributions for the households (from PUMS), one joint
+        distribution for each PUMA (one row per PUMA)
     person_jointdist : DataFrame
-        Joint distribution for the person records (from PUMS)
+        joint distributions for the persons (from PUMS), one joint
+        distribution for each PUMA (one row per PUMA)
+    tract_to_puma_map : dictionary
+        keys are tract ids and pumas are puma ids
     """
 
     income_columns = ['B19001_0%02dE' % i for i in range(1, 18)]
@@ -53,10 +58,6 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
     all_columns = population + sex + race + male_age_columns + \
         female_age_columns
     p_acs = c.block_group_query(all_columns, state, county, tract=tract)
-
-    puma = c.tract_to_pums(state, county, tract)
-    p_pums = c.download_population_pums(state, puma)
-    h_pums = c.download_household_pums(state, puma)
 
     h_acs_cat = cat.categorize(h_acs, {
         ("households", "total"): "B11001_001E",
@@ -106,68 +107,86 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
         ("sex", "female"):   "B01001_026E"
     }, index_cols=['NAME'])
 
-    def age_cat(r):
-        if r.AGEP <= 19:
-            return "19 and under"
-        elif r.AGEP <= 35:
-            return "20 to 35"
-        elif r.AGEP <= 60:
-            return "35 to 60"
-        return "above 60"
+    jds_persons = []
+    p_pumas = c.tracts_to_pumas(state, county, p_acs.tract)
 
-    def race_cat(r):
-        if r.RAC1P == 1:
-            return "white"
-        elif r.RAC1P == 2:
-            return "black"
-        elif r.RAC1P == 6:
-            return "asian"
-        return "other"
+    for puma in p_pumas:
+        p_pums = c.download_population_pums(state, puma)
 
-    def sex_cat(r):
-        if r.SEX == 1:
-            return "male"
-        return "female"
+        def age_cat(r):
+            if r.AGEP <= 19:
+                return "19 and under"
+            elif r.AGEP <= 35:
+                return "20 to 35"
+            elif r.AGEP <= 60:
+                return "35 to 60"
+            return "above 60"
 
-    _, jd_persons = cat.joint_distribution(
-        p_pums,
-        cat.category_combinations(p_acs_cat.columns),
-        {"age": age_cat, "race": race_cat, "sex": sex_cat}
-    )
+        def race_cat(r):
+            if r.RAC1P == 1:
+                return "white"
+            elif r.RAC1P == 2:
+                return "black"
+            elif r.RAC1P == 6:
+                return "asian"
+            return "other"
 
-    def cars_cat(r):
-        if r.VEH == 0:
+        def sex_cat(r):
+            if r.SEX == 1:
+                return "male"
+            return "female"
+
+        _, jd_persons = cat.joint_distribution(
+            p_pums,
+            cat.category_combinations(p_acs_cat.columns),
+            {"age": age_cat, "race": race_cat, "sex": sex_cat}
+        )
+        jds_persons.append(jd_persons["frequency"])
+    jds_persons = pd.concat(jds_persons, axis=1, keys=p_pumas)
+
+    jds_households = []
+    h_pumas = c.tracts_to_pumas(state, county, h_acs.tract)
+
+    for puma in h_pumas:
+
+        h_pums = c.download_household_pums(state, puma)
+
+        def cars_cat(r):
+            if r.VEH == 0:
+                return "none"
+            elif r.VEH == 1:
+                return "one"
+            return "two or more"
+
+        def children_cat(r):
+            if r.NOC > 0:
+                return "yes"
+            return "no"
+
+        def income_cat(r):
+            if r.FINCP > 100000:
+                return "gt100"
+            elif r.FINCP > 35000:
+                return "gt35-lt100"
+            return "lt35"
+
+        def workers_cat(r):
+            if r.WIF == 3:
+                return "two or more"
+            elif r.WIF == 2:
+                return "two or more"
+            elif r.WIF == 1:
+                return "one"
             return "none"
-        elif r.VEH == 1:
-            return "one"
-        return "two or more"
 
-    def children_cat(r):
-        if r.NOC > 0:
-            return "yes"
-        return "no"
+        _, jd_households = cat.joint_distribution(
+            h_pums,
+            cat.category_combinations(h_acs_cat.columns),
+            {"cars": cars_cat, "children": children_cat,
+             "income": income_cat, "workers": workers_cat}
+        )
+        jds_households.append(jd_households["frequency"])
+    jds_households = pd.concat(jds_households, axis=1, keys=h_pumas)
 
-    def income_cat(r):
-        if r.FINCP > 100000:
-            return "gt100"
-        elif r.FINCP > 35000:
-            return "gt35-lt100"
-        return "lt35"
-
-    def workers_cat(r):
-        if r.WIF == 3:
-            return "two or more"
-        elif r.WIF == 2:
-            return "two or more"
-        elif r.WIF == 1:
-            return "one"
-        return "none"
-
-    _, jd_households = cat.joint_distribution(
-        h_pums,
-        cat.category_combinations(h_acs_cat.columns),
-        {"cars": cars_cat, "children": children_cat,
-         "income": income_cat, "workers": workers_cat}
-    )
-
-    return h_acs_cat, p_acs_cat, jd_households, jd_persons
+    return h_acs_cat, p_acs_cat, \
+        jds_households.transpose(), jds_persons.transpose()
