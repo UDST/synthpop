@@ -22,6 +22,7 @@ setup(
         'numexpr>=2.3.1',
         'numpy>=1.8.0',
         'pandas>=0.13.1',
-        'scipy>=0.13.3'
+        'scipy>=0.13.3',
+	'us>=0.8'
     ]
 )
