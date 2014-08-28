@@ -60,8 +60,8 @@ def test_wide_block_group_query(c):
     assert len(df.columns) > 50
 
 
-def test_tract_to_pums(c):
-    puma = c.tract_to_pums("06", "075", "030600")
+def test_tract_to_puma(c):
+    puma = c.tract_to_puma("06", "075", "030600")
     assert puma == "07506"
 
 
