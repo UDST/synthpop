@@ -2,7 +2,7 @@ import pandas as pd
 import itertools
 
 
-def aggregate_categorize(df, eval_d, index_cols=None):
+def categorize(df, eval_d, index_cols=None):
     cat_df = pd.DataFrame(index=df.index)
 
     for index, expr in eval_d.iteritems():
@@ -19,7 +19,7 @@ def aggregate_categorize(df, eval_d, index_cols=None):
     return cat_df
 
 
-def aggregate_sum_accross_category(df, subtract_mean=True):
+def sum_accross_category(df, subtract_mean=True):
     """
     This is a convenience function to sum the categorical values for each
     category - the mean across each category is then subtracted so all the
@@ -33,10 +33,10 @@ def aggregate_sum_accross_category(df, subtract_mean=True):
     return df
 
 
-def cross_product_of_categories(index):
+def category_combinations(index):
     """
     THis method converts a hierarchical multindex of category names and
-    category values and concerts to the cross-product of all possible
+    category values and converts to the cross-product of all possible
     category combinations.
     """
     d = {}
@@ -53,7 +53,7 @@ def cross_product_of_categories(index):
     return df
 
 
-def freq_of_cats_in_sample(sample_df, category_df, mapping_functions):
+def joint_distribution(sample_df, category_df, mapping_functions):
 
     # set counts to zero
     category_df["frequency"] = 0
