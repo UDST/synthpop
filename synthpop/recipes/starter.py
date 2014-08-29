@@ -2,7 +2,7 @@ from .. import categorizer as cat
 import pandas as pd
 
 
-def marginals_and_joint_distribution(c, state, county, tract=None):
+def marginals_and_joint_distributions(c, state, county, tract=None):
     """
     This is a recipe for getting the marginals and joint distributions to use
     to pass to the synthesizer using simple categories - population, age,
@@ -60,7 +60,7 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
     p_acs = c.block_group_query(all_columns, state, county, tract=tract)
 
     h_acs_cat = cat.categorize(h_acs, {
-        ("households", "total"): "B11001_001E",
+        # ("households", "total"): "B11001_001E",
         ("children", "yes"): "B11001_002E",
         ("children", "no"): "B11001_001E - B11001_002E",
         ("income", "lt35"): "B19001_002E + B19001_003E + B19001_004E + "
@@ -76,10 +76,10 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
         ("workers", "none"): "B08202_002E",
         ("workers", "one"): "B08202_003E",
         ("workers", "two or more"): "B08202_004E + B08202_005E"
-    }, index_cols=['NAME'])
+    }, index_cols=['state', 'county', 'tract', 'block group'])
 
     p_acs_cat = cat.categorize(p_acs, {
-        ("population", "total"): "B01001_001E",
+        # ("population", "total"): "B01001_001E",
         ("age", "19 and under"): "B01001_003E + B01001_004E + B01001_005E + "
                                  "B01001_006E + B01001_007E + B01001_027E + "
                                  "B01001_028E + B01001_029E + B01001_030E + "
@@ -105,7 +105,7 @@ def marginals_and_joint_distribution(c, state, county, tract=None):
                              "B02001_008E",
         ("sex", "male"):     "B01001_002E",
         ("sex", "female"):   "B01001_026E"
-    }, index_cols=['NAME'])
+    }, index_cols=['state', 'county', 'tract', 'block group'])
 
     jds_persons = []
     p_pumas = c.tracts_to_pumas(state, county, p_acs.tract)
