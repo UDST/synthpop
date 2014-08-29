@@ -1,7 +1,7 @@
 from popgen.ipf import ipf
 
 
-class PopSynth:
+class SynthPop:
 
     def __init__(self, c):
         self.c = c
@@ -21,7 +21,6 @@ class PopSynth:
                                         index[tract_ind])
             s, _ = ipf.calculate_constraints(row, h_jd.loc[puma])
             h_weights.append(s)
-        print len(h_weights)
 
         # running ipf for population
         p_weights = []
@@ -31,4 +30,3 @@ class PopSynth:
                                         index[tract_ind])
             s, _ = ipf.calculate_constraints(row, p_jd.loc[puma])
             p_weights.append(s)
-        print len(p_weights)
