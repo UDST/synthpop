@@ -136,7 +136,7 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
                 return "male"
             return "female"
 
-        _, jd_persons = cat.joint_distribution(
+        p_pums, jd_persons = cat.joint_distribution(
             p_pums,
             cat.category_combinations(p_acs_cat.columns),
             {"age": age_cat, "race": race_cat, "sex": sex_cat}
@@ -179,7 +179,7 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
                 return "one"
             return "none"
 
-        _, jd_households = cat.joint_distribution(
+        h_pums, jd_households = cat.joint_distribution(
             h_pums,
             cat.category_combinations(h_acs_cat.columns),
             {"cars": cars_cat, "children": children_cat,
@@ -187,6 +187,8 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
         )
         jds_households.append(jd_households["frequency"])
     jds_households = pd.concat(jds_households, axis=1, keys=h_pumas)
+
+    #cat.frequency_tables(p_pums, h_pums, jds_persons, jds_households)
 
     return h_acs_cat, p_acs_cat, \
         jds_households.transpose(), jds_persons.transpose()
