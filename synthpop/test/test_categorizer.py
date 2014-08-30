@@ -92,6 +92,3 @@ def test_categorize(acs_data, pums_data):
         cat.category_combinations(p_acs_cat.columns),
         {"age": age_cat, "race": race_cat, "sex": sex_cat}
     )
-
-
-

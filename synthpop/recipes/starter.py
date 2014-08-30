@@ -188,7 +188,7 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
         jds_households.append(jd_households["frequency"])
     jds_households = pd.concat(jds_households, axis=1, keys=h_pumas)
 
-    #cat.frequency_tables(p_pums, h_pums, jds_persons, jds_households)
+    # cat.frequency_tables(p_pums, h_pums, jds_persons, jds_households)
 
     return h_acs_cat, p_acs_cat, \
         jds_households.transpose(), jds_persons.transpose()

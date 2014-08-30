@@ -115,4 +115,3 @@ def frequency_tables(persons_sample_df, households_sample_df,
                                     persons_category_df)
 
     return h_freq_table, p_freq_table
-
