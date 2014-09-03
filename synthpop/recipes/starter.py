@@ -108,6 +108,7 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
     }, index_cols=['state', 'county', 'tract', 'block group'])
 
     jds_persons = []
+    p_pums_d = {}
     p_pumas = c.tracts_to_pumas(state, county, p_acs.tract)
 
     for puma in p_pumas:
@@ -141,10 +142,13 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
             cat.category_combinations(p_acs_cat.columns),
             {"age": age_cat, "race": race_cat, "sex": sex_cat}
         )
+        p_pums_d[puma] = p_pums
+        p_category_ids = jd_persons["cat_id"]
         jds_persons.append(jd_persons["frequency"])
     jds_persons = pd.concat(jds_persons, axis=1, keys=p_pumas)
 
     jds_households = []
+    h_pums_d = {}
     h_pumas = c.tracts_to_pumas(state, county, h_acs.tract)
 
     for puma in h_pumas:
@@ -185,10 +189,12 @@ def marginals_and_joint_distributions(c, state, county, tract=None):
             {"cars": cars_cat, "children": children_cat,
              "income": income_cat, "workers": workers_cat}
         )
+        h_pums_d[puma] = h_pums
+        h_category_ids = jd_households["cat_id"]
         jds_households.append(jd_households["frequency"])
     jds_households = pd.concat(jds_households, axis=1, keys=h_pumas)
 
-    # cat.frequency_tables(p_pums, h_pums, jds_persons, jds_households)
-
     return h_acs_cat, p_acs_cat, \
-        jds_households.transpose(), jds_persons.transpose()
+        jds_households.transpose(), jds_persons.transpose(), \
+        p_pums_d, h_pums_d, \
+        p_category_ids, h_category_ids
