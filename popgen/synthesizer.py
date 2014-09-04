@@ -5,26 +5,23 @@ import categorizer as cat
 
 class SynthPop:
 
-    def __init__(self, c):
-        self.c = c
+    def __init__(self, recipe):
+        self.recipe = recipe
 
     @staticmethod
-    def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, h_cat_ids,
-                   p_cat_ids):
+    def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, debug=False):
 
-        #print h_marg
-        #print p_marg
-        #print h_jd
-        #print p_jd
         # this is the zero marginal problem
         h_marg[h_marg == 0] = .01
         p_marg[p_marg == 0] = .01
 
         # ipf for households
-        h_constraint, _ = calculate_constraints(h_marg, h_jd)
+        print "Running ipf for households"
+        h_constraint, _ = calculate_constraints(h_marg, h_jd.frequency)
 
         # ipf for persons
-        p_constraint, _ = calculate_constraints(p_marg, p_jd)
+        print "Running ipf for persons"
+        p_constraint, _ = calculate_constraints(p_marg, p_jd.frequency)
 
         # is this the zero cell problem?
         h_constraint[h_constraint == 0] = .00001
@@ -32,54 +29,74 @@ class SynthPop:
 
         # make frequency tables
         household_freq, person_freq = cat.frequency_tables(p_pums, h_pums,
-                                                           p_cat_ids, h_cat_ids)
+                                                           p_jd.cat_id,
+                                                           h_jd.cat_id)
 
+        print h_constraint
         h_constraint = h_constraint.reset_index(drop=True)
         p_constraint = p_constraint.reset_index(drop=True)
 
         # for some reason there are households with no people
+        l1 = len(household_freq)
         household_freq = household_freq[person_freq.sum(axis=1) > 0]
         person_freq = person_freq[person_freq.sum(axis=1) > 0]
-        #print household_freq
-        #print person_freq
-        #print h_constraint
-        #print p_constraint
+        l2 = len(household_freq)
+        if l2 - l1 > 0:
+            print "Dropped %d households because they have no people in them" %\
+                (l2-l1)
 
         # do the ipu to match person marginals
-        best_weights, fit_qual, iterations = household_weights(household_freq,
-                                                               person_freq,
-                                                               h_constraint,
-                                                               p_constraint)
-        print best_weights.describe()
-        print fit_qual
-        print iterations
+        print "Running ipu"
         import time
-        print time.ctime()
+        t1 = time.time()
+        best_weights, fit_quality, iterations = household_weights(
+            household_freq,
+            person_freq,
+            h_constraint,
+            p_constraint)
+        print "%.3f" % (time.time()-t1)
 
-    def synthesize_many(self, h_marg_df, p_marg_df, h_jd_df, p_jd_df,
-                        p_pums_d, h_pums_d, p_cat_ids, h_cat_ids):
+        if debug:
+            print "Weights from ipu"
+            print best_weights.describe()
+            print fit_quality
+            print iterations
 
-        tract_ind = h_marg_df.index.names.index("tract")
-        state_ind = h_marg_df.index.names.index("state")
-        county_ind = h_marg_df.index.names.index("county")
-        assert list(h_marg_df.index.names) == list(p_marg_df.index.names)
+    def synthesize_all(self, debug=False):
 
-        # iterate over households, should be the same index in the person
-        # marginals
-        print len(h_marg_df)
-        for index in h_marg_df.index:
-            puma = self.c.tract_to_puma(index[state_ind],
-                                        index[county_ind],
-                                        index[tract_ind])
-            print index[tract_ind]
-            print puma
+        recipe = self.recipe
+        print "\nSynthesizing at geog level: '%s'" % recipe.get_geography_name()
 
-            h_pums = h_pums_d[puma]
-            p_pums = p_pums_d[puma]
+        for geog_id in recipe.get_available_geography_ids():
+            print "\nSynthesizing geog id:\n", geog_id
 
-            self.synthesize(h_marg_df.loc[index],
-                            p_marg_df.loc[index],
-                            h_jd_df.loc[puma],
-                            p_jd_df.loc[puma],
-                            h_pums, p_pums,
-                            h_cat_ids, p_cat_ids)
+            h_marg = recipe.get_household_marginal_for_geography(geog_id)
+            if debug:
+                print "\nHousehold marginal"
+                print h_marg
+
+            p_marg = recipe.get_person_marginal_for_geography(geog_id)
+            if debug:
+                print "\nPerson marginal"
+                print p_marg
+
+            h_pums, h_jd = recipe.\
+                get_household_joint_dist_for_geography(geog_id)
+            if debug:
+                print "\nHousehold joint distribution"
+                print h_jd
+                print "\nHousehold pums"
+                print h_pums.describe()
+
+            p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
+            if debug:
+                print "\nPerson joint distribution"
+                print p_jd
+                print "\nPerson pums"
+                print p_pums.describe()
+
+            self.synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                            debug=debug)
+
+            if debug:
+                break

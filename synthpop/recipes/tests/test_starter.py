@@ -1,23 +1,13 @@
 import pytest
-from .. import starter
-from ...census_helpers import Census
-
+from ..starter import Starter
+from ...synthesizer import SynthPop
 
 @pytest.fixture
-def c():
-    return Census("827402c2958dcf515e4480b7b2bb93d1025f9389")
+def key():
+    return "827402c2958dcf515e4480b7b2bb93d1025f9389"
 
-
-def test_starter(c):
-    hmarg, pmarg, h_jd, p_jd = \
-        starter.marginals_and_joint_distributions(c,
-                                                  "CA",
-                                                  "San Francisco County",
-                                                  "030600")
-
-
-def test_starter_no_tract(c):
-    hmarg, pmarg, h_jd, p_jd = \
-        starter.marginals_and_joint_distributions(c,
-                                                  "CA",
-                                                  "San Francisco County")
+def test_starter(key):
+    st = Starter(key, "CA", "Napa County")
+    sp = SynthPop(st)
+    # just run it for now
+    sp.synthesize_all(debug=True)
