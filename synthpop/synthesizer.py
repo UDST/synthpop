@@ -31,7 +31,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     h_constraint[h_constraint == 0] = constraint_zero_sub
     p_constraint[p_constraint == 0] = constraint_zero_sub
 
-    # make frequency tables
+    # make frequency tables that the ipu expects
     household_freq, person_freq = cat.frequency_tables(p_pums, h_pums,
                                                        p_jd.cat_id,
                                                        h_jd.cat_id)
@@ -66,6 +66,8 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
     num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
+
+    # TODO this isn't the best way to draw
     indexes = np.random.choice(h_pums.index.values,
                                size=num_households,
                                replace=True,
@@ -116,5 +118,5 @@ def synthesize_all(recipe, debug=False):
         if debug:
             break
 
-    # TODO might want to write this to disk?
+    # TODO might want to write this to disk as we go?
     return pd.concat(hhs, axis=1)

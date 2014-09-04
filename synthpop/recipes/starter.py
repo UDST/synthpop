@@ -3,6 +3,7 @@ from ..census_helpers import Census
 import pandas as pd
 
 
+# TODO DOCSTRINGS!!
 class Starter:
     """
     This is a recipe for getting the marginals and joint distributions to use
@@ -131,6 +132,7 @@ class Starter:
         c = self.c
 
         puma = c.tract_to_puma(ind.state, ind.county, ind.tract)
+        # this is cached so won't download more than once
         h_pums = self.c.download_household_pums(ind.state, puma)
 
         def cars_cat(r):
@@ -167,13 +169,13 @@ class Starter:
             {"cars": cars_cat, "children": children_cat,
              "income": income_cat, "workers": workers_cat}
         )
-        # do I need this transpose
         return h_pums, jd_households
 
     def get_person_joint_dist_for_geography(self, ind):
         c = self.c
 
         puma = c.tract_to_puma(ind.state, ind.county, ind.tract)
+        # this is cached so won't download more than once
         p_pums = self.c.download_population_pums(ind.state, puma)
 
         def age_cat(r):
@@ -204,5 +206,4 @@ class Starter:
             cat.category_combinations(self.p_acs_cat.columns),
             {"age": age_cat, "race": race_cat, "sex": sex_cat}
         )
-        # do I need this transpose
         return p_pums, jd_persons
