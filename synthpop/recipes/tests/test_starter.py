@@ -1,6 +1,6 @@
 import pytest
 from ..starter import Starter
-from ...synthesizer import SynthPop
+from ...synthesizer import *
 
 
 @pytest.fixture
@@ -10,6 +10,5 @@ def key():
 
 def test_starter(key):
     st = Starter(key, "CA", "Napa County")
-    sp = SynthPop(st)
     # just run it for now
-    sp.synthesize_all(debug=True)
+    synthesize_all(st, debug=True)
