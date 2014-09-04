@@ -16,6 +16,7 @@ def categorize(df, eval_d, index_cols=None):
                                                names=['cat_name', 'cat_value'])
 
     cat_df = cat_df.sort_index(axis=1)
+
     return cat_df
 
 
@@ -48,7 +49,7 @@ def category_combinations(index):
             del d[cat_name]
     df = pd.DataFrame(list(itertools.product(*d.values())))
     df.columns = cols = d.keys()
-    df.index.name = "id"
+    df.index.name = "cat_id"
     df = df.reset_index().set_index(cols)
     return df
 
@@ -69,4 +70,53 @@ def joint_distribution(sample_df, category_df, mapping_functions):
     category_df["frequency"] = sample_df.groupby(category_names).size()
     category_df["frequency"] = category_df["frequency"].fillna(0)
 
+    # do the merge to add the category id
+    sample_df = pd.merge(sample_df, category_df[["cat_id"]],
+                         left_on=category_names, right_index=True)
+
     return sample_df, category_df
+
+
+def _frequency_table(sample_df, category_ids):
+    """
+    Take the result that comes out of the method above and turn it in to the
+    frequencytable format used by the ipu
+    """
+    df = sample_df.groupby(['hh_id', 'cat_id']).size().\
+        unstack().fillna(0)
+
+    # need to manually add in case we missed a whole cat_id in the sample
+    for cat_id in category_ids:
+        if cat_id not in df.columns:
+            df[cat_id] = 0
+
+    assert len(df.columns) == len(category_ids)
+    assert df.sum().sum() == len(sample_df)
+
+    return df
+
+
+def frequency_tables(persons_sample_df, households_sample_df,
+                     person_cat_ids, household_cat_ids):
+
+    households_sample_df.index.name = "hh_id"
+    households_sample_df = households_sample_df.reset_index().\
+        set_index("serialno")
+
+    h_freq_table = _frequency_table(households_sample_df,
+                                    household_cat_ids)
+
+    persons_sample_df = pd.merge(persons_sample_df,
+                                 households_sample_df[["hh_id"]],
+                                 left_on=["serialno"], right_index=True,
+                                 how="left")
+
+    p_freq_table = _frequency_table(persons_sample_df,
+                                    person_cat_ids)
+    p_freq_table = p_freq_table.reindex(h_freq_table.index).fillna(0)
+    assert len(h_freq_table) == len(p_freq_table)
+
+    h_freq_table = h_freq_table.sort_index(axis=1)
+    p_freq_table = p_freq_table.sort_index(axis=1)
+
+    return h_freq_table, p_freq_table

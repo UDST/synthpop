@@ -22,8 +22,10 @@ def _drop_zeros(df):
         Will be indexable just like `df`.
 
     """
+    # this is a bit awkward you can't iloc an empty list apparently
     return {
-        col_idx: col.iloc[col.nonzero()[0]] for col_idx, col in df.iteritems()}
+        col_idx: col.iloc[col.nonzero()[0]] if len(col.nonzero()[0]) else
+        pd.Series() for col_idx, col in df.iteritems()}
 
 
 class _FrequencyAndConstraints(object):

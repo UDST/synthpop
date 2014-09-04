@@ -87,9 +87,8 @@ def test_categorize(acs_data, pums_data):
             return "male"
         return "female"
 
-    _, jd_persons = cat.joint_distribution(
+    pums_data, jd_persons = cat.joint_distribution(
         pums_data,
         cat.category_combinations(p_acs_cat.columns),
         {"age": age_cat, "race": race_cat, "sex": sex_cat}
     )
-    jd_persons
