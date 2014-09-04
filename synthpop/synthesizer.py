@@ -1,6 +1,8 @@
 from ipf.ipf import calculate_constraints
 from ipu.ipu import household_weights
 import categorizer as cat
+import numpy as np
+import pandas as pd
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
@@ -14,6 +16,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     print "Running ipf for households"
     h_constraint, _ = calculate_constraints(h_marg, h_jd.frequency)
     h_constraint.index = h_jd.cat_id
+    # TODO convert all these prints to logging messages
     print "\nHousehold constraint"
     print h_constraint
 
@@ -33,6 +36,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                                                        p_jd.cat_id,
                                                        h_jd.cat_id)
 
+    # TODO this is still a problem right?
     '''
     # for some reason there are households with no people
     l1 = len(household_freq)
@@ -60,11 +64,23 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
         print "\nFit quality:", fit_quality
         print "\nNumber of iterations:", iterations
 
+    tmp_df = h_marg.reset_index()
+    num_households = tmp_df.groupby(tmp_df.columns[0]).sum().iloc[0]
+    print "Drawing %d households" % num_households
+    indexes = np.random.choice(h_pums.index.values,
+                               size=num_households,
+                               replace=True,
+                               p=(best_weights/best_weights.sum()).values)
+    # TODO deal with p_pums too
+    return h_pums.loc[indexes]
+
 
 def synthesize_all(recipe, debug=False):
 
     print "\nSynthesizing at geog level: '%s'" % recipe.get_geography_name()
 
+    hhs = []
+    # TODO will parallelization work here?
     for geog_id in recipe.get_available_geography_ids():
         print "\nSynthesizing geog id:\n", geog_id
 
@@ -83,18 +99,23 @@ def synthesize_all(recipe, debug=False):
         if debug:
             print "\nHousehold joint distribution"
             print h_jd
-            #print "\nHousehold pums"
-            #print h_pums.describe()
+            # print "\nHousehold pums"
+            # print h_pums.describe()
 
         p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
         if debug:
             print "\nPerson joint distribution"
             print p_jd
-            #print "\nPerson pums"
-            #print p_pums.describe()
+            # print "\nPerson pums"
+            # print p_pums.describe()
 
-        synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                   debug=debug)
+        hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                        debug=debug)
+
+        hhs.append(hh)
 
         if debug:
             break
+
+    # TODO might want to write this to disk?
+    return pd.concat(hhs, axis=1)
