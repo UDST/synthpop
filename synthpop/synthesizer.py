@@ -64,9 +64,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
         print "\nFit quality:", fit_quality
         print "\nNumber of iterations:", iterations
 
-    tmp_df = h_marg.reset_index()
-    print tmp_df.columns
-    num_households = int(tmp_df.groupby(tmp_df.cat_name).sum().mean())
+    num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
     indexes = np.random.choice(h_pums.index.values,
                                size=num_households,
