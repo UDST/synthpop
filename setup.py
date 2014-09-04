@@ -4,13 +4,13 @@ use_setuptools()
 from setuptools import setup, find_packages
 
 setup(
-    name='popgen',
+    name='SynthPop',
     version='0.1dev',
     description='Population Synthesis',
     author='Synthicity',
-    author_email='pwaddell@synthicity.com',
+    author_email='ffoti@synthicity.com',
     license='AGPL',
-    url='https://github.com/synthicity/popgen',
+    url='https://github.com/synthicity/synthpop',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python :: 2.7',
@@ -23,6 +23,6 @@ setup(
         'numpy>=1.8.0',
         'pandas>=0.13.1',
         'scipy>=0.13.3',
-	'us>=0.8'
+        'us>=0.8'
     ]
 )
