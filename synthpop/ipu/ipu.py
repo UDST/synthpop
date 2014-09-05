@@ -148,7 +148,7 @@ def _update_weights(column, weights, constraint):
 
 def household_weights(
         household_freq, person_freq, household_constraints, person_constraints,
-        convergence=1e-4):
+        convergence=1e-4, max_iterations=1000):
     """
     Calculate the household weights that best match household and
     person level attributes.
@@ -175,6 +175,9 @@ def household_weights(
         When the average fit quality metric changes by less than this value
         after an iteration we declare done and send back the weights
         from the best fit.
+    max_iterations, int, optional
+        Maximum number of iterations to do before stopping and raising
+        an exception.
 
     Returns
     -------
@@ -209,6 +212,11 @@ def household_weights(
 
         fit_qual = new_fit_qual
         iterations += 1
+
+        if iterations > max_iterations:
+            raise RuntimeError(
+                'Maximum number of iterations reached during IPU: {}'.format(
+                    max_iterations))
 
     return (
         pd.Series(best_weights, index=household_freq.index),

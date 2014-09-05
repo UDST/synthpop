@@ -166,6 +166,15 @@ def test_household_weights(
     npt.assert_allclose(iterations, 637, atol=5)
 
 
+def test_household_weights_max_iter(
+        household_freqs, person_freqs, household_constraints,
+        person_constraints):
+    with pytest.raises(RuntimeError):
+        ipu.household_weights(
+            household_freqs, person_freqs, household_constraints,
+            person_constraints, convergence=1e-7, max_iterations=10)
+
+
 def test_FrequencyAndConstraints(freq_wrap):
     assert freq_wrap.ncols == 5
     assert len(list(freq_wrap.iter_columns())) == 5
