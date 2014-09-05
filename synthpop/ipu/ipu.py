@@ -148,7 +148,7 @@ def _update_weights(column, weights, constraint):
 
 def household_weights(
         household_freq, person_freq, household_constraints, person_constraints,
-        convergence=1e-4, max_iterations=1000):
+        convergence=1e-4, max_iterations=10000):
     """
     Calculate the household weights that best match household and
     person level attributes.
