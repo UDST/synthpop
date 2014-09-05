@@ -116,6 +116,9 @@ class Starter:
         # this synthesis is at the block group level for most variables
         return "block_group"
 
+    def get_num_geographies(self):
+        return len(self.p_acs_cat)
+
     def get_available_geography_ids(self):
         # return the ids of the geographies, in this case a state, county,
         # tract, block_group id tuple

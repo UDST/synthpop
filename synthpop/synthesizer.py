@@ -57,7 +57,6 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
         print "Dropped %d households because they have no people in them" %\
             (l2-l1)
     '''
-
     # do the ipu to match person marginals
     logger.info("Running ipu")
     import time
@@ -87,14 +86,19 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     return h_pums.loc[indexes]
 
 
-def synthesize_all(recipe, num_geogs=None):
+def synthesize_all(recipe, num_geogs=None, indexes=None,
+                   marginal_zero_sub=.01, constraint_zero_sub=.01):
 
-    print "Synthesizing at geog level: '%s'" % recipe.get_geography_name()
+    print "Synthesizing at geog level: '{}' (number of geographies is {})".\
+        format(recipe.get_geography_name(), recipe.get_num_geographies())
+
+    if indexes is None:
+        indexes = recipe.get_available_geography_ids()
 
     hhs = []
     cnt = 0
     # TODO will parallelization work here?
-    for geog_id in recipe.get_available_geography_ids():
+    for geog_id in indexes:
         print "Synthesizing geog id:\n", geog_id
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
@@ -114,8 +118,9 @@ def synthesize_all(recipe, num_geogs=None):
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums)
-
+        hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                        marginal_zero_sub=marginal_zero_sub,
+                        constraint_zero_sub=constraint_zero_sub)
         hhs.append(hh)
 
         cnt += 1
@@ -123,4 +128,4 @@ def synthesize_all(recipe, num_geogs=None):
             break
 
     # TODO might want to write this to disk as we go?
-    return pd.concat(hhs, axis=1)
+    return pd.concat(hhs, verify_integrity=True, ignore_index=True)
