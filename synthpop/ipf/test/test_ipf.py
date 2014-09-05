@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 from pandas.util import testing as pdt
 
 from .. import ipf
@@ -41,3 +42,6 @@ def test_larger_ipf():
     constraints, _ = ipf.calculate_constraints(marginals, joint_dist)
 
     pdt.assert_series_equal(constraints, expected, check_dtype=False)
+
+    with pytest.raises(RuntimeError):
+        ipf.calculate_constraints(marginals, joint_dist, max_iterations=2)

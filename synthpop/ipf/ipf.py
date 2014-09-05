@@ -18,7 +18,7 @@ def calculate_constraints(
     marginals : pandas.Series
         The total count of each observed subcategory tracked.
         This should have a pandas.MultiIndex with the outer level containing
-        high-level category descriptions and athe inner level containing
+        high-level category descriptions and the inner level containing
         the individual subcategory breakdowns.
     joint_dist : pandas.Series
         The observed counts of each household or person class in some sample.
