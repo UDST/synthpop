@@ -2,36 +2,36 @@
 
 from __future__ import division
 
+import itertools
+
 import numpy as np
 import pandas as pd
 
 
 def _drop_zeros(df):
     """
-    Drop zeros from a DataFrame, returning a dictionary that has the same
-    keys as the DataFrame columns and values that are Series objects
-    of the nonzero elements.
+    Drop zeros from a DataFrame, returning an iterator over the columns
+    in the DataFrame.
+
+    Yields tuples of (column name, non-zero column values, non-zero indexes).
 
     Parameters
     ----------
     df : pandas.DataFrame
 
-    Returns
-    -------
-    nonzero_dict : dict
-        Will be indexable just like `df`.
-
     """
-    # this is a bit awkward you can't iloc an empty list apparently
-    return {
-        col_idx: col.iloc[col.nonzero()[0]] if len(col.nonzero()[0]) else
-        pd.Series() for col_idx, col in df.iteritems()}
+    for col_idx, col in df.iteritems():
+        nz = col.nonzero()[0]
+        yield (col_idx, col.values[nz], nz)
 
 
 class _FrequencyAndConstraints(object):
     """
-    Wrap frequency tables and constraints for both household and person
-    classes for easy iteration over all of them.
+    Wrap frequency tables and constraints for both household and
+    person classes for easy iteration over all of them.
+
+    Also tracks the locations of non-zero elements in each column
+    of the frequency tables.
 
     Parameters
     ----------
@@ -60,28 +60,24 @@ class _FrequencyAndConstraints(object):
     """
     def __init__(self, household_freq, person_freq, household_constraints,
                  person_constraints):
-        self.household_freq = _drop_zeros(household_freq)
-        self.person_freq = _drop_zeros(person_freq)
-        self.household_constraints = household_constraints
-        self.person_constraints = person_constraints
+        self._everything = tuple(itertools.chain(
+            ((col, household_constraints[key], nz)
+             for key, col, nz in _drop_zeros(household_freq)),
+            ((col, person_constraints[key], nz)
+             for key, col, nz in _drop_zeros(person_freq))))
 
-        self.ncols = len(household_constraints) + len(person_constraints)
+        self.ncols = len(self._everything)
 
     def iter_columns(self):
         """
         Iterate over columns of both household and frequency tables AND
-        the corresponding constraints for each column.
-        Yields tuples of (column, constraint). The returned column
+        the corresponding constraints for each column AND non-zero indexes
+        applicable to each column.
+        Yields tuples of (column, constraint, nonzero). The returned column
         contains only the non-zero elements.
 
         """
-        for col_idx in self.household_freq:
-            yield (
-                self.household_freq[col_idx],
-                self.household_constraints[col_idx])
-
-        for col_idx in self.person_freq:
-            yield self.person_freq[col_idx], self.person_constraints[col_idx]
+        return iter(self._everything)
 
 
 def _fit_quality(column, weights, constraint):
@@ -91,10 +87,12 @@ def _fit_quality(column, weights, constraint):
 
     Parameters
     ----------
-    column : pandas.Series
-        Column from frequency table. Index must match `weights`.
-    weights : pandas.Series
-        Weights for each household. Index must match `column`.
+    column : 1D array
+        Non-zero elements of a column of a frequency table.
+        Must have the same length as `weights`.
+    weights : 1D array
+        Weights corresponding to the household rows in `column`.
+        Must have the same length as `column`.
     constraint : float
         Target marginal constraint for this column.
 
@@ -111,14 +109,13 @@ def _average_fit_quality(freq_wrap, weights):
     Parameters
     ----------
     freq_wrap : `_FrequencyAndConstraints`
-    weights : pandas.Series
-        Weights for each household, keyed by household ID like
-        the frequency tables.
+    weights : ndarray
+        Array of weights for all households.
 
     """
     return sum(
-        _fit_quality(col, weights[col.index], constraint)
-        for col, constraint in freq_wrap.iter_columns()
+        _fit_quality(col, weights[nz], constraint)
+        for col, constraint, nz in freq_wrap.iter_columns()
         ) / freq_wrap.ncols
 
 
@@ -131,16 +128,18 @@ def _update_weights(column, weights, constraint):
 
     Parameters
     ----------
-    column : pandas.Series
-        Column from frequency table.
-    weights : pandas.Series
-        Weights for each household. Index must match `column`.
+    column : 1D array
+        Non-zero elements of a column of a frequency table.
+        Must have the same length as `weights`.
+    weights : 1D array
+        Weights corresponding to the household rows in `column`.
+        Must have the same length as `column`.
     constraint : float
         Target marginal constraint for this column.
 
     Returns
     -------
-    new_weights : pandas.Series
+    new_weights : ndarray
 
     """
     adj = constraint / (column * weights).sum()
@@ -186,30 +185,31 @@ def household_weights(
         Number of iterations made.
 
     """
-    weights = pd.Series(
-        np.ones(len(household_freq)),
-        index=household_freq.index, dtype=np.float)
+    weights = np.ones(len(household_freq), dtype='float')
     best_weights = weights.copy()
 
     freq_wrap = _FrequencyAndConstraints(
         household_freq, person_freq, household_constraints, person_constraints)
 
     fit_qual = _average_fit_quality(freq_wrap, weights)
+    best_fit_qual = fit_qual
     fit_change = np.inf
     iterations = 0
 
     while fit_change > convergence:
-        for col, constraint in freq_wrap.iter_columns():
-            weights[col.index] = _update_weights(
-                col, weights[col.index], constraint)
+        for col, constraint, nz in freq_wrap.iter_columns():
+            weights[nz] = _update_weights(col, weights[nz], constraint)
 
         new_fit_qual = _average_fit_quality(freq_wrap, weights)
         fit_change = abs(new_fit_qual - fit_qual)
 
         if new_fit_qual < fit_qual:
-            fit_qual = new_fit_qual
+            best_fit_qual = new_fit_qual
             best_weights = weights.copy()
 
+        fit_qual = new_fit_qual
         iterations += 1
 
-    return best_weights, fit_qual, iterations
+    return (
+        pd.Series(best_weights, index=household_freq.index),
+        best_fit_qual, iterations)

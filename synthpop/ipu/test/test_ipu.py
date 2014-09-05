@@ -70,31 +70,30 @@ def freq_wrap(
 
 
 def test_drop_zeros_households(household_freqs):
-    df = ipu._drop_zeros(household_freqs)
+    df = list(ipu._drop_zeros(household_freqs))
 
     assert len(df) == 2
-    pdt.assert_series_equal(
-        df[('yes', 'blue')],
-        pd.Series([1, 1, 1], index=[1, 2, 3]))
-    pdt.assert_series_equal(
-        df[('yes', 'red')],
-        pd.Series([1, 1, 1, 1, 1], index=[4, 5, 6, 7, 8]))
+    assert df[0][0] == ('yes', 'blue')
+    npt.assert_array_equal(df[0][1], [1, 1, 1])
+    npt.assert_array_equal(df[0][2], [0, 1, 2])
+    assert df[1][0] == ('yes', 'red')
+    npt.assert_array_equal(df[1][1], [1, 1, 1, 1, 1])
+    npt.assert_array_equal(df[1][2], [3, 4, 5, 6, 7])
 
 
 def test_drop_zeros_person(person_freqs):
-    df = ipu._drop_zeros(person_freqs)
+    df = list(ipu._drop_zeros(person_freqs))
 
     assert len(df) == 3
-    pdt.assert_series_equal(
-        df[(7, 'pink')],
-        pd.Series([1, 1, 2, 1, 1, 2, 1], index=[1, 2, 3, 4, 6, 7, 8]))
+    assert df[0][0] == (7, 'pink')
+    npt.assert_array_equal(df[0][1], [1, 1, 2, 1, 1, 2, 1])
+    npt.assert_array_equal(df[0][2], [0, 1, 2, 3, 5, 6, 7])
 
 
 def test_fit_quality(
         household_freqs, person_freqs, household_constraints,
         person_constraints):
-    weights = pd.Series(
-        np.ones(len(household_freqs)), index=household_freqs.index)
+    weights = np.ones(len(household_freqs), dtype='float')
     column = household_freqs[('yes', 'blue')]
     constraint = household_constraints[('yes', 'blue')]
 
@@ -102,9 +101,7 @@ def test_fit_quality(
         ipu._fit_quality(column, weights, constraint), 0.9143,
         atol=0.0001)
 
-    weights = pd.Series(
-        [12.37, 14.61, 8.05, 16.28, 16.91, 8.97, 13.78, 8.97],
-        index=household_freqs.index)
+    weights = np.array([12.37, 14.61, 8.05, 16.28, 16.91, 8.97, 13.78, 8.97])
     column = person_freqs[(8, 'pink')]
     constraint = person_constraints[(8, 'pink')]
 
@@ -114,25 +111,25 @@ def test_fit_quality(
 
 
 def test_average_fit_quality(household_freqs, freq_wrap):
-    weights = pd.Series(
-        np.ones(len(household_freqs)), index=household_freqs.index)
+    weights = np.ones(len(household_freqs), dtype='float')
     npt.assert_allclose(
         ipu._average_fit_quality(freq_wrap, weights),
         0.9127,
         atol=0.0001)
 
-    weights = pd.Series(
-        [12.37, 14.61, 8.05, 16.28, 16.91, 8.97, 13.78, 8.97],
-        index=household_freqs.index)
+    weights = np.array([12.37, 14.61, 8.05, 16.28, 16.91, 8.97, 13.78, 8.97])
     npt.assert_allclose(
         ipu._average_fit_quality(freq_wrap, weights),
         0.0954,
         atol=0.0001)
 
 
-def test_update_weights(freq_wrap):
-    column = freq_wrap.household_freq[('yes', 'blue')]
-    constraint = freq_wrap.household_constraints[('yes', 'blue')]
+def test_update_weights(
+        household_freqs, person_freqs, household_constraints,
+        person_constraints):
+    column = household_freqs[('yes', 'blue')]
+    column = column.iloc[column.nonzero()[0]]
+    constraint = household_constraints[('yes', 'blue')]
     weights = pd.Series(
         np.ones(len(column)),
         index=column.index)
@@ -142,8 +139,9 @@ def test_update_weights(freq_wrap):
         [11.67, 11.67, 11.67],
         atol=0.01)
 
-    column = freq_wrap.person_freq[(9, 'pink')]
-    constraint = freq_wrap.person_constraints[(9, 'pink')]
+    column = person_freqs[(9, 'pink')]
+    column = column.iloc[column.nonzero()[0]]
+    constraint = person_constraints[(9, 'pink')]
     weights = pd.Series(
         [8.05, 9.51, 8.05, 10.59, 11.0, 8.97, 8.97, 8.97],
         index=range(1, 9)).loc[column.index]
@@ -164,8 +162,8 @@ def test_household_weights(
         weights.as_matrix(),
         [1.36, 25.66, 7.98, 27.79, 18.45, 8.64, 1.47, 8.64],
         atol=0.02)
-    npt.assert_allclose(fit_qual, 9.50e-6, atol=1e-8)
-    npt.assert_allclose(iterations, 682, atol=5)
+    npt.assert_allclose(fit_qual, 8.51e-6, atol=1e-8)
+    npt.assert_allclose(iterations, 637, atol=5)
 
 
 def test_FrequencyAndConstraints(freq_wrap):
@@ -174,21 +172,18 @@ def test_FrequencyAndConstraints(freq_wrap):
 
     iter_cols = freq_wrap.iter_columns()
 
-    col, constraint = next(iter_cols)
-    pdt.assert_series_equal(
-        col, pd.Series([1, 1, 1], index=[1, 2, 3]))
+    col, constraint, nz = next(iter_cols)
+    npt.assert_array_equal(col, [1, 1, 1])
     assert constraint == 35
+    npt.assert_array_equal(nz, [0, 1, 2])
 
-    col, constraint = next(iter_cols)
-    pdt.assert_series_equal(
-        col, pd.Series([1, 1, 1, 1, 1], index=[4, 5, 6, 7, 8]))
+    col, constraint, nz = next(iter_cols)
+    npt.assert_array_equal(col, [1, 1, 1, 1, 1])
     assert constraint == 65
+    npt.assert_array_equal(nz, [3, 4, 5, 6, 7])
 
-    # skip a couple to get to the (7, 'pink') column
-    # order is changed because they've gone into dictionaries
-    col, constraint = next(iter_cols)
-    col, constraint = next(iter_cols)
-    col, constraint = next(iter_cols)
-    pdt.assert_series_equal(
-        col, pd.Series([1, 1, 2, 1, 1, 2, 1], index=[1, 2, 3, 4, 6, 7, 8]))
+    # should be into person cols now
+    col, constraint, nz = next(iter_cols)
+    npt.assert_array_equal(col, [1, 1, 2, 1, 1, 2, 1])
     assert constraint == 91
+    npt.assert_array_equal(nz, [0, 1, 2, 3, 5, 6, 7])
