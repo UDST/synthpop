@@ -77,7 +77,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
 
-    # TODO this isn't the best way to draw
+    # TODO this isn't the only way to draw?
     indexes = np.random.choice(h_pums.index.values,
                                size=num_households,
                                replace=True,
