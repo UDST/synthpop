@@ -2,6 +2,7 @@ import pandas as pd
 import itertools
 
 
+# TODO DOCSTRINGS!!
 def categorize(df, eval_d, index_cols=None):
     cat_df = pd.DataFrame(index=df.index)
 
