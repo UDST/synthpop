@@ -1,10 +1,14 @@
-from ipf.ipf import calculate_constraints
-from ipu.ipu import household_weights
-import categorizer as cat
-import numpy as np
-import pandas as pd
 import logging
 import sys
+
+import numpy as np
+import pandas as pd
+
+from . import categorizer as cat
+from . import draw
+from .ipf.ipf import calculate_constraints
+from .ipu.ipu import household_weights
+
 logger = logging.getLogger("synthpop")
 
 
@@ -77,11 +81,8 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
 
-    # TODO this isn't the only way to draw?
-    indexes = np.random.choice(h_pums.index.values,
-                               size=num_households,
-                               replace=True,
-                               p=(best_weights/best_weights.sum()).values)
+    indexes = draw.simple_draw(
+        num_households, best_weights.values, h_pums.index.values)
     synth_households = h_pums.loc[indexes]
     # TODO deal with p_pums too
     # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
