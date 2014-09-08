@@ -19,11 +19,15 @@ def enable_logging():
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-               marginal_zero_sub=.01, constraint_zero_sub=.01):
+               marginal_zero_sub=.01, jd_zero_sub=.001):
 
     # this is the zero marginal problem
     h_marg = h_marg.replace(0, marginal_zero_sub)
     p_marg = p_marg.replace(0, marginal_zero_sub)
+
+    # zero cell problem
+    h_jd.frequency = h_jd.frequency.replace(0, jd_zero_sub)
+    p_jd.frequency = p_jd.frequency.replace(0, jd_zero_sub)
 
     # ipf for households
     logger.info("Running ipf for households")
@@ -40,10 +44,6 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
     logger.debug("Person constraint")
     logger.debug(p_constraint)
-
-    # is this the zero cell problem?
-    h_constraint = h_constraint.replace(0, constraint_zero_sub)
-    p_constraint = p_constraint.replace(0, constraint_zero_sub)
 
     # make frequency tables that the ipu expects
     household_freq, person_freq = cat.frequency_tables(p_pums, h_pums,
@@ -91,7 +91,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
-                   marginal_zero_sub=.01, constraint_zero_sub=.01):
+                   marginal_zero_sub=.01, jd_zero_sub=.001):
 
     print "Synthesizing at geog level: '{}' (number of geographies is {})".\
         format(recipe.get_geography_name(), recipe.get_num_geographies())
@@ -124,7 +124,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
         hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                         marginal_zero_sub=marginal_zero_sub,
-                        constraint_zero_sub=constraint_zero_sub)
+                        jd_zero_sub=jd_zero_sub)
         hhs.append(hh)
 
         cnt += 1
