@@ -82,8 +82,10 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                                size=num_households,
                                replace=True,
                                p=(best_weights/best_weights.sum()).values)
+    synth_households = h_pums.loc[indexes]
     # TODO deal with p_pums too
-    return h_pums.loc[indexes]
+    # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
+    return synth_households
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
