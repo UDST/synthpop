@@ -82,8 +82,9 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     print "Drawing %d households" % num_households
 
     indexes = draw.simple_draw(
-        num_households, best_weights.values, h_pums.index.values)
+        num_households, best_weights.values, best_weights.index.values)
     synth_households = h_pums.loc[indexes]
+
     # TODO deal with p_pums too
     # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
     return synth_households
