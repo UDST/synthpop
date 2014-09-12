@@ -18,6 +18,41 @@ def enable_logging():
     logger.setLevel(logging.DEBUG)
 
 
+def execute_draw(indexes, h_pums, p_pums):
+    """
+    Take new household indexes and create new household and persons tables
+    with updated indexes and relations.
+
+    Parameters
+    ----------
+    indexes : array
+        Will be used to index `h_pums` into a new table.
+    h_pums : pandas.DataFrame
+        Table of household data. Expected to have a "serialno" column
+        that matches `p_pums`.
+    p_pums : pandas.DataFrame
+        Table of person data. Expected to have a "serialno" columns
+        that matches `h_pums`.
+
+    Returns
+    -------
+    synth_hh : pandas.DataFrame
+        Index will match the ``hh_id`` column in `synth_people`.
+    synth_people : pandas.DataFrame
+        Will be related to `synth_hh` by the ``hh_id`` column.
+
+    """
+    synth_hh = h_pums.loc[indexes].reset_index(drop=True)
+
+    mrg_tbl = pd.DataFrame(
+        {'serialno': synth_hh.serialno.values,
+         'hh_id': synth_hh.index.values})
+    synth_people = pd.merge(
+        p_pums, mrg_tbl, left_on='serialno', right_on='serialno')
+
+    return synth_hh, synth_people
+
+
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                marginal_zero_sub=.01, jd_zero_sub=.001):
 
@@ -83,7 +118,8 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
     indexes = draw.simple_draw(
         num_households, best_weights.values, best_weights.index.values)
-    synth_households = h_pums.loc[indexes]
+
+    synth_households, synth_people = execute_draw(indexes, h_pums, p_pums)
 
     # TODO deal with p_pums too
     # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
