@@ -202,10 +202,11 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                        marginal_zero_sub=marginal_zero_sub,
-                        jd_zero_sub=jd_zero_sub)
-        hhs.append(hh)
+        households, people, hh_chisq, hh_p, people_chisq, people_p = \
+            synthesize(
+                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub)
+        hhs.append(households)
 
         cnt += 1
         if num_geogs is not None and cnt >= num_geogs:
