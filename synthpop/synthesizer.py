@@ -3,6 +3,7 @@ import sys
 
 import numpy as np
 import pandas as pd
+from scipy.stats import chisquare
 
 from . import categorizer as cat
 from . import draw
@@ -51,6 +52,45 @@ def execute_draw(indexes, h_pums, p_pums):
         p_pums, mrg_tbl, left_on='serialno', right_on='serialno')
 
     return synth_hh, synth_people
+
+
+def compare_to_constraints(synth, constraints):
+    """
+    Compare the results of a synthesis draw to the target constraints.
+
+    This comparison performs chi square test between the synthesized
+    category counts and the target constraints used as inputs for the IPU.
+
+    Parameters
+    ----------
+    synth : pandas.Series
+        Series of category IDs from synthesized table.
+    constraints : pandas.Series
+        Target constraints used in IPU step.
+
+    Returns
+    -------
+    chisq : float
+        The chi squared test statistic.
+    p : float
+        The p-value of the test.
+
+    See Also
+    --------
+    scipy.stats.chisquare : Calculates a one-way chi square test.
+
+    """
+    counts = synth.value_counts()
+
+    # need to add zeros to counts for any categories that are
+    # in the constraints but not in the counts
+    diff = constraints.index.diff(counts.index)
+    counts = counts.combine_first(
+        pd.Series(np.zeros(len(diff), dtype='int'), index=diff))
+
+    counts, constraints = counts.align(constraints)
+
+    return chisquare(counts.values, constraints.values)
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
@@ -120,10 +160,14 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
         num_households, best_weights.values, best_weights.index.values)
 
     synth_households, synth_people = execute_draw(indexes, h_pums, p_pums)
+    household_chisq, household_p = compare_to_constraints(
+        synth_households.cat_id, h_constraint)
+    people_chisq, people_p = compare_to_constraints(
+        synth_people.cat_id, p_constraint)
 
-    # TODO deal with p_pums too
-    # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
-    return synth_households
+    return (
+        synth_households, synth_people, household_chisq, household_p,
+        people_chisq, people_p)
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,

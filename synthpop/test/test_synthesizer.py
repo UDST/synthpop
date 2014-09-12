@@ -35,3 +35,20 @@ def test_execute_draw():
         synth_pp.hh_id,
         pd.Series(
             ([0, 5, 9] * 3) + ([1, 4, 8] * 2) + ([3, 6, 7, 10] * 2) + [2]))
+
+
+def test_compare_to_constraints_exact():
+    constraints = pd.Series([1, 3, 2], index=['a', 'b', 'c'])
+    synth = pd.Series(['a', 'c', 'b', 'c', 'b', 'b'])
+
+    chisq, p = synthesizer.compare_to_constraints(synth, constraints)
+
+    assert chisq == 0
+    assert p == 1
+
+
+def test_compare_to_constraints():
+    constraints = pd.Series([1, 1, 2, 1, 3], index=['a', 'b', 'c', 'd', 'e'])
+    synth = pd.Series(['e', 'a', 'e', 'e', 'c', 'e'])
+
+    chisq, p = synthesizer.compare_to_constraints(synth, constraints)
