@@ -125,17 +125,6 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                                                        p_jd.cat_id,
                                                        h_jd.cat_id)
 
-    # TODO this is still a problem right?
-    '''
-    # for some reason there are households with no people
-    l1 = len(household_freq)
-    household_freq = household_freq[person_freq.sum(axis=1) > 0]
-    person_freq = person_freq[person_freq.sum(axis=1) > 0]
-    l2 = len(household_freq)
-    if l2 - l1 > 0:
-        print "Dropped %d households because they have no people in them" %\
-            (l2-l1)
-    '''
     # do the ipu to match person marginals
     logger.info("Running ipu")
     import time
