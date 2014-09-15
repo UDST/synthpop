@@ -1,5 +1,6 @@
 import logging
 import sys
+from collections import namedtuple
 
 import numpy as np
 import pandas as pd
@@ -11,6 +12,11 @@ from .ipf.ipf import calculate_constraints
 from .ipu.ipu import household_weights
 
 logger = logging.getLogger("synthpop")
+FitQuality = namedtuple(
+    'FitQuality',
+    ('household_chisq', 'household_p', 'people_chisq', 'people_p'))
+BlockGroupID = namedtuple(
+    'BlockGroupID', ('state', 'county', 'tract', 'block_group'))
 
 
 def enable_logging():
@@ -19,7 +25,7 @@ def enable_logging():
     logger.setLevel(logging.DEBUG)
 
 
-def execute_draw(indexes, h_pums, p_pums):
+def execute_draw(indexes, h_pums, p_pums, hh_index_start=0):
     """
     Take new household indexes and create new household and persons tables
     with updated indexes and relations.
@@ -34,6 +40,9 @@ def execute_draw(indexes, h_pums, p_pums):
     p_pums : pandas.DataFrame
         Table of person data. Expected to have a "serialno" columns
         that matches `h_pums`.
+    hh_index_start : int, optional
+        The starting point for new indexes on the synthesized
+        households table.
 
     Returns
     -------
@@ -44,6 +53,7 @@ def execute_draw(indexes, h_pums, p_pums):
 
     """
     synth_hh = h_pums.loc[indexes].reset_index(drop=True)
+    synth_hh.index += hh_index_start
 
     mrg_tbl = pd.DataFrame(
         {'serialno': synth_hh.serialno.values,
@@ -94,7 +104,7 @@ def compare_to_constraints(synth, constraints):
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-               marginal_zero_sub=.01, jd_zero_sub=.001):
+               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0):
 
     # this is the zero marginal problem
     h_marg = h_marg.replace(0, marginal_zero_sub)
@@ -151,7 +161,8 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     best_chisq = np.inf
 
     for _ in range(20):
-        synth_households, synth_people = execute_draw(indexes, h_pums, p_pums)
+        synth_households, synth_people = execute_draw(
+            indexes, h_pums, p_pums, hh_index_start=hh_index_start)
         household_chisq, household_p = compare_to_constraints(
             synth_households.cat_id, h_constraint)
         people_chisq, people_p = compare_to_constraints(
@@ -170,15 +181,28 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
                    marginal_zero_sub=.01, jd_zero_sub=.001):
+    """
+    Returns
+    -------
+    households, people : pandas.DataFrame
+    fit_quality : dict of FitQuality
+        Keys are geographic IDs, values are namedtuples with attributes
+        ``.household_chisq``, ``household_p``, ``people_chisq``,
+        and ``people_p``.
 
+    """
     print "Synthesizing at geog level: '{}' (number of geographies is {})".\
         format(recipe.get_geography_name(), recipe.get_num_geographies())
 
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
 
-    hhs = []
+    hh_list = []
+    people_list = []
     cnt = 0
+    fit_quality = {}
+    hh_index_start = 0
+
     # TODO will parallelization work here?
     for geog_id in indexes:
         print "Synthesizing geog id:\n", geog_id
@@ -203,12 +227,23 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         households, people, hh_chisq, hh_p, people_chisq, people_p = \
             synthesize(
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub)
-        hhs.append(households)
+                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
+                hh_index_start=hh_index_start)
+
+        hh_list.append(households)
+        people_list.append(people)
+        key = BlockGroupID(
+            geog_id['state'], geog_id['county'], geog_id['tract'],
+            geog_id['block group'])
+        fit_quality[key] = FitQuality(hh_chisq, hh_p, people_chisq, people_p)
 
         cnt += 1
+        hh_index_start = households.index.values[-1] + 1
+
         if num_geogs is not None and cnt >= num_geogs:
             break
 
     # TODO might want to write this to disk as we go?
-    return pd.concat(hhs, verify_integrity=True, ignore_index=True)
+    return (
+        pd.concat(hh_list), pd.concat(people_list, ignore_index=True),
+        fit_quality)

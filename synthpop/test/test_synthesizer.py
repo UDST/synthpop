@@ -19,12 +19,16 @@ def test_execute_draw():
 
     indexes = ['c', 'a', 'd', 'e', 'a', 'c', 'e', 'e', 'a', 'c', 'e']
 
-    synth_hh, synth_pp = synthesizer.execute_draw(indexes, hh_df, pp_df)
+    synth_hh, synth_pp = synthesizer.execute_draw(
+        indexes, hh_df, pp_df, hh_index_start=1000)
 
-    pdt.assert_index_equal(synth_hh.index, pd.Index(range(11)))
+    expected_index = pd.Index(range(1000, 1011))
+    pdt.assert_index_equal(synth_hh.index, expected_index)
     pdt.assert_series_equal(
         synth_hh.serialno,
-        pd.Series([33, 11, 44, 55, 11, 33, 55, 55, 11, 33, 55]))
+        pd.Series(
+            [33, 11, 44, 55, 11, 33, 55, 55, 11, 33, 55],
+            index=expected_index))
     assert list(synth_hh.columns) == ['a', 'b', 'serialno']
 
     pdt.assert_index_equal(synth_pp.index, pd.Index(range(24)))
@@ -34,7 +38,8 @@ def test_execute_draw():
     pdt.assert_series_equal(
         synth_pp.hh_id,
         pd.Series(
-            ([0, 5, 9] * 3) + ([1, 4, 8] * 2) + ([3, 6, 7, 10] * 2) + [2]))
+            ([1000, 1005, 1009] * 3) + ([1001, 1004, 1008] * 2) +
+            ([1003, 1006, 1007, 1010] * 2) + [1002]))
 
 
 def test_compare_to_constraints_exact():
