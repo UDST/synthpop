@@ -159,15 +159,24 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     indexes = draw.simple_draw(
         num_households, best_weights.values, best_weights.index.values)
 
-    synth_households, synth_people = execute_draw(indexes, h_pums, p_pums)
-    household_chisq, household_p = compare_to_constraints(
-        synth_households.cat_id, h_constraint)
-    people_chisq, people_p = compare_to_constraints(
-        synth_people.cat_id, p_constraint)
+    best_chisq = np.inf
+
+    for _ in range(20):
+        synth_households, synth_people = execute_draw(indexes, h_pums, p_pums)
+        household_chisq, household_p = compare_to_constraints(
+            synth_households.cat_id, h_constraint)
+        people_chisq, people_p = compare_to_constraints(
+            synth_people.cat_id, p_constraint)
+
+        if household_chisq + people_chisq < best_chisq:
+            best_chisq = household_chisq + people_chisq
+            best_hh_chisq, best_people_chisq = household_chisq, people_chisq
+            best_hh_p, best_people_p = household_p, people_p
+            best_households, best_people = synth_households, synth_people
 
     return (
-        synth_households, synth_people, household_chisq, household_p,
-        people_chisq, people_p)
+        best_households, best_people, best_hh_chisq, best_hh_p,
+        best_people_chisq, best_people_p)
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
