@@ -238,7 +238,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         fit_quality[key] = FitQuality(hh_chisq, hh_p, people_chisq, people_p)
 
         cnt += 1
-        hh_index_start = households.index.values[-1] + 1
+        if len(households) > 0:
+            hh_index_start = households.index.values[-1] + 1
 
         if num_geogs is not None and cnt >= num_geogs:
             break
