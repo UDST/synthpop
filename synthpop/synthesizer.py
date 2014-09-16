@@ -1,11 +1,22 @@
-from ipf.ipf import calculate_constraints
-from ipu.ipu import household_weights
-import categorizer as cat
-import numpy as np
-import pandas as pd
 import logging
 import sys
+from collections import namedtuple
+
+import numpy as np
+import pandas as pd
+from scipy.stats import chisquare
+
+from . import categorizer as cat
+from . import draw
+from .ipf.ipf import calculate_constraints
+from .ipu.ipu import household_weights
+
 logger = logging.getLogger("synthpop")
+FitQuality = namedtuple(
+    'FitQuality',
+    ('household_chisq', 'household_p', 'people_chisq', 'people_p'))
+BlockGroupID = namedtuple(
+    'BlockGroupID', ('state', 'county', 'tract', 'block_group'))
 
 
 def enable_logging():
@@ -14,12 +25,94 @@ def enable_logging():
     logger.setLevel(logging.DEBUG)
 
 
+def execute_draw(indexes, h_pums, p_pums, hh_index_start=0):
+    """
+    Take new household indexes and create new household and persons tables
+    with updated indexes and relations.
+
+    Parameters
+    ----------
+    indexes : array
+        Will be used to index `h_pums` into a new table.
+    h_pums : pandas.DataFrame
+        Table of household data. Expected to have a "serialno" column
+        that matches `p_pums`.
+    p_pums : pandas.DataFrame
+        Table of person data. Expected to have a "serialno" columns
+        that matches `h_pums`.
+    hh_index_start : int, optional
+        The starting point for new indexes on the synthesized
+        households table.
+
+    Returns
+    -------
+    synth_hh : pandas.DataFrame
+        Index will match the ``hh_id`` column in `synth_people`.
+    synth_people : pandas.DataFrame
+        Will be related to `synth_hh` by the ``hh_id`` column.
+
+    """
+    synth_hh = h_pums.loc[indexes].reset_index(drop=True)
+    synth_hh.index += hh_index_start
+
+    mrg_tbl = pd.DataFrame(
+        {'serialno': synth_hh.serialno.values,
+         'hh_id': synth_hh.index.values})
+    synth_people = pd.merge(
+        p_pums, mrg_tbl, left_on='serialno', right_on='serialno')
+
+    return synth_hh, synth_people
+
+
+def compare_to_constraints(synth, constraints):
+    """
+    Compare the results of a synthesis draw to the target constraints.
+
+    This comparison performs chi square test between the synthesized
+    category counts and the target constraints used as inputs for the IPU.
+
+    Parameters
+    ----------
+    synth : pandas.Series
+        Series of category IDs from synthesized table.
+    constraints : pandas.Series
+        Target constraints used in IPU step.
+
+    Returns
+    -------
+    chisq : float
+        The chi squared test statistic.
+    p : float
+        The p-value of the test.
+
+    See Also
+    --------
+    scipy.stats.chisquare : Calculates a one-way chi square test.
+
+    """
+    counts = synth.value_counts()
+
+    # need to add zeros to counts for any categories that are
+    # in the constraints but not in the counts
+    diff = constraints.index.diff(counts.index)
+    counts = counts.combine_first(
+        pd.Series(np.zeros(len(diff), dtype='int'), index=diff))
+
+    counts, constraints = counts.align(constraints)
+
+    return chisquare(counts.values, constraints.values)
+
+
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-               marginal_zero_sub=.01, constraint_zero_sub=.01):
+               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0):
 
     # this is the zero marginal problem
     h_marg = h_marg.replace(0, marginal_zero_sub)
     p_marg = p_marg.replace(0, marginal_zero_sub)
+
+    # zero cell problem
+    h_jd.frequency = h_jd.frequency.replace(0, jd_zero_sub)
+    p_jd.frequency = p_jd.frequency.replace(0, jd_zero_sub)
 
     # ipf for households
     logger.info("Running ipf for households")
@@ -37,26 +130,11 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     logger.debug("Person constraint")
     logger.debug(p_constraint)
 
-    # is this the zero cell problem?
-    h_constraint = h_constraint.replace(0, constraint_zero_sub)
-    p_constraint = p_constraint.replace(0, constraint_zero_sub)
-
     # make frequency tables that the ipu expects
     household_freq, person_freq = cat.frequency_tables(p_pums, h_pums,
                                                        p_jd.cat_id,
                                                        h_jd.cat_id)
 
-    # TODO this is still a problem right?
-    '''
-    # for some reason there are households with no people
-    l1 = len(household_freq)
-    household_freq = household_freq[person_freq.sum(axis=1) > 0]
-    person_freq = person_freq[person_freq.sum(axis=1) > 0]
-    l2 = len(household_freq)
-    if l2 - l1 > 0:
-        print "Dropped %d households because they have no people in them" %\
-            (l2-l1)
-    '''
     # do the ipu to match person marginals
     logger.info("Running ipu")
     import time
@@ -77,28 +155,54 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
 
-    # TODO this isn't the only way to draw?
-    indexes = np.random.choice(h_pums.index.values,
-                               size=num_households,
-                               replace=True,
-                               p=(best_weights/best_weights.sum()).values)
-    synth_households = h_pums.loc[indexes]
-    # TODO deal with p_pums too
-    # chi squared betweeen h_constraint - synth_households.cat_id.value_counts()
-    return synth_households
+    indexes = draw.simple_draw(
+        num_households, best_weights.values, best_weights.index.values)
+
+    best_chisq = np.inf
+
+    for _ in range(20):
+        synth_households, synth_people = execute_draw(
+            indexes, h_pums, p_pums, hh_index_start=hh_index_start)
+        household_chisq, household_p = compare_to_constraints(
+            synth_households.cat_id, h_constraint)
+        people_chisq, people_p = compare_to_constraints(
+            synth_people.cat_id, p_constraint)
+
+        if household_chisq + people_chisq < best_chisq:
+            best_chisq = household_chisq + people_chisq
+            best_hh_chisq, best_people_chisq = household_chisq, people_chisq
+            best_hh_p, best_people_p = household_p, people_p
+            best_households, best_people = synth_households, synth_people
+
+    return (
+        best_households, best_people, best_hh_chisq, best_hh_p,
+        best_people_chisq, best_people_p)
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
-                   marginal_zero_sub=.01, constraint_zero_sub=.01):
+                   marginal_zero_sub=.01, jd_zero_sub=.001):
+    """
+    Returns
+    -------
+    households, people : pandas.DataFrame
+    fit_quality : dict of FitQuality
+        Keys are geographic IDs, values are namedtuples with attributes
+        ``.household_chisq``, ``household_p``, ``people_chisq``,
+        and ``people_p``.
 
+    """
     print "Synthesizing at geog level: '{}' (number of geographies is {})".\
         format(recipe.get_geography_name(), recipe.get_num_geographies())
 
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
 
-    hhs = []
+    hh_list = []
+    people_list = []
     cnt = 0
+    fit_quality = {}
+    hh_index_start = 0
+
     # TODO will parallelization work here?
     for geog_id in indexes:
         print "Synthesizing geog id:\n", geog_id
@@ -120,14 +224,26 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        hh = synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                        marginal_zero_sub=marginal_zero_sub,
-                        constraint_zero_sub=constraint_zero_sub)
-        hhs.append(hh)
+        households, people, hh_chisq, hh_p, people_chisq, people_p = \
+            synthesize(
+                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
+                hh_index_start=hh_index_start)
+
+        hh_list.append(households)
+        people_list.append(people)
+        key = BlockGroupID(
+            geog_id['state'], geog_id['county'], geog_id['tract'],
+            geog_id['block group'])
+        fit_quality[key] = FitQuality(hh_chisq, hh_p, people_chisq, people_p)
 
         cnt += 1
+        hh_index_start = households.index.values[-1] + 1
+
         if num_geogs is not None and cnt >= num_geogs:
             break
 
     # TODO might want to write this to disk as we go?
-    return pd.concat(hhs, verify_integrity=True, ignore_index=True)
+    return (
+        pd.concat(hh_list), pd.concat(people_list, ignore_index=True),
+        fit_quality)
