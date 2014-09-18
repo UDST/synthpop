@@ -3,8 +3,7 @@ import pandas as pd
 
 
 def calculate_constraints(
-        marginals, joint_dist, frequency_col='frequency', tolerance=1e-3,
-        max_iterations=1000):
+        marginals, joint_dist, tolerance=1e-3, max_iterations=1000):
     """
     Calculate constraints on household or person classes using
     single category marginals and the observed class proportions
@@ -25,8 +24,6 @@ def calculate_constraints(
         The index will be a pandas.MultiIndex with a level for each observed
         class in the sample. The levels should be named for ease of
         introspection.
-    frequency_col : str, optional
-        The name of the frequency column in `joint_dist`.
     tolerance : float, optional
         The condition for stopping the IPF procedure. If the change in
         constraints is less than or equal to this value after an iteration
