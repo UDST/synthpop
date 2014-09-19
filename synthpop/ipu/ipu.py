@@ -31,7 +31,8 @@ class _FrequencyAndConstraints(object):
     person classes for easy iteration over all of them.
 
     Also tracks the locations of non-zero elements in each column
-    of the frequency tables.
+    of the frequency tables. If including person classes, both
+    `person_freq` and `person_constraints` are required.
 
     Parameters
     ----------
@@ -40,15 +41,15 @@ class _FrequencyAndConstraints(object):
         a MultiIndex matching the index of `household_constraints` and
         index should be household IDs matching the index of
         `person_freq`.
-    person_Freq : pandas.DataFrame
+    household_constraints : pandas.Series
+        Target marginal constraints for household classes.
+        Index must be the same as the columns of `household_freq`.
+    person_freq : pandas.DataFrame, optional
         Frequency table for household person. Columns should be
         a MultiIndex matching the index of `person_constraints` and
         index should be household IDs matching the index of
         `household_freq`.
-    household_constraints : pandas.Series
-        Target marginal constraints for household classes.
-        Index must be the same as the columns of `household_freq`.
-    person_constraints : pandas.Series
+    person_constraints : pandas.Series, optional
         Target marginal constraints for person classes.
         Index must be the same as the columns of `person_freq`.
 
@@ -58,14 +59,18 @@ class _FrequencyAndConstraints(object):
         Total number of columns across household and person classes.
 
     """
-    def __init__(self, household_freq, person_freq, household_constraints,
-                 person_constraints):
-        self._everything = tuple(itertools.chain(
-            ((col, household_constraints[key], nz)
-             for key, col, nz in _drop_zeros(household_freq)),
-            ((col, person_constraints[key], nz)
-             for key, col, nz in _drop_zeros(person_freq))))
+    def __init__(self, household_freq, household_constraints, person_freq=None,
+                 person_constraints=None):
+        hh_cols = ((col, household_constraints[key], nz)
+                   for key, col, nz in _drop_zeros(household_freq))
 
+        if person_freq is not None and person_constraints is not None:
+            p_cols = ((col, person_constraints[key], nz)
+                      for key, col, nz in _drop_zeros(person_freq))
+        else:
+            p_cols = []
+
+        self._everything = tuple(itertools.chain(hh_cols, p_cols))
         self.ncols = len(self._everything)
 
     def iter_columns(self):
@@ -192,7 +197,7 @@ def household_weights(
     best_weights = weights.copy()
 
     freq_wrap = _FrequencyAndConstraints(
-        household_freq, person_freq, household_constraints, person_constraints)
+        household_freq, household_constraints, person_freq, person_constraints)
 
     fit_qual = _average_fit_quality(freq_wrap, weights)
     best_fit_qual = fit_qual

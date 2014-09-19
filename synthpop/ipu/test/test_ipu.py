@@ -65,7 +65,7 @@ def freq_wrap(
         household_freqs, person_freqs, household_constraints,
         person_constraints):
     return ipu._FrequencyAndConstraints(
-        household_freqs, person_freqs, household_constraints,
+        household_freqs, household_constraints, person_freqs,
         person_constraints)
 
 
