@@ -3,6 +3,7 @@
 from __future__ import division
 
 import itertools
+from collections import OrderedDict
 
 import numpy as np
 import pandas as pd
@@ -61,16 +62,17 @@ class _FrequencyAndConstraints(object):
     """
     def __init__(self, household_freq, household_constraints, person_freq=None,
                  person_constraints=None):
-        hh_cols = ((col, household_constraints[key], nz)
+        hh_cols = ((key, col, household_constraints[key], nz)
                    for key, col, nz in _drop_zeros(household_freq))
 
         if person_freq is not None and person_constraints is not None:
-            p_cols = ((col, person_constraints[key], nz)
+            p_cols = ((key, col, person_constraints[key], nz)
                       for key, col, nz in _drop_zeros(person_freq))
         else:
             p_cols = []
 
-        self._everything = tuple(itertools.chain(hh_cols, p_cols))
+        self._everything = OrderedDict(
+            (t[0], t) for t in itertools.chain(hh_cols, p_cols))
         self.ncols = len(self._everything)
 
     def iter_columns(self):
@@ -78,11 +80,34 @@ class _FrequencyAndConstraints(object):
         Iterate over columns of both household and frequency tables AND
         the corresponding constraints for each column AND non-zero indexes
         applicable to each column.
-        Yields tuples of (column, constraint, nonzero). The returned column
-        contains only the non-zero elements.
+        Yields tuples of (column name, column, constraint, nonzero).
+        The returned column contains only the non-zero elements.
 
         """
-        return iter(self._everything)
+        return self._everything.itervalues()
+
+    def get_column(self, key):
+        """
+        Return a specific column's info by its name.
+
+        Parameters
+        ----------
+        key : object
+            Column name or tuple required to index a MultiIndex column.
+
+        Returns
+        -------
+        col_name : object
+            Same as `key`.
+        column : pandas.Series
+            Has only the non-zero elements.
+        constraint : float
+            The target constraint for this type.
+        nonzero : array
+            The location of the non-zero items in the column.
+
+        """
+        return self._everything[key]
 
 
 def _fit_quality(column, weights, constraint):
@@ -120,7 +145,7 @@ def _average_fit_quality(freq_wrap, weights):
     """
     return sum(
         _fit_quality(col, weights[nz], constraint)
-        for col, constraint, nz in freq_wrap.iter_columns()
+        for _, col, constraint, nz in freq_wrap.iter_columns()
         ) / freq_wrap.ncols
 
 
@@ -205,7 +230,7 @@ def household_weights(
     iterations = 0
 
     while fit_change > convergence:
-        for col, constraint, nz in freq_wrap.iter_columns():
+        for _, col, constraint, nz in freq_wrap.iter_columns():
             weights[nz] = _update_weights(col, weights[nz], constraint)
 
         new_fit_qual = _average_fit_quality(freq_wrap, weights)

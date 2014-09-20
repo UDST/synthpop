@@ -181,18 +181,28 @@ def test_FrequencyAndConstraints(freq_wrap):
 
     iter_cols = freq_wrap.iter_columns()
 
-    col, constraint, nz = next(iter_cols)
+    key, col, constraint, nz = next(iter_cols)
+    assert key == ('yes', 'blue')
     npt.assert_array_equal(col, [1, 1, 1])
     assert constraint == 35
     npt.assert_array_equal(nz, [0, 1, 2])
 
-    col, constraint, nz = next(iter_cols)
+    key, col, constraint, nz = next(iter_cols)
+    assert key == ('yes', 'red')
     npt.assert_array_equal(col, [1, 1, 1, 1, 1])
     assert constraint == 65
     npt.assert_array_equal(nz, [3, 4, 5, 6, 7])
 
     # should be into person cols now
-    col, constraint, nz = next(iter_cols)
+    key, col, constraint, nz = next(iter_cols)
+    assert key == (7, 'pink')
+    npt.assert_array_equal(col, [1, 1, 2, 1, 1, 2, 1])
+    assert constraint == 91
+    npt.assert_array_equal(nz, [0, 1, 2, 3, 5, 6, 7])
+
+    # test getting a column by name
+    key, col, constraint, nz = freq_wrap.get_column((7, 'pink'))
+    assert key == (7, 'pink')
     npt.assert_array_equal(col, [1, 1, 2, 1, 1, 2, 1])
     assert constraint == 91
     npt.assert_array_equal(nz, [0, 1, 2, 3, 5, 6, 7])
