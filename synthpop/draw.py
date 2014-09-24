@@ -54,13 +54,16 @@ def _draw_indexes(num, fac, weights):
     constraint_diffs = []
 
     for col_name, _, constraint, nz in fac.iter_columns():
-        flr_constraint = int(np.floor(constraint))
-        if flr_constraint == 0:
+        if len(nz) == 0:
             continue
 
-        wts = weights.values[nz]
-        idx.extend(simple_draw(flr_constraint, wts, weights.index.values[nz]))
+        flr_constraint = int(np.floor(constraint))
         constraint_diffs.append((col_name, constraint - flr_constraint))
+
+        if flr_constraint > 0:
+            wts = weights.values[nz]
+            idx.extend(
+                simple_draw(flr_constraint, wts, weights.index.values[nz]))
 
     if len(idx) < num:
         num_to_add = num - len(idx)
@@ -198,12 +201,20 @@ def draw_households(
 
     Returns
     -------
-    synth_hh : pandas.DataFrame
+    best_households : pandas.DataFrame
         Index will match the ``hh_id`` column in `synth_people`.
-    synth_people : pandas.DataFrame
-        Will be related to `synth_hh` by the ``hh_id`` column.
+    best_people : pandas.DataFrame
+        Will be related to `best_households` by the ``hh_id`` column.
+    people_chisq : float
+    people_p : float
 
     """
+    if num == 0:
+        return (
+            pd.DataFrame(columns=h_pums.columns),
+            pd.DataFrame(columns=p_pums.columns.append(pd.Index(['hh_id']))),
+            0, 1)
+
     fac = _FrequencyAndConstraints(household_freq, household_constraints)
 
     best_chisq = np.inf
@@ -218,6 +229,6 @@ def draw_households(
         if people_chisq < best_chisq:
             best_chisq = people_chisq
             best_p = people_p
-            best_households, best_people = synth_households, synth_people
+            best_households, best_people = synth_hh, synth_people
 
-    return synth_households, synth_people
+    return best_households, best_people, best_chisq, best_p

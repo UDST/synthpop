@@ -14,7 +14,7 @@ from .ipu.ipu import household_weights
 logger = logging.getLogger("synthpop")
 FitQuality = namedtuple(
     'FitQuality',
-    ('household_chisq', 'household_p', 'people_chisq', 'people_p'))
+    ('people_chisq', 'people_p'))
 BlockGroupID = namedtuple(
     'BlockGroupID', ('state', 'county', 'tract', 'block_group'))
 
@@ -79,25 +79,9 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
     best_chisq = np.inf
 
-    for _ in range(20):
-        indexes = draw.simple_draw(
-            num_households, best_weights.values, best_weights.index.values)
-        synth_households, synth_people = execute_draw(
-            indexes, h_pums, p_pums, hh_index_start=hh_index_start)
-        household_chisq, household_p = compare_to_constraints(
-            synth_households.cat_id, h_constraint)
-        people_chisq, people_p = compare_to_constraints(
-            synth_people.cat_id, p_constraint)
-
-        if household_chisq + people_chisq < best_chisq:
-            best_chisq = household_chisq + people_chisq
-            best_hh_chisq, best_people_chisq = household_chisq, people_chisq
-            best_hh_p, best_people_p = household_p, people_p
-            best_households, best_people = synth_households, synth_people
-
-    return (
-        best_households, best_people, best_hh_chisq, best_hh_p,
-        best_people_chisq, best_people_p)
+    return draw.draw_households(
+        num_households, h_pums, p_pums, household_freq, h_constraint,
+        p_constraint, best_weights, hh_index_start=hh_index_start)
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
@@ -145,7 +129,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        households, people, hh_chisq, hh_p, people_chisq, people_p = \
+        households, people, people_chisq, people_p = \
             synthesize(
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
@@ -156,7 +140,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         key = BlockGroupID(
             geog_id['state'], geog_id['county'], geog_id['tract'],
             geog_id['block group'])
-        fit_quality[key] = FitQuality(hh_chisq, hh_p, people_chisq, people_p)
+        fit_quality[key] = FitQuality(people_chisq, people_p)
 
         cnt += 1
         if len(households) > 0:
