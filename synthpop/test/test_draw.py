@@ -5,6 +5,7 @@ import pytest
 from pandas.util import testing as pdt
 
 from .. import draw
+from ..ipu.ipu import _FrequencyAndConstraints
 
 
 @pytest.fixture
@@ -93,3 +94,49 @@ def test_compare_to_constraints():
     synth = pd.Series(['e', 'a', 'e', 'e', 'c', 'e'])
 
     chisq, p = draw.compare_to_constraints(synth, constraints)
+
+
+@pytest.fixture
+def freqs():
+    return pd.DataFrame(
+        {'a': [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+         'b': [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+         'c': [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+         'd': [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]})
+
+
+def test_draw_indexes_easy(freqs, seed):
+    # constraints are integers, add up to the total we want
+    constraints = pd.Series([6, 4, 3, 9], index=freqs.columns)
+
+    fac = _FrequencyAndConstraints(freqs, constraints)
+    weights = pd.Series(np.ones(10))
+
+    idx = draw._draw_indexes(constraints.sum(), fac, weights)
+
+    assert isinstance(idx, pd.Index)
+    assert len(idx) == constraints.sum()
+    assert idx.isin(weights.index).all()
+
+    with pytest.raises(RuntimeError):
+        draw._draw_indexes(100, fac, weights)
+
+
+def test_draw_indexes(freqs, seed):
+    num = 22
+    constraints = pd.Series([6.1, 3.2, 2.5, 8.9], index=freqs.columns)
+    fac = _FrequencyAndConstraints(freqs, constraints)
+    weights = pd.Series(
+        [0.1012815,  0.11915142,  0.0369963,  0.20165698,  0.14132664,
+         0.02791166,  0.06182466,  0.17389766,  0.11982733,  0.01612583])
+
+    idx = draw._draw_indexes(num, fac, weights)
+
+    assert isinstance(idx, pd.Index)
+    assert len(idx) == num
+    assert idx.isin(weights.index).all()
+
+    assert idx.isin({0, 1}).sum() == 6
+    assert idx.isin({2, 3, 4}).sum() == 4
+    assert idx.isin({5}).sum() == 3
+    assert idx.isin({6, 7, 8, 9}).sum() == 9

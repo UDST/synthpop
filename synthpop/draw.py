@@ -64,6 +64,13 @@ def _draw_indexes(num, fac, weights):
 
     if len(idx) < num:
         num_to_add = num - len(idx)
+
+        if num_to_add > len(weights):
+            raise RuntimeError(
+                'There is a mismatch between the constraints and the total '
+                'number of households to draw. The total to draw appears '
+                'to be higher than indicated by the constraints.')
+
         constraint_diffs = sorted(
             constraint_diffs, key=lambda x: x[1], reverse=True)[:num_to_add]
 
@@ -72,7 +79,7 @@ def _draw_indexes(num, fac, weights):
             wts = weights.values[nz]
             idx.extend(simple_draw(1, wts, weights.index.values[nz]))
 
-    return idx
+    return pd.Index(idx)
 
 
 def execute_draw(indexes, h_pums, p_pums, hh_index_start=0):
