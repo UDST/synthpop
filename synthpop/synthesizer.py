@@ -14,7 +14,7 @@ from .ipu.ipu import household_weights
 logger = logging.getLogger("synthpop")
 FitQuality = namedtuple(
     'FitQuality',
-    ('household_chisq', 'household_p', 'people_chisq', 'people_p'))
+    ('people_chisq', 'people_p'))
 BlockGroupID = namedtuple(
     'BlockGroupID', ('state', 'county', 'tract', 'block_group'))
 
@@ -23,84 +23,6 @@ def enable_logging():
     handler = logging.StreamHandler(stream=sys.stdout)
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
-
-
-def execute_draw(indexes, h_pums, p_pums, hh_index_start=0):
-    """
-    Take new household indexes and create new household and persons tables
-    with updated indexes and relations.
-
-    Parameters
-    ----------
-    indexes : array
-        Will be used to index `h_pums` into a new table.
-    h_pums : pandas.DataFrame
-        Table of household data. Expected to have a "serialno" column
-        that matches `p_pums`.
-    p_pums : pandas.DataFrame
-        Table of person data. Expected to have a "serialno" columns
-        that matches `h_pums`.
-    hh_index_start : int, optional
-        The starting point for new indexes on the synthesized
-        households table.
-
-    Returns
-    -------
-    synth_hh : pandas.DataFrame
-        Index will match the ``hh_id`` column in `synth_people`.
-    synth_people : pandas.DataFrame
-        Will be related to `synth_hh` by the ``hh_id`` column.
-
-    """
-    synth_hh = h_pums.loc[indexes].reset_index(drop=True)
-    synth_hh.index += hh_index_start
-
-    mrg_tbl = pd.DataFrame(
-        {'serialno': synth_hh.serialno.values,
-         'hh_id': synth_hh.index.values})
-    synth_people = pd.merge(
-        p_pums, mrg_tbl, left_on='serialno', right_on='serialno')
-
-    return synth_hh, synth_people
-
-
-def compare_to_constraints(synth, constraints):
-    """
-    Compare the results of a synthesis draw to the target constraints.
-
-    This comparison performs chi square test between the synthesized
-    category counts and the target constraints used as inputs for the IPU.
-
-    Parameters
-    ----------
-    synth : pandas.Series
-        Series of category IDs from synthesized table.
-    constraints : pandas.Series
-        Target constraints used in IPU step.
-
-    Returns
-    -------
-    chisq : float
-        The chi squared test statistic.
-    p : float
-        The p-value of the test.
-
-    See Also
-    --------
-    scipy.stats.chisquare : Calculates a one-way chi square test.
-
-    """
-    counts = synth.value_counts()
-
-    # need to add zeros to counts for any categories that are
-    # in the constraints but not in the counts
-    diff = constraints.index.diff(counts.index)
-    counts = counts.combine_first(
-        pd.Series(np.zeros(len(diff), dtype='int'), index=diff))
-
-    counts, constraints = counts.align(constraints)
-
-    return chisquare(counts.values, constraints.values)
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
@@ -155,28 +77,11 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     num_households = int(h_marg.groupby(level=0).sum().mean())
     print "Drawing %d households" % num_households
 
-    indexes = draw.simple_draw(
-        num_households, best_weights.values, best_weights.index.values)
-
     best_chisq = np.inf
 
-    for _ in range(20):
-        synth_households, synth_people = execute_draw(
-            indexes, h_pums, p_pums, hh_index_start=hh_index_start)
-        household_chisq, household_p = compare_to_constraints(
-            synth_households.cat_id, h_constraint)
-        people_chisq, people_p = compare_to_constraints(
-            synth_people.cat_id, p_constraint)
-
-        if household_chisq + people_chisq < best_chisq:
-            best_chisq = household_chisq + people_chisq
-            best_hh_chisq, best_people_chisq = household_chisq, people_chisq
-            best_hh_p, best_people_p = household_p, people_p
-            best_households, best_people = synth_households, synth_people
-
-    return (
-        best_households, best_people, best_hh_chisq, best_hh_p,
-        best_people_chisq, best_people_p)
+    return draw.draw_households(
+        num_households, h_pums, p_pums, household_freq, h_constraint,
+        p_constraint, best_weights, hh_index_start=hh_index_start)
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
@@ -224,7 +129,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        households, people, hh_chisq, hh_p, people_chisq, people_p = \
+        households, people, people_chisq, people_p = \
             synthesize(
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
@@ -235,7 +140,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         key = BlockGroupID(
             geog_id['state'], geog_id['county'], geog_id['tract'],
             geog_id['block group'])
-        fit_quality[key] = FitQuality(hh_chisq, hh_p, people_chisq, people_p)
+        fit_quality[key] = FitQuality(people_chisq, people_p)
 
         cnt += 1
         if len(households) > 0:

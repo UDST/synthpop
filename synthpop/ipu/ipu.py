@@ -3,6 +3,7 @@
 from __future__ import division
 
 import itertools
+from collections import OrderedDict
 
 import numpy as np
 import pandas as pd
@@ -31,7 +32,8 @@ class _FrequencyAndConstraints(object):
     person classes for easy iteration over all of them.
 
     Also tracks the locations of non-zero elements in each column
-    of the frequency tables.
+    of the frequency tables. If including person classes, both
+    `person_freq` and `person_constraints` are required.
 
     Parameters
     ----------
@@ -40,15 +42,15 @@ class _FrequencyAndConstraints(object):
         a MultiIndex matching the index of `household_constraints` and
         index should be household IDs matching the index of
         `person_freq`.
-    person_Freq : pandas.DataFrame
+    household_constraints : pandas.Series
+        Target marginal constraints for household classes.
+        Index must be the same as the columns of `household_freq`.
+    person_freq : pandas.DataFrame, optional
         Frequency table for household person. Columns should be
         a MultiIndex matching the index of `person_constraints` and
         index should be household IDs matching the index of
         `household_freq`.
-    household_constraints : pandas.Series
-        Target marginal constraints for household classes.
-        Index must be the same as the columns of `household_freq`.
-    person_constraints : pandas.Series
+    person_constraints : pandas.Series, optional
         Target marginal constraints for person classes.
         Index must be the same as the columns of `person_freq`.
 
@@ -58,14 +60,19 @@ class _FrequencyAndConstraints(object):
         Total number of columns across household and person classes.
 
     """
-    def __init__(self, household_freq, person_freq, household_constraints,
-                 person_constraints):
-        self._everything = tuple(itertools.chain(
-            ((col, household_constraints[key], nz)
-             for key, col, nz in _drop_zeros(household_freq)),
-            ((col, person_constraints[key], nz)
-             for key, col, nz in _drop_zeros(person_freq))))
+    def __init__(self, household_freq, household_constraints, person_freq=None,
+                 person_constraints=None):
+        hh_cols = ((key, col, household_constraints[key], nz)
+                   for key, col, nz in _drop_zeros(household_freq))
 
+        if person_freq is not None and person_constraints is not None:
+            p_cols = ((key, col, person_constraints[key], nz)
+                      for key, col, nz in _drop_zeros(person_freq))
+        else:
+            p_cols = []
+
+        self._everything = OrderedDict(
+            (t[0], t) for t in itertools.chain(hh_cols, p_cols))
         self.ncols = len(self._everything)
 
     def iter_columns(self):
@@ -73,11 +80,34 @@ class _FrequencyAndConstraints(object):
         Iterate over columns of both household and frequency tables AND
         the corresponding constraints for each column AND non-zero indexes
         applicable to each column.
-        Yields tuples of (column, constraint, nonzero). The returned column
-        contains only the non-zero elements.
+        Yields tuples of (column name, column, constraint, nonzero).
+        The returned column contains only the non-zero elements.
 
         """
-        return iter(self._everything)
+        return self._everything.itervalues()
+
+    def get_column(self, key):
+        """
+        Return a specific column's info by its name.
+
+        Parameters
+        ----------
+        key : object
+            Column name or tuple required to index a MultiIndex column.
+
+        Returns
+        -------
+        col_name : object
+            Same as `key`.
+        column : pandas.Series
+            Has only the non-zero elements.
+        constraint : float
+            The target constraint for this type.
+        nonzero : array
+            The location of the non-zero items in the column.
+
+        """
+        return self._everything[key]
 
 
 def _fit_quality(column, weights, constraint):
@@ -115,7 +145,7 @@ def _average_fit_quality(freq_wrap, weights):
     """
     return sum(
         _fit_quality(col, weights[nz], constraint)
-        for col, constraint, nz in freq_wrap.iter_columns()
+        for _, col, constraint, nz in freq_wrap.iter_columns()
         ) / freq_wrap.ncols
 
 
@@ -192,7 +222,7 @@ def household_weights(
     best_weights = weights.copy()
 
     freq_wrap = _FrequencyAndConstraints(
-        household_freq, person_freq, household_constraints, person_constraints)
+        household_freq, household_constraints, person_freq, person_constraints)
 
     fit_qual = _average_fit_quality(freq_wrap, weights)
     best_fit_qual = fit_qual
@@ -200,7 +230,7 @@ def household_weights(
     iterations = 0
 
     while fit_change > convergence:
-        for col, constraint, nz in freq_wrap.iter_columns():
+        for _, col, constraint, nz in freq_wrap.iter_columns():
             weights[nz] = _update_weights(col, weights[nz], constraint)
 
         new_fit_qual = _average_fit_quality(freq_wrap, weights)
