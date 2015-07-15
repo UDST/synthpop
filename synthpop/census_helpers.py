@@ -57,12 +57,12 @@ class Census:
                            tract=tract, year=year)
 
     def tract_query(self, census_columns, state, county, tract=None,
-                    year=None, id=None):
-        if id is None:
-            id = "*"
+                    year=None):
+        if tract is None:
+            tract = "*"
         return self._query(census_columns, state, county,
-                           forstr="tract:%s" % id,
-                           tract=tract, year=year)
+                           forstr="tract:%s" % tract,
+                           year=year)
 
     def _query(self, census_columns, state, county, forstr,
                tract=None, year=None):
@@ -165,8 +165,8 @@ class Census:
                                                "ST": "object"
                                                })
             pums_df = pums_df.rename(columns = {
-                                                'PUMA10':'puma10', 
-                                                'PUMA00':'puma00', 
+                                                'PUMA10':'puma10',
+                                                'PUMA00':'puma00',
                                                 'SERIALNO':'serialno'
                                                 })
             self.pums_cache[loc] = pums_df
@@ -190,10 +190,10 @@ class Census:
         if puma00 is not None:
             pums00 = self._read_csv(self.pums00_household_base_url % (state, puma00))
             pums = pd.concat([pums, pums00], ignore_index = True)
-            
+
         # filter out gq and empty units (non-hh records)
-        pums = pums[(pums.RT == 'H') & (pums.NP > 0) & (pums.TYPE == 1)]  
-        
+        pums = pums[(pums.RT == 'H') & (pums.NP > 0) & (pums.TYPE == 1)]
+
         return pums
 
     def try_fips_lookup(self, state, county=None):
