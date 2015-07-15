@@ -1,4 +1,4 @@
-from synthpop.recipes.starter2 import Starter
+from synthpop.recipes.starter3 import Starter
 from synthpop.synthesizer import synthesize_all, enable_logging 
 import os
 
