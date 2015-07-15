@@ -1,5 +1,7 @@
-import pandas as pd
 import itertools
+
+import numpy as np
+import pandas as pd
 
 
 # TODO DOCSTRINGS!!
@@ -83,13 +85,16 @@ def _frequency_table(sample_df, category_ids):
     Take the result that comes out of the method above and turn it in to the
     frequencytable format used by the ipu
     """
-    df = sample_df.groupby(['hh_id', 'cat_id']).size().\
-        unstack().fillna(0)
+    df = sample_df.groupby(['hh_id', 'cat_id']).size().unstack().fillna(0)
 
     # need to manually add in case we missed a whole cat_id in the sample
-    for cat_id in category_ids:
-        if cat_id not in df.columns:
-            df[cat_id] = 0
+    missing_ids = list(set(category_ids) - set(df.columns))
+    if missing_ids:
+        missing_df = pd.DataFrame(
+            data=np.zeros((len(df), len(missing_ids))),
+            index=df.index,
+            columns=missing_ids)
+        df = df.merge(missing_df, left_index=True, right_index=True)
 
     assert len(df.columns) == len(category_ids)
     assert df.sum().sum() == len(sample_df)
