@@ -190,6 +190,10 @@ class Census:
         if puma00 is not None:
             pums00 = self._read_csv(self.pums00_household_base_url % (state, puma00))
             pums = pd.concat([pums, pums00], ignore_index = True)
+            
+        # filter out gq and empty units (non-hh records)
+        pums = pums[(pums.RT == 'H') & (pums.NP > 0) & (pums.TYPE == 1)]  
+        
         return pums
 
     def try_fips_lookup(self, state, county=None):

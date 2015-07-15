@@ -109,8 +109,7 @@ def frequency_tables(persons_sample_df, households_sample_df,
 
     persons_sample_df = pd.merge(persons_sample_df,
                                  households_sample_df[["hh_id"]],
-                                 left_on=["serialno"], right_index=True,
-                                 how="left")
+                                 left_on=["serialno"], right_index=True)
 
     p_freq_table = _frequency_table(persons_sample_df,
                                     person_cat_ids)
