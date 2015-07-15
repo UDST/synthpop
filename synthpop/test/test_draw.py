@@ -65,18 +65,20 @@ def test_execute_draw():
         synth_hh.serialno,
         pd.Series(
             [33, 11, 44, 55, 11, 33, 55, 55, 11, 33, 55],
-            index=expected_index))
+            index=expected_index, name='serialno'))
     assert list(synth_hh.columns) == ['a', 'b', 'serialno']
 
     pdt.assert_index_equal(synth_pp.index, pd.Index(range(24)))
     pdt.assert_series_equal(
         synth_pp.serialno,
-        pd.Series(([33] * 9) + ([11] * 6) + ([55] * 8) + [44]))
+        pd.Series(
+            ([33] * 9) + ([11] * 6) + ([55] * 8) + [44], name='serialno'))
     pdt.assert_series_equal(
         synth_pp.hh_id,
         pd.Series(
             ([1000, 1005, 1009] * 3) + ([1001, 1004, 1008] * 2) +
-            ([1003, 1006, 1007, 1010] * 2) + [1002]))
+            ([1003, 1006, 1007, 1010] * 2) + [1002],
+            name='hh_id'))
 
 
 def test_compare_to_constraints_exact():
