@@ -9,9 +9,9 @@ class Census:
 
     def __init__(self, key):
         self.c = census.Census(key)
-        self.pums_relationship_file_url = "https://dl.dropboxusercontent.com/u/69619688/tract10_to_puma.csv"
+        self.base_url = "https://s3-us-west-2.amazonaws.com/synthpop-data/"
+        self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
         self.pums_relationship_df = None
-        self.base_url = "https://dl.dropboxusercontent.com/u/69619688/pums/"
         self.pums10_population_base_url = \
             self.base_url + "puma10_p_%s_%s.csv"
         self.pums10_household_base_url = \
@@ -24,7 +24,7 @@ class Census:
             self.base_url + "puma_p_%s.csv"
         self.pums_household_state_base_url = \
             self.base_url + "puma_h_%s.csv"
-        self.fips_url = "https://dl.dropboxusercontent.com/u/69619688/national_county.txt"
+        self.fips_url = self.base_url + "national_county.txt"
         self.fips_df = None
         self.pums_cache = {}
 

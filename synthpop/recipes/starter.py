@@ -1,6 +1,7 @@
 from .. import categorizer as cat
 from ..census_helpers import Census
 import pandas as pd
+import numpy as np
 
 
 # TODO DOCSTRINGS!!
@@ -136,7 +137,10 @@ class Starter:
 
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
-        h_pums = self.c.download_household_pums(int(ind.state), int(puma10), int(puma00))
+        if type(puma00) == str:
+            h_pums = self.c.download_household_pums(int(ind.state), int(puma10), int(puma00))
+        elif np.isnan(puma00): # only puma10 available
+            h_pums = self.c.download_household_pums(int(ind.state), int(puma10), None)
 
         def cars_cat(r):
             if r.VEH == 0:
@@ -179,7 +183,10 @@ class Starter:
 
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
-        p_pums = self.c.download_population_pums(int(ind.state), int(puma10), int(puma00))
+        if type(puma00) == str:
+            p_pums = self.c.download_population_pums(int(ind.state), int(puma10), int(puma00))
+        elif np.isnan(puma00): # only puma10 available
+            p_pums = self.c.download_population_pums(int(ind.state), int(puma10), None)
 
         def age_cat(r):
             if r.AGEP <= 19:
