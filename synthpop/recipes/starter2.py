@@ -1,6 +1,8 @@
+import numpy as np
+import pandas as pd
+
 from .. import categorizer as cat
 from ..census_helpers import Census
-import pandas as pd, numpy as np
 
 
 # TODO DOCSTRINGS!!
@@ -42,7 +44,7 @@ class Starter:
         self.state = state
         self.county = county
         self.tract = tract
-        
+
         structure_size_columns = ['B25032_0%02dE' % i for i in range(1, 24)]
         age_of_head_columns = ['B25007_0%02dE' % i for i in range(1, 22)]
         race_of_head_columns = ['B25006_0%02dE' % i for i in range(1, 11)]
@@ -54,48 +56,56 @@ class Starter:
         presence_of_children_columns = ['B11005_001E', 'B11005_002E', 'B11005_011E']
         presence_of_seniors_columns = ['B11007_002E', 'B11007_007E']
         tenure_mover_columns = ['B25038_0%02dE' % i for i in range(1, 16)]
-        block_group_columns = income_columns + presence_of_children_columns + \
-                              presence_of_seniors_columns + tenure_mover_columns + \
-                              hh_size_columns + age_of_head_columns + structure_size_columns + \
-                              race_of_head_columns + hispanic_head_columns
+        block_group_columns = (
+            income_columns + presence_of_children_columns +
+            presence_of_seniors_columns + tenure_mover_columns +
+            hh_size_columns + age_of_head_columns + structure_size_columns +
+            race_of_head_columns + hispanic_head_columns)
         tract_columns = vehicle_columns + workers_columns
-        h_acs = c.block_group_and_tract_query(block_group_columns,
-                                              tract_columns, state, county,
-                                              merge_columns=['tract', 'county',
-                                                             'state'],
-                                              block_group_size_attr="B11005_001E",
-                                              tract_size_attr="B08201_001E",
-                                              tract=tract)
+        h_acs = c.block_group_and_tract_query(
+            block_group_columns,
+            tract_columns, state, county,
+            merge_columns=['tract', 'county', 'state'],
+            block_group_size_attr="B11005_001E",
+            tract_size_attr="B08201_001E",
+            tract=tract)
         self.h_acs = h_acs
 
         self.h_acs_cat = cat.categorize(h_acs, {
             ("sf_detached", "yes"): "B25032_003E + B25032_014E",
             ("sf_detached", "no"): "B25032_001E - B25032_003E - B25032_014E",
-            ("hh_age_of_head", "lt35"): "B25007_003E + B25007_004E + B25007_013E + B25007_014E",
-            ("hh_age_of_head", "gt35-lt65"): "B25007_005E + B25007_006E + B25007_007E + B25007_008E + "
-                                          "B25007_015E + B25007_016E + B25007_017E + B25007_018E",
-            ("hh_age_of_head", "gt65"): "B25007_009E + B25007_010E + B25007_011E + "
-                                     "B25007_019E + B25007_020E + B25007_021E",
+            ("hh_age_of_head", "lt35"):
+                "B25007_003E + B25007_004E + B25007_013E + B25007_014E",
+            ("hh_age_of_head", "gt35-lt65"):
+                "B25007_005E + B25007_006E + B25007_007E + B25007_008E + "
+                "B25007_015E + B25007_016E + B25007_017E + B25007_018E",
+            ("hh_age_of_head", "gt65"):
+                "B25007_009E + B25007_010E + B25007_011E + "
+                "B25007_019E + B25007_020E + B25007_021E",
             ("hh_race_of_head", "black"): "B25006_003E",
             ("hh_race_of_head", "white"): "B25006_002E",
             ("hh_race_of_head", "asian"): "B25006_005E",
-            ("hh_race_of_head", "other"): "B25006_004E + B25006_006E + B25006_007E + B25006_008E ",
+            ("hh_race_of_head", "other"):
+                "B25006_004E + B25006_006E + B25006_007E + B25006_008E ",
             ("hispanic_head", "yes"): "B25003I_001E",
             ("hispanic_head", "no"): "B11005_001E - B25003I_001E",
             ("hh_children", "yes"): "B11005_002E",
             ("hh_children", "no"): "B11005_011E",
             ("seniors", "yes"): "B11007_002E",
             ("seniors", "no"): "B11007_007E",
-            ("hh_income", "lt30"): "B19001_002E + B19001_003E + B19001_004E + "
-                                "B19001_005E + B19001_006E",
-            ("hh_income", "gt30-lt60"): "B19001_007E + B19001_008E + B19001_009E + "
-                                      "B19001_010E + B19001_011E",
+            ("hh_income", "lt30"):
+                "B19001_002E + B19001_003E + B19001_004E + "
+                "B19001_005E + B19001_006E",
+            ("hh_income", "gt30-lt60"):
+                "B19001_007E + B19001_008E + B19001_009E + "
+                "B19001_010E + B19001_011E",
             ("hh_income", "gt60-lt100"): "B19001_012E + B19001_013E",
             ("hh_income", "gt100-lt150"): "B19001_014E + B19001_015E",
-            ("hh_income", "gt150"): "B19001_016E + B19001_017E",    
+            ("hh_income", "gt150"): "B19001_016E + B19001_017E",
             ("hh_cars", "none"): "B08201_002E",
             ("hh_cars", "one"): "B08201_003E",
-            ("hh_cars", "two or more"): "B08201_004E + B08201_005E + B08201_006E",
+            ("hh_cars", "two or more"):
+                "B08201_004E + B08201_005E + B08201_006E",
             ("hh_workers", "none"): "B08202_002E",
             ("hh_workers", "one"): "B08202_003E",
             ("hh_workers", "two or more"): "B08202_004E + B08202_005E",
@@ -111,10 +121,11 @@ class Starter:
                                          "B25009_008E + B25009_016E + "
                                          "B25009_009E + B25009_017E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
-        
-        #gq_population = ['B26001_001E']
-        hh_population = ['B11002_001E'] #HH population, for the hhpop/totalpop adjustment
-        population = ['B01001_001E'] #This includes GQ
+
+        # gq_population = ['B26001_001E']
+        # HH population, for the hhpop/totalpop adjustment
+        hh_population = ['B11002_001E']
+        population = ['B01001_001E']  # This includes GQ
         hispanic = ['B03003_002E', 'B03003_003E']
         sex = ['B01001_002E', 'B01001_026E']
         race = ['B02001_0%02dE' % i for i in range(1, 11)]
@@ -125,33 +136,41 @@ class Starter:
         p_acs = c.block_group_query(all_columns, state, county, tract=tract)
 
         self.p_acs_cat = cat.categorize(p_acs, {
-            ("person_age", "19 and under"): "(B01001_003E + B01001_004E + B01001_005E + "
-                                     "B01001_006E + B01001_007E + B01001_027E + "
-                                     "B01001_028E + B01001_029E + B01001_030E + "
-                                     "B01001_031E) * B11002_001E*1.0/B01001_001E",
-            ("person_age", "20 to 35"): "(B01001_008E + B01001_009E + B01001_010E + "
-                                 "B01001_011E + B01001_012E + B01001_032E + "
-                                 "B01001_033E + B01001_034E + B01001_035E + "
-                                 "B01001_036E) * B11002_001E*1.0/B01001_001E",
-            ("person_age", "35 to 60"): "(B01001_013E + B01001_014E + B01001_015E + "
-                                 "B01001_016E + B01001_017E + B01001_037E + "
-                                 "B01001_038E + B01001_039E + B01001_040E + "
-                                 "B01001_041E) * B11002_001E*1.0/B01001_001E",
-            ("person_age", "above 60"): "(B01001_018E + B01001_019E + B01001_020E + "
-                                 "B01001_021E + B01001_022E + B01001_023E + "
-                                 "B01001_024E + B01001_025E + B01001_042E + "
-                                 "B01001_043E + B01001_044E + B01001_045E + "
-                                 "B01001_046E + B01001_047E + B01001_048E + "
-                                 "B01001_049E) * B11002_001E*1.0/B01001_001E",
+            ("person_age", "19 and under"):
+                "(B01001_003E + B01001_004E + B01001_005E + "
+                "B01001_006E + B01001_007E + B01001_027E + "
+                "B01001_028E + B01001_029E + B01001_030E + "
+                "B01001_031E) * B11002_001E*1.0/B01001_001E",
+            ("person_age", "20 to 35"):
+                "(B01001_008E + B01001_009E + B01001_010E + "
+                "B01001_011E + B01001_012E + B01001_032E + "
+                "B01001_033E + B01001_034E + B01001_035E + "
+                "B01001_036E) * B11002_001E*1.0/B01001_001E",
+            ("person_age", "35 to 60"):
+                "(B01001_013E + B01001_014E + B01001_015E + "
+                "B01001_016E + B01001_017E + B01001_037E + "
+                "B01001_038E + B01001_039E + B01001_040E + "
+                "B01001_041E) * B11002_001E*1.0/B01001_001E",
+            ("person_age", "above 60"):
+                "(B01001_018E + B01001_019E + B01001_020E + "
+                "B01001_021E + B01001_022E + B01001_023E + "
+                "B01001_024E + B01001_025E + B01001_042E + "
+                "B01001_043E + B01001_044E + B01001_045E + "
+                "B01001_046E + B01001_047E + B01001_048E + "
+                "B01001_049E) * B11002_001E*1.0/B01001_001E",
             ("race", "white"):   "(B02001_002E) * B11002_001E*1.0/B01001_001E",
             ("race", "black"):   "(B02001_003E) * B11002_001E*1.0/B01001_001E",
             ("race", "asian"):   "(B02001_005E) * B11002_001E*1.0/B01001_001E",
             ("race", "other"):   "(B02001_004E + B02001_006E + B02001_007E + "
                                  "B02001_008E) * B11002_001E*1.0/B01001_001E",
-            ("person_sex", "male"):     "(B01001_002E) * B11002_001E*1.0/B01001_001E",
-            ("person_sex", "female"):   "(B01001_026E) * B11002_001E*1.0/B01001_001E",
-            ("hispanic", "yes"):     "(B03003_003E) * B11002_001E*1.0/B01001_001E",
-            ("hispanic", "no"):   "(B03003_002E) * B11002_001E*1.0/B01001_001E",
+            ("person_sex", "male"):
+                "(B01001_002E) * B11002_001E*1.0/B01001_001E",
+            ("person_sex", "female"):
+                "(B01001_026E) * B11002_001E*1.0/B01001_001E",
+            ("hispanic", "yes"):
+                "(B03003_003E) * B11002_001E*1.0/B01001_001E",
+            ("hispanic", "no"):
+                "(B03003_002E) * B11002_001E*1.0/B01001_001E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
     def get_geography_name(self):
@@ -181,22 +200,26 @@ class Starter:
         if type(puma00) == str:
             h_pums = self.c.download_household_pums(ind.state, puma10, puma00)
             p_pums = self.c.download_population_pums(ind.state, puma10, puma00)
-        elif np.isnan(puma00): # only puma10 available
+        elif np.isnan(puma00):  # only puma10 available
             h_pums = self.c.download_household_pums(ind.state, puma10, None)
             p_pums = self.c.download_population_pums(ind.state, puma10, None)
-            
+
         h_pums = h_pums.set_index('serialno')
 
-        # join persons to households, calculate needed household-level variables
+        # join persons to households,
+        # calculate needed household-level variables
         age_of_head = p_pums[p_pums.RELP == 0].groupby('serialno').AGEP.max()
-        num_workers =  p_pums[p_pums.ESR.isin([1, 2, 4, 5])].groupby('serialno').size()
-        h_pums['race_of_head'] = p_pums[p_pums.RELP == 0].groupby('serialno').RAC1P.max()
-        h_pums['hispanic_head'] = p_pums[p_pums.RELP == 0].groupby('serialno').HISP.max()
+        num_workers = p_pums[p_pums.ESR.isin([1, 2, 4, 5])].groupby(
+            'serialno').size()
+        h_pums['race_of_head'] = p_pums[p_pums.RELP == 0].groupby(
+            'serialno').RAC1P.max()
+        h_pums['hispanic_head'] = p_pums[p_pums.RELP == 0].groupby(
+            'serialno').HISP.max()
         h_pums['age_of_head'] = age_of_head
         h_pums['workers'] = num_workers
         h_pums.workers = h_pums.workers.fillna(0)
         h_pums = h_pums.reset_index()
-        
+
         def sf_detached_cat(r):
             if r.BLD == 2:
                 return "yes"
@@ -208,7 +231,7 @@ class Starter:
             elif r.age_of_head >= 65:
                 return "gt65"
             return "gt35-lt65"
-            
+
         def race_of_head_cat(r):
             if r.race_of_head == 1:
                 return "white"
@@ -217,7 +240,7 @@ class Starter:
             elif r.race_of_head == 6:
                 return "asian"
             return "other"
-            
+
         def hispanic_head_cat(r):
             if r.hispanic_head == 1:
                 return "no"
@@ -243,7 +266,7 @@ class Starter:
             if r.R18 == 1:
                 return "yes"
             return "no"
-            
+
         def seniors_cat(r):
             if r.R65 > 0:
                 return "yes"
@@ -266,25 +289,30 @@ class Starter:
             elif r.workers == 1:
                 return "one"
             return "none"
-            
+
         def tenure_mover_cat(r):
             if (r.MV < 4) & (r.TEN < 3):
                 return "own recent"
             elif (r.MV >= 4) & (r.TEN < 3):
                 return "own not recent"
-            elif (r.MV < 4) & (r.TEN >=3):
+            elif (r.MV < 4) & (r.TEN >= 3):
                 return "rent recent"
             return "rent not recent"
 
         h_pums, jd_households = cat.joint_distribution(
             h_pums,
             cat.category_combinations(self.h_acs_cat.columns),
-            {"hh_cars": cars_cat, "hh_children": children_cat,
-             "hh_income": income_cat, "hh_workers": workers_cat,
-             "tenure_mover": tenure_mover_cat, "seniors":seniors_cat,
-             "hh_size":hh_size_cat, "hh_age_of_head":age_of_head_cat,
-             "sf_detached":sf_detached_cat, "hh_race_of_head":race_of_head_cat,
-             "hispanic_head":hispanic_head_cat}
+            {"hh_cars": cars_cat,
+             "hh_children": children_cat,
+             "hh_income": income_cat,
+             "hh_workers": workers_cat,
+             "tenure_mover": tenure_mover_cat,
+             "seniors": seniors_cat,
+             "hh_size": hh_size_cat,
+             "hh_age_of_head": age_of_head_cat,
+             "sf_detached": sf_detached_cat,
+             "hh_race_of_head": race_of_head_cat,
+             "hispanic_head": hispanic_head_cat}
         )
         return h_pums, jd_households
 
@@ -295,7 +323,7 @@ class Starter:
         # this is cached so won't download more than once
         if type(puma00) == str:
             p_pums = self.c.download_population_pums(ind.state, puma10, puma00)
-        elif np.isnan(puma00): # only puma10 available
+        elif np.isnan(puma00):  # only puma10 available
             p_pums = self.c.download_population_pums(ind.state, puma10, None)
 
         def age_cat(r):

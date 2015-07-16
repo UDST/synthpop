@@ -134,8 +134,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
                 hh_index_start=hh_index_start)
-                
-        #Append location identifiers to the synthesized households
+
+        # Append location identifiers to the synthesized households
         for geog_cat in geog_id.keys():
             households[geog_cat] = geog_id[geog_cat]
 
@@ -156,5 +156,5 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     # TODO might want to write this to disk as we go?
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
-    
+
     return (all_households, all_persons, fit_quality)
