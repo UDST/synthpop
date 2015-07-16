@@ -25,7 +25,8 @@ def test_block_group_and_tract_query(c):
                                        tract="030600")
 
     assert len(df) == 3
-    assert_series_equal(df["B11001_001E"], df["B08201_001E"])
+    assert_series_equal(
+      df["B11001_001E"], df["B08201_001E"], check_names=False)
     assert np.all(df.state == "06")
     assert np.all(df.county == "075")
 
@@ -39,7 +40,8 @@ def test_block_group_and_tract_query(c):
 
     # number of block groups in San Francisco
     assert len(df) == 581
-    assert_series_equal(df["B11001_001E"], df["B08201_001E"])
+    assert_series_equal(
+      df["B11001_001E"], df["B08201_001E"], check_names=False)
     assert np.all(df.state == "06")
     assert np.all(df.county == "075")
 
@@ -61,7 +63,7 @@ def test_wide_block_group_query(c):
 
 
 def test_tract_to_puma(c):
-    puma = c.tract_to_puma("06", "075", "030600")
+    puma = c.tract_to_puma("06", "075", "030600")[0]
     assert puma == "07506"
 
 
