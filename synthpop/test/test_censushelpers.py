@@ -63,7 +63,7 @@ def test_wide_block_group_query(c):
 
 
 def test_tract_to_puma(c):
-    puma = c.tract_to_puma("06", "075", "030600")
+    puma = c.tract_to_puma("06", "075", "030600")[0]
     assert puma == "07506"
 
 
