@@ -50,13 +50,12 @@ class Starter:
         families_columns = ['B11001_001E', 'B11001_002E']
         block_group_columns = income_columns + families_columns
         tract_columns = vehicle_columns + workers_columns
-        h_acs = c.block_group_and_tract_query(block_group_columns,
-                                              tract_columns, state, county,
-                                              merge_columns=['tract', 'county',
-                                                             'state'],
-                                              block_group_size_attr="B11001_001E",
-                                              tract_size_attr="B08201_001E",
-                                              tract=tract)
+        h_acs = c.block_group_and_tract_query(
+            block_group_columns, tract_columns, state, county,
+            merge_columns=['tract', 'county', 'state'],
+            block_group_size_attr="B11001_001E",
+            tract_size_attr="B08201_001E",
+            tract=tract)
 
         self.h_acs_cat = cat.categorize(h_acs, {
             ("children", "yes"): "B11001_002E",
@@ -86,10 +85,11 @@ class Starter:
         p_acs = c.block_group_query(all_columns, state, county, tract=tract)
 
         self.p_acs_cat = cat.categorize(p_acs, {
-            ("age", "19 and under"): "B01001_003E + B01001_004E + B01001_005E + "
-                                     "B01001_006E + B01001_007E + B01001_027E + "
-                                     "B01001_028E + B01001_029E + B01001_030E + "
-                                     "B01001_031E",
+            ("age", "19 and under"): (
+                "B01001_003E + B01001_004E + B01001_005E + "
+                "B01001_006E + B01001_007E + B01001_027E + "
+                "B01001_028E + B01001_029E + B01001_030E + "
+                "B01001_031E"),
             ("age", "20 to 35"): "B01001_008E + B01001_009E + B01001_010E + "
                                  "B01001_011E + B01001_012E + B01001_032E + "
                                  "B01001_033E + B01001_034E + B01001_035E + "
@@ -139,7 +139,7 @@ class Starter:
         # this is cached so won't download more than once
         if type(puma00) == str:
             h_pums = self.c.download_household_pums(ind.state, puma10, puma00)
-        elif np.isnan(puma00): # only puma10 available
+        elif np.isnan(puma00):  # only puma10 available
             h_pums = self.c.download_household_pums(ind.state, puma10, None)
 
         def cars_cat(r):
@@ -185,7 +185,7 @@ class Starter:
         # this is cached so won't download more than once
         if type(puma00) == str:
             p_pums = self.c.download_population_pums(ind.state, puma10, puma00)
-        elif np.isnan(puma00): # only puma10 available
+        elif np.isnan(puma00):  # only puma10 available
             p_pums = self.c.download_population_pums(ind.state, puma10, None)
 
         def age_cat(r):

@@ -47,7 +47,8 @@ def calculate_constraints(
     prev_constraints = constraints.copy()
     prev_constraints += tolerance  # ensure we run at least one iteration
 
-    calc_diff = lambda x, y: np.abs(x - y).sum()
+    def calc_diff(x, y):
+        return np.abs(x - y).sum()
 
     iterations = 0
 
