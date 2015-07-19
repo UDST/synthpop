@@ -155,6 +155,10 @@ class Census:
         q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % \
             (state, county, tract)
         r = df.query(q)
+        if len(r) == 0: # tract not found in xref
+            q = "statefp == '%s' and countyfp == '%s'" % \
+                (state, county)
+            r = df.query(q)
         return r["puma10_id"].values[0], r["puma00_id"].values[0]
 
     def _read_csv(self, loc):
