@@ -82,6 +82,51 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     return draw.draw_households(
         num_households, h_pums, p_pums, household_freq, h_constraint,
         p_constraint, best_weights, hh_index_start=hh_index_start)
+        
+        
+def synthesize_geography(recipe, geog_id, marginal_zero_sub, jd_zero_sub, hh_index_start):
+
+    print "Synthesizing geog id:\n", geog_id
+
+    h_marg = recipe.get_household_marginal_for_geography(geog_id)
+    logger.debug("Household marginal")
+    logger.debug(h_marg)
+
+    p_marg = recipe.get_person_marginal_for_geography(geog_id)
+    logger.debug("Person marginal")
+    logger.debug(p_marg)
+
+    h_pums, h_jd = recipe.\
+        get_household_joint_dist_for_geography(geog_id)
+    logger.debug("Household joint distribution")
+    logger.debug(h_jd)
+
+    p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
+    logger.debug("Person joint distribution")
+    logger.debug(p_jd)
+
+    households, people, people_chisq, people_p = \
+        synthesize(
+            h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+            marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
+            hh_index_start=hh_index_start)
+
+    # Append location identifiers to the synthesized households
+    for geog_cat in geog_id.keys():
+        households[geog_cat] = geog_id[geog_cat]
+
+    key = BlockGroupID(
+        geog_id['state'], geog_id['county'], geog_id['tract'],
+        geog_id['block group'])
+        
+    return households, people, key, FitQuality(people_chisq, people_p)
+    
+   
+def get_geographies(recipe):
+    print "Getting geographies at geog level: '{}' (number of geographies is {})".\
+        format(recipe.get_geography_name(), recipe.get_num_geographies())
+        
+    return recipe.get_available_geography_ids()
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
@@ -96,11 +141,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         and ``people_p``.
 
     """
-    print "Synthesizing at geog level: '{}' (number of geographies is {})".\
-        format(recipe.get_geography_name(), recipe.get_num_geographies())
-
     if indexes is None:
-        indexes = recipe.get_available_geography_ids()
+        indexes = get_geographies(recipe)
 
     hh_list = []
     people_list = []
@@ -110,42 +152,12 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
     # TODO will parallelization work here?
     for geog_id in indexes:
-        print "Synthesizing geog id:\n", geog_id
+        households, people, key, fit = synthesize_geography(recipe, geog_id, marginal_zero_sub, jd_zero_sub, hh_index_start)
 
-        h_marg = recipe.get_household_marginal_for_geography(geog_id)
-        logger.debug("Household marginal")
-        logger.debug(h_marg)
-
-        p_marg = recipe.get_person_marginal_for_geography(geog_id)
-        logger.debug("Person marginal")
-        logger.debug(p_marg)
-
-        h_pums, h_jd = recipe.\
-            get_household_joint_dist_for_geography(geog_id)
-        logger.debug("Household joint distribution")
-        logger.debug(h_jd)
-
-        p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
-        logger.debug("Person joint distribution")
-        logger.debug(p_jd)
-
-        households, people, people_chisq, people_p = \
-            synthesize(
-                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
-                hh_index_start=hh_index_start)
-
-        # Append location identifiers to the synthesized households
-        for geog_cat in geog_id.keys():
-            households[geog_cat] = geog_id[geog_cat]
-
+        fit_quality[key] = fit
         hh_list.append(households)
         people_list.append(people)
-        key = BlockGroupID(
-            geog_id['state'], geog_id['county'], geog_id['tract'],
-            geog_id['block group'])
-        fit_quality[key] = FitQuality(people_chisq, people_p)
-
+        
         cnt += 1
         if len(households) > 0:
             hh_index_start = households.index.values[-1] + 1
