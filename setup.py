@@ -7,14 +7,13 @@ setup(
     name='SynthPop',
     version='0.1dev',
     description='Population Synthesis',
-    author='Synthicity',
-    author_email='ffoti@synthicity.com',
-    license='AGPL',
-    url='https://github.com/synthicity/synthpop',
+    author='Autodesk',
+    author_email='udst@autodesk.com',
+    license='BSD',
+    url='https://github.com/udst/synthpop',
     classifiers=[
         'Development Status :: 4 - Beta',
-        'Programming Language :: Python :: 2.7',
-        'License :: OSI Approved :: GNU Affero General Public License v3'
+        'Programming Language :: Python :: 2.7'
     ],
     packages=find_packages(exclude=['*.tests']),
     install_requires=[

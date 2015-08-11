@@ -1,13 +1,13 @@
 SynthPop
 ========
 
-.. image:: https://travis-ci.org/synthicity/synthpop.svg?branch=master
+.. image:: https://travis-ci.org/UDST/synthpop.svg?branch=master
    :alt: Build Status
-   :target: https://travis-ci.org/synthicity/synthpop
+   :target: https://travis-ci.org/UDST/synthpop
 
-.. image:: https://coveralls.io/repos/synthicity/synthpop/badge.png?branch=master
+.. image:: https://coveralls.io/repos/UDST/synthpop/badge.svg?branch=master
    :alt: Test Coverage
-   :target: https://coveralls.io/r/synthicity/synthpop?branch=master
+   :target: https://coveralls.io/r/UDST/synthpop?branch=master
 
 SynthPop is a reimplementation of `PopGen`_ using the modern scientific Python
 stack, with a focus on performance and code reusability.
