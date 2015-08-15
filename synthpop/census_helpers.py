@@ -163,11 +163,22 @@ class Census:
 
     def _read_csv(self, loc):
         if loc not in self.pums_cache:
-            pums_df = pd.read_csv(loc, dtype={
-                "PUMA10": "object",
-                "PUMA00": "object",
-                "ST": "object"
-            })
+            try:
+                pums_df = pd.read_csv(loc, dtype={
+                    "PUMA10": "object",
+                    "PUMA00": "object",
+                    "ST": "object"
+                })
+            except:
+                print 'Could not connect to S3 to download PUMS-  waiting 20 seconds to retry'
+                print loc
+                import time
+                time.sleep(20)
+                pums_df = pd.read_csv(loc, dtype={
+                    "PUMA10": "object",
+                    "PUMA00": "object",
+                    "ST": "object"
+                })
             pums_df = pums_df.rename(columns={
                 'PUMA10': 'puma10',
                 'PUMA00': 'puma00',
