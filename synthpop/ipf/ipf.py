@@ -52,10 +52,10 @@ def calculate_constraints(
 
     iterations = 0
 
-    list_of_loc = (
+    list_of_loc = [
         ((flat_joint_dist[idx[0]] == idx[1]).values, marginals[idx])
         for idx in marginals.index
-    )
+    ]
 
     while calc_diff(constraints, prev_constraints) > tolerance:
         prev_constraints[:] = constraints
