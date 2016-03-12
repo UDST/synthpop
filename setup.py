@@ -7,8 +7,8 @@ setup(
     name='SynthPop',
     version='0.1dev',
     description='Population Synthesis',
-    author='Autodesk',
-    author_email='udst@autodesk.com',
+    author='UrbanSim Inc.',
+    author_email='udst@urbansim.com',
     license='BSD',
     url='https://github.com/udst/synthpop',
     classifiers=[
