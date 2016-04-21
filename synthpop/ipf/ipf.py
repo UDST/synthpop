@@ -52,6 +52,12 @@ def calculate_constraints(
 
     iterations = 0
 
+    sums = marginals.groupby(level=0).sum()
+    if sums.max() - sums.min() > 0.01:
+        raise RuntimeError(
+            'Marginals do not add up ipf will not converge: {}'.format(sums))
+    del sums
+
     list_of_loc = [
         ((flat_joint_dist[idx[0]] == idx[1]).values, marginals[idx])
         for idx in marginals.index
