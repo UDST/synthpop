@@ -154,7 +154,7 @@ def compare_to_constraints(synth, constraints):
 
     # need to add zeros to counts for any categories that are
     # in the constraints but not in the counts
-    diff = constraints.index.diff(counts.index)
+    diff = constraints.index.difference(counts.index)
     counts = counts.combine_first(
         pd.Series(np.zeros(len(diff), dtype='int'), index=diff))
 
