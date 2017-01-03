@@ -20,7 +20,7 @@ setup(
         'census>=0.5',
         'numexpr>=2.3.1',
         'numpy>=1.8.0',
-        'pandas>=0.13.1',
+        'pandas>=0.15.0',
         'scipy>=0.13.3',
         'us>=0.8'
     ]
