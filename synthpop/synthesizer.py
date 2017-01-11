@@ -47,7 +47,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     # ipf for persons
     logger.info("Running ipf for persons")
     p_constraint, _ = calculate_constraints(p_marg, p_jd.frequency)
-    p_constraint.index = p_jd.cat_id
+    # p_constraint.index = p_jd.cat_id
 
     logger.debug("Person constraint")
     logger.debug(p_constraint)
@@ -56,10 +56,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     p_starting_cat_id = h_jd['cat_id'].max() + 1
     p_jd['cat_id'] += p_starting_cat_id
     p_pums['cat_id'] += p_starting_cat_id
-
-    # modify constraint indexes to match cat_ids
-    h_constraint.index = np.arange(len(h_constraint))
-    p_constraint.index = np.arange(len(p_constraint)) + p_starting_cat_id
+    p_constraint.index = p_jd.cat_id
 
     # make frequency tables that the ipu expects
     household_freq, person_freq = cat.frequency_tables(p_pums, h_pums,

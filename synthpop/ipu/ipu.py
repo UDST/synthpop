@@ -84,7 +84,7 @@ class _FrequencyAndConstraints(object):
         keys = set([c[0] for c in self.iter_columns()])
         assert len(set(household_freq.columns) - keys) == 0
         if has_pers:
-            assert len(set(household_freq.columns) - keys) == 0
+            assert len(set(person_freq.columns) - keys) == 0
             assert self.ncols == len(household_freq.columns) + len(person_freq.columns)
 
     def iter_columns(self):
