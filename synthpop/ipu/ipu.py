@@ -65,7 +65,8 @@ class _FrequencyAndConstraints(object):
         hh_cols = ((key, col, household_constraints[key], nz)
                    for key, col, nz in _drop_zeros(household_freq))
 
-        if person_freq is not None and person_constraints is not None:
+        has_pers = person_freq is not None and person_constraints is not None
+        if has_pers:
             p_cols = ((key, col, person_constraints[key], nz)
                       for key, col, nz in _drop_zeros(person_freq))
         else:
@@ -74,6 +75,17 @@ class _FrequencyAndConstraints(object):
         self._everything = OrderedDict(
             (t[0], t) for t in itertools.chain(hh_cols, p_cols))
         self.ncols = len(self._everything)
+
+        """
+        Check for problems in the resulting keys.
+        These typically arise when column names are shared accross
+        households and persons.
+        """
+        keys = set([c[0] for c in self.iter_columns()])
+        assert len(set(household_freq.columns) - keys) == 0
+        if has_pers:
+            assert len(set(person_freq.columns) - keys) == 0
+            assert self.ncols == len(household_freq.columns) + len(person_freq.columns)
 
     def iter_columns(self):
         """
