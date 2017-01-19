@@ -68,7 +68,7 @@ def joint_distribution(sample_df, category_df, mapping_functions):
                                           "mapping function with the same " \
                                           "name to define that category for " \
                                           "the pums sample records"
-        sample_df[name] = sample_df.apply(mapping_functions[name], axis=1)
+        sample_df[name] = sample_df.apply(mapping_functions[name], axis=1).astype('category')
 
     category_df["frequency"] = sample_df.groupby(category_names).size()
     category_df["frequency"] = category_df["frequency"].fillna(0)
