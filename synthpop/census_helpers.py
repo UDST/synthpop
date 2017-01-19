@@ -157,13 +157,13 @@ class Census:
         r = df.query(q)
         return r["puma10_id"].values[0], r["puma00_id"].values[0]
 
-    def _read_csv(self, loc):
+    def _read_csv(self, loc, **kargs):
         if loc not in self.pums_cache:
             pums_df = pd.read_csv(loc, dtype={
                 "PUMA10": "object",
                 "PUMA00": "object",
                 "ST": "object"
-            })
+            }, **kargs)
             pums_df = pums_df.rename(columns={
                 'PUMA10': 'puma10',
                 'PUMA00': 'puma00',
@@ -172,27 +172,23 @@ class Census:
             self.pums_cache[loc] = pums_df
         return self.pums_cache[loc]
 
-    def download_population_pums(self, state, puma10=None, puma00=None):
+    def download_population_pums(self, state, puma10=None, puma00=None, **kargs):
         state = self.try_fips_lookup(state)
         if (puma10 is None) & (puma00 is None):
-            return self._read_csv(
-                self.pums_population_state_base_url % (state))
-        pums = self._read_csv(
-            self.pums10_population_base_url % (state, puma10))
+            return self._read_csv(self.pums_population_state_base_url % (state), **kargs)
+        pums = self._read_csv(self.pums10_population_base_url % (state, puma10), **kargs)
         if puma00 is not None:
-            pums00 = self._read_csv(
-                self.pums00_population_base_url % (state, puma00))
+            pums00 = self._read_csv(self.pums00_population_base_url % (state, puma00), **kargs)
             pums = pd.concat([pums, pums00], ignore_index=True)
         return pums
 
-    def download_household_pums(self, state, puma10=None, puma00=None):
+    def download_household_pums(self, state, puma10=None, puma00=None, **kargs):
         state = self.try_fips_lookup(state)
         if (puma10 is None) & (puma00 is None):
-            return self._read_csv(self.pums_household_state_base_url % (state))
-        pums = self._read_csv(self.pums10_household_base_url % (state, puma10))
+            return self._read_csv(self.pums_household_state_base_url % (state), **kargs)
+        pums = self._read_csv(self.pums10_household_base_url % (state, puma10), **kargs)
         if puma00 is not None:
-            pums00 = self._read_csv(
-                self.pums00_household_base_url % (state, puma00))
+            pums00 = self._read_csv(self.pums00_household_base_url % (state, puma00), **kargs)
             pums = pd.concat([pums, pums00], ignore_index=True)
 
         # filter out gq and empty units (non-hh records)
