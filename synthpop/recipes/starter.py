@@ -113,6 +113,12 @@ class Starter:
             ("sex", "female"):   "B01001_026E"
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
+        self.h_pums_cols = ('SERIALNO', 'PUMA00', 'PUMA10', 'ST', 'TEN',
+                            'NP', 'VEH', 'R18', 'RT', 'ADJINC', 'NP',
+                            'NOC', 'YBL', 'BLD', 'VALP', 'GRNTP', 'HINCP', 'ADJHSG', 'TYPE')
+        self.p_pums_cols = (
+            'SERIALNO', 'PUMA00', 'PUMA10', 'ST', 'RELP', 'AGEP', 'HISP', 'RAC1P', 'ESR', 'SEX', 'SPORDER')
+
     def get_geography_name(self):
         # this synthesis is at the block group level for most variables
         return "block_group"
@@ -138,9 +144,9 @@ class Starter:
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
         if type(puma00) == str:
-            h_pums = self.c.download_household_pums(ind.state, puma10, puma00)
+            h_pums = self.c.download_household_pums(ind.state, puma10, puma00, usecols=self.h_pums_cols)
         elif np.isnan(puma00):  # only puma10 available
-            h_pums = self.c.download_household_pums(ind.state, puma10, None)
+            h_pums = self.c.download_household_pums(ind.state, puma10, None, usecols=self.h_pums_cols)
 
         def cars_cat(r):
             if r.VEH == 0:
@@ -184,9 +190,9 @@ class Starter:
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
         if type(puma00) == str:
-            p_pums = self.c.download_population_pums(ind.state, puma10, puma00)
+            p_pums = self.c.download_population_pums(ind.state, puma10, puma00, usecols=self.p_pums_cols)
         elif np.isnan(puma00):  # only puma10 available
-            p_pums = self.c.download_population_pums(ind.state, puma10, None)
+            p_pums = self.c.download_population_pums(ind.state, puma10, None, usecols=self.p_pums_cols)
 
         def age_cat(r):
             if r.AGEP <= 19:
