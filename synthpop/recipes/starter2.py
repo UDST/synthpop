@@ -173,11 +173,9 @@ class Starter:
                 "(B03003_002E) * B11002_001E*1.0/B01001_001E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
-        self.h_pums_cols = ('SERIALNO', 'PUMA00', 'PUMA10', 'ST', 'TEN',
-                            'NP', 'VEH', 'R18', 'RT', 'ADJINC', 'NP',
-                            'NOC', 'YBL', 'BLD', 'VALP', 'GRNTP', 'HINCP', 'ADJHSG', 'TYPE')
-        self.p_pums_cols = (
-        'SERIALNO', 'PUMA00', 'PUMA10', 'ST', 'RELP', 'AGEP', 'HISP', 'RAC1P', 'ESR', 'SEX', 'SPORDER')
+        self.h_pums_cols = (
+            'serialno', 'PUMA00', 'PUMA10', 'RT', 'NP', 'TYPE', 'R65', 'HINCP', 'VEH', 'MV', 'TEN', 'BLD', 'R18')
+        self.p_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RELP', 'AGEP', 'ESR', 'RAC1P', 'HISP', 'SEX')
 
     def get_geography_name(self):
         # this synthesis is at the block group level for most variables
