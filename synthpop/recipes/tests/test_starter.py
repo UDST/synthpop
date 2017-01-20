@@ -1,5 +1,4 @@
 import pytest
-from ..starter import Starter
 from ...synthesizer import *
 
 
@@ -9,6 +8,14 @@ def key():
 
 
 def test_starter(key):
+    from ..starter import Starter
+    st = Starter(key, "CA", "Napa County")
+    # just run it for now
+    synthesize_all(st, num_geogs=1)
+
+
+def test_starter2(key):
+    from ..starter2 import Starter
     st = Starter(key, "CA", "Napa County")
     # just run it for now
     synthesize_all(st, num_geogs=1)
