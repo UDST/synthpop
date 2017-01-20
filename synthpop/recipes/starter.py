@@ -113,7 +113,8 @@ class Starter:
             ("sex", "female"):   "B01001_026E"
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
-        self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP', 'TYPE', 'VEH', 'WIF', 'NOC', 'FINCP')
+        self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP',
+                            'TYPE', 'VEH', 'WIF', 'NOC', 'FINCP')
         self.p_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'AGEP', 'RAC1P', 'SEX')
 
     def get_geography_name(self):
@@ -141,9 +142,11 @@ class Starter:
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
         if type(puma00) == str:
-            h_pums = self.c.download_household_pums(ind.state, puma10, puma00, usecols=self.h_pums_cols)
+            h_pums = self.c.download_household_pums(ind.state, puma10, puma00,
+                                                    usecols=self.h_pums_cols)
         elif np.isnan(puma00):  # only puma10 available
-            h_pums = self.c.download_household_pums(ind.state, puma10, None, usecols=self.h_pums_cols)
+            h_pums = self.c.download_household_pums(ind.state, puma10, None,
+                                                    usecols=self.h_pums_cols)
 
         def cars_cat(r):
             if r.VEH == 0:
@@ -187,9 +190,11 @@ class Starter:
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
         # this is cached so won't download more than once
         if type(puma00) == str:
-            p_pums = self.c.download_population_pums(ind.state, puma10, puma00, usecols=self.p_pums_cols)
+            p_pums = self.c.download_population_pums(ind.state, puma10, puma00,
+                                                     usecols=self.p_pums_cols)
         elif np.isnan(puma00):  # only puma10 available
-            p_pums = self.c.download_population_pums(ind.state, puma10, None, usecols=self.p_pums_cols)
+            p_pums = self.c.download_population_pums(ind.state, puma10, None,
+                                                     usecols=self.p_pums_cols)
 
         def age_cat(r):
             if r.AGEP <= 19:
