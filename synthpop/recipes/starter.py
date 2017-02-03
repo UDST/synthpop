@@ -113,6 +113,8 @@ class Starter:
             ("sex", "female"):   "B01001_026E"
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
+        # Put the needed PUMS variables here.  These are also the PUMS variables
+        # that will be in the outputted synthetic population
         self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP',
                             'TYPE', 'VEH', 'WIF', 'NOC', 'FINCP')
         self.p_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'AGEP', 'RAC1P', 'SEX')
