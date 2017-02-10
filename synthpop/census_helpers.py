@@ -9,7 +9,7 @@ class Census:
 
     def __init__(self, key):
         self.c = census.Census(key)
-        self.base_url = "https://s3-us-west-2.amazonaws.com/synthpop-data/"
+        self.base_url = "https://s3-us-west-1.amazonaws.com/synthpop-data2/"
         self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
         self.pums_relationship_df = None
         self.pums10_population_base_url = \
