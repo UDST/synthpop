@@ -6,11 +6,12 @@ import pandas as pd
 from .synthesizer import synthesize, enable_logging
 from . import categorizer as cat
 
-def load_data(hh_marginal_file, person_marginal_file, 
+
+def load_data(hh_marginal_file, person_marginal_file,
               hh_sample_file, person_sample_file):
     """
     Load and process data inputs from .csv files on disk
-    
+
     Parameters
     ----------
     hh_marginal_file : string
@@ -37,25 +38,25 @@ def load_data(hh_marginal_file, person_marginal_file,
     hh_sample = pd.read_csv(hh_sample_file)
     p_sample = pd.read_csv(person_sample_file)
 
-    hh_marg = pd.read_csv(hh_marginal_file,header=[0,1],index_col=0)
+    hh_marg = pd.read_csv(hh_marginal_file, header=[0, 1], index_col=0)
     hh_marg.columns.levels[0].name = 'cat_name'
     hh_marg.columns.levels[1].name = 'cat_values'
 
     xwalk = zip(hh_marg.index, hh_marg.sample_geog.unstack().values)
-    hh_marg = hh_marg.drop('sample_geog',axis=1,level=0)
+    hh_marg = hh_marg.drop('sample_geog', axis=1, level=0)
 
-    p_marg = pd.read_csv(person_marginal_file,header=[0,1],index_col=0)
+    p_marg = pd.read_csv(person_marginal_file, header=[0, 1], index_col=0)
     p_marg.columns.levels[0].name = 'cat_name'
     p_marg.columns.levels[1].name = 'cat_values'
-    
+
     return hh_marg, p_marg, hh_sample, p_sample, xwalk
 
 
 def get_joint_distribution(sample_df, marg):
     """
-    Categorize sample data and create joint frequency 
+    Categorize sample data and create joint frequency
     distribution for all categories
-    
+
     Parameters
     ----------
     sample_df : pandas.DataFrame
@@ -83,7 +84,7 @@ def get_joint_distribution(sample_df, marg):
 def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     """
     Iterate over a geography crosswalk list and synthesize in-line
-    
+
     Parameters
     ----------
     hh_marg : pandas.DataFrame
@@ -111,14 +112,14 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     hh_index_start = 1
     for geog, sg in xwalk:
         hhs, hh_jd = get_joint_distribution(
-                hh_sample[hh_sample.sample_geog==sg], hh_marg)
+                hh_sample[hh_sample.sample_geog == sg], hh_marg)
         ps, p_jd = get_joint_distribution(
-                p_sample[p_sample.sample_geog==sg], p_marg)
+                p_sample[p_sample.sample_geog == sg], p_marg)
         households, people, people_chisq, people_p = synthesize(
                 hh_marg.loc[geog], p_marg.loc[geog], hh_jd, p_jd, hhs, ps,
                 hh_index_start=hh_index_start)
         households['geog'] = geog
-        stats = {'geog':geog,'chi-square':people_chisq,'p-score':people_p}
+        stats = {'geog': geog, 'chi-square': people_chisq, 'p-score': people_p}
         stats_list.append(stats)
         hh_list.append(households)
         people_list.append(people)
@@ -127,7 +128,7 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
             hh_index_start = households.index.values[-1] + 1
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list)
-    all_persons.rename(columns={'hh_id':'household_id'},inplace=True)
+    all_persons.rename(columns={'hh_id': 'household_id'}, inplace=True)
     all_stats = pd.DataFrame(stats_list)
     return all_households, all_persons, all_stats
 
@@ -135,7 +136,7 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
 def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     """
     Synthesize a single zone (Used within multiprocessing synthesis)
-    
+
     Parameters
     ----------
     hh_marg : pandas.DataFrame
@@ -158,15 +159,15 @@ def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
         chi-square and p-score values for marginal geography drawn
     """
     hhs, hh_jd = get_joint_distribution(
-            hh_sample[hh_sample.sample_geog==xwalk[1]], hh_marg)
+            hh_sample[hh_sample.sample_geog == xwalk[1]], hh_marg)
     ps, p_jd = get_joint_distribution(
-            p_sample[p_sample.sample_geog==xwalk[1]], p_marg)
+            p_sample[p_sample.sample_geog == xwalk[1]], p_marg)
     households, people, people_chisq, people_p = synthesize(
             hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps,
             hh_index_start=1)
     households['geog'] = xwalk[0]
     people['geog'] = xwalk[0]
-    stats = {'geog':xwalk[0],'chi-square':people_chisq,'p-score':people_p}
+    stats = {'geog': xwalk[0], 'chi-square': people_chisq, 'p-score': people_p}
     return households, people, stats
 
 
@@ -174,7 +175,7 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
                             p_sample, xwalk, cores=False):
     """
     Synthesize for a set of marginal geographies via multiprocessing
-    
+
     Parameters
     ----------
     hh_marg : pandas.DataFrame
@@ -205,7 +206,7 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
     results = p.map(part, list(xwalk))
     p.close()
     p.join()
-    
+
     hh_list = [result[0] for result in results]
     people_list = [result[1] for result in results]
     all_stats = pd.DataFrame([result[2] for result in results])
@@ -214,9 +215,9 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
     all_households['hh_id'] = all_households.index
     all_households['household_id'] = range(1, len(all_households.index)+1)
     all_persons = pd.merge(
-            all_persons, all_households[['household_id','geog','hh_id']],
-            how='left', left_on=['geog','hh_id'], right_on=['geog','hh_id'],
-            suffixes=('','_x')).drop('hh_id',axis=1)
-    all_households.set_index('household_id',inplace=True)
-    all_households.drop('hh_id',axis=1,inplace=True)
+            all_persons, all_households[['household_id', 'geog', 'hh_id']],
+            how='left', left_on=['geog', 'hh_id'], right_on=['geog', 'hh_id'],
+            suffixes=('', '_x')).drop('hh_id', axis=1)
+    all_households.set_index('household_id', inplace=True)
+    all_households.drop('hh_id', axis=1, inplace=True)
     return all_persons, all_households, all_stats
