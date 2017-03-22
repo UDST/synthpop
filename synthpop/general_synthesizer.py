@@ -7,7 +7,8 @@ import pandas as pd
 from .synthesizer import synthesize, enable_logging
 from . import categorizer as cat
 
-def load_data(hh_marginal_file, person_marginal_file, hh_sample_file, person_sample_file):
+def load_data(hh_marginal_file, person_marginal_file, 
+              hh_sample_file, person_sample_file):
     """
     Load and process data inputs from .csv files on disk
     
@@ -110,12 +111,13 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     stats_list = []
     hh_index_start = 1
     for geog, sg in xwalk:
-        hhs, hh_jd = get_joint_distribution(hh_sample[hh_sample.sample_geog==sg], hh_marg)
-        ps, p_jd = get_joint_distribution(p_sample[p_sample.sample_geog==sg], p_marg)
-        households, people, people_chisq, people_p = synthesize(hh_marg.loc[geog],
-                                                                p_marg.loc[geog],
-                                                                hh_jd, p_jd, hhs, ps,      
-                                                                hh_index_start=hh_index_start)
+        hhs, hh_jd = get_joint_distribution(
+                hh_sample[hh_sample.sample_geog==sg], hh_marg)
+        ps, p_jd = get_joint_distribution(
+                p_sample[p_sample.sample_geog==sg], p_marg)
+        households, people, people_chisq, people_p = synthesize(
+                hh_marg.loc[geog], p_marg.loc[geog], hh_jd, p_jd, hhs, ps,
+                hh_index_start=hh_index_start)
         households['geog'] = geog
         stats = {'geog':geog,'chi-square':people_chisq,'p-score':people_p}
         stats_list.append(stats)
@@ -156,19 +158,21 @@ def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     _stats : pandas.DataFrame
         chi-square and p-score values for marginal geography drawn
     """
-    hhs, hh_jd = get_joint_distribution(hh_sample[hh_sample.sample_geog==xwalk[1]], hh_marg)
-    ps, p_jd = get_joint_distribution(p_sample[p_sample.sample_geog==xwalk[1]], p_marg)
-    households, people, people_chisq, people_p = synthesize(hh_marg.loc[xwalk[0]],
-                                                            p_marg.loc[xwalk[0]],
-                                                            hh_jd, p_jd, hhs, ps,
-                                                            hh_index_start=1)
+    hhs, hh_jd = get_joint_distribution(
+            hh_sample[hh_sample.sample_geog==xwalk[1]], hh_marg)
+    ps, p_jd = get_joint_distribution(
+            p_sample[p_sample.sample_geog==xwalk[1]], p_marg)
+    households, people, people_chisq, people_p = synthesize(
+            hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps,
+            hh_index_start=1)
     households['geog'] = xwalk[0]
     people['geog'] = xwalk[0]
     stats = {'geog':xwalk[0],'chi-square':people_chisq,'p-score':people_p}
     return households, people, stats
 
 
-def multiprocess_synthesize(hh_marg, p_marg, hh_sample, p_sample, xwalk, cores=False):
+def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
+                            p_sample, xwalk, cores=False):
     """
     Synthesize for a set of marginal geographies via multiprocessing
     
@@ -210,10 +214,10 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample, p_sample, xwalk, cores=F
     all_persons = pd.concat(people_list)
     all_households['hh_id'] = all_households.index
     all_households['household_id'] = range(1, len(all_households.index)+1)
-    all_persons = pd.merge(all_persons, all_households[['household_id','geog','hh_id']],
-                           how='left', left_on=['geog','hh_id'],
-                           right_on=['geog','hh_id'], suffixes=('','_x'))\
-                           .drop('hh_id',axis=1)
+    all_persons = pd.merge(
+            all_persons, all_households[['household_id','geog','hh_id']],
+            how='left', left_on=['geog','hh_id'], right_on=['geog','hh_id'],
+            suffixes=('','_x')).drop('hh_id',axis=1)
     all_households.set_index('household_id',inplace=True)
     all_households.drop('hh_id',axis=1,inplace=True)
     return all_persons, all_households, all_stats
