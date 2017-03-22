@@ -1,7 +1,6 @@
-import multiprocessing
-import os
-
 from functools import partial
+import multiprocessing
+
 import pandas as pd
 
 from .synthesizer import synthesize, enable_logging
