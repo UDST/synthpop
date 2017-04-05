@@ -78,6 +78,7 @@ def get_joint_distribution(sample_df, marg):
     category_df["frequency"] = category_df["frequency"].fillna(0)
     sample_df = pd.merge(sample_df, category_df[["cat_id"]],
                          left_on=category_names, right_index=True)
+    
     return sample_df, category_df
 
 
@@ -110,16 +111,8 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     people_list = []
     stats_list = []
     hh_index_start = 1
-    for geog, sg in xwalk:
-        hhs, hh_jd = get_joint_distribution(
-                hh_sample[hh_sample.sample_geog == sg], hh_marg)
-        ps, p_jd = get_joint_distribution(
-                p_sample[p_sample.sample_geog == sg], p_marg)
-        households, people, people_chisq, people_p = synthesize(
-                hh_marg.loc[geog], p_marg.loc[geog], hh_jd, p_jd, hhs, ps,
-                hh_index_start=hh_index_start)
-        households['geog'] = geog
-        stats = {'geog': geog, 'chi-square': people_chisq, 'p-score': people_p}
+    for geogs in xwalk:
+        households, people, stats = synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, geogs)
         stats_list.append(stats)
         hh_list.append(households)
         people_list.append(people)
@@ -128,7 +121,14 @@ def synthesize_all_zones(hh_marg, p_marg, hh_sample, p_sample, xwalk):
             hh_index_start = households.index.values[-1] + 1
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list)
-    all_persons.rename(columns={'hh_id': 'household_id'}, inplace=True)
+    all_households['hh_id'] = all_households.index
+    all_households['household_id'] = range(1, len(all_households.index)+1)
+    all_persons = pd.merge(
+            all_persons, all_households[['household_id', 'geog', 'hh_id']],
+            how='left', left_on=['geog', 'hh_id'], right_on=['geog', 'hh_id'],
+            suffixes=('', '_x')).drop('hh_id', axis=1)
+    all_households.set_index('household_id', inplace=True)
+    all_households.drop('hh_id', axis=1, inplace=True)
     all_stats = pd.DataFrame(stats_list)
     return all_households, all_persons, all_stats
 
@@ -158,10 +158,12 @@ def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
     _stats : pandas.DataFrame
         chi-square and p-score values for marginal geography drawn
     """
-    hhs, hh_jd = get_joint_distribution(
-            hh_sample[hh_sample.sample_geog == xwalk[1]], hh_marg)
-    ps, p_jd = get_joint_distribution(
-            p_sample[p_sample.sample_geog == xwalk[1]], p_marg)
+    hhs, hh_jd = cat.joint_distribution(
+            hh_sample[hh_sample.sample_geog == xwalk[1]],
+            cat.category_combinations(hh_marg.columns))
+    ps, p_jd = cat.joint_distribution(
+            p_sample[p_sample.sample_geog == xwalk[1]],
+            cat.category_combinations(p_marg.columns))
     households, people, people_chisq, people_p = synthesize(
             hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps,
             hh_index_start=1)

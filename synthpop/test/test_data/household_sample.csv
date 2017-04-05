@@ -1,0 +1,3150 @@
+serialno,sample_geog,cars,workers,children,income,VEH,FINCP,NOC,WIF
+2012000013083,1,two or more,none,no,lt35,3,11400,0,0
+2012000023543,1,two or more,none,no,lt35,2,,0,
+2012000058856,1,two or more,none,no,lt35,2,,0,
+2012000062123,1,two or more,none,no,lt35,3,30300,0,0
+2012000066729,1,two or more,none,no,lt35,2,,0,
+2012000069987,1,two or more,none,no,lt35,2,,0,
+2012000085190,1,two or more,none,no,lt35,2,0,0,0
+2012000089610,1,two or more,none,no,lt35,2,,0,
+2012000123743,1,two or more,none,no,lt35,2,22800,0,0
+2012000143825,1,two or more,none,no,lt35,3,,0,
+2012000157312,1,two or more,none,no,lt35,3,,0,
+2012000176132,1,two or more,none,no,lt35,4,,0,
+2012000197969,1,two or more,none,no,lt35,3,21900,0,0
+2012000213613,1,two or more,none,no,lt35,3,,0,
+2012000231936,1,two or more,none,no,lt35,2,,0,
+2012000264884,1,two or more,none,no,lt35,2,28000,0,0
+2012000273712,1,two or more,none,no,lt35,4,,0,
+2012000298718,1,two or more,none,no,lt35,2,34200,0,0
+2012000316809,1,two or more,none,no,lt35,2,32700,0,0
+2012000330635,1,two or more,none,no,lt35,3,,0,
+2012000332179,1,two or more,none,no,lt35,2,26500,0,0
+2012000340623,1,two or more,none,no,lt35,2,,0,
+2012000349244,1,two or more,none,no,lt35,2,,0,
+2012000363311,1,two or more,none,no,lt35,2,16200,0,0
+2012000373532,1,two or more,none,no,lt35,3,31300,0,0
+2012000379360,1,two or more,none,no,lt35,3,,0,
+2012000411656,1,two or more,none,no,lt35,2,,0,
+2012000427766,1,two or more,none,no,lt35,2,,0,
+2012000436409,1,two or more,none,no,lt35,2,12000,0,0
+2012000459714,1,two or more,none,no,lt35,2,0,0,0
+2012000511362,1,two or more,none,no,lt35,2,20700,0,0
+2012000515400,1,two or more,none,no,lt35,2,17400,0,0
+2012000540787,1,two or more,none,no,lt35,2,13600,0,0
+2012000566273,1,two or more,none,no,lt35,2,,0,
+2012000594802,1,two or more,none,no,lt35,2,17000,0,0
+2012000665119,1,two or more,none,no,lt35,2,17500,0,0
+2012000681987,1,two or more,none,no,lt35,2,,0,
+2012000682090,1,two or more,none,no,lt35,2,12700,0,0
+2012000699285,1,two or more,none,no,lt35,3,,0,
+2012000703375,1,two or more,none,no,lt35,2,,0,
+2012000723085,1,two or more,none,no,lt35,2,,0,
+2012000723116,1,two or more,none,no,lt35,2,,0,
+2012000737380,1,two or more,none,no,lt35,2,,0,
+2012000751706,1,two or more,none,no,lt35,3,,0,
+2012000803256,1,two or more,none,no,lt35,2,,0,
+2012000826178,1,two or more,none,no,lt35,2,26900,0,0
+2012000835483,1,two or more,none,no,lt35,2,,0,
+2012000855037,1,two or more,none,no,lt35,2,,0,
+2012000855748,1,two or more,none,no,lt35,2,,0,
+2012000857997,1,two or more,none,no,lt35,3,6700,0,0
+2012000865268,1,two or more,none,no,lt35,2,21700,0,0
+2012000921072,1,two or more,none,no,lt35,3,,0,
+2012000923395,1,two or more,none,no,lt35,2,,0,
+2012000936262,1,two or more,none,no,lt35,2,,0,
+2012000953696,1,two or more,none,no,lt35,2,27700,0,0
+2012000954652,1,two or more,none,no,lt35,3,26300,0,0
+2012000966242,1,two or more,none,no,lt35,3,28100,0,0
+2012000973249,1,two or more,none,no,lt35,3,1280,0,0
+2012000981148,1,two or more,none,no,lt35,2,,0,
+2012000988768,1,two or more,none,no,lt35,3,,0,
+2012001071186,1,two or more,none,no,lt35,2,,0,
+2012001126685,1,two or more,none,no,lt35,2,,0,
+2012001128393,1,two or more,none,no,lt35,2,,0,
+2012001129309,1,two or more,none,no,lt35,3,,0,
+2012001153520,1,two or more,none,no,lt35,2,,0,
+2012001230256,1,two or more,none,no,lt35,3,,0,
+2012001294629,1,two or more,none,no,lt35,4,18000,0,0
+2012001298169,1,two or more,none,no,lt35,2,,0,
+2012001313537,1,two or more,none,no,lt35,2,,0,
+2012001316482,1,two or more,none,no,lt35,4,3200,0,0
+2012001320556,1,two or more,none,no,lt35,2,,0,
+2012001325500,1,two or more,none,no,lt35,2,28090,0,0
+2012001330788,1,two or more,none,no,lt35,2,,0,
+2012001338583,1,two or more,none,no,lt35,2,32800,0,0
+2012001342902,1,two or more,none,no,lt35,3,34300,0,0
+2012001388754,1,two or more,none,no,lt35,2,,0,
+2012001412355,1,two or more,none,no,lt35,2,,0,
+2013000057102,1,two or more,none,no,lt35,4,23800,0,0
+2013000132206,1,two or more,none,no,lt35,2,12300,0,0
+2013000159634,1,two or more,none,no,lt35,2,,0,
+2013000174379,1,two or more,none,no,lt35,2,24400,0,0
+2013000188129,1,two or more,none,no,lt35,2,,0,
+2013000205261,1,two or more,none,no,lt35,2,,0,
+2013000247331,1,two or more,none,no,lt35,2,,0,
+2013000247774,1,two or more,none,no,lt35,2,,0,
+2013000271077,1,two or more,none,no,lt35,2,,0,
+2013000281683,1,two or more,none,no,lt35,2,,0,
+2013000292419,1,two or more,none,no,lt35,2,,0,
+2013000305036,1,two or more,none,no,lt35,2,,0,
+2013000306447,1,two or more,none,no,lt35,2,10500,0,0
+2013000356930,1,two or more,none,no,lt35,2,,0,
+2013000395658,1,two or more,none,no,lt35,2,,0,
+2013000412343,1,two or more,none,no,lt35,2,24600,0,0
+2013000428756,1,two or more,none,no,lt35,2,,0,
+2013000436043,1,two or more,none,no,lt35,2,22800,0,0
+2013000442559,1,two or more,none,no,lt35,2,,0,
+2013000445450,1,two or more,none,no,lt35,2,19000,0,0
+2013000518509,1,two or more,none,no,lt35,2,32400,0,0
+2013000557778,1,two or more,none,no,lt35,2,29300,0,0
+2013000560066,1,two or more,none,no,lt35,3,,0,
+2013000584732,1,two or more,none,no,lt35,2,,0,
+2013000610216,1,two or more,none,no,lt35,2,,0,
+2013000610364,1,two or more,none,no,lt35,2,,0,
+2013000611851,1,two or more,none,no,lt35,3,,0,
+2013000625233,1,two or more,none,no,lt35,2,,0,
+2013000626624,1,two or more,none,no,lt35,3,24000,0,0
+2013000638236,1,two or more,none,no,lt35,2,33100,0,0
+2013000639944,1,two or more,none,no,lt35,2,,0,
+2013000646022,1,two or more,none,no,lt35,2,,0,
+2013000670358,1,two or more,none,no,lt35,2,,0,
+2013000725467,1,two or more,none,no,lt35,2,34700,0,0
+2013000735587,1,two or more,none,no,lt35,2,,0,
+2013000760788,1,two or more,none,no,lt35,4,,0,
+2013000793473,1,two or more,none,no,lt35,3,,0,
+2013000798497,1,two or more,none,no,lt35,3,,0,
+2013000827264,1,two or more,none,no,lt35,2,,0,
+2013000842056,1,two or more,none,no,lt35,2,12800,0,0
+2013000850537,1,two or more,none,no,lt35,2,,0,
+2013000852606,1,two or more,none,no,lt35,2,,0,
+2013000867582,1,two or more,none,no,lt35,2,2000,0,0
+2013000895099,1,two or more,none,no,lt35,2,,0,
+2013000900870,1,two or more,none,no,lt35,2,,0,
+2013000905354,1,two or more,none,no,lt35,2,18500,0,0
+2013000940004,1,two or more,none,no,lt35,2,,0,
+2013000940389,1,two or more,none,no,lt35,2,,0,
+2013000968397,1,two or more,none,no,lt35,2,,0,
+2013000970004,1,two or more,none,no,lt35,2,33500,0,0
+2013000979813,1,two or more,none,no,lt35,2,,0,
+2013001016362,1,two or more,none,no,lt35,3,,0,
+2013001045359,1,two or more,none,no,lt35,2,,0,
+2013001065375,1,two or more,none,no,lt35,2,,0,
+2013001070490,1,two or more,none,no,lt35,2,,0,
+2013001089842,1,two or more,none,no,lt35,2,,0,
+2013001121532,1,two or more,none,no,lt35,2,0,0,0
+2013001140566,1,two or more,none,no,lt35,2,,0,
+2013001190750,1,two or more,none,no,lt35,3,,0,
+2013001214350,1,two or more,none,no,lt35,3,18720,0,0
+2013001244763,1,two or more,none,no,lt35,2,,0,
+2013001262406,1,two or more,none,no,lt35,2,,0,
+2013001264257,1,two or more,none,no,lt35,2,28120,0,0
+2013001266780,1,two or more,none,no,lt35,2,,0,
+2013001280411,1,two or more,none,no,lt35,2,,0,
+2013001281476,1,two or more,none,no,lt35,2,26900,0,0
+2013001287905,1,two or more,none,no,lt35,2,,0,
+2013001309307,1,two or more,none,no,lt35,3,,0,
+2013001316177,1,two or more,none,no,lt35,2,,0,
+2013001329709,1,two or more,none,no,lt35,3,,0,
+2013001338343,1,two or more,none,no,lt35,2,,0,
+2013001340629,1,two or more,none,no,lt35,2,17970,0,0
+2013001351656,1,two or more,none,no,lt35,2,,0,
+2013001367242,1,two or more,none,no,lt35,3,33300,0,0
+2013001376464,1,two or more,none,no,lt35,2,,0,
+2013001415707,1,two or more,none,no,lt35,2,,0,
+2013001418857,1,two or more,none,no,lt35,2,29880,0,0
+2013001422780,1,two or more,none,no,lt35,2,,0,
+2013001429968,1,two or more,none,no,lt35,2,,0,
+2013001487546,1,two or more,none,no,lt35,2,11300,0,0
+2009000006920,1,two or more,none,no,lt35,2,,0,
+2009000013091,1,two or more,none,no,lt35,2,,0,
+2009000032439,1,two or more,none,no,lt35,2,,0,
+2009000041850,1,two or more,none,no,lt35,2,,0,
+2009000046809,1,two or more,none,no,lt35,2,0,0,0
+2009000052948,1,two or more,none,no,lt35,2,,0,
+2009000095878,1,two or more,none,no,lt35,2,,0,
+2009000103543,1,two or more,none,no,lt35,3,2000,0,0
+2009000104453,1,two or more,none,no,lt35,2,33100,0,0
+2009000113314,1,two or more,none,no,lt35,2,,0,
+2009000155640,1,two or more,none,no,lt35,2,,0,
+2009000162390,1,two or more,none,no,lt35,2,8700,0,0
+2009000169375,1,two or more,none,no,lt35,2,,0,
+2009000179266,1,two or more,none,no,lt35,3,,0,
+2009000195818,1,two or more,none,no,lt35,2,,0,
+2009000234292,1,two or more,none,no,lt35,2,,0,
+2009000256992,1,two or more,none,no,lt35,2,14380,0,0
+2009000277712,1,two or more,none,no,lt35,2,,0,
+2009000305120,1,two or more,none,no,lt35,4,24600,0,0
+2009000313809,1,two or more,none,no,lt35,2,,0,
+2009000314815,1,two or more,none,no,lt35,2,20700,0,0
+2009000321132,1,two or more,none,no,lt35,3,,0,
+2009000335858,1,two or more,none,no,lt35,2,,0,
+2009000351167,1,two or more,none,no,lt35,2,,0,
+2009000358264,1,two or more,none,no,lt35,2,,0,
+2009000377827,1,two or more,none,no,lt35,2,,0,
+2009000397594,1,two or more,none,no,lt35,2,,0,
+2009000429679,1,two or more,none,no,lt35,2,29700,0,0
+2009000438265,1,two or more,none,no,lt35,2,23000,0,0
+2009000457532,1,two or more,none,no,lt35,2,27200,0,0
+2009000459881,1,two or more,none,no,lt35,2,,0,
+2009000470252,1,two or more,none,no,lt35,2,,0,
+2009000482509,1,two or more,none,no,lt35,2,,0,
+2009000483708,1,two or more,none,no,lt35,3,24600,0,0
+2009000492435,1,two or more,none,no,lt35,3,12000,0,0
+2009000494815,1,two or more,none,no,lt35,2,23000,0,0
+2009000498663,1,two or more,none,no,lt35,3,,0,
+2009000521204,1,two or more,none,no,lt35,3,,0,
+2009000524479,1,two or more,none,no,lt35,2,,0,
+2009000528264,1,two or more,none,no,lt35,2,,0,
+2009000553460,1,two or more,none,no,lt35,2,,0,
+2009000572374,1,two or more,none,no,lt35,2,,0,
+2009000603081,1,two or more,none,no,lt35,2,,0,
+2009000621560,1,two or more,none,no,lt35,2,,0,
+2009000650405,1,two or more,none,no,lt35,2,1600,0,0
+2009000711614,1,two or more,none,no,lt35,3,,0,
+2009000726872,1,two or more,none,no,lt35,4,,0,
+2009000734176,1,two or more,none,no,lt35,2,16800,0,0
+2009000738206,1,two or more,none,no,lt35,3,,0,
+2009000748833,1,two or more,none,no,lt35,2,,0,
+2009000748972,1,two or more,none,no,lt35,3,9060,0,0
+2009000755795,1,two or more,none,no,lt35,2,,0,
+2009000764801,1,two or more,none,no,lt35,2,,0,
+2009000782113,1,two or more,none,no,lt35,2,,0,
+2009000784351,1,two or more,none,no,lt35,2,,0,
+2009000792821,1,two or more,none,no,lt35,3,15400,0,0
+2009000802208,1,two or more,none,no,lt35,2,,0,
+2009000802359,1,two or more,none,no,lt35,4,30900,0,0
+2009000821411,1,two or more,none,no,lt35,2,21004,0,0
+2009000829570,1,two or more,none,no,lt35,2,,0,
+2009000854561,1,two or more,none,no,lt35,2,,0,
+2009000861459,1,two or more,none,no,lt35,3,11400,0,0
+2009000871264,1,two or more,none,no,lt35,2,,0,
+2009000902925,1,two or more,none,no,lt35,2,25500,0,0
+2009000909073,1,two or more,none,no,lt35,3,31800,0,0
+2009000912581,1,two or more,none,no,lt35,2,,0,
+2009000946861,1,two or more,none,no,lt35,2,,0,
+2009000949660,1,two or more,none,no,lt35,2,,0,
+2009000964909,1,two or more,none,no,lt35,2,,0,
+2009000965425,1,two or more,none,no,lt35,2,19800,0,0
+2009000972809,1,two or more,none,no,lt35,2,,0,
+2009000977309,1,two or more,none,no,lt35,3,12000,0,0
+2009000995804,1,two or more,none,no,lt35,2,,0,
+2009001011692,1,two or more,none,no,lt35,4,,0,
+2009001030201,1,two or more,none,no,lt35,2,,0,
+2009001049697,1,two or more,none,no,lt35,3,22990,0,0
+2009001094838,1,two or more,none,no,lt35,3,,0,
+2009001133793,1,two or more,none,no,lt35,2,,0,
+2009001144172,1,two or more,none,no,lt35,2,18360,0,0
+2009001150154,1,two or more,none,no,lt35,3,,0,
+2009001189157,1,two or more,none,no,lt35,2,19200,0,0
+2009001218969,1,two or more,none,no,lt35,2,,0,
+2009001254852,1,two or more,none,no,lt35,2,29800,0,0
+2009001279682,1,two or more,none,no,lt35,2,,0,
+2009001289628,1,two or more,none,no,lt35,2,22200,0,0
+2009001290630,1,two or more,none,no,lt35,2,,0,
+2009001305343,1,two or more,none,no,lt35,2,,0,
+2009001318668,1,two or more,none,no,lt35,2,,0,
+2009001325845,1,two or more,none,no,lt35,2,17000,0,0
+2009001327697,1,two or more,none,no,lt35,2,,0,
+2009001348436,1,two or more,none,no,lt35,2,23200,0,0
+2009001348482,1,two or more,none,no,lt35,2,,0,
+2009001351666,1,two or more,none,no,lt35,2,,0,
+2009001373704,1,two or more,none,no,lt35,2,,0,
+2009001374749,1,two or more,none,no,lt35,2,,0,
+2009001379111,1,two or more,none,no,lt35,2,27300,0,0
+2009001387262,1,two or more,none,no,lt35,2,,0,
+2010000009187,1,two or more,none,no,lt35,3,30000,0,0
+2010000020116,1,two or more,none,no,lt35,2,,0,
+2010000030668,1,two or more,none,no,lt35,2,24900,0,0
+2010000049282,1,two or more,none,no,lt35,2,23600,0,0
+2010000086644,1,two or more,none,no,lt35,2,,0,
+2010000100397,1,two or more,none,no,lt35,2,,0,
+2010000106348,1,two or more,none,no,lt35,2,15400,0,0
+2010000109430,1,two or more,none,no,lt35,2,,0,
+2010000111229,1,two or more,none,no,lt35,3,,0,
+2010000112906,1,two or more,none,no,lt35,2,,0,
+2010000121585,1,two or more,none,no,lt35,4,26400,0,0
+2010000129545,1,two or more,none,no,lt35,2,,0,
+2010000136404,1,two or more,none,no,lt35,2,,0,
+2010000139594,1,two or more,none,no,lt35,2,,0,
+2010000154176,1,two or more,none,no,lt35,3,,0,
+2010000157469,1,two or more,none,no,lt35,3,17300,0,0
+2010000174061,1,two or more,none,no,lt35,3,,0,
+2010000187219,1,two or more,none,no,lt35,4,26300,0,0
+2010000198717,1,two or more,none,no,lt35,5,,0,
+2010000200005,1,two or more,none,no,lt35,2,,0,
+2010000205353,1,two or more,none,no,lt35,2,24000,0,0
+2010000220736,1,two or more,none,no,lt35,2,28500,0,0
+2010000261142,1,two or more,none,no,lt35,2,,0,
+2010000319019,1,two or more,none,no,lt35,2,,0,
+2010000330043,1,two or more,none,no,lt35,2,,0,
+2010000339756,1,two or more,none,no,lt35,2,,0,
+2010000340786,1,two or more,none,no,lt35,2,31300,0,0
+2010000365549,1,two or more,none,no,lt35,3,,0,
+2010000366129,1,two or more,none,no,lt35,3,26000,0,0
+2010000399751,1,two or more,none,no,lt35,3,23500,0,0
+2010000416014,1,two or more,none,no,lt35,2,,0,
+2010000422635,1,two or more,none,no,lt35,2,,0,
+2010000433846,1,two or more,none,no,lt35,2,11100,0,0
+2010000451051,1,two or more,none,no,lt35,2,31100,0,0
+2010000467274,1,two or more,none,no,lt35,2,,0,
+2010000478778,1,two or more,none,no,lt35,2,,0,
+2010000483259,1,two or more,none,no,lt35,3,20700,0,0
+2010000493684,1,two or more,none,no,lt35,2,19200,0,0
+2010000502709,1,two or more,none,no,lt35,2,,0,
+2010000504987,1,two or more,none,no,lt35,2,,0,
+2010000508628,1,two or more,none,no,lt35,3,,0,
+2010000574185,1,two or more,none,no,lt35,2,25900,0,0
+2010000575137,1,two or more,none,no,lt35,2,22400,0,0
+2010000603064,1,two or more,none,no,lt35,3,,0,
+2010000616735,1,two or more,none,no,lt35,2,18100,0,0
+2010000634947,1,two or more,none,no,lt35,2,16400,0,0
+2010000665932,1,two or more,none,no,lt35,2,18200,0,0
+2010000685431,1,two or more,none,no,lt35,2,,0,
+2010000692942,1,two or more,none,no,lt35,2,15600,0,0
+2010000714497,1,two or more,none,no,lt35,2,14000,0,0
+2010000724174,1,two or more,none,no,lt35,2,30800,0,0
+2010000743721,1,two or more,none,no,lt35,2,,0,
+2010000745011,1,two or more,none,no,lt35,2,,0,
+2010000746307,1,two or more,none,no,lt35,2,,0,
+2010000751718,1,two or more,none,no,lt35,2,,0,
+2010000761780,1,two or more,none,no,lt35,2,,0,
+2010000769991,1,two or more,none,no,lt35,2,,0,
+2010000782265,1,two or more,none,no,lt35,2,,0,
+2010000815435,1,two or more,none,no,lt35,2,12800,0,0
+2010000846374,1,two or more,none,no,lt35,3,30000,0,0
+2010000871147,1,two or more,none,no,lt35,2,,0,
+2010000893544,1,two or more,none,no,lt35,2,24500,0,0
+2010000894557,1,two or more,none,no,lt35,2,17600,0,0
+2010000916053,1,two or more,none,no,lt35,2,,0,
+2010000931717,1,two or more,none,no,lt35,4,,0,
+2010000963825,1,two or more,none,no,lt35,2,,0,
+2010000972553,1,two or more,none,no,lt35,2,,0,
+2010000975610,1,two or more,none,no,lt35,2,,0,
+2010000980850,1,two or more,none,no,lt35,3,,0,
+2010001005486,1,two or more,none,no,lt35,2,,0,
+2010001005870,1,two or more,none,no,lt35,3,25400,0,0
+2010001012718,1,two or more,none,no,lt35,2,,0,
+2010001070901,1,two or more,none,no,lt35,2,,0,
+2010001078758,1,two or more,none,no,lt35,2,,0,
+2010001085632,1,two or more,none,no,lt35,2,34500,0,0
+2010001087022,1,two or more,none,no,lt35,2,,0,
+2010001105484,1,two or more,none,no,lt35,3,,0,
+2010001115798,1,two or more,none,no,lt35,2,27200,0,0
+2010001128797,1,two or more,none,no,lt35,2,,0,
+2010001131147,1,two or more,none,no,lt35,2,,0,
+2010001140251,1,two or more,none,no,lt35,2,,0,
+2010001141086,1,two or more,none,no,lt35,2,,0,
+2010001146011,1,two or more,none,no,lt35,2,,0,
+2010001174054,1,two or more,none,no,lt35,2,,0,
+2010001182448,1,two or more,none,no,lt35,2,25100,0,0
+2010001186242,1,two or more,none,no,lt35,2,,0,
+2010001187991,1,two or more,none,no,lt35,3,18500,0,0
+2010001206133,1,two or more,none,no,lt35,2,,0,
+2010001213294,1,two or more,none,no,lt35,2,,0,
+2010001241318,1,two or more,none,no,lt35,2,,0,
+2010001252223,1,two or more,none,no,lt35,2,,0,
+2010001261982,1,two or more,none,no,lt35,3,13500,0,0
+2010001263889,1,two or more,none,no,lt35,2,35000,0,0
+2010001288996,1,two or more,none,no,lt35,2,,0,
+2010001297737,1,two or more,none,no,lt35,3,15800,0,0
+2010001301296,1,two or more,none,no,lt35,2,,0,
+2010001308604,1,two or more,none,no,lt35,2,,0,
+2010001309307,1,two or more,none,no,lt35,2,,0,
+2010001313712,1,two or more,none,no,lt35,2,,0,
+2010001320635,1,two or more,none,no,lt35,3,,0,
+2010001323025,1,two or more,none,no,lt35,2,31700,0,0
+2010001340735,1,two or more,none,no,lt35,2,,0,
+2010001342953,1,two or more,none,no,lt35,3,16200,0,0
+2010001356356,1,two or more,none,no,lt35,3,9900,0,0
+2010001373258,1,two or more,none,no,lt35,2,,0,
+2010001414273,1,two or more,none,no,lt35,3,,0,
+2011000002655,1,two or more,none,no,lt35,2,,0,
+2011000016824,1,two or more,none,no,lt35,2,,0,
+2011000037794,1,two or more,none,no,lt35,3,,0,
+2011000051168,1,two or more,none,no,lt35,3,,0,
+2011000073236,1,two or more,none,no,lt35,2,,0,
+2011000081866,1,two or more,none,no,lt35,2,,0,
+2011000087129,1,two or more,none,no,lt35,3,,0,
+2011000099169,1,two or more,none,no,lt35,2,,0,
+2011000135252,1,two or more,none,no,lt35,3,,0,
+2011000142626,1,two or more,none,no,lt35,2,,0,
+2011000151630,1,two or more,none,no,lt35,2,,0,
+2011000153907,1,two or more,none,no,lt35,3,25300,0,0
+2011000183239,1,two or more,none,no,lt35,2,,0,
+2011000186438,1,two or more,none,no,lt35,2,,0,
+2011000223174,1,two or more,none,no,lt35,2,,0,
+2011000223501,1,two or more,none,no,lt35,2,25800,0,0
+2011000267155,1,two or more,none,no,lt35,2,,0,
+2011000290084,1,two or more,none,no,lt35,3,34250,0,0
+2011000294021,1,two or more,none,no,lt35,2,,0,
+2011000298098,1,two or more,none,no,lt35,3,,0,
+2011000303444,1,two or more,none,no,lt35,2,,0,
+2011000305839,1,two or more,none,no,lt35,2,,0,
+2011000313436,1,two or more,none,no,lt35,2,,0,
+2011000352936,1,two or more,none,no,lt35,2,30100,0,0
+2011000356871,1,two or more,none,no,lt35,2,,0,
+2011000358140,1,two or more,none,no,lt35,2,,0,
+2011000373725,1,two or more,none,no,lt35,2,,0,
+2011000375494,1,two or more,none,no,lt35,3,,0,
+2011000382206,1,two or more,none,no,lt35,3,,0,
+2011000407582,1,two or more,none,no,lt35,2,31600,0,0
+2011000416555,1,two or more,none,no,lt35,2,31200,0,0
+2011000416846,1,two or more,none,no,lt35,2,,0,
+2011000435453,1,two or more,none,no,lt35,3,31800,0,0
+2011000438635,1,two or more,none,no,lt35,6,,0,
+2011000445615,1,two or more,none,no,lt35,3,,0,
+2011000447645,1,two or more,none,no,lt35,3,,0,
+2011000451870,1,two or more,none,no,lt35,2,,0,
+2011000464143,1,two or more,none,no,lt35,2,,0,
+2011000484299,1,two or more,none,no,lt35,2,,0,
+2011000488538,1,two or more,none,no,lt35,2,22100,0,0
+2011000503921,1,two or more,none,no,lt35,4,,0,
+2011000509711,1,two or more,none,no,lt35,2,24000,0,0
+2011000512983,1,two or more,none,no,lt35,2,23000,0,0
+2011000531646,1,two or more,none,no,lt35,3,19020,0,0
+2011000546957,1,two or more,none,no,lt35,2,19100,0,0
+2011000554956,1,two or more,none,no,lt35,2,,0,
+2011000603930,1,two or more,none,no,lt35,2,,0,
+2011000608198,1,two or more,none,no,lt35,2,,0,
+2011000616810,1,two or more,none,no,lt35,2,,0,
+2011000621426,1,two or more,none,no,lt35,3,,0,
+2011000646124,1,two or more,none,no,lt35,2,,0,
+2011000666302,1,two or more,none,no,lt35,2,,0,
+2011000706291,1,two or more,none,no,lt35,3,,0,
+2011000710181,1,two or more,none,no,lt35,3,,0,
+2011000712345,1,two or more,none,no,lt35,2,,0,
+2011000719119,1,two or more,none,no,lt35,2,,0,
+2011000761464,1,two or more,none,no,lt35,3,,0,
+2011000763033,1,two or more,none,no,lt35,2,20100,0,0
+2011000775044,1,two or more,none,no,lt35,2,12300,0,0
+2011000839982,1,two or more,none,no,lt35,2,,0,
+2011000882357,1,two or more,none,no,lt35,3,16100,0,0
+2011000897976,1,two or more,none,no,lt35,4,,0,
+2011000929349,1,two or more,none,no,lt35,3,,0,
+2011000954502,1,two or more,none,no,lt35,3,,0,
+2011000978844,1,two or more,none,no,lt35,2,,0,
+2011000994540,1,two or more,none,no,lt35,4,33430,0,0
+2011001026953,1,two or more,none,no,lt35,2,17880,0,0
+2011001046683,1,two or more,none,no,lt35,2,,0,
+2011001075812,1,two or more,none,no,lt35,6,,0,
+2011001110185,1,two or more,none,no,lt35,2,,0,
+2011001112339,1,two or more,none,no,lt35,2,,0,
+2011001142875,1,two or more,none,no,lt35,2,34600,0,0
+2011001170059,1,two or more,none,no,lt35,3,,0,
+2011001199170,1,two or more,none,no,lt35,2,17800,0,0
+2011001209592,1,two or more,none,no,lt35,2,31800,0,0
+2011001215552,1,two or more,none,no,lt35,2,,0,
+2011001218630,1,two or more,none,no,lt35,2,,0,
+2011001282700,1,two or more,none,no,lt35,2,,0,
+2011001287912,1,two or more,none,no,lt35,2,19360,0,0
+2011001291120,1,two or more,none,no,lt35,2,,0,
+2011001294922,1,two or more,none,no,lt35,5,,0,
+2011001314522,1,two or more,none,no,lt35,2,13000,0,0
+2011001338165,1,two or more,none,no,lt35,2,18900,0,0
+2011001411893,1,two or more,none,no,lt35,2,16800,0,0
+2011001447521,1,two or more,none,no,lt35,2,34700,0,0
+2011001472923,1,two or more,none,no,lt35,3,22100,0,0
+2012000015932,1,two or more,none,no,gt35-lt100,3,80500,0,0
+2012000027798,1,two or more,none,no,gt35-lt100,2,77700,0,0
+2012000069249,1,two or more,none,no,gt35-lt100,3,94200,0,0
+2012000192937,1,two or more,none,no,gt35-lt100,2,53000,0,0
+2012000390684,1,two or more,none,no,gt35-lt100,3,51500,0,0
+2012000440853,1,two or more,none,no,gt35-lt100,2,56500,0,0
+2012000470458,1,two or more,none,no,gt35-lt100,2,46300,0,0
+2012000605571,1,two or more,none,no,gt35-lt100,2,46500,0,0
+2012000660576,1,two or more,none,no,gt35-lt100,2,41560,0,0
+2012000885349,1,two or more,none,no,gt35-lt100,2,77400,0,0
+2012000886536,1,two or more,none,no,gt35-lt100,2,85400,0,0
+2012000902083,1,two or more,none,no,gt35-lt100,2,44800,0,0
+2012000952486,1,two or more,none,no,gt35-lt100,2,59000,0,0
+2012000956292,1,two or more,none,no,gt35-lt100,2,40900,0,0
+2012000962236,1,two or more,none,no,gt35-lt100,3,76900,0,0
+2012000986997,1,two or more,none,no,gt35-lt100,2,72400,0,0
+2012000996261,1,two or more,none,no,gt35-lt100,4,67000,0,0
+2012001099163,1,two or more,none,no,gt35-lt100,2,53500,0,0
+2012001124312,1,two or more,none,no,gt35-lt100,3,77600,0,0
+2012001124403,1,two or more,none,no,gt35-lt100,2,61500,0,0
+2012001212746,1,two or more,none,no,gt35-lt100,2,49500,0,0
+2012001271347,1,two or more,none,no,gt35-lt100,4,56100,0,0
+2012001305659,1,two or more,none,no,gt35-lt100,2,80800,0,0
+2012001485469,1,two or more,none,no,gt35-lt100,3,44500,0,0
+2013000004518,1,two or more,none,no,gt35-lt100,2,37200,0,0
+2013000062196,1,two or more,none,no,gt35-lt100,2,46800,0,0
+2013000165882,1,two or more,none,no,gt35-lt100,2,49700,0,0
+2013000207926,1,two or more,none,no,gt35-lt100,2,43700,0,0
+2013000233430,1,two or more,none,no,gt35-lt100,4,82870,0,0
+2013000261569,1,two or more,none,no,gt35-lt100,3,69410,0,0
+2013000309505,1,two or more,none,no,gt35-lt100,3,80400,0,0
+2013000322992,1,two or more,none,no,gt35-lt100,3,44200,0,0
+2013000351823,1,two or more,none,no,gt35-lt100,2,51200,0,0
+2013000352239,1,two or more,none,no,gt35-lt100,2,57604,0,0
+2013000382022,1,two or more,none,no,gt35-lt100,4,39500,0,0
+2013000411109,1,two or more,none,no,gt35-lt100,3,44800,0,0
+2013000496446,1,two or more,none,no,gt35-lt100,2,61300,0,0
+2013000608992,1,two or more,none,no,gt35-lt100,2,42500,0,0
+2013000615382,1,two or more,none,no,gt35-lt100,2,37480,0,0
+2013000713924,1,two or more,none,no,gt35-lt100,2,47400,0,0
+2013000788457,1,two or more,none,no,gt35-lt100,2,48900,0,0
+2013000803597,1,two or more,none,no,gt35-lt100,2,40800,0,0
+2013000833069,1,two or more,none,no,gt35-lt100,2,41000,0,0
+2013000845210,1,two or more,none,no,gt35-lt100,3,51820,0,0
+2013000846784,1,two or more,none,no,gt35-lt100,2,88550,0,0
+2013000864540,1,two or more,none,no,gt35-lt100,3,60400,0,0
+2013000952721,1,two or more,none,no,gt35-lt100,3,56800,0,0
+2013001003699,1,two or more,none,no,gt35-lt100,2,40200,0,0
+2013001035694,1,two or more,none,no,gt35-lt100,2,80300,0,0
+2013001079368,1,two or more,none,no,gt35-lt100,2,73100,0,0
+2013001130045,1,two or more,none,no,gt35-lt100,2,45500,0,0
+2013001175984,1,two or more,none,no,gt35-lt100,2,68800,0,0
+2013001226267,1,two or more,none,no,gt35-lt100,2,66700,0,0
+2013001232525,1,two or more,none,no,gt35-lt100,2,37700,0,0
+2013001341048,1,two or more,none,no,gt35-lt100,2,64100,0,0
+2013001347175,1,two or more,none,no,gt35-lt100,2,76900,0,0
+2013001357543,1,two or more,none,no,gt35-lt100,4,42000,0,0
+2013001361748,1,two or more,none,no,gt35-lt100,2,38800,0,0
+2013001414198,1,two or more,none,no,gt35-lt100,2,36100,0,0
+2013001459913,1,two or more,none,no,gt35-lt100,2,82500,0,0
+2009000150840,1,two or more,none,no,gt35-lt100,3,42500,0,0
+2009000228979,1,two or more,none,no,gt35-lt100,2,35200,0,0
+2009000247334,1,two or more,none,no,gt35-lt100,2,40800,0,0
+2009000319959,1,two or more,none,no,gt35-lt100,2,36400,0,0
+2009000355818,1,two or more,none,no,gt35-lt100,2,54800,0,0
+2009000429683,1,two or more,none,no,gt35-lt100,3,35300,0,0
+2009000452281,1,two or more,none,no,gt35-lt100,3,67100,0,0
+2009000464880,1,two or more,none,no,gt35-lt100,2,37500,0,0
+2009000487004,1,two or more,none,no,gt35-lt100,4,57500,0,0
+2009000491454,1,two or more,none,no,gt35-lt100,2,63500,0,0
+2009000516789,1,two or more,none,no,gt35-lt100,3,51900,0,0
+2009000524948,1,two or more,none,no,gt35-lt100,2,44550,0,0
+2009000744250,1,two or more,none,no,gt35-lt100,2,99400,0,0
+2009000754247,1,two or more,none,no,gt35-lt100,2,38400,0,0
+2009000827720,1,two or more,none,no,gt35-lt100,2,37100,0,0
+2009000833729,1,two or more,none,no,gt35-lt100,2,35800,0,0
+2009000923496,1,two or more,none,no,gt35-lt100,2,66200,0,0
+2009000932165,1,two or more,none,no,gt35-lt100,6,54400,0,0
+2009000954089,1,two or more,none,no,gt35-lt100,2,47370,0,0
+2009001014156,1,two or more,none,no,gt35-lt100,2,84700,0,0
+2009001064281,1,two or more,none,no,gt35-lt100,2,51000,0,0
+2009001114027,1,two or more,none,no,gt35-lt100,2,35800,0,0
+2009001136622,1,two or more,none,no,gt35-lt100,5,45600,0,0
+2009001205135,1,two or more,none,no,gt35-lt100,2,38900,0,0
+2009001262998,1,two or more,none,no,gt35-lt100,2,84100,0,0
+2009001290157,1,two or more,none,no,gt35-lt100,2,63000,0,0
+2009001302776,1,two or more,none,no,gt35-lt100,2,37700,0,0
+2009001348963,1,two or more,none,no,gt35-lt100,2,43800,0,0
+2010000008674,1,two or more,none,no,gt35-lt100,3,45200,0,0
+2010000018506,1,two or more,none,no,gt35-lt100,2,63880,0,0
+2010000057033,1,two or more,none,no,gt35-lt100,2,40500,0,0
+2010000091547,1,two or more,none,no,gt35-lt100,3,61200,0,0
+2010000164641,1,two or more,none,no,gt35-lt100,2,51600,0,0
+2010000168110,1,two or more,none,no,gt35-lt100,2,86300,0,0
+2010000170923,1,two or more,none,no,gt35-lt100,2,76200,0,0
+2010000319901,1,two or more,none,no,gt35-lt100,2,39600,0,0
+2010000339636,1,two or more,none,no,gt35-lt100,2,48400,0,0
+2010000399572,1,two or more,none,no,gt35-lt100,2,55900,0,0
+2010000447641,1,two or more,none,no,gt35-lt100,2,46400,0,0
+2010000465345,1,two or more,none,no,gt35-lt100,3,54100,0,0
+2010000468500,1,two or more,none,no,gt35-lt100,2,46310,0,0
+2010000474611,1,two or more,none,no,gt35-lt100,2,50000,0,0
+2010000493796,1,two or more,none,no,gt35-lt100,2,54000,0,0
+2010000527093,1,two or more,none,no,gt35-lt100,2,78600,0,0
+2010000586488,1,two or more,none,no,gt35-lt100,2,41100,0,0
+2010000669627,1,two or more,none,no,gt35-lt100,2,84400,0,0
+2010000729949,1,two or more,none,no,gt35-lt100,2,50360,0,0
+2010000811904,1,two or more,none,no,gt35-lt100,2,61400,0,0
+2010000838565,1,two or more,none,no,gt35-lt100,2,50900,0,0
+2010000849456,1,two or more,none,no,gt35-lt100,2,65500,0,0
+2010000865827,1,two or more,none,no,gt35-lt100,2,70400,0,0
+2010000959244,1,two or more,none,no,gt35-lt100,2,48000,0,0
+2010000971921,1,two or more,none,no,gt35-lt100,2,57300,0,0
+2010001015652,1,two or more,none,no,gt35-lt100,3,74200,0,0
+2010001016983,1,two or more,none,no,gt35-lt100,3,59100,0,0
+2010001080749,1,two or more,none,no,gt35-lt100,3,41100,0,0
+2010001110109,1,two or more,none,no,gt35-lt100,2,55810,0,0
+2010001150214,1,two or more,none,no,gt35-lt100,2,45800,0,0
+2010001176532,1,two or more,none,no,gt35-lt100,2,52400,0,0
+2010001190861,1,two or more,none,no,gt35-lt100,2,62600,0,0
+2010001228054,1,two or more,none,no,gt35-lt100,2,64600,0,0
+2010001236196,1,two or more,none,no,gt35-lt100,2,46000,0,0
+2010001238814,1,two or more,none,no,gt35-lt100,2,91004,0,0
+2010001256049,1,two or more,none,no,gt35-lt100,2,52800,0,0
+2010001307108,1,two or more,none,no,gt35-lt100,2,38000,0,0
+2010001315271,1,two or more,none,no,gt35-lt100,2,62900,0,0
+2010001347876,1,two or more,none,no,gt35-lt100,2,57000,0,0
+2010001409969,1,two or more,none,no,gt35-lt100,3,47700,0,0
+2011000014463,1,two or more,none,no,gt35-lt100,2,49800,0,0
+2011000044776,1,two or more,none,no,gt35-lt100,3,61400,0,0
+2011000059883,1,two or more,none,no,gt35-lt100,2,50000,0,0
+2011000116644,1,two or more,none,no,gt35-lt100,2,40800,0,0
+2011000160554,1,two or more,none,no,gt35-lt100,3,56500,0,0
+2011000199690,1,two or more,none,no,gt35-lt100,2,47900,0,0
+2011000219545,1,two or more,none,no,gt35-lt100,2,47300,0,0
+2011000232940,1,two or more,none,no,gt35-lt100,2,36000,0,0
+2011000262202,1,two or more,none,no,gt35-lt100,2,38700,0,0
+2011000315793,1,two or more,none,no,gt35-lt100,2,40800,0,0
+2011000388531,1,two or more,none,no,gt35-lt100,3,36040,0,0
+2011000394060,1,two or more,none,no,gt35-lt100,2,61000,0,0
+2011000487741,1,two or more,none,no,gt35-lt100,2,51600,0,0
+2011000522622,1,two or more,none,no,gt35-lt100,2,66500,0,0
+2011000533609,1,two or more,none,no,gt35-lt100,2,36400,0,0
+2011000576102,1,two or more,none,no,gt35-lt100,2,54800,0,0
+2011000632359,1,two or more,none,no,gt35-lt100,4,88500,0,0
+2011000703881,1,two or more,none,no,gt35-lt100,2,44700,0,0
+2011000769724,1,two or more,none,no,gt35-lt100,2,43500,0,0
+2011000809003,1,two or more,none,no,gt35-lt100,2,47100,0,0
+2011000820884,1,two or more,none,no,gt35-lt100,3,42350,0,0
+2011000926924,1,two or more,none,no,gt35-lt100,3,87800,0,0
+2011000959725,1,two or more,none,no,gt35-lt100,2,43500,0,0
+2011001002379,1,two or more,none,no,gt35-lt100,3,47300,0,0
+2011001028663,1,two or more,none,no,gt35-lt100,2,60200,0,0
+2011001073346,1,two or more,none,no,gt35-lt100,2,59400,0,0
+2011001103407,1,two or more,none,no,gt35-lt100,2,36800,0,0
+2011001136383,1,two or more,none,no,gt35-lt100,2,85600,0,0
+2011001217750,1,two or more,none,no,gt35-lt100,3,38700,0,0
+2011001233449,1,two or more,none,no,gt35-lt100,3,74500,0,0
+2011001265218,1,two or more,none,no,gt35-lt100,3,56300,0,0
+2011001281302,1,two or more,none,no,gt35-lt100,2,37000,0,0
+2011001320631,1,two or more,none,no,gt35-lt100,3,59250,0,0
+2011001351880,1,two or more,none,no,gt35-lt100,2,50000,0,0
+2011001380744,1,two or more,none,no,gt35-lt100,2,56500,0,0
+2011001413845,1,two or more,none,no,gt35-lt100,2,83300,0,0
+2011001447754,1,two or more,none,no,gt35-lt100,4,68400,0,0
+2012000017289,1,two or more,two or more,no,lt35,3,11000,0,2
+2012000065237,1,two or more,two or more,no,lt35,2,16150,0,2
+2012000084780,1,two or more,two or more,no,lt35,4,24850,0,2
+2012000135478,1,two or more,two or more,no,lt35,4,34500,0,2
+2012000139367,1,two or more,two or more,no,lt35,2,21970,0,2
+2012000225461,1,two or more,two or more,no,lt35,2,28000,0,2
+2012000549959,1,two or more,two or more,no,lt35,2,35000,0,2
+2012000576394,1,two or more,two or more,no,lt35,2,32900,0,2
+2012000601702,1,two or more,two or more,no,lt35,2,33200,0,2
+2012000637418,1,two or more,two or more,no,lt35,2,35000,0,2
+2012000645471,1,two or more,two or more,no,lt35,2,32280,0,3
+2012000697704,1,two or more,two or more,no,lt35,3,15200,0,2
+2012000710038,1,two or more,two or more,no,lt35,2,33000,0,2
+2012000803931,1,two or more,two or more,no,lt35,2,21300,0,2
+2012000891550,1,two or more,two or more,no,lt35,3,27000,0,2
+2012000976791,1,two or more,two or more,no,lt35,3,32400,0,2
+2012001062076,1,two or more,two or more,no,lt35,2,32900,0,2
+2012001335427,1,two or more,two or more,no,lt35,3,31200,0,2
+2012001434709,1,two or more,two or more,no,lt35,2,31000,0,2
+2013000624942,1,two or more,two or more,no,lt35,3,32960,0,2
+2013000714381,1,two or more,two or more,no,lt35,2,19000,0,2
+2013000784740,1,two or more,two or more,no,lt35,2,29000,0,3
+2013001266510,1,two or more,two or more,no,lt35,3,27000,0,2
+2013001464373,1,two or more,two or more,no,lt35,2,24100,0,2
+2009000040094,1,two or more,two or more,no,lt35,2,15860,0,2
+2009000054297,1,two or more,two or more,no,lt35,3,24100,0,2
+2009000280020,1,two or more,two or more,no,lt35,4,24200,0,2
+2009000288990,1,two or more,two or more,no,lt35,2,25800,0,2
+2009000350169,1,two or more,two or more,no,lt35,2,9700,0,2
+2009000370524,1,two or more,two or more,no,lt35,2,30200,0,2
+2009000441796,1,two or more,two or more,no,lt35,2,35000,0,2
+2009000453680,1,two or more,two or more,no,lt35,2,22300,0,2
+2009000502457,1,two or more,two or more,no,lt35,2,22200,0,2
+2009000569558,1,two or more,two or more,no,lt35,2,22500,0,2
+2009000749857,1,two or more,two or more,no,lt35,3,26400,0,2
+2009000761703,1,two or more,two or more,no,lt35,2,29510,0,2
+2009000867824,1,two or more,two or more,no,lt35,4,28100,0,2
+2009000965767,1,two or more,two or more,no,lt35,3,29700,0,2
+2009001049601,1,two or more,two or more,no,lt35,3,32200,0,3
+2009001171251,1,two or more,two or more,no,lt35,2,3000,0,2
+2009001229405,1,two or more,two or more,no,lt35,3,30700,0,2
+2009001323818,1,two or more,two or more,no,lt35,2,26320,0,2
+2009001340223,1,two or more,two or more,no,lt35,2,20300,0,2
+2009001357755,1,two or more,two or more,no,lt35,3,23600,0,2
+2010000200277,1,two or more,two or more,no,lt35,2,26900,0,2
+2010000218109,1,two or more,two or more,no,lt35,2,27000,0,2
+2010000291492,1,two or more,two or more,no,lt35,3,31200,0,2
+2010000309504,1,two or more,two or more,no,lt35,3,32000,0,2
+2010000314689,1,two or more,two or more,no,lt35,2,28200,0,2
+2010000339518,1,two or more,two or more,no,lt35,4,31400,0,3
+2010000400668,1,two or more,two or more,no,lt35,2,27000,0,2
+2010000422158,1,two or more,two or more,no,lt35,2,27020,0,2
+2010000447110,1,two or more,two or more,no,lt35,3,19000,0,2
+2010000492060,1,two or more,two or more,no,lt35,4,26300,0,2
+2010000721301,1,two or more,two or more,no,lt35,3,24300,0,3
+2010000788249,1,two or more,two or more,no,lt35,3,28180,0,2
+2010001017999,1,two or more,two or more,no,lt35,3,24500,0,2
+2010001075707,1,two or more,two or more,no,lt35,2,20000,0,2
+2010001109011,1,two or more,two or more,no,lt35,3,14100,0,2
+2010001190672,1,two or more,two or more,no,lt35,3,14500,0,2
+2010001246472,1,two or more,two or more,no,lt35,3,34500,0,3
+2010001402730,1,two or more,two or more,no,lt35,2,22800,0,2
+2011000030649,1,two or more,two or more,no,lt35,2,26500,0,2
+2011000043117,1,two or more,two or more,no,lt35,3,26600,0,2
+2011000070332,1,two or more,two or more,no,lt35,2,32300,0,2
+2011000166467,1,two or more,two or more,no,lt35,2,8000,0,2
+2011000241329,1,two or more,two or more,no,lt35,2,28600,0,2
+2011000280444,1,two or more,two or more,no,lt35,2,13000,0,2
+2011000329605,1,two or more,two or more,no,lt35,3,26600,0,2
+2011000522515,1,two or more,two or more,no,lt35,3,31700,0,2
+2011000632415,1,two or more,two or more,no,lt35,4,32220,0,2
+2011001021302,1,two or more,two or more,no,lt35,2,1150,0,2
+2011001078549,1,two or more,two or more,no,lt35,3,18900,0,2
+2011001084229,1,two or more,two or more,no,lt35,3,27500,0,2
+2011001138175,1,two or more,two or more,no,lt35,2,19800,0,2
+2011001222297,1,two or more,two or more,no,lt35,3,27840,0,2
+2011001271000,1,two or more,two or more,no,lt35,3,10750,0,2
+2011001273806,1,two or more,two or more,no,lt35,4,28100,0,2
+2011001291852,1,two or more,two or more,no,lt35,2,10700,0,2
+2012000017760,1,two or more,two or more,yes,gt35-lt100,2,55200,2,2
+2012000123983,1,two or more,two or more,yes,gt35-lt100,2,96000,2,2
+2012000152848,1,two or more,two or more,yes,gt35-lt100,3,55000,1,2
+2012000170065,1,two or more,two or more,yes,gt35-lt100,3,60400,2,3
+2012000195272,1,two or more,two or more,yes,gt35-lt100,3,70700,2,2
+2012000200087,1,two or more,two or more,yes,gt35-lt100,2,57300,2,2
+2012000212891,1,two or more,two or more,yes,gt35-lt100,2,77130,2,2
+2012000251210,1,two or more,two or more,yes,gt35-lt100,2,60000,1,2
+2012000273310,1,two or more,two or more,yes,gt35-lt100,6,69000,2,2
+2012000279859,1,two or more,two or more,yes,gt35-lt100,2,92000,2,2
+2012000378390,1,two or more,two or more,yes,gt35-lt100,3,38900,2,3
+2012000485134,1,two or more,two or more,yes,gt35-lt100,2,70000,3,2
+2012000522864,1,two or more,two or more,yes,gt35-lt100,3,47000,2,2
+2012000526726,1,two or more,two or more,yes,gt35-lt100,3,75000,2,2
+2012000543772,1,two or more,two or more,yes,gt35-lt100,3,75460,3,3
+2012000615007,1,two or more,two or more,yes,gt35-lt100,2,47710,1,2
+2012000644053,1,two or more,two or more,yes,gt35-lt100,2,76400,2,2
+2012000741399,1,two or more,two or more,yes,gt35-lt100,3,95000,2,2
+2012000749365,1,two or more,two or more,yes,gt35-lt100,2,40900,2,2
+2012000756596,1,two or more,two or more,yes,gt35-lt100,3,86000,1,3
+2012000787097,1,two or more,two or more,yes,gt35-lt100,2,80000,2,2
+2012000807300,1,two or more,two or more,yes,gt35-lt100,2,61000,1,2
+2012000921004,1,two or more,two or more,yes,gt35-lt100,3,81000,3,2
+2012000988040,1,two or more,two or more,yes,gt35-lt100,5,83000,1,3
+2012000999624,1,two or more,two or more,yes,gt35-lt100,3,75100,2,2
+2012001016244,1,two or more,two or more,yes,gt35-lt100,2,58000,1,2
+2012001031720,1,two or more,two or more,yes,gt35-lt100,4,49500,1,2
+2012001041999,1,two or more,two or more,yes,gt35-lt100,2,36200,2,2
+2012001042298,1,two or more,two or more,yes,gt35-lt100,2,51800,1,2
+2012001112236,1,two or more,two or more,yes,gt35-lt100,3,42700,1,2
+2012001145110,1,two or more,two or more,yes,gt35-lt100,2,58200,2,2
+2012001161528,1,two or more,two or more,yes,gt35-lt100,3,78000,1,2
+2012001179620,1,two or more,two or more,yes,gt35-lt100,3,51000,2,2
+2012001196715,1,two or more,two or more,yes,gt35-lt100,3,49010,2,2
+2012001220114,1,two or more,two or more,yes,gt35-lt100,3,79000,2,2
+2012001248951,1,two or more,two or more,yes,gt35-lt100,3,84600,1,3
+2012001266808,1,two or more,two or more,yes,gt35-lt100,2,42000,2,2
+2012001275274,1,two or more,two or more,yes,gt35-lt100,2,38800,2,2
+2012001346205,1,two or more,two or more,yes,gt35-lt100,4,91700,1,3
+2012001352095,1,two or more,two or more,yes,gt35-lt100,2,68000,1,2
+2012001355962,1,two or more,two or more,yes,gt35-lt100,3,48000,1,2
+2012001379111,1,two or more,two or more,yes,gt35-lt100,2,49000,2,2
+2012001419371,1,two or more,two or more,yes,gt35-lt100,3,75500,2,2
+2013000021213,1,two or more,two or more,yes,gt35-lt100,3,90000,3,2
+2013000112252,1,two or more,two or more,yes,gt35-lt100,2,64000,1,2
+2013000132369,1,two or more,two or more,yes,gt35-lt100,3,79250,1,3
+2013000141436,1,two or more,two or more,yes,gt35-lt100,2,62500,3,2
+2013000147738,1,two or more,two or more,yes,gt35-lt100,3,77800,3,3
+2013000162114,1,two or more,two or more,yes,gt35-lt100,2,87000,1,2
+2013000257807,1,two or more,two or more,yes,gt35-lt100,2,82800,4,2
+2013000317603,1,two or more,two or more,yes,gt35-lt100,2,60700,2,2
+2013000319522,1,two or more,two or more,yes,gt35-lt100,2,53000,1,2
+2013000397059,1,two or more,two or more,yes,gt35-lt100,4,71300,1,2
+2013000409290,1,two or more,two or more,yes,gt35-lt100,2,76000,1,2
+2013000505443,1,two or more,two or more,yes,gt35-lt100,2,51000,2,2
+2013000532052,1,two or more,two or more,yes,gt35-lt100,4,46411,2,3
+2013000581101,1,two or more,two or more,yes,gt35-lt100,4,83900,2,2
+2013000605353,1,two or more,two or more,yes,gt35-lt100,2,98000,3,2
+2013000626148,1,two or more,two or more,yes,gt35-lt100,6,90400,1,3
+2013000671595,1,two or more,two or more,yes,gt35-lt100,2,59000,1,2
+2013000710273,1,two or more,two or more,yes,gt35-lt100,2,80000,2,2
+2013000726188,1,two or more,two or more,yes,gt35-lt100,2,69600,2,3
+2013000763257,1,two or more,two or more,yes,gt35-lt100,2,50000,2,2
+2013000770353,1,two or more,two or more,yes,gt35-lt100,2,76300,1,2
+2013000775261,1,two or more,two or more,yes,gt35-lt100,2,52000,2,2
+2013000803581,1,two or more,two or more,yes,gt35-lt100,3,87300,2,3
+2013000821720,1,two or more,two or more,yes,gt35-lt100,2,40000,1,2
+2013000830213,1,two or more,two or more,yes,gt35-lt100,2,37700,1,2
+2013000842378,1,two or more,two or more,yes,gt35-lt100,3,78000,1,2
+2013000868046,1,two or more,two or more,yes,gt35-lt100,3,42800,2,2
+2013000903156,1,two or more,two or more,yes,gt35-lt100,2,70000,3,2
+2013000910405,1,two or more,two or more,yes,gt35-lt100,4,37400,1,2
+2013000986294,1,two or more,two or more,yes,gt35-lt100,2,77000,2,2
+2013000990924,1,two or more,two or more,yes,gt35-lt100,3,59000,1,3
+2013001005642,1,two or more,two or more,yes,gt35-lt100,2,39000,1,2
+2013001027584,1,two or more,two or more,yes,gt35-lt100,2,78800,2,2
+2013001053620,1,two or more,two or more,yes,gt35-lt100,2,83800,2,2
+2013001131925,1,two or more,two or more,yes,gt35-lt100,5,58000,1,2
+2013001131963,1,two or more,two or more,yes,gt35-lt100,2,43000,1,2
+2013001175726,1,two or more,two or more,yes,gt35-lt100,3,98300,1,2
+2013001241714,1,two or more,two or more,yes,gt35-lt100,3,55300,3,3
+2013001270929,1,two or more,two or more,yes,gt35-lt100,2,42000,2,2
+2013001353110,1,two or more,two or more,yes,gt35-lt100,4,87800,2,3
+2013001362271,1,two or more,two or more,yes,gt35-lt100,2,91050,3,3
+2013001371845,1,two or more,two or more,yes,gt35-lt100,2,63500,1,2
+2013001397284,1,two or more,two or more,yes,gt35-lt100,4,68000,1,2
+2013001414916,1,two or more,two or more,yes,gt35-lt100,2,92040,2,2
+2013001468344,1,two or more,two or more,yes,gt35-lt100,2,51000,1,2
+2013001476457,1,two or more,two or more,yes,gt35-lt100,4,62000,2,2
+2009000016369,1,two or more,two or more,yes,gt35-lt100,4,50500,1,2
+2009000020880,1,two or more,two or more,yes,gt35-lt100,3,50000,3,2
+2009000029795,1,two or more,two or more,yes,gt35-lt100,5,71100,2,3
+2009000035821,1,two or more,two or more,yes,gt35-lt100,3,60800,2,2
+2009000090478,1,two or more,two or more,yes,gt35-lt100,3,57370,1,2
+2009000105265,1,two or more,two or more,yes,gt35-lt100,3,54100,2,3
+2009000134448,1,two or more,two or more,yes,gt35-lt100,3,40900,1,2
+2009000144447,1,two or more,two or more,yes,gt35-lt100,2,75000,2,2
+2009000260375,1,two or more,two or more,yes,gt35-lt100,3,55700,1,2
+2009000261052,1,two or more,two or more,yes,gt35-lt100,2,54500,3,3
+2009000305891,1,two or more,two or more,yes,gt35-lt100,2,56000,2,2
+2009000324427,1,two or more,two or more,yes,gt35-lt100,2,46100,3,2
+2009000330554,1,two or more,two or more,yes,gt35-lt100,2,79000,2,2
+2009000367879,1,two or more,two or more,yes,gt35-lt100,2,50050,2,2
+2009000384221,1,two or more,two or more,yes,gt35-lt100,2,36000,3,2
+2009000441591,1,two or more,two or more,yes,gt35-lt100,3,69200,2,2
+2009000463971,1,two or more,two or more,yes,gt35-lt100,2,56060,1,2
+2009000465936,1,two or more,two or more,yes,gt35-lt100,2,70000,1,2
+2009000482234,1,two or more,two or more,yes,gt35-lt100,3,67000,2,2
+2009000486697,1,two or more,two or more,yes,gt35-lt100,4,61900,2,3
+2009000507765,1,two or more,two or more,yes,gt35-lt100,4,47000,1,2
+2009000514149,1,two or more,two or more,yes,gt35-lt100,2,69900,2,2
+2009000522952,1,two or more,two or more,yes,gt35-lt100,3,62800,2,3
+2009000524722,1,two or more,two or more,yes,gt35-lt100,3,42100,2,2
+2009000530691,1,two or more,two or more,yes,gt35-lt100,2,37600,2,2
+2009000545628,1,two or more,two or more,yes,gt35-lt100,3,48500,1,2
+2009000550751,1,two or more,two or more,yes,gt35-lt100,3,58800,2,2
+2009000712747,1,two or more,two or more,yes,gt35-lt100,3,79800,2,2
+2009000722669,1,two or more,two or more,yes,gt35-lt100,2,58800,1,2
+2009000773723,1,two or more,two or more,yes,gt35-lt100,2,56250,2,2
+2009000774305,1,two or more,two or more,yes,gt35-lt100,2,78030,2,2
+2009000802039,1,two or more,two or more,yes,gt35-lt100,2,74300,1,2
+2009000813284,1,two or more,two or more,yes,gt35-lt100,2,44100,3,2
+2009000851957,1,two or more,two or more,yes,gt35-lt100,3,52500,1,2
+2009000904870,1,two or more,two or more,yes,gt35-lt100,3,95600,2,2
+2009000921099,1,two or more,two or more,yes,gt35-lt100,3,38400,1,2
+2009000931078,1,two or more,two or more,yes,gt35-lt100,3,70000,2,2
+2009000974936,1,two or more,two or more,yes,gt35-lt100,4,42500,1,3
+2009000975912,1,two or more,two or more,yes,gt35-lt100,4,74400,2,2
+2009001000669,1,two or more,two or more,yes,gt35-lt100,3,54500,1,2
+2009001002015,1,two or more,two or more,yes,gt35-lt100,3,52340,3,3
+2009001008269,1,two or more,two or more,yes,gt35-lt100,2,52400,1,3
+2009001019133,1,two or more,two or more,yes,gt35-lt100,3,80000,2,2
+2009001031397,1,two or more,two or more,yes,gt35-lt100,3,84700,1,2
+2009001033211,1,two or more,two or more,yes,gt35-lt100,2,49300,1,3
+2009001066105,1,two or more,two or more,yes,gt35-lt100,2,42700,1,2
+2009001072711,1,two or more,two or more,yes,gt35-lt100,3,52000,1,2
+2009001086453,1,two or more,two or more,yes,gt35-lt100,2,49200,3,2
+2009001095836,1,two or more,two or more,yes,gt35-lt100,2,98000,2,2
+2009001119524,1,two or more,two or more,yes,gt35-lt100,3,83830,1,3
+2009001136839,1,two or more,two or more,yes,gt35-lt100,2,67000,3,2
+2009001149579,1,two or more,two or more,yes,gt35-lt100,2,64000,1,2
+2009001268220,1,two or more,two or more,yes,gt35-lt100,3,70000,2,2
+2009001293868,1,two or more,two or more,yes,gt35-lt100,3,48400,3,2
+2009001294122,1,two or more,two or more,yes,gt35-lt100,3,42000,1,2
+2009001310084,1,two or more,two or more,yes,gt35-lt100,3,60000,1,2
+2009001323292,1,two or more,two or more,yes,gt35-lt100,3,67400,1,2
+2009001356862,1,two or more,two or more,yes,gt35-lt100,2,51800,3,2
+2009001361042,1,two or more,two or more,yes,gt35-lt100,2,44000,1,2
+2009001365653,1,two or more,two or more,yes,gt35-lt100,2,48400,2,3
+2010000017469,1,two or more,two or more,yes,gt35-lt100,2,41000,1,2
+2010000041028,1,two or more,two or more,yes,gt35-lt100,2,43500,3,2
+2010000041403,1,two or more,two or more,yes,gt35-lt100,3,80480,1,2
+2010000056292,1,two or more,two or more,yes,gt35-lt100,4,56000,3,3
+2010000096611,1,two or more,two or more,yes,gt35-lt100,2,70000,2,2
+2010000102613,1,two or more,two or more,yes,gt35-lt100,2,56000,1,2
+2010000107152,1,two or more,two or more,yes,gt35-lt100,2,65600,2,2
+2010000117737,1,two or more,two or more,yes,gt35-lt100,2,60100,2,3
+2010000132687,1,two or more,two or more,yes,gt35-lt100,2,50500,4,2
+2010000187706,1,two or more,two or more,yes,gt35-lt100,2,72800,2,2
+2010000238288,1,two or more,two or more,yes,gt35-lt100,4,68000,2,3
+2010000258699,1,two or more,two or more,yes,gt35-lt100,2,40200,1,2
+2010000265187,1,two or more,two or more,yes,gt35-lt100,2,44000,1,2
+2010000293814,1,two or more,two or more,yes,gt35-lt100,3,44301,2,2
+2010000367159,1,two or more,two or more,yes,gt35-lt100,3,73800,2,2
+2010000383428,1,two or more,two or more,yes,gt35-lt100,5,69000,1,3
+2010000398806,1,two or more,two or more,yes,gt35-lt100,3,67500,4,3
+2010000465646,1,two or more,two or more,yes,gt35-lt100,2,37800,2,2
+2010000511161,1,two or more,two or more,yes,gt35-lt100,4,66400,2,3
+2010000529028,1,two or more,two or more,yes,gt35-lt100,2,54000,2,2
+2010000533297,1,two or more,two or more,yes,gt35-lt100,6,97000,1,2
+2010000591016,1,two or more,two or more,yes,gt35-lt100,2,49000,1,2
+2010000693241,1,two or more,two or more,yes,gt35-lt100,2,55000,5,2
+2010000694138,1,two or more,two or more,yes,gt35-lt100,3,64000,1,2
+2010000719779,1,two or more,two or more,yes,gt35-lt100,2,72000,2,2
+2010000730532,1,two or more,two or more,yes,gt35-lt100,3,71500,2,2
+2010000737221,1,two or more,two or more,yes,gt35-lt100,4,55000,3,2
+2010000755781,1,two or more,two or more,yes,gt35-lt100,3,93900,2,2
+2010000809970,1,two or more,two or more,yes,gt35-lt100,2,95000,1,2
+2010000812903,1,two or more,two or more,yes,gt35-lt100,2,55500,2,2
+2010000816358,1,two or more,two or more,yes,gt35-lt100,4,57600,2,2
+2010000827530,1,two or more,two or more,yes,gt35-lt100,3,83400,3,2
+2010000828152,1,two or more,two or more,yes,gt35-lt100,3,72100,5,2
+2010000845665,1,two or more,two or more,yes,gt35-lt100,2,93600,1,3
+2010000861768,1,two or more,two or more,yes,gt35-lt100,2,60000,1,2
+2010000966518,1,two or more,two or more,yes,gt35-lt100,3,35400,3,2
+2010000981159,1,two or more,two or more,yes,gt35-lt100,3,74210,1,2
+2010001027307,1,two or more,two or more,yes,gt35-lt100,3,44200,2,2
+2010001041275,1,two or more,two or more,yes,gt35-lt100,2,65000,2,2
+2010001128243,1,two or more,two or more,yes,gt35-lt100,2,76000,1,2
+2010001185725,1,two or more,two or more,yes,gt35-lt100,4,92000,4,3
+2010001193503,1,two or more,two or more,yes,gt35-lt100,2,74000,2,2
+2010001221525,1,two or more,two or more,yes,gt35-lt100,2,47600,1,2
+2010001295663,1,two or more,two or more,yes,gt35-lt100,2,42010,4,2
+2010001315760,1,two or more,two or more,yes,gt35-lt100,3,64230,1,3
+2010001330336,1,two or more,two or more,yes,gt35-lt100,4,98000,1,3
+2010001345571,1,two or more,two or more,yes,gt35-lt100,4,79000,5,2
+2010001356783,1,two or more,two or more,yes,gt35-lt100,3,74000,2,2
+2010001360234,1,two or more,two or more,yes,gt35-lt100,3,78000,2,2
+2010001395518,1,two or more,two or more,yes,gt35-lt100,2,42400,1,2
+2011000020021,1,two or more,two or more,yes,gt35-lt100,2,80000,2,2
+2011000034892,1,two or more,two or more,yes,gt35-lt100,2,35700,1,2
+2011000037320,1,two or more,two or more,yes,gt35-lt100,2,38750,2,2
+2011000107961,1,two or more,two or more,yes,gt35-lt100,3,55500,3,2
+2011000122512,1,two or more,two or more,yes,gt35-lt100,3,45000,2,2
+2011000287556,1,two or more,two or more,yes,gt35-lt100,2,45200,1,2
+2011000328637,1,two or more,two or more,yes,gt35-lt100,5,46900,1,3
+2011000366843,1,two or more,two or more,yes,gt35-lt100,2,55000,1,2
+2011000406985,1,two or more,two or more,yes,gt35-lt100,5,99000,1,3
+2011000408066,1,two or more,two or more,yes,gt35-lt100,2,90600,1,2
+2011000510144,1,two or more,two or more,yes,gt35-lt100,2,43400,2,3
+2011000572617,1,two or more,two or more,yes,gt35-lt100,3,96300,2,2
+2011000573713,1,two or more,two or more,yes,gt35-lt100,2,62000,1,2
+2011000592680,1,two or more,two or more,yes,gt35-lt100,2,56000,2,2
+2011000596860,1,two or more,two or more,yes,gt35-lt100,4,35800,1,2
+2011000626297,1,two or more,two or more,yes,gt35-lt100,2,49000,2,2
+2011000631478,1,two or more,two or more,yes,gt35-lt100,2,92000,2,2
+2011000645831,1,two or more,two or more,yes,gt35-lt100,3,94300,1,2
+2011000652203,1,two or more,two or more,yes,gt35-lt100,3,63200,1,2
+2011000701181,1,two or more,two or more,yes,gt35-lt100,2,40000,2,2
+2011000715762,1,two or more,two or more,yes,gt35-lt100,3,42200,3,2
+2011000753271,1,two or more,two or more,yes,gt35-lt100,2,83300,2,2
+2011000770205,1,two or more,two or more,yes,gt35-lt100,2,100000,3,2
+2011000777602,1,two or more,two or more,yes,gt35-lt100,4,86600,2,3
+2011000794123,1,two or more,two or more,yes,gt35-lt100,6,74000,3,2
+2011000860016,1,two or more,two or more,yes,gt35-lt100,3,50000,2,2
+2011000931502,1,two or more,two or more,yes,gt35-lt100,2,50000,1,2
+2011000935868,1,two or more,two or more,yes,gt35-lt100,3,79990,1,3
+2011000942175,1,two or more,two or more,yes,gt35-lt100,3,98000,4,2
+2011000957494,1,two or more,two or more,yes,gt35-lt100,4,59300,2,2
+2011000977186,1,two or more,two or more,yes,gt35-lt100,3,77100,3,2
+2011001003145,1,two or more,two or more,yes,gt35-lt100,3,80800,2,3
+2011001022323,1,two or more,two or more,yes,gt35-lt100,2,69900,1,3
+2011001042575,1,two or more,two or more,yes,gt35-lt100,4,57000,3,2
+2011001068483,1,two or more,two or more,yes,gt35-lt100,3,62500,1,2
+2011001086480,1,two or more,two or more,yes,gt35-lt100,3,64030,1,3
+2011001139178,1,two or more,two or more,yes,gt35-lt100,3,90000,2,2
+2011001165795,1,two or more,two or more,yes,gt35-lt100,3,47100,1,3
+2011001202505,1,two or more,two or more,yes,gt35-lt100,3,96300,2,2
+2011001203861,1,two or more,two or more,yes,gt35-lt100,3,76100,2,2
+2011001218399,1,two or more,two or more,yes,gt35-lt100,2,57300,1,3
+2011001229093,1,two or more,two or more,yes,gt35-lt100,2,75000,1,2
+2011001239752,1,two or more,two or more,yes,gt35-lt100,2,63000,1,2
+2011001258090,1,two or more,two or more,yes,gt35-lt100,2,72300,1,2
+2011001265516,1,two or more,two or more,yes,gt35-lt100,2,47000,3,2
+2011001268359,1,two or more,two or more,yes,gt35-lt100,2,62000,2,2
+2011001279592,1,two or more,two or more,yes,gt35-lt100,5,48800,2,2
+2011001289222,1,two or more,two or more,yes,gt35-lt100,2,55900,1,2
+2011001292015,1,two or more,two or more,yes,gt35-lt100,2,66000,2,2
+2011001344554,1,two or more,two or more,yes,gt35-lt100,2,70400,1,2
+2011001400159,1,two or more,two or more,yes,gt35-lt100,3,91000,1,3
+2011001402024,1,two or more,two or more,yes,gt35-lt100,2,75000,2,2
+2011001427367,1,two or more,two or more,yes,gt35-lt100,4,70000,2,2
+2011001439583,1,two or more,two or more,yes,gt35-lt100,3,57400,2,2
+2011001439758,1,two or more,two or more,yes,gt35-lt100,2,56994,3,2
+2011001458782,1,two or more,two or more,yes,gt35-lt100,2,46000,1,2
+2012000021787,1,one,two or more,yes,lt35,1,10000,2,2
+2012000152605,1,one,two or more,yes,lt35,1,22000,1,2
+2012000367631,1,one,two or more,yes,lt35,1,21470,1,2
+2012001150845,1,one,two or more,yes,lt35,1,29800,1,2
+2013001091360,1,one,two or more,yes,lt35,1,16400,1,2
+2009000088407,1,one,two or more,yes,lt35,1,22160,1,2
+2009000243783,1,one,two or more,yes,lt35,1,16700,1,2
+2009000339500,1,one,two or more,yes,lt35,1,13600,1,2
+2009000708573,1,one,two or more,yes,lt35,1,24800,1,3
+2009000839783,1,one,two or more,yes,lt35,1,22000,2,2
+2009000939094,1,one,two or more,yes,lt35,1,34500,1,2
+2009001010407,1,one,two or more,yes,lt35,1,24000,2,2
+2010000756688,1,one,two or more,yes,lt35,1,19700,4,2
+2010001114930,1,one,two or more,yes,lt35,1,25600,2,2
+2011000022978,1,one,two or more,yes,lt35,1,16800,3,3
+2011000516864,1,one,two or more,yes,lt35,1,8000,2,2
+2012000021815,1,two or more,two or more,no,gt100,2,171100,0,2
+2012000037734,1,two or more,two or more,no,gt100,2,104000,0,2
+2012000072266,1,two or more,two or more,no,gt100,3,104000,0,2
+2012000108679,1,two or more,two or more,no,gt100,4,135500,0,2
+2012000230064,1,two or more,two or more,no,gt100,4,119600,0,2
+2012000298890,1,two or more,two or more,no,gt100,2,102000,0,2
+2012000333651,1,two or more,two or more,no,gt100,2,120000,0,2
+2012000393217,1,two or more,two or more,no,gt100,2,102000,0,2
+2012000426344,1,two or more,two or more,no,gt100,2,194000,0,2
+2012000635484,1,two or more,two or more,no,gt100,2,147400,0,2
+2012000683018,1,two or more,two or more,no,gt100,3,112000,0,2
+2012000695503,1,two or more,two or more,no,gt100,5,111900,0,3
+2012000797002,1,two or more,two or more,no,gt100,4,138100,0,3
+2012001065834,1,two or more,two or more,no,gt100,2,115500,0,2
+2012001141433,1,two or more,two or more,no,gt100,3,125000,0,2
+2012001192980,1,two or more,two or more,no,gt100,2,113000,0,2
+2012001408600,1,two or more,two or more,no,gt100,2,198000,0,3
+2012001413889,1,two or more,two or more,no,gt100,3,157550,0,2
+2012001455800,1,two or more,two or more,no,gt100,3,116400,0,2
+2013000008631,1,two or more,two or more,no,gt100,6,130000,0,3
+2013000147582,1,two or more,two or more,no,gt100,2,111000,0,2
+2013000381404,1,two or more,two or more,no,gt100,2,140000,0,2
+2013000434693,1,two or more,two or more,no,gt100,3,157490,0,2
+2013000681467,1,two or more,two or more,no,gt100,5,110000,0,2
+2013000817370,1,two or more,two or more,no,gt100,3,123000,0,2
+2013000884698,1,two or more,two or more,no,gt100,2,216000,0,2
+2013000890559,1,two or more,two or more,no,gt100,2,116100,0,2
+2013000893356,1,two or more,two or more,no,gt100,4,141744,0,2
+2013000936828,1,two or more,two or more,no,gt100,3,223000,0,2
+2013000983113,1,two or more,two or more,no,gt100,3,116800,0,2
+2013001014415,1,two or more,two or more,no,gt100,3,192100,0,2
+2013001016679,1,two or more,two or more,no,gt100,2,100600,0,2
+2013001131225,1,two or more,two or more,no,gt100,5,109700,0,3
+2013001153415,1,two or more,two or more,no,gt100,2,196000,0,2
+2013001181609,1,two or more,two or more,no,gt100,3,102000,0,3
+2013001186216,1,two or more,two or more,no,gt100,2,182000,0,2
+2013001213130,1,two or more,two or more,no,gt100,4,106000,0,2
+2013001350011,1,two or more,two or more,no,gt100,2,140000,0,2
+2013001357284,1,two or more,two or more,no,gt100,6,117900,0,3
+2013001419969,1,two or more,two or more,no,gt100,5,116000,0,3
+2013001475652,1,two or more,two or more,no,gt100,2,119200,0,2
+2009000051509,1,two or more,two or more,no,gt100,3,226000,0,2
+2009000054094,1,two or more,two or more,no,gt100,2,103600,0,2
+2009000111349,1,two or more,two or more,no,gt100,2,193500,0,2
+2009000196667,1,two or more,two or more,no,gt100,2,406600,0,2
+2009000343651,1,two or more,two or more,no,gt100,2,135400,0,2
+2009000400409,1,two or more,two or more,no,gt100,2,105000,0,2
+2009000509949,1,two or more,two or more,no,gt100,2,132040,0,2
+2009000540347,1,two or more,two or more,no,gt100,2,107600,0,2
+2009000547294,1,two or more,two or more,no,gt100,3,104050,0,2
+2009000571326,1,two or more,two or more,no,gt100,2,168500,0,2
+2009000718084,1,two or more,two or more,no,gt100,2,106000,0,2
+2009000817505,1,two or more,two or more,no,gt100,2,129200,0,2
+2009000821570,1,two or more,two or more,no,gt100,2,154270,0,2
+2009000847250,1,two or more,two or more,no,gt100,3,116700,0,3
+2009000930256,1,two or more,two or more,no,gt100,2,102020,0,2
+2009000938061,1,two or more,two or more,no,gt100,3,133100,0,3
+2009001052616,1,two or more,two or more,no,gt100,2,106000,0,2
+2009001065340,1,two or more,two or more,no,gt100,4,102200,0,2
+2009001117538,1,two or more,two or more,no,gt100,3,140720,0,3
+2009001164672,1,two or more,two or more,no,gt100,4,183200,0,2
+2009001213397,1,two or more,two or more,no,gt100,2,174700,0,2
+2009001314678,1,two or more,two or more,no,gt100,2,383050,0,2
+2010000110023,1,two or more,two or more,no,gt100,2,260900,0,2
+2010000115969,1,two or more,two or more,no,gt100,3,175400,0,2
+2010000164863,1,two or more,two or more,no,gt100,2,138400,0,2
+2010000279818,1,two or more,two or more,no,gt100,2,102000,0,2
+2010000333589,1,two or more,two or more,no,gt100,2,114000,0,2
+2010000521366,1,two or more,two or more,no,gt100,2,125600,0,2
+2010000531406,1,two or more,two or more,no,gt100,3,148000,0,2
+2010000552001,1,two or more,two or more,no,gt100,2,111500,0,3
+2010000560888,1,two or more,two or more,no,gt100,2,113000,0,2
+2010000604521,1,two or more,two or more,no,gt100,2,149000,0,2
+2010000662809,1,two or more,two or more,no,gt100,2,119600,0,2
+2010000678523,1,two or more,two or more,no,gt100,3,208000,0,2
+2010000799155,1,two or more,two or more,no,gt100,4,107000,0,2
+2010000833942,1,two or more,two or more,no,gt100,3,105600,0,2
+2010000892860,1,two or more,two or more,no,gt100,5,115800,0,2
+2010001008663,1,two or more,two or more,no,gt100,3,144100,0,2
+2010001274189,1,two or more,two or more,no,gt100,2,120000,0,3
+2010001301221,1,two or more,two or more,no,gt100,4,140000,0,3
+2010001303909,1,two or more,two or more,no,gt100,2,154000,0,2
+2010001335495,1,two or more,two or more,no,gt100,2,110100,0,2
+2010001387980,1,two or more,two or more,no,gt100,3,115000,0,2
+2010001405879,1,two or more,two or more,no,gt100,3,106600,0,3
+2011000108752,1,two or more,two or more,no,gt100,2,136300,0,2
+2011000122274,1,two or more,two or more,no,gt100,3,104500,0,2
+2011000280299,1,two or more,two or more,no,gt100,2,130400,0,2
+2011000288686,1,two or more,two or more,no,gt100,4,154600,0,2
+2011000314371,1,two or more,two or more,no,gt100,3,145000,0,2
+2011000318199,1,two or more,two or more,no,gt100,3,104900,0,2
+2011000372038,1,two or more,two or more,no,gt100,3,142200,0,3
+2011000419441,1,two or more,two or more,no,gt100,3,116020,0,2
+2011000451988,1,two or more,two or more,no,gt100,2,281000,0,2
+2011000499207,1,two or more,two or more,no,gt100,3,123000,0,2
+2011000589811,1,two or more,two or more,no,gt100,4,105550,0,3
+2011000606418,1,two or more,two or more,no,gt100,2,191500,0,2
+2011000749611,1,two or more,two or more,no,gt100,2,114900,0,3
+2011001043279,1,two or more,two or more,no,gt100,5,111000,0,2
+2011001216352,1,two or more,two or more,no,gt100,4,372300,0,2
+2011001227615,1,two or more,two or more,no,gt100,3,164500,0,3
+2011001272082,1,two or more,two or more,no,gt100,6,265000,0,3
+2011001297011,1,two or more,two or more,no,gt100,6,116040,0,3
+2011001448702,1,two or more,two or more,no,gt100,2,137900,0,2
+2011001454250,1,two or more,two or more,no,gt100,4,115900,0,3
+2012000021899,1,none,none,no,lt35,0,,0,
+2012000072453,1,none,none,no,lt35,0,,0,
+2012000165574,1,none,none,no,lt35,0,,0,
+2012000230141,1,none,none,no,lt35,0,,0,
+2012000291137,1,none,none,no,lt35,0,,0,
+2012000304899,1,none,none,no,lt35,0,,0,
+2012000340809,1,none,none,no,lt35,0,,0,
+2012000652390,1,none,none,no,lt35,0,,0,
+2012000765247,1,none,none,no,lt35,0,,0,
+2012000765893,1,none,none,no,lt35,0,,0,
+2012000852490,1,none,none,no,lt35,0,,0,
+2012000928350,1,none,none,no,lt35,0,,0,
+2012001171694,1,none,none,no,lt35,0,,0,
+2012001204703,1,none,none,no,lt35,0,,0,
+2012001341852,1,none,none,no,lt35,0,,0,
+2012001372477,1,none,none,no,lt35,0,,0,
+2012001386375,1,none,none,no,lt35,0,,0,
+2012001425474,1,none,none,no,lt35,0,,0,
+2013000046126,1,none,none,no,lt35,0,,0,
+2013000086821,1,none,none,no,lt35,0,,0,
+2013000114524,1,none,none,no,lt35,0,9600,0,0
+2013000168065,1,none,none,no,lt35,0,,0,
+2013000195339,1,none,none,no,lt35,0,,0,
+2013000241257,1,none,none,no,lt35,0,,0,
+2013000250605,1,none,none,no,lt35,0,,0,
+2013000291151,1,none,none,no,lt35,0,,0,
+2013000458144,1,none,none,no,lt35,0,,0,
+2013000512996,1,none,none,no,lt35,0,,0,
+2013000688302,1,none,none,no,lt35,0,,0,
+2013000748637,1,none,none,no,lt35,0,,0,
+2013000840163,1,none,none,no,lt35,0,,0,
+2013000867783,1,none,none,no,lt35,0,,0,
+2013000994669,1,none,none,no,lt35,0,,0,
+2013001045168,1,none,none,no,lt35,0,,0,
+2013001074235,1,none,none,no,lt35,0,,0,
+2013001314658,1,none,none,no,lt35,0,,0,
+2009000153013,1,none,none,no,lt35,0,16800,0,0
+2009000202627,1,none,none,no,lt35,0,,0,
+2009000258540,1,none,none,no,lt35,0,,0,
+2009000279912,1,none,none,no,lt35,0,,0,
+2009000308898,1,none,none,no,lt35,0,24000,0,0
+2009000400128,1,none,none,no,lt35,0,,0,
+2009000465330,1,none,none,no,lt35,0,,0,
+2009000480146,1,none,none,no,lt35,0,,0,
+2009000692179,1,none,none,no,lt35,0,,0,
+2009000723797,1,none,none,no,lt35,0,,0,
+2009000736295,1,none,none,no,lt35,0,,0,
+2009000838682,1,none,none,no,lt35,0,,0,
+2009000841647,1,none,none,no,lt35,0,,0,
+2009000859108,1,none,none,no,lt35,0,,0,
+2009000916500,1,none,none,no,lt35,0,,0,
+2009000923524,1,none,none,no,lt35,0,,0,
+2009000951061,1,none,none,no,lt35,0,,0,
+2009000970446,1,none,none,no,lt35,0,,0,
+2009000988270,1,none,none,no,lt35,0,,0,
+2009001030474,1,none,none,no,lt35,0,,0,
+2009001062486,1,none,none,no,lt35,0,,0,
+2009001143568,1,none,none,no,lt35,0,,0,
+2009001150190,1,none,none,no,lt35,0,,0,
+2009001166360,1,none,none,no,lt35,0,,0,
+2009001212002,1,none,none,no,lt35,0,,0,
+2009001231981,1,none,none,no,lt35,0,10320,0,0
+2009001235310,1,none,none,no,lt35,0,,0,
+2009001253781,1,none,none,no,lt35,0,,0,
+2009001257949,1,none,none,no,lt35,0,,0,
+2009001262581,1,none,none,no,lt35,0,,0,
+2009001311712,1,none,none,no,lt35,0,,0,
+2009001332216,1,none,none,no,lt35,0,,0,
+2009001336231,1,none,none,no,lt35,0,,0,
+2009001368000,1,none,none,no,lt35,0,,0,
+2009001368019,1,none,none,no,lt35,0,,0,
+2010000001767,1,none,none,no,lt35,0,,0,
+2010000054705,1,none,none,no,lt35,0,,0,
+2010000102633,1,none,none,no,lt35,0,,0,
+2010000365519,1,none,none,no,lt35,0,,0,
+2010000468102,1,none,none,no,lt35,0,,0,
+2010000476249,1,none,none,no,lt35,0,,0,
+2010000532813,1,none,none,no,lt35,0,,0,
+2010000717775,1,none,none,no,lt35,0,,0,
+2010000756010,1,none,none,no,lt35,0,8100,0,0
+2010000790665,1,none,none,no,lt35,0,,0,
+2010000819412,1,none,none,no,lt35,0,,0,
+2010000900012,1,none,none,no,lt35,0,,0,
+2010000932407,1,none,none,no,lt35,0,,0,
+2010001229265,1,none,none,no,lt35,0,,0,
+2010001243130,1,none,none,no,lt35,0,,0,
+2010001262540,1,none,none,no,lt35,0,,0,
+2010001276338,1,none,none,no,lt35,0,,0,
+2010001290355,1,none,none,no,lt35,0,,0,
+2010001322296,1,none,none,no,lt35,0,,0,
+2010001370354,1,none,none,no,lt35,0,,0,
+2011000022104,1,none,none,no,lt35,0,,0,
+2011000026439,1,none,none,no,lt35,0,,0,
+2011000077018,1,none,none,no,lt35,0,,0,
+2011000108303,1,none,none,no,lt35,0,,0,
+2011000151154,1,none,none,no,lt35,0,,0,
+2011000199921,1,none,none,no,lt35,0,,0,
+2011000208355,1,none,none,no,lt35,0,,0,
+2011000214247,1,none,none,no,lt35,0,,0,
+2011000255229,1,none,none,no,lt35,0,,0,
+2011000261518,1,none,none,no,lt35,0,,0,
+2011000277924,1,none,none,no,lt35,0,200,0,0
+2011000287250,1,none,none,no,lt35,0,10240,0,0
+2011000329968,1,none,none,no,lt35,0,,0,
+2011000399202,1,none,none,no,lt35,0,,0,
+2011000419694,1,none,none,no,lt35,0,,0,
+2011000450601,1,none,none,no,lt35,0,,0,
+2011000480805,1,none,none,no,lt35,0,,0,
+2011000495027,1,none,none,no,lt35,0,,0,
+2011000499461,1,none,none,no,lt35,0,,0,
+2011000512743,1,none,none,no,lt35,0,,0,
+2011000538016,1,none,none,no,lt35,0,,0,
+2011000603648,1,none,none,no,lt35,0,,0,
+2011000620838,1,none,none,no,lt35,0,,0,
+2011000816186,1,none,none,no,lt35,0,,0,
+2011000856955,1,none,none,no,lt35,0,,0,
+2011000879434,1,none,none,no,lt35,0,,0,
+2011000881460,1,none,none,no,lt35,0,,0,
+2011000927621,1,none,none,no,lt35,0,,0,
+2011000933500,1,none,none,no,lt35,0,,0,
+2011000963020,1,none,none,no,lt35,0,,0,
+2011000978421,1,none,none,no,lt35,0,,0,
+2011001001181,1,none,none,no,lt35,0,,0,
+2011001177717,1,none,none,no,lt35,0,,0,
+2011001274208,1,none,none,no,lt35,0,,0,
+2011001281030,1,none,none,no,lt35,0,,0,
+2011001285432,1,none,none,no,lt35,0,,0,
+2011001298195,1,none,none,no,lt35,0,,0,
+2011001309377,1,none,none,no,lt35,0,,0,
+2011001334099,1,none,none,no,lt35,0,,0,
+2011001403529,1,none,none,no,lt35,0,,0,
+2012000024239,1,two or more,two or more,no,gt35-lt100,2,77100,0,2
+2012000057076,1,two or more,two or more,no,gt35-lt100,2,86000,0,2
+2012000075100,1,two or more,two or more,no,gt35-lt100,2,56700,0,2
+2012000077790,1,two or more,two or more,no,gt35-lt100,3,39800,0,2
+2012000079793,1,two or more,two or more,no,gt35-lt100,2,48000,0,2
+2012000080746,1,two or more,two or more,no,gt35-lt100,2,79200,0,2
+2012000094441,1,two or more,two or more,no,gt35-lt100,3,52300,0,3
+2012000098855,1,two or more,two or more,no,gt35-lt100,3,86000,0,2
+2012000122414,1,two or more,two or more,no,gt35-lt100,2,68800,0,2
+2012000163423,1,two or more,two or more,no,gt35-lt100,4,50600,0,2
+2012000208725,1,two or more,two or more,no,gt35-lt100,5,92200,0,3
+2012000227693,1,two or more,two or more,no,gt35-lt100,2,77170,0,2
+2012000247534,1,two or more,two or more,no,gt35-lt100,2,76000,0,2
+2012000395438,1,two or more,two or more,no,gt35-lt100,4,72300,0,3
+2012000437422,1,two or more,two or more,no,gt35-lt100,4,85000,0,2
+2012000465025,1,two or more,two or more,no,gt35-lt100,3,71500,0,3
+2012000491735,1,two or more,two or more,no,gt35-lt100,2,54400,0,2
+2012000572193,1,two or more,two or more,no,gt35-lt100,2,76000,0,2
+2012000639666,1,two or more,two or more,no,gt35-lt100,2,53500,0,2
+2012000674210,1,two or more,two or more,no,gt35-lt100,3,78000,0,2
+2012000709482,1,two or more,two or more,no,gt35-lt100,3,50100,0,3
+2012000715008,1,two or more,two or more,no,gt35-lt100,5,88900,0,3
+2012000719259,1,two or more,two or more,no,gt35-lt100,2,51600,0,2
+2012000777626,1,two or more,two or more,no,gt35-lt100,3,50900,0,3
+2012000802171,1,two or more,two or more,no,gt35-lt100,2,42500,0,2
+2012000804756,1,two or more,two or more,no,gt35-lt100,3,99000,0,2
+2012000848577,1,two or more,two or more,no,gt35-lt100,5,88000,0,2
+2012000862386,1,two or more,two or more,no,gt35-lt100,4,75000,0,2
+2012000977896,1,two or more,two or more,no,gt35-lt100,4,54080,0,3
+2012001053608,1,two or more,two or more,no,gt35-lt100,3,88300,0,2
+2012001128284,1,two or more,two or more,no,gt35-lt100,2,45000,0,2
+2012001187133,1,two or more,two or more,no,gt35-lt100,2,87000,0,2
+2012001192624,1,two or more,two or more,no,gt35-lt100,5,65200,0,2
+2012001197248,1,two or more,two or more,no,gt35-lt100,3,75000,0,2
+2012001246150,1,two or more,two or more,no,gt35-lt100,3,74000,0,3
+2012001331745,1,two or more,two or more,no,gt35-lt100,3,59000,0,2
+2012001351630,1,two or more,two or more,no,gt35-lt100,2,52900,0,2
+2012001351796,1,two or more,two or more,no,gt35-lt100,3,55100,0,2
+2012001480092,1,two or more,two or more,no,gt35-lt100,3,41700,0,2
+2013000039669,1,two or more,two or more,no,gt35-lt100,5,76500,0,2
+2013000063701,1,two or more,two or more,no,gt35-lt100,2,71900,0,2
+2013000112150,1,two or more,two or more,no,gt35-lt100,3,79000,0,2
+2013000121351,1,two or more,two or more,no,gt35-lt100,2,40150,0,2
+2013000123726,1,two or more,two or more,no,gt35-lt100,6,100000,0,3
+2013000145004,1,two or more,two or more,no,gt35-lt100,4,78000,0,3
+2013000237929,1,two or more,two or more,no,gt35-lt100,3,68000,0,2
+2013000254257,1,two or more,two or more,no,gt35-lt100,4,92200,0,3
+2013000280089,1,two or more,two or more,no,gt35-lt100,3,71400,0,2
+2013000287707,1,two or more,two or more,no,gt35-lt100,2,67900,0,2
+2013000309598,1,two or more,two or more,no,gt35-lt100,3,91000,0,2
+2013000318243,1,two or more,two or more,no,gt35-lt100,2,55300,0,2
+2013000364572,1,two or more,two or more,no,gt35-lt100,2,50000,0,2
+2013000402122,1,two or more,two or more,no,gt35-lt100,2,59000,0,2
+2013000515533,1,two or more,two or more,no,gt35-lt100,3,95400,0,2
+2013000533292,1,two or more,two or more,no,gt35-lt100,2,40730,0,2
+2013000540072,1,two or more,two or more,no,gt35-lt100,2,36500,0,2
+2013000580729,1,two or more,two or more,no,gt35-lt100,4,45700,0,3
+2013000624234,1,two or more,two or more,no,gt35-lt100,2,39000,0,2
+2013000629061,1,two or more,two or more,no,gt35-lt100,4,55000,0,3
+2013000638560,1,two or more,two or more,no,gt35-lt100,2,94000,0,3
+2013000641222,1,two or more,two or more,no,gt35-lt100,3,63000,0,3
+2013000674428,1,two or more,two or more,no,gt35-lt100,2,78750,0,2
+2013000714004,1,two or more,two or more,no,gt35-lt100,4,54500,0,3
+2013000800543,1,two or more,two or more,no,gt35-lt100,3,65000,0,2
+2013000807978,1,two or more,two or more,no,gt35-lt100,2,84210,0,2
+2013000868606,1,two or more,two or more,no,gt35-lt100,4,67000,0,3
+2013000870861,1,two or more,two or more,no,gt35-lt100,2,97500,0,3
+2013000900050,1,two or more,two or more,no,gt35-lt100,2,51000,0,2
+2013000998154,1,two or more,two or more,no,gt35-lt100,2,47000,0,2
+2013001067818,1,two or more,two or more,no,gt35-lt100,2,59000,0,2
+2013001156384,1,two or more,two or more,no,gt35-lt100,2,89600,0,2
+2013001178397,1,two or more,two or more,no,gt35-lt100,2,37600,0,2
+2013001182599,1,two or more,two or more,no,gt35-lt100,4,98400,0,2
+2013001185076,1,two or more,two or more,no,gt35-lt100,2,51000,0,2
+2013001212091,1,two or more,two or more,no,gt35-lt100,3,52000,0,2
+2013001233416,1,two or more,two or more,no,gt35-lt100,3,81000,0,2
+2013001234541,1,two or more,two or more,no,gt35-lt100,2,82710,0,2
+2013001273608,1,two or more,two or more,no,gt35-lt100,2,67100,0,2
+2013001291032,1,two or more,two or more,no,gt35-lt100,3,64400,0,2
+2013001300483,1,two or more,two or more,no,gt35-lt100,3,79000,0,2
+2013001319513,1,two or more,two or more,no,gt35-lt100,2,46300,0,2
+2013001347503,1,two or more,two or more,no,gt35-lt100,3,81200,0,2
+2013001350525,1,two or more,two or more,no,gt35-lt100,3,99600,0,3
+2013001370394,1,two or more,two or more,no,gt35-lt100,2,65000,0,2
+2013001393523,1,two or more,two or more,no,gt35-lt100,4,64000,0,2
+2013001417018,1,two or more,two or more,no,gt35-lt100,2,69780,0,2
+2013001449828,1,two or more,two or more,no,gt35-lt100,2,65920,0,2
+2013001459293,1,two or more,two or more,no,gt35-lt100,2,46200,0,2
+2009000012052,1,two or more,two or more,no,gt35-lt100,3,72100,0,2
+2009000035820,1,two or more,two or more,no,gt35-lt100,3,87700,0,3
+2009000051498,1,two or more,two or more,no,gt35-lt100,2,37600,0,2
+2009000068737,1,two or more,two or more,no,gt35-lt100,2,57100,0,2
+2009000149980,1,two or more,two or more,no,gt35-lt100,2,59000,0,2
+2009000192781,1,two or more,two or more,no,gt35-lt100,2,69000,0,2
+2009000194890,1,two or more,two or more,no,gt35-lt100,4,59000,0,3
+2009000195029,1,two or more,two or more,no,gt35-lt100,3,72000,0,2
+2009000237570,1,two or more,two or more,no,gt35-lt100,2,65000,0,2
+2009000257831,1,two or more,two or more,no,gt35-lt100,2,57300,0,2
+2009000284487,1,two or more,two or more,no,gt35-lt100,2,44100,0,2
+2009000300444,1,two or more,two or more,no,gt35-lt100,3,50780,0,2
+2009000312653,1,two or more,two or more,no,gt35-lt100,5,98000,0,3
+2009000331931,1,two or more,two or more,no,gt35-lt100,2,46900,0,2
+2009000334030,1,two or more,two or more,no,gt35-lt100,4,44500,0,2
+2009000336734,1,two or more,two or more,no,gt35-lt100,4,80300,0,2
+2009000360380,1,two or more,two or more,no,gt35-lt100,2,62900,0,2
+2009000363387,1,two or more,two or more,no,gt35-lt100,6,94000,0,2
+2009000396588,1,two or more,two or more,no,gt35-lt100,3,98000,0,2
+2009000397897,1,two or more,two or more,no,gt35-lt100,2,66920,0,2
+2009000456860,1,two or more,two or more,no,gt35-lt100,2,44750,0,2
+2009000470315,1,two or more,two or more,no,gt35-lt100,2,98500,0,2
+2009000498864,1,two or more,two or more,no,gt35-lt100,3,68000,0,2
+2009000503967,1,two or more,two or more,no,gt35-lt100,2,88500,0,2
+2009000534043,1,two or more,two or more,no,gt35-lt100,2,87900,0,2
+2009000535949,1,two or more,two or more,no,gt35-lt100,3,81000,0,3
+2009000549857,1,two or more,two or more,no,gt35-lt100,3,72000,0,2
+2009000557610,1,two or more,two or more,no,gt35-lt100,3,80600,0,2
+2009000568177,1,two or more,two or more,no,gt35-lt100,2,55000,0,2
+2009000635494,1,two or more,two or more,no,gt35-lt100,2,60000,0,2
+2009000640859,1,two or more,two or more,no,gt35-lt100,4,86780,0,3
+2009000687183,1,two or more,two or more,no,gt35-lt100,2,61800,0,2
+2009000715880,1,two or more,two or more,no,gt35-lt100,2,50000,0,2
+2009000728790,1,two or more,two or more,no,gt35-lt100,2,37000,0,2
+2009000733311,1,two or more,two or more,no,gt35-lt100,3,54860,0,2
+2009000739566,1,two or more,two or more,no,gt35-lt100,3,66200,0,2
+2009000742635,1,two or more,two or more,no,gt35-lt100,2,62000,0,2
+2009000749650,1,two or more,two or more,no,gt35-lt100,2,55000,0,3
+2009000790118,1,two or more,two or more,no,gt35-lt100,2,61000,0,2
+2009000837879,1,two or more,two or more,no,gt35-lt100,3,46900,0,2
+2009000879670,1,two or more,two or more,no,gt35-lt100,2,63000,0,3
+2009000883961,1,two or more,two or more,no,gt35-lt100,3,77700,0,2
+2009000890994,1,two or more,two or more,no,gt35-lt100,2,42500,0,2
+2009000902331,1,two or more,two or more,no,gt35-lt100,2,95500,0,2
+2009000941164,1,two or more,two or more,no,gt35-lt100,2,91000,0,2
+2009000953553,1,two or more,two or more,no,gt35-lt100,2,45000,0,2
+2009000960874,1,two or more,two or more,no,gt35-lt100,2,74000,0,2
+2009001072207,1,two or more,two or more,no,gt35-lt100,4,82350,0,2
+2009001105467,1,two or more,two or more,no,gt35-lt100,2,35990,0,2
+2009001109311,1,two or more,two or more,no,gt35-lt100,2,71200,0,2
+2009001125769,1,two or more,two or more,no,gt35-lt100,3,41000,0,2
+2009001132424,1,two or more,two or more,no,gt35-lt100,2,40000,0,2
+2009001149302,1,two or more,two or more,no,gt35-lt100,5,39500,0,2
+2009001161206,1,two or more,two or more,no,gt35-lt100,2,48400,0,2
+2009001197214,1,two or more,two or more,no,gt35-lt100,3,52000,0,2
+2009001218479,1,two or more,two or more,no,gt35-lt100,4,43000,0,2
+2009001307293,1,two or more,two or more,no,gt35-lt100,2,54000,0,2
+2009001308515,1,two or more,two or more,no,gt35-lt100,3,90500,0,3
+2009001308530,1,two or more,two or more,no,gt35-lt100,4,88100,0,2
+2009001338744,1,two or more,two or more,no,gt35-lt100,2,70000,0,2
+2009001357036,1,two or more,two or more,no,gt35-lt100,3,79100,0,2
+2009001372865,1,two or more,two or more,no,gt35-lt100,3,51600,0,2
+2009001383055,1,two or more,two or more,no,gt35-lt100,2,75000,0,2
+2009001384173,1,two or more,two or more,no,gt35-lt100,3,61530,0,2
+2010000003633,1,two or more,two or more,no,gt35-lt100,2,39100,0,2
+2010000007056,1,two or more,two or more,no,gt35-lt100,2,78000,0,2
+2010000011828,1,two or more,two or more,no,gt35-lt100,2,53000,0,2
+2010000020926,1,two or more,two or more,no,gt35-lt100,3,75300,0,2
+2010000025950,1,two or more,two or more,no,gt35-lt100,2,93800,0,2
+2010000027881,1,two or more,two or more,no,gt35-lt100,4,95800,0,2
+2010000061183,1,two or more,two or more,no,gt35-lt100,2,35400,0,2
+2010000089855,1,two or more,two or more,no,gt35-lt100,5,92260,0,3
+2010000115752,1,two or more,two or more,no,gt35-lt100,2,70000,0,2
+2010000115905,1,two or more,two or more,no,gt35-lt100,3,69000,0,3
+2010000129825,1,two or more,two or more,no,gt35-lt100,2,78800,0,2
+2010000144983,1,two or more,two or more,no,gt35-lt100,2,62900,0,2
+2010000165670,1,two or more,two or more,no,gt35-lt100,2,51000,0,2
+2010000185423,1,two or more,two or more,no,gt35-lt100,2,48000,0,2
+2010000211215,1,two or more,two or more,no,gt35-lt100,4,47000,0,2
+2010000217083,1,two or more,two or more,no,gt35-lt100,2,70000,0,2
+2010000231198,1,two or more,two or more,no,gt35-lt100,2,59400,0,2
+2010000246984,1,two or more,two or more,no,gt35-lt100,3,80000,0,2
+2010000259827,1,two or more,two or more,no,gt35-lt100,3,54200,0,2
+2010000277018,1,two or more,two or more,no,gt35-lt100,2,46010,0,2
+2010000306806,1,two or more,two or more,no,gt35-lt100,2,41200,0,3
+2010000314461,1,two or more,two or more,no,gt35-lt100,3,60500,0,2
+2010000319754,1,two or more,two or more,no,gt35-lt100,3,79220,0,2
+2010000348852,1,two or more,two or more,no,gt35-lt100,4,92000,0,2
+2010000360133,1,two or more,two or more,no,gt35-lt100,3,99000,0,2
+2010000388006,1,two or more,two or more,no,gt35-lt100,2,45200,0,2
+2010000396358,1,two or more,two or more,no,gt35-lt100,2,84000,0,2
+2010000416294,1,two or more,two or more,no,gt35-lt100,3,53700,0,2
+2010000420625,1,two or more,two or more,no,gt35-lt100,2,48500,0,3
+2010000437625,1,two or more,two or more,no,gt35-lt100,3,78600,0,2
+2010000440154,1,two or more,two or more,no,gt35-lt100,3,48000,0,2
+2010000447859,1,two or more,two or more,no,gt35-lt100,2,71740,0,2
+2010000448031,1,two or more,two or more,no,gt35-lt100,3,75200,0,2
+2010000449055,1,two or more,two or more,no,gt35-lt100,3,38500,0,2
+2010000476765,1,two or more,two or more,no,gt35-lt100,2,55000,0,2
+2010000509272,1,two or more,two or more,no,gt35-lt100,2,37800,0,2
+2010000525954,1,two or more,two or more,no,gt35-lt100,2,53400,0,2
+2010000535246,1,two or more,two or more,no,gt35-lt100,3,58700,0,2
+2010000569713,1,two or more,two or more,no,gt35-lt100,2,70280,0,2
+2010000585161,1,two or more,two or more,no,gt35-lt100,4,85400,0,2
+2010000640396,1,two or more,two or more,no,gt35-lt100,3,62000,0,2
+2010000659875,1,two or more,two or more,no,gt35-lt100,2,36040,0,2
+2010000683012,1,two or more,two or more,no,gt35-lt100,2,71600,0,2
+2010000689530,1,two or more,two or more,no,gt35-lt100,4,45000,0,3
+2010000691725,1,two or more,two or more,no,gt35-lt100,3,65200,0,2
+2010000699143,1,two or more,two or more,no,gt35-lt100,4,70200,0,3
+2010000699714,1,two or more,two or more,no,gt35-lt100,3,93300,0,3
+2010000716116,1,two or more,two or more,no,gt35-lt100,2,62700,0,2
+2010000732734,1,two or more,two or more,no,gt35-lt100,3,93000,0,2
+2010000743883,1,two or more,two or more,no,gt35-lt100,2,85900,0,2
+2010000744841,1,two or more,two or more,no,gt35-lt100,3,80000,0,2
+2010000791354,1,two or more,two or more,no,gt35-lt100,2,42300,0,2
+2010000805975,1,two or more,two or more,no,gt35-lt100,2,44730,0,2
+2010000806105,1,two or more,two or more,no,gt35-lt100,2,94000,0,3
+2010000825493,1,two or more,two or more,no,gt35-lt100,2,48940,0,2
+2010000852692,1,two or more,two or more,no,gt35-lt100,2,86000,0,2
+2010000872022,1,two or more,two or more,no,gt35-lt100,2,98000,0,2
+2010000879177,1,two or more,two or more,no,gt35-lt100,3,48500,0,2
+2010000882940,1,two or more,two or more,no,gt35-lt100,2,81600,0,2
+2010000902962,1,two or more,two or more,no,gt35-lt100,4,52050,0,3
+2010000904447,1,two or more,two or more,no,gt35-lt100,4,62520,0,2
+2010000934768,1,two or more,two or more,no,gt35-lt100,2,45400,0,2
+2010000949227,1,two or more,two or more,no,gt35-lt100,3,59000,0,2
+2010000955599,1,two or more,two or more,no,gt35-lt100,2,38700,0,2
+2010000962894,1,two or more,two or more,no,gt35-lt100,2,83250,0,2
+2010001018492,1,two or more,two or more,no,gt35-lt100,3,100000,0,2
+2010001030848,1,two or more,two or more,no,gt35-lt100,3,50000,0,2
+2010001036332,1,two or more,two or more,no,gt35-lt100,3,38000,0,2
+2010001039064,1,two or more,two or more,no,gt35-lt100,2,72000,0,2
+2010001061947,1,two or more,two or more,no,gt35-lt100,2,45100,0,2
+2010001075561,1,two or more,two or more,no,gt35-lt100,3,66300,0,3
+2010001089563,1,two or more,two or more,no,gt35-lt100,4,93800,0,3
+2010001094385,1,two or more,two or more,no,gt35-lt100,2,37800,0,2
+2010001098153,1,two or more,two or more,no,gt35-lt100,6,95000,0,2
+2010001123117,1,two or more,two or more,no,gt35-lt100,4,87800,0,3
+2010001134681,1,two or more,two or more,no,gt35-lt100,2,47270,0,2
+2010001141378,1,two or more,two or more,no,gt35-lt100,2,38000,0,2
+2010001149828,1,two or more,two or more,no,gt35-lt100,3,70000,0,3
+2010001153886,1,two or more,two or more,no,gt35-lt100,3,87000,0,2
+2010001159951,1,two or more,two or more,no,gt35-lt100,2,52820,0,2
+2010001171808,1,two or more,two or more,no,gt35-lt100,3,96200,0,2
+2010001198592,1,two or more,two or more,no,gt35-lt100,2,62000,0,2
+2010001205719,1,two or more,two or more,no,gt35-lt100,6,97000,0,3
+2010001215687,1,two or more,two or more,no,gt35-lt100,2,65000,0,2
+2010001283177,1,two or more,two or more,no,gt35-lt100,2,47400,0,3
+2010001296663,1,two or more,two or more,no,gt35-lt100,3,92800,0,2
+2010001301647,1,two or more,two or more,no,gt35-lt100,2,55500,0,2
+2010001337717,1,two or more,two or more,no,gt35-lt100,2,74300,0,2
+2010001338914,1,two or more,two or more,no,gt35-lt100,4,89300,0,3
+2010001351354,1,two or more,two or more,no,gt35-lt100,3,49200,0,2
+2010001400766,1,two or more,two or more,no,gt35-lt100,5,90354,0,3
+2010001412916,1,two or more,two or more,no,gt35-lt100,3,96000,0,2
+2011000039643,1,two or more,two or more,no,gt35-lt100,2,74300,0,2
+2011000043780,1,two or more,two or more,no,gt35-lt100,2,78000,0,2
+2011000052977,1,two or more,two or more,no,gt35-lt100,2,43110,0,2
+2011000056726,1,two or more,two or more,no,gt35-lt100,5,88200,0,3
+2011000082262,1,two or more,two or more,no,gt35-lt100,2,93300,0,2
+2011000164171,1,two or more,two or more,no,gt35-lt100,3,96394,0,3
+2011000188430,1,two or more,two or more,no,gt35-lt100,3,72000,0,2
+2011000190905,1,two or more,two or more,no,gt35-lt100,2,65000,0,2
+2011000191158,1,two or more,two or more,no,gt35-lt100,2,51650,0,2
+2011000216246,1,two or more,two or more,no,gt35-lt100,2,84850,0,3
+2011000247893,1,two or more,two or more,no,gt35-lt100,4,50000,0,3
+2011000257569,1,two or more,two or more,no,gt35-lt100,4,55200,0,2
+2011000266629,1,two or more,two or more,no,gt35-lt100,2,66400,0,2
+2011000278923,1,two or more,two or more,no,gt35-lt100,3,60600,0,3
+2011000281619,1,two or more,two or more,no,gt35-lt100,2,48000,0,2
+2011000334184,1,two or more,two or more,no,gt35-lt100,3,88000,0,2
+2011000391799,1,two or more,two or more,no,gt35-lt100,4,83000,0,2
+2011000450571,1,two or more,two or more,no,gt35-lt100,2,96800,0,2
+2011000463352,1,two or more,two or more,no,gt35-lt100,4,88700,0,3
+2011000489303,1,two or more,two or more,no,gt35-lt100,3,66900,0,2
+2011000499398,1,two or more,two or more,no,gt35-lt100,3,50000,0,2
+2011000514751,1,two or more,two or more,no,gt35-lt100,2,52000,0,2
+2011000517557,1,two or more,two or more,no,gt35-lt100,2,49000,0,2
+2011000537698,1,two or more,two or more,no,gt35-lt100,2,91000,0,2
+2011000541721,1,two or more,two or more,no,gt35-lt100,2,52500,0,2
+2011000554454,1,two or more,two or more,no,gt35-lt100,3,88000,0,3
+2011000555922,1,two or more,two or more,no,gt35-lt100,2,41300,0,2
+2011000588399,1,two or more,two or more,no,gt35-lt100,2,57330,0,2
+2011000600135,1,two or more,two or more,no,gt35-lt100,2,40160,0,2
+2011000622158,1,two or more,two or more,no,gt35-lt100,3,79000,0,2
+2011000642276,1,two or more,two or more,no,gt35-lt100,3,95600,0,2
+2011000643459,1,two or more,two or more,no,gt35-lt100,2,59000,0,2
+2011000660385,1,two or more,two or more,no,gt35-lt100,2,55000,0,2
+2011000666304,1,two or more,two or more,no,gt35-lt100,2,37000,0,2
+2011000667682,1,two or more,two or more,no,gt35-lt100,3,36650,0,2
+2011000670177,1,two or more,two or more,no,gt35-lt100,2,59000,0,2
+2011000672858,1,two or more,two or more,no,gt35-lt100,6,57700,0,2
+2011000684999,1,two or more,two or more,no,gt35-lt100,2,68000,0,2
+2011000686597,1,two or more,two or more,no,gt35-lt100,4,92500,0,2
+2011000722916,1,two or more,two or more,no,gt35-lt100,5,55500,0,3
+2011000804035,1,two or more,two or more,no,gt35-lt100,4,75830,0,2
+2011000846587,1,two or more,two or more,no,gt35-lt100,2,76200,0,2
+2011000898817,1,two or more,two or more,no,gt35-lt100,4,87100,0,3
+2011000944958,1,two or more,two or more,no,gt35-lt100,2,67700,0,2
+2011000950867,1,two or more,two or more,no,gt35-lt100,3,41000,0,2
+2011000958172,1,two or more,two or more,no,gt35-lt100,2,41700,0,2
+2011000977555,1,two or more,two or more,no,gt35-lt100,2,40900,0,2
+2011001005465,1,two or more,two or more,no,gt35-lt100,2,68000,0,2
+2011001011730,1,two or more,two or more,no,gt35-lt100,2,66400,0,2
+2011001039868,1,two or more,two or more,no,gt35-lt100,3,58000,0,2
+2011001050639,1,two or more,two or more,no,gt35-lt100,2,55000,0,2
+2011001056274,1,two or more,two or more,no,gt35-lt100,4,51400,0,3
+2011001091943,1,two or more,two or more,no,gt35-lt100,2,44200,0,2
+2011001092718,1,two or more,two or more,no,gt35-lt100,3,99040,0,2
+2011001111917,1,two or more,two or more,no,gt35-lt100,4,63400,0,2
+2011001179027,1,two or more,two or more,no,gt35-lt100,2,52700,0,2
+2011001179189,1,two or more,two or more,no,gt35-lt100,3,54700,0,2
+2011001179303,1,two or more,two or more,no,gt35-lt100,4,64000,0,2
+2011001218795,1,two or more,two or more,no,gt35-lt100,5,70000,0,3
+2011001248847,1,two or more,two or more,no,gt35-lt100,4,72000,0,3
+2011001285173,1,two or more,two or more,no,gt35-lt100,3,78000,0,2
+2011001315931,1,two or more,two or more,no,gt35-lt100,2,40000,0,2
+2011001328075,1,two or more,two or more,no,gt35-lt100,2,45000,0,2
+2011001372901,1,two or more,two or more,no,gt35-lt100,2,89800,0,2
+2011001406831,1,two or more,two or more,no,gt35-lt100,2,94000,0,2
+2011001451094,1,two or more,two or more,no,gt35-lt100,4,77050,0,2
+2012000029164,1,one,none,no,lt35,1,,0,
+2012000044088,1,one,none,no,lt35,1,,0,
+2012000055295,1,one,none,no,lt35,1,,0,
+2012000085482,1,one,none,no,lt35,1,,0,
+2012000091695,1,one,none,no,lt35,1,,0,
+2012000105214,1,one,none,no,lt35,1,,0,
+2012000107708,1,one,none,no,lt35,1,14400,0,0
+2012000143571,1,one,none,no,lt35,1,,0,
+2012000145353,1,one,none,no,lt35,1,0,0,0
+2012000147879,1,one,none,no,lt35,1,,0,
+2012000148650,1,one,none,no,lt35,1,,0,
+2012000156429,1,one,none,no,lt35,1,27600,0,0
+2012000177248,1,one,none,no,lt35,1,,0,
+2012000211592,1,one,none,no,lt35,1,,0,
+2012000213493,1,one,none,no,lt35,1,,0,
+2012000216879,1,one,none,no,lt35,1,,0,
+2012000226883,1,one,none,no,lt35,1,,0,
+2012000237939,1,one,none,no,lt35,1,,0,
+2012000255228,1,one,none,no,lt35,1,,0,
+2012000279498,1,one,none,no,lt35,1,,0,
+2012000280843,1,one,none,no,lt35,1,,0,
+2012000294749,1,one,none,no,lt35,1,,0,
+2012000295117,1,one,none,no,lt35,1,,0,
+2012000295308,1,one,none,no,lt35,1,,0,
+2012000302556,1,one,none,no,lt35,1,,0,
+2012000330590,1,one,none,no,lt35,1,,0,
+2012000347757,1,one,none,no,lt35,1,,0,
+2012000365079,1,one,none,no,lt35,1,,0,
+2012000384959,1,one,none,no,lt35,1,,0,
+2012000397290,1,one,none,no,lt35,1,,0,
+2012000418693,1,one,none,no,lt35,1,,0,
+2012000423888,1,one,none,no,lt35,1,,0,
+2012000432435,1,one,none,no,lt35,1,,0,
+2012000455654,1,one,none,no,lt35,1,,0,
+2012000462917,1,one,none,no,lt35,1,,0,
+2012000463865,1,one,none,no,lt35,1,,0,
+2012000470398,1,one,none,no,lt35,1,,0,
+2012000472848,1,one,none,no,lt35,1,,0,
+2012000485782,1,one,none,no,lt35,1,,0,
+2012000490575,1,one,none,no,lt35,1,,0,
+2012000492270,1,one,none,no,lt35,1,21300,0,0
+2012000494971,1,one,none,no,lt35,1,,0,
+2012000496020,1,one,none,no,lt35,1,,0,
+2012000506397,1,one,none,no,lt35,1,,0,
+2012000511613,1,one,none,no,lt35,1,,0,
+2012000520875,1,one,none,no,lt35,1,,0,
+2012000522168,1,one,none,no,lt35,1,,0,
+2012000529924,1,one,none,no,lt35,1,,0,
+2012000544364,1,one,none,no,lt35,1,,0,
+2012000557015,1,one,none,no,lt35,1,,0,
+2012000560006,1,one,none,no,lt35,1,,0,
+2012000574135,1,one,none,no,lt35,1,,0,
+2012000581881,1,one,none,no,lt35,1,,0,
+2012000583327,1,one,none,no,lt35,1,,0,
+2012000586178,1,one,none,no,lt35,1,,0,
+2012000590182,1,one,none,no,lt35,1,,0,
+2012000592623,1,one,none,no,lt35,1,,0,
+2012000616812,1,one,none,no,lt35,1,,0,
+2012000627529,1,one,none,no,lt35,1,,0,
+2012000632645,1,one,none,no,lt35,1,,0,
+2012000671016,1,one,none,no,lt35,1,,0,
+2012000673175,1,one,none,no,lt35,1,,0,
+2012000675224,1,one,none,no,lt35,1,,0,
+2012000688327,1,one,none,no,lt35,1,,0,
+2012000764412,1,one,none,no,lt35,1,,0,
+2012000770278,1,one,none,no,lt35,1,24800,0,0
+2012000814977,1,one,none,no,lt35,1,,0,
+2012000818612,1,one,none,no,lt35,1,,0,
+2012000822098,1,one,none,no,lt35,1,,0,
+2012000834216,1,one,none,no,lt35,1,,0,
+2012000839788,1,one,none,no,lt35,1,,0,
+2012000851309,1,one,none,no,lt35,1,,0,
+2012000908771,1,one,none,no,lt35,1,,0,
+2012000916126,1,one,none,no,lt35,1,,0,
+2012000982145,1,one,none,no,lt35,1,,0,
+2012000985479,1,one,none,no,lt35,1,,0,
+2012000994136,1,one,none,no,lt35,1,,0,
+2012000998112,1,one,none,no,lt35,1,,0,
+2012001055062,1,one,none,no,lt35,1,,0,
+2012001070248,1,one,none,no,lt35,1,30340,0,0
+2012001076644,1,one,none,no,lt35,1,,0,
+2012001110613,1,one,none,no,lt35,1,,0,
+2012001111316,1,one,none,no,lt35,1,,0,
+2012001112038,1,one,none,no,lt35,1,14600,0,0
+2012001113665,1,one,none,no,lt35,1,,0,
+2012001117761,1,one,none,no,lt35,1,15100,0,0
+2012001118272,1,one,none,no,lt35,1,,0,
+2012001122966,1,one,none,no,lt35,1,20000,0,0
+2012001133761,1,one,none,no,lt35,1,,0,
+2012001136008,1,one,none,no,lt35,1,,0,
+2012001148124,1,one,none,no,lt35,1,,0,
+2012001156099,1,one,none,no,lt35,1,,0,
+2012001169318,1,one,none,no,lt35,1,,0,
+2012001170240,1,one,none,no,lt35,1,,0,
+2012001176871,1,one,none,no,lt35,1,,0,
+2012001184341,1,one,none,no,lt35,1,,0,
+2012001195371,1,one,none,no,lt35,1,20000,0,0
+2012001206984,1,one,none,no,lt35,1,,0,
+2012001209088,1,one,none,no,lt35,1,22600,0,0
+2012001210058,1,one,none,no,lt35,1,23700,0,0
+2012001223523,1,one,none,no,lt35,1,,0,
+2012001228365,1,one,none,no,lt35,1,,0,
+2012001241432,1,one,none,no,lt35,1,,0,
+2012001243627,1,one,none,no,lt35,1,,0,
+2012001263552,1,one,none,no,lt35,1,,0,
+2012001266647,1,one,none,no,lt35,1,,0,
+2012001279657,1,one,none,no,lt35,1,,0,
+2012001313243,1,one,none,no,lt35,1,,0,
+2012001313282,1,one,none,no,lt35,1,,0,
+2012001365814,1,one,none,no,lt35,1,,0,
+2012001370072,1,one,none,no,lt35,1,,0,
+2012001371450,1,one,none,no,lt35,1,,0,
+2012001374970,1,one,none,no,lt35,1,,0,
+2012001386109,1,one,none,no,lt35,1,,0,
+2012001401284,1,one,none,no,lt35,1,,0,
+2012001430978,1,one,none,no,lt35,1,33700,0,0
+2012001431667,1,one,none,no,lt35,1,2700,0,0
+2012001435199,1,one,none,no,lt35,1,,0,
+2012001492407,1,one,none,no,lt35,1,,0,
+2013000000535,1,one,none,no,lt35,1,,0,
+2013000015247,1,one,none,no,lt35,1,,0,
+2013000040037,1,one,none,no,lt35,1,,0,
+2013000066188,1,one,none,no,lt35,1,,0,
+2013000075446,1,one,none,no,lt35,1,,0,
+2013000105596,1,one,none,no,lt35,1,24600,0,0
+2013000111552,1,one,none,no,lt35,1,,0,
+2013000116756,1,one,none,no,lt35,1,,0,
+2013000127271,1,one,none,no,lt35,1,,0,
+2013000132233,1,one,none,no,lt35,1,,0,
+2013000180350,1,one,none,no,lt35,1,,0,
+2013000181552,1,one,none,no,lt35,1,,0,
+2013000238038,1,one,none,no,lt35,1,,0,
+2013000238775,1,one,none,no,lt35,1,,0,
+2013000240006,1,one,none,no,lt35,1,,0,
+2013000241683,1,one,none,no,lt35,1,,0,
+2013000241924,1,one,none,no,lt35,1,,0,
+2013000296581,1,one,none,no,lt35,1,,0,
+2013000311150,1,one,none,no,lt35,1,,0,
+2013000330555,1,one,none,no,lt35,1,,0,
+2013000341295,1,one,none,no,lt35,1,,0,
+2013000361518,1,one,none,no,lt35,1,,0,
+2013000380256,1,one,none,no,lt35,1,,0,
+2013000382336,1,one,none,no,lt35,1,,0,
+2013000385445,1,one,none,no,lt35,1,,0,
+2013000407966,1,one,none,no,lt35,1,,0,
+2013000448021,1,one,none,no,lt35,1,,0,
+2013000449696,1,one,none,no,lt35,1,,0,
+2013000497784,1,one,none,no,lt35,1,,0,
+2013000525903,1,one,none,no,lt35,1,,0,
+2013000527039,1,one,none,no,lt35,1,,0,
+2013000549658,1,one,none,no,lt35,1,,0,
+2013000559750,1,one,none,no,lt35,1,,0,
+2013000569749,1,one,none,no,lt35,1,,0,
+2013000592083,1,one,none,no,lt35,1,,0,
+2013000613770,1,one,none,no,lt35,1,,0,
+2013000615045,1,one,none,no,lt35,1,,0,
+2013000639751,1,one,none,no,lt35,1,,0,
+2013000642901,1,one,none,no,lt35,1,,0,
+2013000647302,1,one,none,no,lt35,1,,0,
+2013000655047,1,one,none,no,lt35,1,,0,
+2013000670034,1,one,none,no,lt35,1,,0,
+2013000672088,1,one,none,no,lt35,1,,0,
+2013000675751,1,one,none,no,lt35,1,,0,
+2013000678979,1,one,none,no,lt35,1,,0,
+2013000693412,1,one,none,no,lt35,1,,0,
+2013000699034,1,one,none,no,lt35,1,,0,
+2013000700399,1,one,none,no,lt35,1,18300,0,0
+2013000722617,1,one,none,no,lt35,1,,0,
+2013000723962,1,one,none,no,lt35,1,,0,
+2013000730627,1,one,none,no,lt35,1,,0,
+2013000748821,1,one,none,no,lt35,1,,0,
+2013000766212,1,one,none,no,lt35,1,,0,
+2013000787215,1,one,none,no,lt35,1,,0,
+2013000810843,1,one,none,no,lt35,1,,0,
+2013000811639,1,one,none,no,lt35,1,,0,
+2013000819598,1,one,none,no,lt35,1,,0,
+2013000826557,1,one,none,no,lt35,1,,0,
+2013000840549,1,one,none,no,lt35,1,,0,
+2013000860916,1,one,none,no,lt35,1,,0,
+2013000874253,1,one,none,no,lt35,1,,0,
+2013000899402,1,one,none,no,lt35,1,,0,
+2013000947363,1,one,none,no,lt35,1,,0,
+2013000964696,1,one,none,no,lt35,1,,0,
+2013000983377,1,one,none,no,lt35,1,,0,
+2013001011376,1,one,none,no,lt35,1,30100,0,0
+2013001011767,1,one,none,no,lt35,1,25200,0,0
+2013001028400,1,one,none,no,lt35,1,,0,
+2013001061771,1,one,none,no,lt35,1,,0,
+2013001089283,1,one,none,no,lt35,1,,0,
+2013001103944,1,one,none,no,lt35,1,,0,
+2013001114766,1,one,none,no,lt35,1,,0,
+2013001126193,1,one,none,no,lt35,1,,0,
+2013001149660,1,one,none,no,lt35,1,24000,0,0
+2013001164201,1,one,none,no,lt35,1,,0,
+2013001167324,1,one,none,no,lt35,1,,0,
+2013001174150,1,one,none,no,lt35,1,,0,
+2013001180110,1,one,none,no,lt35,1,,0,
+2013001193981,1,one,none,no,lt35,1,,0,
+2013001199697,1,one,none,no,lt35,1,,0,
+2013001213658,1,one,none,no,lt35,1,,0,
+2013001228355,1,one,none,no,lt35,1,,0,
+2013001253981,1,one,none,no,lt35,1,,0,
+2013001266216,1,one,none,no,lt35,1,,0,
+2013001270414,1,one,none,no,lt35,1,30300,0,0
+2013001307027,1,one,none,no,lt35,1,,0,
+2013001313918,1,one,none,no,lt35,1,,0,
+2013001322952,1,one,none,no,lt35,1,,0,
+2013001346323,1,one,none,no,lt35,1,,0,
+2013001355654,1,one,none,no,lt35,1,,0,
+2013001368451,1,one,none,no,lt35,1,,0,
+2013001380751,1,one,none,no,lt35,1,,0,
+2013001382483,1,one,none,no,lt35,1,,0,
+2013001386608,1,one,none,no,lt35,1,,0,
+2013001395128,1,one,none,no,lt35,1,25000,0,0
+2013001397319,1,one,none,no,lt35,1,,0,
+2013001410669,1,one,none,no,lt35,1,,0,
+2013001433000,1,one,none,no,lt35,1,,0,
+2013001451431,1,one,none,no,lt35,1,,0,
+2013001454961,1,one,none,no,lt35,1,,0,
+2013001489482,1,one,none,no,lt35,1,,0,
+2009000005973,1,one,none,no,lt35,1,,0,
+2009000019709,1,one,none,no,lt35,1,,0,
+2009000020520,1,one,none,no,lt35,1,,0,
+2009000037830,1,one,none,no,lt35,1,,0,
+2009000039996,1,one,none,no,lt35,1,,0,
+2009000043520,1,one,none,no,lt35,1,,0,
+2009000051538,1,one,none,no,lt35,1,,0,
+2009000072512,1,one,none,no,lt35,1,,0,
+2009000072615,1,one,none,no,lt35,1,,0,
+2009000078843,1,one,none,no,lt35,1,14040,0,0
+2009000100833,1,one,none,no,lt35,1,,0,
+2009000122087,1,one,none,no,lt35,1,,0,
+2009000125923,1,one,none,no,lt35,1,,0,
+2009000134007,1,one,none,no,lt35,1,,0,
+2009000136147,1,one,none,no,lt35,1,,0,
+2009000158338,1,one,none,no,lt35,1,,0,
+2009000164417,1,one,none,no,lt35,1,,0,
+2009000169229,1,one,none,no,lt35,1,,0,
+2009000171405,1,one,none,no,lt35,1,24000,0,0
+2009000199898,1,one,none,no,lt35,1,,0,
+2009000200334,1,one,none,no,lt35,1,,0,
+2009000205833,1,one,none,no,lt35,1,,0,
+2009000213770,1,one,none,no,lt35,1,,0,
+2009000214335,1,one,none,no,lt35,1,,0,
+2009000228293,1,one,none,no,lt35,1,,0,
+2009000228921,1,one,none,no,lt35,1,,0,
+2009000229631,1,one,none,no,lt35,1,34400,0,0
+2009000244829,1,one,none,no,lt35,1,,0,
+2009000262740,1,one,none,no,lt35,1,,0,
+2009000267579,1,one,none,no,lt35,1,,0,
+2009000276738,1,one,none,no,lt35,1,,0,
+2009000292730,1,one,none,no,lt35,1,,0,
+2009000298069,1,one,none,no,lt35,1,,0,
+2009000302251,1,one,none,no,lt35,1,17900,0,0
+2009000315155,1,one,none,no,lt35,1,,0,
+2009000328387,1,one,none,no,lt35,1,,0,
+2009000335993,1,one,none,no,lt35,1,,0,
+2009000359195,1,one,none,no,lt35,1,0,0,0
+2009000365976,1,one,none,no,lt35,1,,0,
+2009000407197,1,one,none,no,lt35,1,,0,
+2009000424475,1,one,none,no,lt35,1,,0,
+2009000437913,1,one,none,no,lt35,1,,0,
+2009000464609,1,one,none,no,lt35,1,,0,
+2009000465369,1,one,none,no,lt35,1,,0,
+2009000469934,1,one,none,no,lt35,1,,0,
+2009000472721,1,one,none,no,lt35,1,,0,
+2009000479845,1,one,none,no,lt35,1,22600,0,0
+2009000480764,1,one,none,no,lt35,1,,0,
+2009000484783,1,one,none,no,lt35,1,,0,
+2009000490500,1,one,none,no,lt35,1,23900,0,0
+2009000496439,1,one,none,no,lt35,1,,0,
+2009000500287,1,one,none,no,lt35,1,20040,0,0
+2009000510457,1,one,none,no,lt35,1,21600,0,0
+2009000512259,1,one,none,no,lt35,1,,0,
+2009000512299,1,one,none,no,lt35,1,,0,
+2009000520687,1,one,none,no,lt35,1,,0,
+2009000526353,1,one,none,no,lt35,1,,0,
+2009000528936,1,one,none,no,lt35,1,,0,
+2009000529734,1,one,none,no,lt35,1,,0,
+2009000539051,1,one,none,no,lt35,1,,0,
+2009000550396,1,one,none,no,lt35,1,22800,0,0
+2009000557822,1,one,none,no,lt35,1,,0,
+2009000572568,1,one,none,no,lt35,1,,0,
+2009000572813,1,one,none,no,lt35,1,,0,
+2009000574255,1,one,none,no,lt35,1,,0,
+2009000588017,1,one,none,no,lt35,1,,0,
+2009000603279,1,one,none,no,lt35,1,,0,
+2009000604731,1,one,none,no,lt35,1,,0,
+2009000608463,1,one,none,no,lt35,1,,0,
+2009000636981,1,one,none,no,lt35,1,,0,
+2009000641435,1,one,none,no,lt35,1,,0,
+2009000648758,1,one,none,no,lt35,1,1600,0,0
+2009000649318,1,one,none,no,lt35,1,,0,
+2009000653877,1,one,none,no,lt35,1,,0,
+2009000663948,1,one,none,no,lt35,1,,0,
+2009000672387,1,one,none,no,lt35,1,,0,
+2009000681737,1,one,none,no,lt35,1,,0,
+2009000688687,1,one,none,no,lt35,1,,0,
+2009000692564,1,one,none,no,lt35,1,,0,
+2009000698124,1,one,none,no,lt35,1,,0,
+2009000708539,1,one,none,no,lt35,1,,0,
+2009000711306,1,one,none,no,lt35,1,,0,
+2009000716334,1,one,none,no,lt35,1,9000,0,0
+2009000727528,1,one,none,no,lt35,1,,0,
+2009000747521,1,one,none,no,lt35,1,,0,
+2009000760130,1,one,none,no,lt35,1,,0,
+2009000775010,1,one,none,no,lt35,1,,0,
+2009000777793,1,one,none,no,lt35,1,,0,
+2009000780166,1,one,none,no,lt35,1,,0,
+2009000780964,1,one,none,no,lt35,1,,0,
+2009000781971,1,one,none,no,lt35,1,,0,
+2009000790498,1,one,none,no,lt35,1,,0,
+2009000811691,1,one,none,no,lt35,1,,0,
+2009000834737,1,one,none,no,lt35,1,,0,
+2009000837154,1,one,none,no,lt35,1,,0,
+2009000838615,1,one,none,no,lt35,1,,0,
+2009000846559,1,one,none,no,lt35,1,,0,
+2009000854118,1,one,none,no,lt35,1,,0,
+2009000866325,1,one,none,no,lt35,1,,0,
+2009000872816,1,one,none,no,lt35,1,,0,
+2009000873490,1,one,none,no,lt35,1,,0,
+2009000876400,1,one,none,no,lt35,1,,0,
+2009000878204,1,one,none,no,lt35,1,,0,
+2009000883086,1,one,none,no,lt35,1,,0,
+2009000884794,1,one,none,no,lt35,1,29400,0,0
+2009000897117,1,one,none,no,lt35,1,,0,
+2009000926316,1,one,none,no,lt35,1,,0,
+2009000962647,1,one,none,no,lt35,1,,0,
+2009000989037,1,one,none,no,lt35,1,,0,
+2009000996596,1,one,none,no,lt35,1,,0,
+2009001011083,1,one,none,no,lt35,1,,0,
+2009001017709,1,one,none,no,lt35,1,,0,
+2009001034036,1,one,none,no,lt35,1,,0,
+2009001035772,1,one,none,no,lt35,1,,0,
+2009001064332,1,one,none,no,lt35,1,,0,
+2009001083462,1,one,none,no,lt35,1,,0,
+2009001084663,1,one,none,no,lt35,1,,0,
+2009001124748,1,one,none,no,lt35,1,,0,
+2009001162303,1,one,none,no,lt35,1,,0,
+2009001167984,1,one,none,no,lt35,1,,0,
+2009001168847,1,one,none,no,lt35,1,,0,
+2009001171091,1,one,none,no,lt35,1,,0,
+2009001185842,1,one,none,no,lt35,1,,0,
+2009001186483,1,one,none,no,lt35,1,,0,
+2009001187956,1,one,none,no,lt35,1,,0,
+2009001191565,1,one,none,no,lt35,1,,0,
+2009001201758,1,one,none,no,lt35,1,,0,
+2009001203960,1,one,none,no,lt35,1,,0,
+2009001247114,1,one,none,no,lt35,1,,0,
+2009001247679,1,one,none,no,lt35,1,,0,
+2009001248483,1,one,none,no,lt35,1,,0,
+2009001262708,1,one,none,no,lt35,1,,0,
+2009001267301,1,one,none,no,lt35,1,,0,
+2009001272995,1,one,none,no,lt35,1,,0,
+2009001301344,1,one,none,no,lt35,1,,0,
+2009001316334,1,one,none,no,lt35,1,,0,
+2009001326559,1,one,none,no,lt35,1,,0,
+2009001331070,1,one,none,no,lt35,1,,0,
+2009001339055,1,one,none,no,lt35,1,,0,
+2009001362749,1,one,none,no,lt35,1,,0,
+2009001388825,1,one,none,no,lt35,1,,0,
+2010000003180,1,one,none,no,lt35,1,,0,
+2010000006926,1,one,none,no,lt35,1,,0,
+2010000026613,1,one,none,no,lt35,1,,0,
+2010000032454,1,one,none,no,lt35,1,,0,
+2010000047773,1,one,none,no,lt35,1,,0,
+2010000049705,1,one,none,no,lt35,1,,0,
+2010000053152,1,one,none,no,lt35,1,,0,
+2010000068886,1,one,none,no,lt35,1,,0,
+2010000070425,1,one,none,no,lt35,1,,0,
+2010000073482,1,one,none,no,lt35,1,,0,
+2010000078190,1,one,none,no,lt35,1,,0,
+2010000094859,1,one,none,no,lt35,1,,0,
+2010000095956,1,one,none,no,lt35,1,,0,
+2010000115228,1,one,none,no,lt35,1,,0,
+2010000185619,1,one,none,no,lt35,1,,0,
+2010000190785,1,one,none,no,lt35,1,,0,
+2010000200489,1,one,none,no,lt35,1,,0,
+2010000214855,1,one,none,no,lt35,1,,0,
+2010000215613,1,one,none,no,lt35,1,,0,
+2010000233377,1,one,none,no,lt35,1,,0,
+2010000246909,1,one,none,no,lt35,1,,0,
+2010000247853,1,one,none,no,lt35,1,,0,
+2010000295595,1,one,none,no,lt35,1,,0,
+2010000298258,1,one,none,no,lt35,1,,0,
+2010000307054,1,one,none,no,lt35,1,31900,0,0
+2010000316607,1,one,none,no,lt35,1,,0,
+2010000317610,1,one,none,no,lt35,1,,0,
+2010000325635,1,one,none,no,lt35,1,17300,0,0
+2010000345996,1,one,none,no,lt35,1,,0,
+2010000356215,1,one,none,no,lt35,1,,0,
+2010000359668,1,one,none,no,lt35,1,,0,
+2010000366143,1,one,none,no,lt35,1,,0,
+2010000369495,1,one,none,no,lt35,1,,0,
+2010000373604,1,one,none,no,lt35,1,,0,
+2010000374446,1,one,none,no,lt35,1,,0,
+2010000377541,1,one,none,no,lt35,1,,0,
+2010000397341,1,one,none,no,lt35,1,,0,
+2010000410713,1,one,none,no,lt35,1,,0,
+2010000416384,1,one,none,no,lt35,1,19800,0,0
+2010000419834,1,one,none,no,lt35,1,,0,
+2010000425793,1,one,none,no,lt35,1,,0,
+2010000437248,1,one,none,no,lt35,1,11300,0,0
+2010000495016,1,one,none,no,lt35,1,,0,
+2010000535539,1,one,none,no,lt35,1,,0,
+2010000536540,1,one,none,no,lt35,1,,0,
+2010000550878,1,one,none,no,lt35,1,,0,
+2010000557649,1,one,none,no,lt35,1,,0,
+2010000561273,1,one,none,no,lt35,1,,0,
+2010000573538,1,one,none,no,lt35,1,,0,
+2010000574985,1,one,none,no,lt35,1,,0,
+2010000585962,1,one,none,no,lt35,1,17500,0,0
+2010000586942,1,one,none,no,lt35,1,,0,
+2010000607129,1,one,none,no,lt35,1,,0,
+2010000617171,1,one,none,no,lt35,1,18100,0,0
+2010000620141,1,one,none,no,lt35,1,,0,
+2010000621412,1,one,none,no,lt35,1,,0,
+2010000625744,1,one,none,no,lt35,1,,0,
+2010000634120,1,one,none,no,lt35,1,,0,
+2010000646101,1,one,none,no,lt35,1,9000,0,0
+2010000662004,1,one,none,no,lt35,1,,0,
+2010000672204,1,one,none,no,lt35,1,34200,0,0
+2010000673896,1,one,none,no,lt35,1,,0,
+2010000675804,1,one,none,no,lt35,1,,0,
+2010000677822,1,one,none,no,lt35,1,,0,
+2010000684054,1,one,none,no,lt35,1,,0,
+2010000689544,1,one,none,no,lt35,1,,0,
+2010000692034,1,one,none,no,lt35,1,,0,
+2010000695464,1,one,none,no,lt35,1,,0,
+2010000696298,1,one,none,no,lt35,1,,0,
+2010000709124,1,one,none,no,lt35,1,,0,
+2010000710163,1,one,none,no,lt35,1,,0,
+2010000710563,1,one,none,no,lt35,1,,0,
+2010000750317,1,one,none,no,lt35,1,,0,
+2010000750675,1,one,none,no,lt35,1,,0,
+2010000751626,1,one,none,no,lt35,1,8500,0,0
+2010000766854,1,one,none,no,lt35,1,,0,
+2010000800350,1,one,none,no,lt35,1,,0,
+2010000823401,1,one,none,no,lt35,1,,0,
+2010000841208,1,one,none,no,lt35,1,,0,
+2010000847957,1,one,none,no,lt35,1,,0,
+2010000848896,1,one,none,no,lt35,1,,0,
+2010000861035,1,one,none,no,lt35,1,,0,
+2010000862585,1,one,none,no,lt35,1,,0,
+2010000864594,1,one,none,no,lt35,1,29200,0,0
+2010000865009,1,one,none,no,lt35,1,,0,
+2010000871291,1,one,none,no,lt35,1,,0,
+2010000882382,1,one,none,no,lt35,1,,0,
+2010000884557,1,one,none,no,lt35,1,,0,
+2010000892764,1,one,none,no,lt35,1,,0,
+2010000914029,1,one,none,no,lt35,1,,0,
+2010000928043,1,one,none,no,lt35,1,,0,
+2010000928907,1,one,none,no,lt35,1,,0,
+2010000936278,1,one,none,no,lt35,1,,0,
+2010000938624,1,one,none,no,lt35,1,12620,0,0
+2010000950306,1,one,none,no,lt35,1,,0,
+2010000971571,1,one,none,no,lt35,1,,0,
+2010000989810,1,one,none,no,lt35,1,,0,
+2010000998304,1,one,none,no,lt35,1,19600,0,0
+2010000999897,1,one,none,no,lt35,1,,0,
+2010001020102,1,one,none,no,lt35,1,,0,
+2010001037451,1,one,none,no,lt35,1,,0,
+2010001041221,1,one,none,no,lt35,1,,0,
+2010001072023,1,one,none,no,lt35,1,18000,0,0
+2010001076949,1,one,none,no,lt35,1,,0,
+2010001085426,1,one,none,no,lt35,1,,0,
+2010001100982,1,one,none,no,lt35,1,,0,
+2010001123490,1,one,none,no,lt35,1,,0,
+2010001126744,1,one,none,no,lt35,1,,0,
+2010001128421,1,one,none,no,lt35,1,,0,
+2010001129012,1,one,none,no,lt35,1,,0,
+2010001130154,1,one,none,no,lt35,1,,0,
+2010001148901,1,one,none,no,lt35,1,,0,
+2010001170091,1,one,none,no,lt35,1,,0,
+2010001184603,1,one,none,no,lt35,1,,0,
+2010001189465,1,one,none,no,lt35,1,,0,
+2010001201445,1,one,none,no,lt35,1,,0,
+2010001219967,1,one,none,no,lt35,1,,0,
+2010001222839,1,one,none,no,lt35,1,,0,
+2010001226363,1,one,none,no,lt35,1,,0,
+2010001233342,1,one,none,no,lt35,1,,0,
+2010001234103,1,one,none,no,lt35,1,,0,
+2010001236770,1,one,none,no,lt35,1,,0,
+2010001267184,1,one,none,no,lt35,1,,0,
+2010001278630,1,one,none,no,lt35,1,,0,
+2010001285763,1,one,none,no,lt35,1,,0,
+2010001290503,1,one,none,no,lt35,1,,0,
+2010001292053,1,one,none,no,lt35,1,24000,0,0
+2010001304734,1,one,none,no,lt35,1,,0,
+2010001325145,1,one,none,no,lt35,1,,0,
+2010001341467,1,one,none,no,lt35,1,,0,
+2010001342106,1,one,none,no,lt35,1,,0,
+2010001344053,1,one,none,no,lt35,1,,0,
+2010001371105,1,one,none,no,lt35,1,,0,
+2010001377832,1,one,none,no,lt35,1,25000,0,0
+2010001398693,1,one,none,no,lt35,1,16100,0,0
+2010001409561,1,one,none,no,lt35,1,16800,0,0
+2011000013837,1,one,none,no,lt35,1,,0,
+2011000043646,1,one,none,no,lt35,1,9900,0,0
+2011000044027,1,one,none,no,lt35,1,,0,
+2011000057220,1,one,none,no,lt35,1,27600,0,0
+2011000063675,1,one,none,no,lt35,1,,0,
+2011000071617,1,one,none,no,lt35,1,,0,
+2011000087220,1,one,none,no,lt35,1,,0,
+2011000093322,1,one,none,no,lt35,1,17900,0,0
+2011000107159,1,one,none,no,lt35,1,,0,
+2011000107427,1,one,none,no,lt35,1,,0,
+2011000111505,1,one,none,no,lt35,1,,0,
+2011000120654,1,one,none,no,lt35,1,,0,
+2011000144999,1,one,none,no,lt35,1,,0,
+2011000150701,1,one,none,no,lt35,1,,0,
+2011000150854,1,one,none,no,lt35,1,,0,
+2011000152366,1,one,none,no,lt35,1,,0,
+2011000157321,1,one,none,no,lt35,1,27900,0,0
+2011000169956,1,one,none,no,lt35,1,,0,
+2011000177120,1,one,none,no,lt35,1,,0,
+2011000185065,1,one,none,no,lt35,1,,0,
+2011000193239,1,one,none,no,lt35,1,,0,
+2011000195404,1,one,none,no,lt35,1,,0,
+2011000196057,1,one,none,no,lt35,1,,0,
+2011000205312,1,one,none,no,lt35,1,,0,
+2011000208536,1,one,none,no,lt35,1,,0,
+2011000217345,1,one,none,no,lt35,1,,0,
+2011000234509,1,one,none,no,lt35,1,,0,
+2011000234603,1,one,none,no,lt35,1,,0,
+2011000251364,1,one,none,no,lt35,1,,0,
+2011000275049,1,one,none,no,lt35,1,,0,
+2011000275700,1,one,none,no,lt35,1,,0,
+2011000286030,1,one,none,no,lt35,1,,0,
+2011000296377,1,one,none,no,lt35,1,,0,
+2011000303706,1,one,none,no,lt35,1,,0,
+2011000305372,1,one,none,no,lt35,1,,0,
+2011000312853,1,one,none,no,lt35,1,,0,
+2011000333610,1,one,none,no,lt35,1,24204,0,0
+2011000348359,1,one,none,no,lt35,1,,0,
+2011000360623,1,one,none,no,lt35,1,,0,
+2011000360744,1,one,none,no,lt35,1,,0,
+2011000385365,1,one,none,no,lt35,1,,0,
+2011000406065,1,one,none,no,lt35,1,,0,
+2011000409420,1,one,none,no,lt35,1,29000,0,0
+2011000455587,1,one,none,no,lt35,1,,0,
+2011000470228,1,one,none,no,lt35,1,,0,
+2011000487311,1,one,none,no,lt35,1,,0,
+2011000498633,1,one,none,no,lt35,1,,0,
+2011000498906,1,one,none,no,lt35,1,16640,0,0
+2011000540827,1,one,none,no,lt35,1,,0,
+2011000542540,1,one,none,no,lt35,1,,0,
+2011000553271,1,one,none,no,lt35,1,,0,
+2011000566602,1,one,none,no,lt35,1,,0,
+2011000573041,1,one,none,no,lt35,1,,0,
+2011000588493,1,one,none,no,lt35,1,,0,
+2011000589094,1,one,none,no,lt35,1,,0,
+2011000592370,1,one,none,no,lt35,1,,0,
+2011000614109,1,one,none,no,lt35,1,23700,0,0
+2011000615872,1,one,none,no,lt35,1,,0,
+2011000617657,1,one,none,no,lt35,1,,0,
+2011000633908,1,one,none,no,lt35,1,,0,
+2011000680989,1,one,none,no,lt35,1,,0,
+2011000681606,1,one,none,no,lt35,1,,0,
+2011000684453,1,one,none,no,lt35,1,,0,
+2011000685772,1,one,none,no,lt35,1,,0,
+2011000686058,1,one,none,no,lt35,1,,0,
+2011000690601,1,one,none,no,lt35,1,,0,
+2011000695745,1,one,none,no,lt35,1,,0,
+2011000700095,1,one,none,no,lt35,1,,0,
+2011000741199,1,one,none,no,lt35,1,,0,
+2011000743311,1,one,none,no,lt35,1,,0,
+2011000773989,1,one,none,no,lt35,1,16700,0,0
+2011000782037,1,one,none,no,lt35,1,,0,
+2011000790038,1,one,none,no,lt35,1,,0,
+2011000792014,1,one,none,no,lt35,1,,0,
+2011000793073,1,one,none,no,lt35,1,,0,
+2011000795525,1,one,none,no,lt35,1,,0,
+2011000810514,1,one,none,no,lt35,1,,0,
+2011000813501,1,one,none,no,lt35,1,,0,
+2011000816720,1,one,none,no,lt35,1,,0,
+2011000819604,1,one,none,no,lt35,1,,0,
+2011000840767,1,one,none,no,lt35,1,,0,
+2011000843931,1,one,none,no,lt35,1,,0,
+2011000851240,1,one,none,no,lt35,1,19710,0,0
+2011000878593,1,one,none,no,lt35,1,,0,
+2011000898036,1,one,none,no,lt35,1,,0,
+2011000902588,1,one,none,no,lt35,1,,0,
+2011000960334,1,one,none,no,lt35,1,,0,
+2011000979734,1,one,none,no,lt35,1,,0,
+2011001018876,1,one,none,no,lt35,1,,0,
+2011001047581,1,one,none,no,lt35,1,,0,
+2011001055488,1,one,none,no,lt35,1,,0,
+2011001061215,1,one,none,no,lt35,1,,0,
+2011001069775,1,one,none,no,lt35,1,,0,
+2011001072658,1,one,none,no,lt35,1,,0,
+2011001106603,1,one,none,no,lt35,1,,0,
+2011001120919,1,one,none,no,lt35,1,,0,
+2011001141302,1,one,none,no,lt35,1,,0,
+2011001142717,1,one,none,no,lt35,1,,0,
+2011001145644,1,one,none,no,lt35,1,,0,
+2011001170294,1,one,none,no,lt35,1,,0,
+2011001180240,1,one,none,no,lt35,1,,0,
+2011001185900,1,one,none,no,lt35,1,,0,
+2011001188667,1,one,none,no,lt35,1,,0,
+2011001201187,1,one,none,no,lt35,1,,0,
+2011001212796,1,one,none,no,lt35,1,,0,
+2011001229702,1,one,none,no,lt35,1,,0,
+2011001235009,1,one,none,no,lt35,1,,0,
+2011001246081,1,one,none,no,lt35,1,,0,
+2011001252843,1,one,none,no,lt35,1,,0,
+2011001254690,1,one,none,no,lt35,1,,0,
+2011001259337,1,one,none,no,lt35,1,,0,
+2011001269857,1,one,none,no,lt35,1,,0,
+2011001270919,1,one,none,no,lt35,1,,0,
+2011001282411,1,one,none,no,lt35,1,20800,0,0
+2011001284364,1,one,none,no,lt35,1,,0,
+2011001290065,1,one,none,no,lt35,1,,0,
+2011001291422,1,one,none,no,lt35,1,,0,
+2011001340537,1,one,none,no,lt35,1,,0,
+2011001353851,1,one,none,no,lt35,1,18000,0,0
+2011001354203,1,one,none,no,lt35,1,,0,
+2011001354430,1,one,none,no,lt35,1,,0,
+2011001376106,1,one,none,no,lt35,1,27470,0,0
+2011001382968,1,one,none,no,lt35,1,,0,
+2011001388084,1,one,none,no,lt35,1,,0,
+2011001392196,1,one,none,no,lt35,1,21400,0,0
+2011001406965,1,one,none,no,lt35,1,,0,
+2011001431110,1,one,none,no,lt35,1,17700,0,0
+2011001449758,1,one,none,no,lt35,1,,0,
+2011001453830,1,one,none,no,lt35,1,,0,
+2011001458500,1,one,none,no,lt35,1,,0,
+2011001477936,1,one,none,no,lt35,1,,0,
+2011001485719,1,one,none,no,lt35,1,32800,0,0
+2011001493062,1,one,none,no,lt35,1,,0,
+2012000042558,1,two or more,none,no,gt100,2,328500,0,0
+2012001238017,1,two or more,none,no,gt100,2,126100,0,0
+2013000006778,1,two or more,none,no,gt100,4,131400,0,0
+2013000103912,1,two or more,none,no,gt100,2,268200,0,0
+2013000174533,1,two or more,none,no,gt100,2,114800,0,0
+2013000620703,1,two or more,none,no,gt100,2,308000,0,0
+2013000828590,1,two or more,none,no,gt100,3,138500,0,0
+2013001078741,1,two or more,none,no,gt100,2,184000,0,0
+2009000075094,1,two or more,none,no,gt100,2,250700,0,0
+2009000096762,1,two or more,none,no,gt100,2,102330,0,0
+2009000178649,1,two or more,none,no,gt100,2,119400,0,0
+2009000291832,1,two or more,none,no,gt100,2,133000,0,0
+2009000532630,1,two or more,none,no,gt100,3,133000,0,0
+2009000703941,1,two or more,none,no,gt100,2,147200,0,0
+2009000719566,1,two or more,none,no,gt100,2,113000,0,0
+2009001175925,1,two or more,none,no,gt100,2,152200,0,0
+2009001299368,1,two or more,none,no,gt100,2,119600,0,0
+2010000133953,1,two or more,none,no,gt100,2,184000,0,0
+2010001287889,1,two or more,none,no,gt100,3,238700,0,0
+2010001328577,1,two or more,none,no,gt100,2,124100,0,0
+2011000381321,1,two or more,none,no,gt100,2,108400,0,0
+2012000042994,1,none,two or more,yes,gt100,0,209000,1,2
+2012000043991,1,one,one,yes,lt35,1,4000,1,1
+2012000061722,1,one,one,yes,lt35,1,24600,2,1
+2012000066871,1,one,one,yes,lt35,1,16000,2,1
+2012000100306,1,one,one,yes,lt35,1,25000,1,1
+2012000160275,1,one,one,yes,lt35,1,17100,1,1
+2012000310353,1,one,one,yes,lt35,1,19000,1,1
+2012000402393,1,one,one,yes,lt35,1,23000,1,1
+2012000548152,1,one,one,yes,lt35,1,5400,3,1
+2012000624788,1,one,one,yes,lt35,1,30000,2,1
+2012000638350,1,one,one,yes,lt35,1,19800,1,1
+2012000733522,1,one,one,yes,lt35,1,32000,2,1
+2012000768784,1,one,one,yes,lt35,1,24000,2,1
+2012001446016,1,one,one,yes,lt35,1,7000,2,1
+2013000016589,1,one,one,yes,lt35,1,7000,1,1
+2013000024254,1,one,one,yes,lt35,1,11000,2,1
+2013000032524,1,one,one,yes,lt35,1,24200,2,1
+2013000203131,1,one,one,yes,lt35,1,15600,4,1
+2013000248758,1,one,one,yes,lt35,1,8900,1,1
+2013000571476,1,one,one,yes,lt35,1,24000,1,1
+2013000591180,1,one,one,yes,lt35,1,8100,2,1
+2013000693168,1,one,one,yes,lt35,1,13700,2,1
+2013000756961,1,one,one,yes,lt35,1,6250,4,1
+2013000822236,1,one,one,yes,lt35,1,9840,1,1
+2013000917894,1,one,one,yes,lt35,1,6000,2,1
+2013001014543,1,one,one,yes,lt35,1,15000,1,1
+2013001068603,1,one,one,yes,lt35,1,1700,2,1
+2013001127361,1,one,one,yes,lt35,1,8350,2,1
+2013001226456,1,one,one,yes,lt35,1,21000,2,1
+2013001234903,1,one,one,yes,lt35,1,2400,2,1
+2013001279114,1,one,one,yes,lt35,1,10000,3,1
+2013001342857,1,one,one,yes,lt35,1,18000,2,1
+2013001429705,1,one,one,yes,lt35,1,24300,6,1
+2009000036105,1,one,one,yes,lt35,1,6504,1,1
+2009000094113,1,one,one,yes,lt35,1,14320,1,1
+2009000106453,1,one,one,yes,lt35,1,32800,3,1
+2009000192380,1,one,one,yes,lt35,1,20000,1,1
+2009000210486,1,one,one,yes,lt35,1,19900,1,1
+2009000274572,1,one,one,yes,lt35,1,6604,4,1
+2009000345463,1,one,one,yes,lt35,1,17000,1,1
+2009000454013,1,one,one,yes,lt35,1,25000,2,1
+2009000485657,1,one,one,yes,lt35,1,12500,1,1
+2009000821684,1,one,one,yes,lt35,1,35000,1,1
+2009000827440,1,one,one,yes,lt35,1,22500,1,1
+2009000864246,1,one,one,yes,lt35,1,28200,2,1
+2009000955170,1,one,one,yes,lt35,1,31410,2,1
+2009001084093,1,one,one,yes,lt35,1,14900,1,1
+2009001191472,1,one,one,yes,lt35,1,9000,3,1
+2009001244453,1,one,one,yes,lt35,1,15000,2,1
+2009001388934,1,one,one,yes,lt35,1,5500,1,1
+2009001396971,1,one,one,yes,lt35,1,12800,2,1
+2010000050854,1,one,one,yes,lt35,1,610,2,1
+2010000063080,1,one,one,yes,lt35,1,29000,1,1
+2010000170434,1,one,one,yes,lt35,1,28000,3,1
+2010000377427,1,one,one,yes,lt35,1,3600,1,1
+2010000392794,1,one,one,yes,lt35,1,24000,1,1
+2010000407032,1,one,one,yes,lt35,1,12400,2,1
+2010000456120,1,one,one,yes,lt35,1,16700,1,1
+2010000458101,1,one,one,yes,lt35,1,32300,1,1
+2010000527606,1,one,one,yes,lt35,1,17000,3,1
+2010000532957,1,one,one,yes,lt35,1,33000,3,1
+2010000651204,1,one,one,yes,lt35,1,5500,2,1
+2010000679378,1,one,one,yes,lt35,1,5500,1,1
+2010000703754,1,one,one,yes,lt35,1,1300,2,1
+2010000902041,1,one,one,yes,lt35,1,12000,1,1
+2010000927771,1,one,one,yes,lt35,1,16700,2,1
+2010000939772,1,one,one,yes,lt35,1,11200,1,1
+2010001023679,1,one,one,yes,lt35,1,24000,2,1
+2010001130087,1,one,one,yes,lt35,1,30200,1,1
+2010001196696,1,one,one,yes,lt35,1,29800,1,1
+2010001215357,1,one,one,yes,lt35,1,20000,2,1
+2010001259322,1,one,one,yes,lt35,1,17000,2,1
+2010001267740,1,one,one,yes,lt35,1,33500,1,1
+2011000020405,1,one,one,yes,lt35,1,13900,3,1
+2011000032494,1,one,one,yes,lt35,1,19200,1,1
+2011000095218,1,one,one,yes,lt35,1,23000,3,1
+2011000341588,1,one,one,yes,lt35,1,24000,2,1
+2011000433710,1,one,one,yes,lt35,1,19500,3,1
+2011000435898,1,one,one,yes,lt35,1,30000,3,1
+2011000571763,1,one,one,yes,lt35,1,16000,1,1
+2011000671413,1,one,one,yes,lt35,1,11000,2,1
+2011000789206,1,one,one,yes,lt35,1,25300,1,1
+2011000825055,1,one,one,yes,lt35,1,24200,2,1
+2011000843381,1,one,one,yes,lt35,1,19000,1,1
+2011000958889,1,one,one,yes,lt35,1,28000,2,1
+2011000999016,1,one,one,yes,lt35,1,4400,1,1
+2011001011685,1,one,one,yes,lt35,1,24200,2,1
+2011001033737,1,one,one,yes,lt35,1,32000,2,1
+2011001123421,1,one,one,yes,lt35,1,17000,1,1
+2011001144773,1,one,one,yes,lt35,1,2500,1,1
+2011001305059,1,one,one,yes,lt35,1,2000,1,1
+2011001335786,1,one,one,yes,lt35,1,5430,2,1
+2011001484429,1,one,one,yes,lt35,1,5000,1,1
+2012000080206,1,two or more,one,no,gt35-lt100,2,87200,0,1
+2012000085844,1,two or more,one,no,gt35-lt100,2,70000,0,1
+2012000196161,1,two or more,one,no,gt35-lt100,3,41500,0,1
+2012000209784,1,two or more,one,no,gt35-lt100,2,39000,0,1
+2012000320501,1,two or more,one,no,gt35-lt100,2,44000,0,1
+2012000378526,1,two or more,one,no,gt35-lt100,2,77110,0,1
+2012000429621,1,two or more,one,no,gt35-lt100,2,77000,0,1
+2012000475995,1,two or more,one,no,gt35-lt100,3,77100,0,1
+2012000534045,1,two or more,one,no,gt35-lt100,2,49500,0,1
+2012000534130,1,two or more,one,no,gt35-lt100,3,65030,0,1
+2012000556813,1,two or more,one,no,gt35-lt100,2,53700,0,1
+2012000570001,1,two or more,one,no,gt35-lt100,2,49800,0,1
+2012000676676,1,two or more,one,no,gt35-lt100,2,49700,0,1
+2012000707145,1,two or more,one,no,gt35-lt100,2,50000,0,1
+2012000735739,1,two or more,one,no,gt35-lt100,3,37700,0,1
+2012000872509,1,two or more,one,no,gt35-lt100,2,69500,0,1
+2012000944344,1,two or more,one,no,gt35-lt100,2,36370,0,1
+2012000970167,1,two or more,one,no,gt35-lt100,2,45000,0,1
+2012001075207,1,two or more,one,no,gt35-lt100,3,68000,0,1
+2012001138834,1,two or more,one,no,gt35-lt100,2,94100,0,1
+2012001239889,1,two or more,one,no,gt35-lt100,2,69500,0,1
+2012001258753,1,two or more,one,no,gt35-lt100,2,64300,0,1
+2012001267676,1,two or more,one,no,gt35-lt100,3,61300,0,1
+2012001283024,1,two or more,one,no,gt35-lt100,3,43100,0,1
+2012001321648,1,two or more,one,no,gt35-lt100,2,60200,0,1
+2012001452276,1,two or more,one,no,gt35-lt100,4,75700,0,1
+2012001457553,1,two or more,one,no,gt35-lt100,3,52000,0,1
+2012001484916,1,two or more,one,no,gt35-lt100,2,58800,0,1
+2013000020772,1,two or more,one,no,gt35-lt100,2,38000,0,1
+2013000079824,1,two or more,one,no,gt35-lt100,4,65300,0,1
+2013000115647,1,two or more,one,no,gt35-lt100,4,62000,0,1
+2013000138064,1,two or more,one,no,gt35-lt100,2,62100,0,1
+2013000164345,1,two or more,one,no,gt35-lt100,2,36000,0,1
+2013000203452,1,two or more,one,no,gt35-lt100,2,36600,0,1
+2013000478778,1,two or more,one,no,gt35-lt100,5,53300,0,1
+2013000577279,1,two or more,one,no,gt35-lt100,2,50490,0,1
+2013000598150,1,two or more,one,no,gt35-lt100,3,66600,0,1
+2013000761728,1,two or more,one,no,gt35-lt100,2,62800,0,1
+2013000768605,1,two or more,one,no,gt35-lt100,2,58000,0,1
+2013000771184,1,two or more,one,no,gt35-lt100,2,86500,0,1
+2013000832973,1,two or more,one,no,gt35-lt100,2,68600,0,1
+2013000879067,1,two or more,one,no,gt35-lt100,2,55000,0,1
+2013000903621,1,two or more,one,no,gt35-lt100,2,59220,0,1
+2013000926969,1,two or more,one,no,gt35-lt100,2,39100,0,1
+2013000944569,1,two or more,one,no,gt35-lt100,2,43850,0,1
+2013000975254,1,two or more,one,no,gt35-lt100,2,88000,0,1
+2013000995707,1,two or more,one,no,gt35-lt100,3,38200,0,1
+2013001062148,1,two or more,one,no,gt35-lt100,4,39700,0,1
+2013001132731,1,two or more,one,no,gt35-lt100,2,69000,0,1
+2013001189246,1,two or more,one,no,gt35-lt100,2,70000,0,1
+2013001195013,1,two or more,one,no,gt35-lt100,3,73800,0,1
+2013001218551,1,two or more,one,no,gt35-lt100,3,38100,0,1
+2013001222530,1,two or more,one,no,gt35-lt100,2,59200,0,1
+2013001256798,1,two or more,one,no,gt35-lt100,4,57800,0,1
+2013001257401,1,two or more,one,no,gt35-lt100,2,76100,0,1
+2013001269851,1,two or more,one,no,gt35-lt100,2,49770,0,1
+2013001293370,1,two or more,one,no,gt35-lt100,2,37380,0,1
+2013001350246,1,two or more,one,no,gt35-lt100,4,49920,0,1
+2013001416036,1,two or more,one,no,gt35-lt100,4,81100,0,1
+2013001432642,1,two or more,one,no,gt35-lt100,2,48000,0,1
+2013001466874,1,two or more,one,no,gt35-lt100,4,45600,0,1
+2009000211069,1,two or more,one,no,gt35-lt100,2,59100,0,1
+2009000211491,1,two or more,one,no,gt35-lt100,3,54000,0,1
+2009000289035,1,two or more,one,no,gt35-lt100,3,76200,0,1
+2009000383413,1,two or more,one,no,gt35-lt100,3,59300,0,1
+2009000447949,1,two or more,one,no,gt35-lt100,2,63300,0,1
+2009000453303,1,two or more,one,no,gt35-lt100,2,57600,0,1
+2009000476256,1,two or more,one,no,gt35-lt100,2,57300,0,1
+2009000525867,1,two or more,one,no,gt35-lt100,2,85600,0,1
+2009000593787,1,two or more,one,no,gt35-lt100,2,48800,0,1
+2009000636645,1,two or more,one,no,gt35-lt100,2,36000,0,1
+2009000701287,1,two or more,one,no,gt35-lt100,3,52000,0,1
+2009000757002,1,two or more,one,no,gt35-lt100,2,36100,0,1
+2009000851734,1,two or more,one,no,gt35-lt100,3,45900,0,1
+2009000870265,1,two or more,one,no,gt35-lt100,4,52200,0,1
+2009000927699,1,two or more,one,no,gt35-lt100,2,41700,0,1
+2009000959674,1,two or more,one,no,gt35-lt100,2,74400,0,1
+2009001067466,1,two or more,one,no,gt35-lt100,3,44000,0,1
+2009001075659,1,two or more,one,no,gt35-lt100,2,97500,0,1
+2009001119196,1,two or more,one,no,gt35-lt100,2,81870,0,1
+2009001123756,1,two or more,one,no,gt35-lt100,2,46100,0,1
+2009001138341,1,two or more,one,no,gt35-lt100,3,45000,0,1
+2009001197458,1,two or more,one,no,gt35-lt100,2,65000,0,1
+2009001217274,1,two or more,one,no,gt35-lt100,2,89100,0,1
+2009001235720,1,two or more,one,no,gt35-lt100,3,99000,0,1
+2009001261055,1,two or more,one,no,gt35-lt100,3,50000,0,1
+2009001268430,1,two or more,one,no,gt35-lt100,2,87700,0,1
+2009001276329,1,two or more,one,no,gt35-lt100,2,63000,0,1
+2009001287119,1,two or more,one,no,gt35-lt100,3,40600,0,1
+2009001330468,1,two or more,one,no,gt35-lt100,2,38400,0,1
+2009001357048,1,two or more,one,no,gt35-lt100,2,41000,0,1
+2009001392634,1,two or more,one,no,gt35-lt100,2,51000,0,1
+2010000002830,1,two or more,one,no,gt35-lt100,2,46050,0,1
+2010000042638,1,two or more,one,no,gt35-lt100,2,36000,0,1
+2010000142359,1,two or more,one,no,gt35-lt100,3,62000,0,1
+2010000195733,1,two or more,one,no,gt35-lt100,2,37900,0,1
+2010000232721,1,two or more,one,no,gt35-lt100,2,70700,0,1
+2010000286861,1,two or more,one,no,gt35-lt100,2,49700,0,1
+2010000310977,1,two or more,one,no,gt35-lt100,3,80000,0,1
+2010000334080,1,two or more,one,no,gt35-lt100,4,47600,0,1
+2010000392045,1,two or more,one,no,gt35-lt100,2,45400,0,1
+2010000415103,1,two or more,one,no,gt35-lt100,3,46000,0,1
+2010000417266,1,two or more,one,no,gt35-lt100,2,75640,0,1
+2010000449706,1,two or more,one,no,gt35-lt100,2,50000,0,1
+2010000455453,1,two or more,one,no,gt35-lt100,3,47000,0,1
+2010000463073,1,two or more,one,no,gt35-lt100,3,100000,0,1
+2010000480147,1,two or more,one,no,gt35-lt100,3,71000,0,1
+2010000492560,1,two or more,one,no,gt35-lt100,2,84400,0,1
+2010000493235,1,two or more,one,no,gt35-lt100,2,79000,0,1
+2010000575562,1,two or more,one,no,gt35-lt100,3,51300,0,1
+2010000578888,1,two or more,one,no,gt35-lt100,3,76750,0,1
+2010000612528,1,two or more,one,no,gt35-lt100,2,76500,0,1
+2010000626813,1,two or more,one,no,gt35-lt100,2,65000,0,1
+2010000642648,1,two or more,one,no,gt35-lt100,2,35400,0,1
+2010000736469,1,two or more,one,no,gt35-lt100,2,41400,0,1
+2010000742177,1,two or more,one,no,gt35-lt100,3,76700,0,1
+2010000770010,1,two or more,one,no,gt35-lt100,3,40400,0,1
+2010000816257,1,two or more,one,no,gt35-lt100,2,43700,0,1
+2010000837223,1,two or more,one,no,gt35-lt100,5,48000,0,1
+2010000849693,1,two or more,one,no,gt35-lt100,2,52100,0,1
+2010000868835,1,two or more,one,no,gt35-lt100,3,48800,0,1
+2010000904135,1,two or more,one,no,gt35-lt100,2,70300,0,1
+2010000913053,1,two or more,one,no,gt35-lt100,2,59000,0,1
+2010000969238,1,two or more,one,no,gt35-lt100,2,79400,0,1
+2010000974909,1,two or more,one,no,gt35-lt100,3,47400,0,1
+2010001008865,1,two or more,one,no,gt35-lt100,2,36000,0,1
+2010001009924,1,two or more,one,no,gt35-lt100,2,91860,0,1
+2010001015611,1,two or more,one,no,gt35-lt100,2,39000,0,1
+2010001146059,1,two or more,one,no,gt35-lt100,2,55000,0,1
+2010001150127,1,two or more,one,no,gt35-lt100,2,81700,0,1
+2010001202566,1,two or more,one,no,gt35-lt100,3,45980,0,1
+2010001244820,1,two or more,one,no,gt35-lt100,2,47800,0,1
+2010001331985,1,two or more,one,no,gt35-lt100,2,57080,0,1
+2010001398919,1,two or more,one,no,gt35-lt100,2,43000,0,1
+2011000024159,1,two or more,one,no,gt35-lt100,3,81000,0,1
+2011000034480,1,two or more,one,no,gt35-lt100,4,40700,0,1
+2011000109788,1,two or more,one,no,gt35-lt100,2,74100,0,1
+2011000117057,1,two or more,one,no,gt35-lt100,3,49100,0,1
+2011000297049,1,two or more,one,no,gt35-lt100,2,38000,0,1
+2011000342081,1,two or more,one,no,gt35-lt100,2,95400,0,1
+2011000351535,1,two or more,one,no,gt35-lt100,2,43800,0,1
+2011000358366,1,two or more,one,no,gt35-lt100,2,38250,0,1
+2011000385485,1,two or more,one,no,gt35-lt100,4,55400,0,1
+2011000393293,1,two or more,one,no,gt35-lt100,4,49300,0,1
+2011000428716,1,two or more,one,no,gt35-lt100,2,35400,0,1
+2011000576354,1,two or more,one,no,gt35-lt100,2,93200,0,1
+2011000583486,1,two or more,one,no,gt35-lt100,2,54700,0,1
+2011000614755,1,two or more,one,no,gt35-lt100,2,69000,0,1
+2011000634998,1,two or more,one,no,gt35-lt100,2,54100,0,1
+2011000696017,1,two or more,one,no,gt35-lt100,2,60000,0,1
+2011000765891,1,two or more,one,no,gt35-lt100,2,72800,0,1
+2011000867385,1,two or more,one,no,gt35-lt100,2,39700,0,1
+2011000899849,1,two or more,one,no,gt35-lt100,3,52500,0,1
+2011000919346,1,two or more,one,no,gt35-lt100,2,51200,0,1
+2011000935349,1,two or more,one,no,gt35-lt100,2,53700,0,1
+2011000935986,1,two or more,one,no,gt35-lt100,4,45700,0,1
+2011000945750,1,two or more,one,no,gt35-lt100,3,46000,0,1
+2011000994360,1,two or more,one,no,gt35-lt100,3,82350,0,1
+2011000995054,1,two or more,one,no,gt35-lt100,3,46300,0,1
+2011000998748,1,two or more,one,no,gt35-lt100,2,60900,0,1
+2011001034952,1,two or more,one,no,gt35-lt100,2,90400,0,1
+2011001039467,1,two or more,one,no,gt35-lt100,3,69100,0,1
+2011001105065,1,two or more,one,no,gt35-lt100,2,46660,0,1
+2011001116175,1,two or more,one,no,gt35-lt100,5,84600,0,1
+2011001130093,1,two or more,one,no,gt35-lt100,3,54500,0,1
+2011001165278,1,two or more,one,no,gt35-lt100,2,44200,0,1
+2011001204332,1,two or more,one,no,gt35-lt100,2,64800,0,1
+2011001213589,1,two or more,one,no,gt35-lt100,2,47500,0,1
+2011001253298,1,two or more,one,no,gt35-lt100,3,85000,0,1
+2011001273745,1,two or more,one,no,gt35-lt100,3,52200,0,1
+2011001287034,1,two or more,one,no,gt35-lt100,2,41600,0,1
+2011001319571,1,two or more,one,no,gt35-lt100,2,39600,0,1
+2011001320090,1,two or more,one,no,gt35-lt100,2,87600,0,1
+2011001340175,1,two or more,one,no,gt35-lt100,2,70000,0,1
+2011001371933,1,two or more,one,no,gt35-lt100,2,44900,0,1
+2011001425882,1,two or more,one,no,gt35-lt100,3,57000,0,1
+2011001436209,1,two or more,one,no,gt35-lt100,3,38860,0,1
+2011001460034,1,two or more,one,no,gt35-lt100,2,51900,0,1
+2011001464512,1,two or more,one,no,gt35-lt100,2,56000,0,1
+2011001485374,1,two or more,one,no,gt35-lt100,2,54800,0,1
+2011001492076,1,two or more,one,no,gt35-lt100,2,50700,0,1
+2012000085560,1,two or more,one,yes,gt100,2,102000,2,1
+2012000136005,1,two or more,one,yes,gt100,3,135300,4,1
+2012000737274,1,two or more,one,yes,gt100,2,193000,2,1
+2013000124687,1,two or more,one,yes,gt100,2,110400,1,1
+2013000243054,1,two or more,one,yes,gt100,3,120000,1,1
+2013001368142,1,two or more,one,yes,gt100,2,206000,3,1
+2010000066812,1,two or more,one,yes,gt100,2,250500,3,1
+2010000106199,1,two or more,one,yes,gt100,2,116100,2,1
+2011000189322,1,two or more,one,yes,gt100,2,114000,1,1
+2012000096867,1,one,two or more,no,lt35,1,23100,0,2
+2012000645204,1,one,two or more,no,lt35,1,27200,0,2
+2012000984911,1,one,two or more,no,lt35,1,25240,0,2
+2013000487159,1,one,two or more,no,lt35,1,29600,0,2
+2009000195437,1,one,two or more,no,lt35,1,29300,0,2
+2009000544368,1,one,two or more,no,lt35,1,32400,0,2
+2009000600112,1,one,two or more,no,lt35,1,21000,0,2
+2009000794436,1,one,two or more,no,lt35,1,14404,0,2
+2009001090642,1,one,two or more,no,lt35,1,20530,0,2
+2009001183957,1,one,two or more,no,lt35,1,22700,0,2
+2009001243119,1,one,two or more,no,lt35,1,35000,0,2
+2010000032008,1,one,two or more,no,lt35,1,19200,0,2
+2010000235728,1,one,two or more,no,lt35,1,19700,0,2
+2010000333158,1,one,two or more,no,lt35,1,16620,0,2
+2011000051678,1,one,two or more,no,lt35,1,19300,0,2
+2011000210235,1,one,two or more,no,lt35,1,34500,0,2
+2011001035392,1,one,two or more,no,lt35,1,33700,0,2
+2011001062577,1,one,two or more,no,lt35,1,32100,0,3
+2012000098529,1,one,two or more,yes,gt35-lt100,1,42500,1,2
+2012000465462,1,one,two or more,yes,gt35-lt100,1,44300,1,2
+2012000660975,1,one,two or more,yes,gt35-lt100,1,82000,1,2
+2012000698977,1,one,two or more,yes,gt35-lt100,1,36300,1,2
+2012001109693,1,one,two or more,yes,gt35-lt100,1,64100,2,2
+2013000461819,1,one,two or more,yes,gt35-lt100,1,52700,2,2
+2013001026272,1,one,two or more,yes,gt35-lt100,1,49000,1,2
+2013001032742,1,one,two or more,yes,gt35-lt100,1,60600,1,2
+2009000042831,1,one,two or more,yes,gt35-lt100,1,47000,2,2
+2009000107899,1,one,two or more,yes,gt35-lt100,1,37000,3,2
+2009000231656,1,one,two or more,yes,gt35-lt100,1,46000,1,2
+2009000438818,1,one,two or more,yes,gt35-lt100,1,59000,3,2
+2009000773302,1,one,two or more,yes,gt35-lt100,1,43000,3,2
+2009001001184,1,one,two or more,yes,gt35-lt100,1,40000,3,2
+2009001021749,1,one,two or more,yes,gt35-lt100,1,53860,1,2
+2009001379582,1,one,two or more,yes,gt35-lt100,1,57800,2,2
+2009001394216,1,one,two or more,yes,gt35-lt100,1,44000,1,2
+2010000069362,1,one,two or more,yes,gt35-lt100,1,67000,1,2
+2010000187640,1,one,two or more,yes,gt35-lt100,1,35800,3,2
+2010000238849,1,one,two or more,yes,gt35-lt100,1,38000,2,2
+2011001013379,1,one,two or more,yes,gt35-lt100,1,51000,1,2
+2011001121075,1,one,two or more,yes,gt35-lt100,1,57900,2,3
+2012000162541,1,none,none,yes,lt35,0,18300,2,0
+2012001476110,1,none,none,yes,lt35,0,3100,3,0
+2013000207865,1,none,none,yes,lt35,0,0,2,0
+2009000455972,1,none,none,yes,lt35,0,3500,2,0
+2010000136520,1,none,none,yes,lt35,0,8340,2,0
+2010000141368,1,none,none,yes,lt35,0,3500,1,0
+2010000262947,1,none,none,yes,lt35,0,0,1,0
+2010000591324,1,none,none,yes,lt35,0,6000,3,0
+2010000726700,1,none,none,yes,lt35,0,15300,1,0
+2011000773914,1,none,none,yes,lt35,0,19300,3,0
+2012000173985,1,two or more,one,yes,lt35,2,33000,3,1
+2012000337296,1,two or more,one,yes,lt35,2,27000,1,1
+2012000398030,1,two or more,one,yes,lt35,3,17900,4,1
+2012000516314,1,two or more,one,yes,lt35,2,30000,1,1
+2012000568624,1,two or more,one,yes,lt35,2,18200,3,1
+2012000693999,1,two or more,one,yes,lt35,2,22200,1,1
+2012000728204,1,two or more,one,yes,lt35,3,31400,2,1
+2012000827008,1,two or more,one,yes,lt35,3,26400,4,1
+2012000891443,1,two or more,one,yes,lt35,2,20000,1,1
+2012000957367,1,two or more,one,yes,lt35,3,16400,2,1
+2012001178650,1,two or more,one,yes,lt35,3,27200,1,1
+2012001265450,1,two or more,one,yes,lt35,2,2000,2,1
+2012001341459,1,two or more,one,yes,lt35,2,26900,2,1
+2012001451436,1,two or more,one,yes,lt35,2,26700,2,1
+2012001456063,1,two or more,one,yes,lt35,2,30000,2,1
+2013000004270,1,two or more,one,yes,lt35,3,28300,2,1
+2013000194884,1,two or more,one,yes,lt35,2,15000,2,1
+2013000205312,1,two or more,one,yes,lt35,2,26000,1,1
+2013000226969,1,two or more,one,yes,lt35,3,34000,1,1
+2013000278987,1,two or more,one,yes,lt35,2,33600,2,1
+2013000533221,1,two or more,one,yes,lt35,3,21150,1,1
+2013000573328,1,two or more,one,yes,lt35,2,600,1,1
+2013000688364,1,two or more,one,yes,lt35,3,17300,1,1
+2013000739512,1,two or more,one,yes,lt35,3,21500,1,1
+2013000957331,1,two or more,one,yes,lt35,3,12000,2,1
+2013001022404,1,two or more,one,yes,lt35,2,12000,1,1
+2013001034296,1,two or more,one,yes,lt35,4,16880,2,1
+2013001429683,1,two or more,one,yes,lt35,2,9300,2,1
+2009000052892,1,two or more,one,yes,lt35,2,24200,1,1
+2009000102529,1,two or more,one,yes,lt35,2,22000,3,1
+2009000228783,1,two or more,one,yes,lt35,2,29700,4,1
+2009000265902,1,two or more,one,yes,lt35,3,11000,1,1
+2009000279352,1,two or more,one,yes,lt35,2,28000,2,1
+2009000364650,1,two or more,one,yes,lt35,2,33000,2,1
+2009000394779,1,two or more,one,yes,lt35,2,20000,2,1
+2009000435634,1,two or more,one,yes,lt35,3,21500,4,1
+2009000925521,1,two or more,one,yes,lt35,2,7900,1,1
+2009000989008,1,two or more,one,yes,lt35,2,24430,1,1
+2009001133798,1,two or more,one,yes,lt35,2,9600,2,1
+2009001148574,1,two or more,one,yes,lt35,4,31000,1,1
+2009001199134,1,two or more,one,yes,lt35,2,35000,5,1
+2009001204966,1,two or more,one,yes,lt35,2,10800,1,1
+2009001271175,1,two or more,one,yes,lt35,2,24000,1,1
+2009001309232,1,two or more,one,yes,lt35,3,26400,1,1
+2010000014769,1,two or more,one,yes,lt35,3,30000,1,1
+2010000241533,1,two or more,one,yes,lt35,2,7300,3,1
+2010000339216,1,two or more,one,yes,lt35,2,30000,2,1
+2010000546342,1,two or more,one,yes,lt35,2,28600,1,1
+2010000562148,1,two or more,one,yes,lt35,2,32100,2,1
+2010000593589,1,two or more,one,yes,lt35,3,14400,1,1
+2010000620962,1,two or more,one,yes,lt35,2,29000,2,1
+2010000636217,1,two or more,one,yes,lt35,2,15000,3,1
+2010000652026,1,two or more,one,yes,lt35,2,29000,1,1
+2010000691994,1,two or more,one,yes,lt35,2,26000,3,1
+2010000829073,1,two or more,one,yes,lt35,3,24000,2,1
+2010000976612,1,two or more,one,yes,lt35,4,32240,2,1
+2010001121443,1,two or more,one,yes,lt35,2,18000,1,1
+2010001127004,1,two or more,one,yes,lt35,2,3500,1,1
+2010001139735,1,two or more,one,yes,lt35,2,20660,1,1
+2010001205957,1,two or more,one,yes,lt35,2,13000,3,1
+2010001251981,1,two or more,one,yes,lt35,2,20000,2,1
+2010001288978,1,two or more,one,yes,lt35,2,23000,2,1
+2011000045556,1,two or more,one,yes,lt35,2,27000,3,1
+2011000112482,1,two or more,one,yes,lt35,3,15200,1,1
+2011000154743,1,two or more,one,yes,lt35,2,8100,1,1
+2011000488731,1,two or more,one,yes,lt35,2,22400,2,1
+2011000653210,1,two or more,one,yes,lt35,2,13900,4,1
+2011000654052,1,two or more,one,yes,lt35,2,35000,2,1
+2011000720350,1,two or more,one,yes,lt35,2,24000,2,1
+2011000728865,1,two or more,one,yes,lt35,2,9000,1,1
+2011000734757,1,two or more,one,yes,lt35,4,30000,1,1
+2011000799481,1,two or more,one,yes,lt35,4,17000,1,1
+2011000801400,1,two or more,one,yes,lt35,2,14000,1,1
+2011000976677,1,two or more,one,yes,lt35,2,1100,4,1
+2011000978876,1,two or more,one,yes,lt35,2,8900,1,1
+2011001220916,1,two or more,one,yes,lt35,2,15000,3,1
+2011001267802,1,two or more,one,yes,lt35,2,33000,3,1
+2011001326732,1,two or more,one,yes,lt35,2,27000,1,1
+2011001405224,1,two or more,one,yes,lt35,2,15000,4,1
+2012000175548,1,two or more,two or more,yes,lt35,3,33000,4,3
+2012000344059,1,two or more,two or more,yes,lt35,3,24500,2,2
+2012000646653,1,two or more,two or more,yes,lt35,2,32500,2,2
+2012000715810,1,two or more,two or more,yes,lt35,2,31300,2,2
+2012000931816,1,two or more,two or more,yes,lt35,2,10500,2,2
+2013000169277,1,two or more,two or more,yes,lt35,3,30600,2,2
+2013000243949,1,two or more,two or more,yes,lt35,3,11590,1,2
+2013000501521,1,two or more,two or more,yes,lt35,3,23400,3,2
+2013000602107,1,two or more,two or more,yes,lt35,2,35000,2,2
+2013000611232,1,two or more,two or more,yes,lt35,3,15000,3,2
+2013000896392,1,two or more,two or more,yes,lt35,3,12700,1,2
+2013000944526,1,two or more,two or more,yes,lt35,2,27000,2,2
+2013001323909,1,two or more,two or more,yes,lt35,2,30000,3,2
+2009000165883,1,two or more,two or more,yes,lt35,2,19000,2,2
+2009000184301,1,two or more,two or more,yes,lt35,2,32500,1,2
+2009000288822,1,two or more,two or more,yes,lt35,2,25800,1,2
+2009000387970,1,two or more,two or more,yes,lt35,2,29400,3,2
+2009000532826,1,two or more,two or more,yes,lt35,3,34630,2,2
+2009000621657,1,two or more,two or more,yes,lt35,2,4700,9,2
+2009000736484,1,two or more,two or more,yes,lt35,2,24800,2,2
+2009001059800,1,two or more,two or more,yes,lt35,3,34300,2,2
+2009001220486,1,two or more,two or more,yes,lt35,3,34000,4,2
+2009001222848,1,two or more,two or more,yes,lt35,2,34200,2,2
+2009001275910,1,two or more,two or more,yes,lt35,3,32380,3,2
+2009001352553,1,two or more,two or more,yes,lt35,2,24900,2,2
+2009001378841,1,two or more,two or more,yes,lt35,2,12440,1,2
+2010000027793,1,two or more,two or more,yes,lt35,2,12500,2,2
+2010000132970,1,two or more,two or more,yes,lt35,2,35000,1,2
+2010000161955,1,two or more,two or more,yes,lt35,4,28900,2,2
+2010000361305,1,two or more,two or more,yes,lt35,2,11000,2,2
+2010000397020,1,two or more,two or more,yes,lt35,3,34000,1,2
+2010000458541,1,two or more,two or more,yes,lt35,2,23000,3,2
+2010000510508,1,two or more,two or more,yes,lt35,2,28650,1,2
+2010000754100,1,two or more,two or more,yes,lt35,4,35000,1,3
+2010000823132,1,two or more,two or more,yes,lt35,2,34700,6,2
+2010000935759,1,two or more,two or more,yes,lt35,4,35000,1,2
+2010001003278,1,two or more,two or more,yes,lt35,2,23900,1,2
+2010001105022,1,two or more,two or more,yes,lt35,3,23000,1,2
+2010001243080,1,two or more,two or more,yes,lt35,2,19400,1,2
+2010001268920,1,two or more,two or more,yes,lt35,2,9830,1,2
+2011000030184,1,two or more,two or more,yes,lt35,2,25800,3,2
+2011000152421,1,two or more,two or more,yes,lt35,3,22850,3,2
+2011000460534,1,two or more,two or more,yes,lt35,2,17500,4,2
+2011000570395,1,two or more,two or more,yes,lt35,2,28700,2,2
+2011000588087,1,two or more,two or more,yes,lt35,2,30250,3,2
+2011000605079,1,two or more,two or more,yes,lt35,3,34000,2,2
+2011000629262,1,two or more,two or more,yes,lt35,2,26900,3,2
+2011000879305,1,two or more,two or more,yes,lt35,4,25000,2,2
+2011000882391,1,two or more,two or more,yes,lt35,2,34500,2,2
+2011001071724,1,two or more,two or more,yes,lt35,2,21000,2,2
+2011001088065,1,two or more,two or more,yes,lt35,4,33050,2,3
+2011001199061,1,two or more,two or more,yes,lt35,6,31000,2,2
+2011001220888,1,two or more,two or more,yes,lt35,4,34420,1,3
+2011001262738,1,two or more,two or more,yes,lt35,2,35000,3,2
+2012000189231,1,one,one,yes,gt35-lt100,1,36500,2,1
+2012000263114,1,one,one,yes,gt35-lt100,1,40000,1,1
+2012000783650,1,one,one,yes,gt35-lt100,1,42000,1,1
+2012001278882,1,one,one,yes,gt35-lt100,1,36000,3,1
+2012001320822,1,one,one,yes,gt35-lt100,1,37600,2,1
+2013000067610,1,one,one,yes,gt35-lt100,1,47000,5,1
+2013000206394,1,one,one,yes,gt35-lt100,1,50500,2,1
+2013000216140,1,one,one,yes,gt35-lt100,1,70000,2,1
+2013000482433,1,one,one,yes,gt35-lt100,1,38000,1,1
+2013000517676,1,one,one,yes,gt35-lt100,1,65000,3,1
+2013000549441,1,one,one,yes,gt35-lt100,1,57380,1,1
+2013000738157,1,one,one,yes,gt35-lt100,1,85000,1,1
+2013000752743,1,one,one,yes,gt35-lt100,1,52000,4,1
+2013000896832,1,one,one,yes,gt35-lt100,1,52400,1,1
+2013000965164,1,one,one,yes,gt35-lt100,1,57700,3,1
+2009000222250,1,one,one,yes,gt35-lt100,1,50000,3,1
+2009000448088,1,one,one,yes,gt35-lt100,1,42500,3,1
+2009000457663,1,one,one,yes,gt35-lt100,1,48000,1,1
+2009000684887,1,one,one,yes,gt35-lt100,1,45000,2,1
+2009000692229,1,one,one,yes,gt35-lt100,1,39000,1,1
+2009000730776,1,one,one,yes,gt35-lt100,1,70000,1,1
+2009001091219,1,one,one,yes,gt35-lt100,1,38000,2,1
+2009001370950,1,one,one,yes,gt35-lt100,1,66200,1,1
+2009001381190,1,one,one,yes,gt35-lt100,1,48000,5,1
+2010000094078,1,one,one,yes,gt35-lt100,1,77700,1,1
+2010000639455,1,one,one,yes,gt35-lt100,1,89800,2,1
+2010000651982,1,one,one,yes,gt35-lt100,1,38000,6,1
+2010000690483,1,one,one,yes,gt35-lt100,1,96000,2,1
+2010001410772,1,one,one,yes,gt35-lt100,1,80000,1,1
+2011000075546,1,one,one,yes,gt35-lt100,1,48000,1,1
+2011000309707,1,one,one,yes,gt35-lt100,1,40000,1,1
+2011001136878,1,one,one,yes,gt35-lt100,1,52000,1,1
+2011001142490,1,one,one,yes,gt35-lt100,1,40200,1,1
+2012000203756,1,two or more,none,yes,gt35-lt100,3,49300,1,0
+2012000218672,1,two or more,two or more,yes,gt100,5,334010,1,2
+2012000263251,1,two or more,two or more,yes,gt100,2,106000,2,2
+2012000378439,1,two or more,two or more,yes,gt100,2,137400,2,2
+2012000624361,1,two or more,two or more,yes,gt100,3,112600,3,3
+2012000642871,1,two or more,two or more,yes,gt100,3,110800,2,2
+2012000670130,1,two or more,two or more,yes,gt100,3,106000,2,2
+2012000900106,1,two or more,two or more,yes,gt100,5,106000,1,3
+2012001431090,1,two or more,two or more,yes,gt100,3,123000,2,2
+2012001461753,1,two or more,two or more,yes,gt100,3,100300,1,2
+2013000235811,1,two or more,two or more,yes,gt100,5,212000,1,3
+2013000371835,1,two or more,two or more,yes,gt100,3,115000,1,2
+2013000634437,1,two or more,two or more,yes,gt100,2,131900,1,2
+2013000716159,1,two or more,two or more,yes,gt100,3,115600,1,2
+2013000862316,1,two or more,two or more,yes,gt100,2,138000,1,2
+2013001200176,1,two or more,two or more,yes,gt100,2,104500,2,2
+2013001240272,1,two or more,two or more,yes,gt100,2,100600,1,2
+2013001297952,1,two or more,two or more,yes,gt100,4,379000,3,2
+2013001318290,1,two or more,two or more,yes,gt100,2,347000,3,2
+2009000033067,1,two or more,two or more,yes,gt100,2,134000,3,2
+2009000234127,1,two or more,two or more,yes,gt100,5,140000,1,3
+2009000293752,1,two or more,two or more,yes,gt100,2,120000,3,2
+2009000301607,1,two or more,two or more,yes,gt100,2,128300,3,2
+2009000336969,1,two or more,two or more,yes,gt100,3,145100,1,2
+2009000340682,1,two or more,two or more,yes,gt100,5,179000,2,2
+2009000616207,1,two or more,two or more,yes,gt100,3,301040,2,3
+2009000717564,1,two or more,two or more,yes,gt100,3,266000,1,2
+2009000774161,1,two or more,two or more,yes,gt100,3,127700,1,2
+2009000815011,1,two or more,two or more,yes,gt100,3,137200,1,2
+2009000822264,1,two or more,two or more,yes,gt100,2,133000,3,2
+2009000831145,1,two or more,two or more,yes,gt100,6,100100,2,3
+2009000892364,1,two or more,two or more,yes,gt100,5,137500,1,2
+2009001080682,1,two or more,two or more,yes,gt100,4,109600,1,2
+2009001083832,1,two or more,two or more,yes,gt100,3,119500,2,2
+2009001091969,1,two or more,two or more,yes,gt100,4,194800,2,3
+2009001141123,1,two or more,two or more,yes,gt100,3,133700,1,2
+2009001191974,1,two or more,two or more,yes,gt100,2,120000,1,2
+2009001202887,1,two or more,two or more,yes,gt100,2,258000,3,2
+2010000079585,1,two or more,two or more,yes,gt100,3,120500,3,2
+2010000080747,1,two or more,two or more,yes,gt100,2,140100,2,2
+2010000211978,1,two or more,two or more,yes,gt100,3,113000,1,2
+2010000307275,1,two or more,two or more,yes,gt100,2,150300,2,2
+2010000515792,1,two or more,two or more,yes,gt100,3,123800,2,3
+2010000579015,1,two or more,two or more,yes,gt100,5,121000,1,3
+2010000702057,1,two or more,two or more,yes,gt100,3,108000,1,2
+2010000941493,1,two or more,two or more,yes,gt100,4,152000,2,2
+2010000954950,1,two or more,two or more,yes,gt100,4,104700,2,3
+2010000997732,1,two or more,two or more,yes,gt100,2,128000,2,3
+2010001026917,1,two or more,two or more,yes,gt100,4,115000,2,2
+2010001192940,1,two or more,two or more,yes,gt100,4,145000,1,2
+2010001232248,1,two or more,two or more,yes,gt100,4,173000,1,3
+2010001235177,1,two or more,two or more,yes,gt100,2,109900,3,2
+2011000144879,1,two or more,two or more,yes,gt100,6,110000,2,3
+2011000155859,1,two or more,two or more,yes,gt100,3,170000,2,2
+2011000297705,1,two or more,two or more,yes,gt100,3,192120,1,2
+2011000428885,1,two or more,two or more,yes,gt100,3,114000,2,2
+2011000441726,1,two or more,two or more,yes,gt100,5,102000,2,2
+2011000588000,1,two or more,two or more,yes,gt100,6,343000,2,3
+2011000739333,1,two or more,two or more,yes,gt100,4,145150,2,3
+2011000974055,1,two or more,two or more,yes,gt100,4,179200,1,2
+2011000985852,1,two or more,two or more,yes,gt100,4,105000,2,2
+2011000989284,1,two or more,two or more,yes,gt100,3,380000,2,2
+2011001109265,1,two or more,two or more,yes,gt100,2,124000,3,2
+2011001137672,1,two or more,two or more,yes,gt100,3,149900,1,2
+2011001234050,1,two or more,two or more,yes,gt100,4,110000,5,3
+2011001244898,1,two or more,two or more,yes,gt100,6,100300,1,3
+2011001269396,1,two or more,two or more,yes,gt100,3,110700,1,3
+2011001321022,1,two or more,two or more,yes,gt100,3,116900,2,2
+2011001387508,1,two or more,two or more,yes,gt100,2,104000,3,2
+2012000223896,1,none,two or more,yes,gt35-lt100,0,77700,4,2
+2012000916618,1,none,two or more,yes,gt35-lt100,0,58000,6,3
+2013000491796,1,none,two or more,yes,gt35-lt100,0,51250,3,2
+2013001335983,1,none,two or more,yes,gt35-lt100,0,65700,2,2
+2010000544135,1,none,two or more,yes,gt35-lt100,0,82000,1,3
+2012000257532,1,two or more,one,yes,gt35-lt100,2,38000,2,1
+2012000314576,1,two or more,one,yes,gt35-lt100,4,80000,1,1
+2012000369102,1,two or more,one,yes,gt35-lt100,4,50000,1,1
+2012000369636,1,two or more,one,yes,gt35-lt100,2,60000,3,1
+2012000386787,1,two or more,one,yes,gt35-lt100,2,80000,3,1
+2012000406858,1,two or more,one,yes,gt35-lt100,3,45000,1,1
+2012000540036,1,two or more,one,yes,gt35-lt100,2,45400,1,1
+2012000721243,1,two or more,one,yes,gt35-lt100,2,36900,1,1
+2012000851610,1,two or more,one,yes,gt35-lt100,3,37200,1,1
+2012000852848,1,two or more,one,yes,gt35-lt100,2,81800,3,1
+2012000882344,1,two or more,one,yes,gt35-lt100,2,68000,3,1
+2012000897166,1,two or more,one,yes,gt35-lt100,6,42000,1,1
+2012000935929,1,two or more,one,yes,gt35-lt100,3,48000,1,1
+2012001289165,1,two or more,one,yes,gt35-lt100,2,45400,4,1
+2012001301966,1,two or more,one,yes,gt35-lt100,2,90000,1,1
+2012001420393,1,two or more,one,yes,gt35-lt100,2,64000,2,1
+2012001481739,1,two or more,one,yes,gt35-lt100,4,44020,1,1
+2012001486615,1,two or more,one,yes,gt35-lt100,3,70500,2,1
+2012001489463,1,two or more,one,yes,gt35-lt100,2,66000,3,1
+2013000081309,1,two or more,one,yes,gt35-lt100,2,41000,1,1
+2013000120678,1,two or more,one,yes,gt35-lt100,2,39600,3,1
+2013000158547,1,two or more,one,yes,gt35-lt100,3,54000,3,1
+2013000367305,1,two or more,one,yes,gt35-lt100,2,41000,2,1
+2013000550773,1,two or more,one,yes,gt35-lt100,2,37700,3,1
+2013000690709,1,two or more,one,yes,gt35-lt100,2,37700,2,1
+2013000706882,1,two or more,one,yes,gt35-lt100,3,54300,5,1
+2013000728409,1,two or more,one,yes,gt35-lt100,3,89000,2,1
+2013000788043,1,two or more,one,yes,gt35-lt100,2,69800,3,1
+2013000868408,1,two or more,one,yes,gt35-lt100,2,92000,1,1
+2013000887734,1,two or more,one,yes,gt35-lt100,2,43000,2,1
+2013000888280,1,two or more,one,yes,gt35-lt100,4,43000,1,1
+2013001157638,1,two or more,one,yes,gt35-lt100,3,52400,5,1
+2013001159920,1,two or more,one,yes,gt35-lt100,2,36400,1,1
+2013001288884,1,two or more,one,yes,gt35-lt100,2,41200,3,1
+2013001371673,1,two or more,one,yes,gt35-lt100,2,62000,1,1
+2009000074729,1,two or more,one,yes,gt35-lt100,2,52000,3,1
+2009000077900,1,two or more,one,yes,gt35-lt100,3,39000,2,1
+2009000129435,1,two or more,one,yes,gt35-lt100,4,88000,1,1
+2009000234979,1,two or more,one,yes,gt35-lt100,2,39500,1,1
+2009000247667,1,two or more,one,yes,gt35-lt100,2,41600,2,1
+2009000266008,1,two or more,one,yes,gt35-lt100,2,67000,2,1
+2009000320149,1,two or more,one,yes,gt35-lt100,2,50080,1,1
+2009000337333,1,two or more,one,yes,gt35-lt100,2,45000,2,1
+2009000403485,1,two or more,one,yes,gt35-lt100,2,39300,2,1
+2009000406597,1,two or more,one,yes,gt35-lt100,2,46900,2,1
+2009000497063,1,two or more,one,yes,gt35-lt100,3,58300,1,1
+2009000592443,1,two or more,one,yes,gt35-lt100,2,40000,2,1
+2009000710310,1,two or more,one,yes,gt35-lt100,5,67200,3,1
+2009000779358,1,two or more,one,yes,gt35-lt100,2,72000,4,1
+2009000808270,1,two or more,one,yes,gt35-lt100,2,44800,2,1
+2009001169522,1,two or more,one,yes,gt35-lt100,2,100000,2,1
+2009001273046,1,two or more,one,yes,gt35-lt100,2,36000,4,1
+2009001283396,1,two or more,one,yes,gt35-lt100,3,36000,1,1
+2010000010632,1,two or more,one,yes,gt35-lt100,2,40000,1,1
+2010000105765,1,two or more,one,yes,gt35-lt100,2,64000,2,1
+2010000212621,1,two or more,one,yes,gt35-lt100,2,38000,2,1
+2010000316351,1,two or more,one,yes,gt35-lt100,2,54000,1,1
+2010000401837,1,two or more,one,yes,gt35-lt100,2,38600,1,1
+2010000571395,1,two or more,one,yes,gt35-lt100,3,59000,1,1
+2010000641736,1,two or more,one,yes,gt35-lt100,2,49500,3,1
+2010000656444,1,two or more,one,yes,gt35-lt100,2,38500,1,1
+2010000781331,1,two or more,one,yes,gt35-lt100,3,70000,2,1
+2010000788743,1,two or more,one,yes,gt35-lt100,2,50000,1,1
+2010000860819,1,two or more,one,yes,gt35-lt100,5,94900,1,1
+2010001008662,1,two or more,one,yes,gt35-lt100,2,60700,3,1
+2010001106149,1,two or more,one,yes,gt35-lt100,2,75000,4,1
+2010001195307,1,two or more,one,yes,gt35-lt100,2,65050,2,1
+2010001260559,1,two or more,one,yes,gt35-lt100,2,43600,1,1
+2010001270690,1,two or more,one,yes,gt35-lt100,2,42000,2,1
+2010001303086,1,two or more,one,yes,gt35-lt100,2,69000,3,1
+2011000050193,1,two or more,one,yes,gt35-lt100,2,86000,4,1
+2011000059077,1,two or more,one,yes,gt35-lt100,2,38000,3,1
+2011000251338,1,two or more,one,yes,gt35-lt100,2,69500,2,1
+2011000355595,1,two or more,one,yes,gt35-lt100,2,52400,2,1
+2011000404468,1,two or more,one,yes,gt35-lt100,2,90000,3,1
+2011000420476,1,two or more,one,yes,gt35-lt100,2,45600,3,1
+2011000587077,1,two or more,one,yes,gt35-lt100,2,82500,1,1
+2011000601432,1,two or more,one,yes,gt35-lt100,2,37700,3,1
+2011000606474,1,two or more,one,yes,gt35-lt100,2,54120,1,1
+2011000686854,1,two or more,one,yes,gt35-lt100,3,41500,3,1
+2011000724415,1,two or more,one,yes,gt35-lt100,2,40400,4,1
+2011000878428,1,two or more,one,yes,gt35-lt100,2,40000,2,1
+2011001056571,1,two or more,one,yes,gt35-lt100,3,42600,1,1
+2011001078565,1,two or more,one,yes,gt35-lt100,2,58000,1,1
+2011001225552,1,two or more,one,yes,gt35-lt100,3,49000,3,1
+2011001276718,1,two or more,one,yes,gt35-lt100,2,80000,1,1
+2011001475710,1,two or more,one,yes,gt35-lt100,2,49200,3,1
+2012000259944,1,none,two or more,no,gt100,0,149200,0,2
+2013000540173,1,none,two or more,no,gt100,0,128000,0,2
+2011000905336,1,none,two or more,no,gt100,0,155000,0,2
+2012000263657,1,two or more,one,no,lt35,2,27500,0,1
+2012000285548,1,two or more,one,no,lt35,2,33500,0,1
+2012000345130,1,two or more,one,no,lt35,2,22410,0,1
+2012000428248,1,two or more,one,no,lt35,3,18400,0,1
+2012000470610,1,two or more,one,no,lt35,2,29300,0,1
+2012000573528,1,two or more,one,no,lt35,2,31600,0,1
+2012000575165,1,two or more,one,no,lt35,2,29700,0,1
+2012000580252,1,two or more,one,no,lt35,2,18700,0,1
+2012000643802,1,two or more,one,no,lt35,2,30500,0,1
+2012000688446,1,two or more,one,no,lt35,2,31300,0,1
+2012000779211,1,two or more,one,no,lt35,3,30054,0,1
+2012000796526,1,two or more,one,no,lt35,2,23600,0,1
+2012000835599,1,two or more,one,no,lt35,2,8700,0,1
+2012000927474,1,two or more,one,no,lt35,2,29900,0,1
+2012000974144,1,two or more,one,no,lt35,2,17600,0,1
+2012001101744,1,two or more,one,no,lt35,2,34000,0,1
+2012001108592,1,two or more,one,no,lt35,2,23860,0,1
+2012001200886,1,two or more,one,no,lt35,3,25100,0,1
+2012001214821,1,two or more,one,no,lt35,2,13030,0,1
+2012001475377,1,two or more,one,no,lt35,4,14000,0,1
+2013000056980,1,two or more,one,no,lt35,2,23000,0,1
+2013000317381,1,two or more,one,no,lt35,2,19900,0,1
+2013000381799,1,two or more,one,no,lt35,2,34600,0,1
+2013000509225,1,two or more,one,no,lt35,3,25200,0,1
+2013000521083,1,two or more,one,no,lt35,2,16800,0,1
+2013000608058,1,two or more,one,no,lt35,3,16500,0,1
+2013000842628,1,two or more,one,no,lt35,2,24600,0,1
+2013000958478,1,two or more,one,no,lt35,2,27400,0,1
+2013001056733,1,two or more,one,no,lt35,2,18000,0,1
+2013001177451,1,two or more,one,no,lt35,2,15800,0,1
+2013001186054,1,two or more,one,no,lt35,2,21800,0,1
+2013001209515,1,two or more,one,no,lt35,2,27100,0,1
+2013001252529,1,two or more,one,no,lt35,2,32000,0,1
+2013001285958,1,two or more,one,no,lt35,2,31000,0,1
+2013001345799,1,two or more,one,no,lt35,2,26900,0,1
+2013001368472,1,two or more,one,no,lt35,2,29600,0,1
+2009000011122,1,two or more,one,no,lt35,2,29700,0,1
+2009000115223,1,two or more,one,no,lt35,2,24200,0,1
+2009000143715,1,two or more,one,no,lt35,2,32900,0,1
+2009000155540,1,two or more,one,no,lt35,6,26150,0,1
+2009000199756,1,two or more,one,no,lt35,2,32200,0,1
+2009000324936,1,two or more,one,no,lt35,2,23200,0,1
+2009000327449,1,two or more,one,no,lt35,2,20570,0,1
+2009000405820,1,two or more,one,no,lt35,2,22000,0,1
+2009000455921,1,two or more,one,no,lt35,2,35000,0,1
+2009000463569,1,two or more,one,no,lt35,4,16000,0,1
+2009000486604,1,two or more,one,no,lt35,2,23500,0,1
+2009000515034,1,two or more,one,no,lt35,2,15000,0,1
+2009000532411,1,two or more,one,no,lt35,2,28200,0,1
+2009000654241,1,two or more,one,no,lt35,3,31000,0,1
+2009000682566,1,two or more,one,no,lt35,3,32900,0,1
+2009000785604,1,two or more,one,no,lt35,2,4500,0,1
+2009000862200,1,two or more,one,no,lt35,3,31400,0,1
+2009000871319,1,two or more,one,no,lt35,2,21700,0,1
+2009000874893,1,two or more,one,no,lt35,2,30300,0,1
+2009001201672,1,two or more,one,no,lt35,4,19800,0,1
+2009001238659,1,two or more,one,no,lt35,2,24250,0,1
+2009001243416,1,two or more,one,no,lt35,2,7300,0,1
+2009001256484,1,two or more,one,no,lt35,2,33000,0,1
+2009001343854,1,two or more,one,no,lt35,2,26400,0,1
+2010000020362,1,two or more,one,no,lt35,2,13900,0,1
+2010000165407,1,two or more,one,no,lt35,2,33450,0,1
+2010000179880,1,two or more,one,no,lt35,2,16130,0,1
+2010000228100,1,two or more,one,no,lt35,2,17200,0,1
+2010000277104,1,two or more,one,no,lt35,2,21200,0,1
+2010000435058,1,two or more,one,no,lt35,2,16500,0,1
+2010000440612,1,two or more,one,no,lt35,2,25000,0,1
+2010000488926,1,two or more,one,no,lt35,3,18500,0,1
+2010000516940,1,two or more,one,no,lt35,2,16000,0,1
+2010000544862,1,two or more,one,no,lt35,2,27000,0,1
+2010000606383,1,two or more,one,no,lt35,4,25300,0,1
+2010000613164,1,two or more,one,no,lt35,2,23000,0,1
+2010000682441,1,two or more,one,no,lt35,2,30000,0,1
+2010000707129,1,two or more,one,no,lt35,3,33500,0,1
+2010000713498,1,two or more,one,no,lt35,2,13400,0,1
+2010000737606,1,two or more,one,no,lt35,2,22000,0,1
+2010000768119,1,two or more,one,no,lt35,2,20000,0,1
+2010000773907,1,two or more,one,no,lt35,2,33400,0,1
+2010000776089,1,two or more,one,no,lt35,2,34400,0,1
+2010000860452,1,two or more,one,no,lt35,2,16800,0,1
+2010000881706,1,two or more,one,no,lt35,2,35000,0,1
+2010000895274,1,two or more,one,no,lt35,2,24300,0,1
+2010001035311,1,two or more,one,no,lt35,2,33280,0,1
+2010001061464,1,two or more,one,no,lt35,2,16100,0,1
+2010001079851,1,two or more,one,no,lt35,2,19800,0,1
+2010001197268,1,two or more,one,no,lt35,2,26600,0,1
+2010001238390,1,two or more,one,no,lt35,2,2500,0,1
+2010001301829,1,two or more,one,no,lt35,5,26700,0,1
+2010001317545,1,two or more,one,no,lt35,4,31700,0,1
+2010001322800,1,two or more,one,no,lt35,2,35000,0,1
+2011000272371,1,two or more,one,no,lt35,3,30900,0,1
+2011000301987,1,two or more,one,no,lt35,2,30800,0,1
+2011000309621,1,two or more,one,no,lt35,2,7130,0,1
+2011000391896,1,two or more,one,no,lt35,3,31900,0,1
+2011000446392,1,two or more,one,no,lt35,2,18600,0,1
+2011000515632,1,two or more,one,no,lt35,2,33400,0,1
+2011000519034,1,two or more,one,no,lt35,2,25900,0,1
+2011000580915,1,two or more,one,no,lt35,2,26800,0,1
+2011000598475,1,two or more,one,no,lt35,2,30000,0,1
+2011000710437,1,two or more,one,no,lt35,2,29800,0,1
+2011000778911,1,two or more,one,no,lt35,2,25600,0,1
+2011000795711,1,two or more,one,no,lt35,2,32600,0,1
+2011000886666,1,two or more,one,no,lt35,4,21200,0,1
+2011001068018,1,two or more,one,no,lt35,2,33400,0,1
+2011001181486,1,two or more,one,no,lt35,4,31230,0,1
+2011001212413,1,two or more,one,no,lt35,2,26900,0,1
+2011001309040,1,two or more,one,no,lt35,2,28280,0,1
+2011001315631,1,two or more,one,no,lt35,3,24130,0,1
+2012000332696,1,one,one,no,lt35,1,25000,0,1
+2012000672353,1,one,one,no,lt35,1,25900,0,1
+2012001119688,1,one,one,no,lt35,1,18900,0,1
+2013000014771,1,one,one,no,lt35,1,29900,0,1
+2013000042427,1,one,one,no,lt35,1,11600,0,1
+2013000268903,1,one,one,no,lt35,1,20400,0,1
+2013000477661,1,one,one,no,lt35,1,6500,0,1
+2013000691086,1,one,one,no,lt35,1,18600,0,1
+2013000865858,1,one,one,no,lt35,1,34300,0,1
+2013001123008,1,one,one,no,lt35,1,27600,0,1
+2013001443273,1,one,one,no,lt35,1,14500,0,1
+2009000238360,1,one,one,no,lt35,1,11700,0,1
+2009000336798,1,one,one,no,lt35,1,13000,0,1
+2009000633790,1,one,one,no,lt35,1,21200,0,1
+2009001169669,1,one,one,no,lt35,1,25000,0,1
+2009001359100,1,one,one,no,lt35,1,30000,0,1
+2010000624571,1,one,one,no,lt35,1,34400,0,1
+2010000779178,1,one,one,no,lt35,1,29000,0,1
+2010000839446,1,one,one,no,lt35,1,24600,0,1
+2010000951539,1,one,one,no,lt35,1,17200,0,1
+2010001011807,1,one,one,no,lt35,1,16050,0,1
+2010001054857,1,one,one,no,lt35,1,24000,0,1
+2010001300226,1,one,one,no,lt35,1,22000,0,1
+2011000051968,1,one,one,no,lt35,1,22000,0,1
+2011000119393,1,one,one,no,lt35,1,15800,0,1
+2011000163069,1,one,one,no,lt35,1,17000,0,1
+2011000241905,1,one,one,no,lt35,1,13000,0,1
+2011000322264,1,one,one,no,lt35,1,34000,0,1
+2011000451911,1,one,one,no,lt35,1,18800,0,1
+2011000576162,1,one,one,no,lt35,1,9400,0,1
+2011000767376,1,one,one,no,lt35,1,20000,0,1
+2011001104060,1,one,one,no,lt35,1,34080,0,1
+2011001244673,1,one,one,no,lt35,1,24500,0,1
+2012000350089,1,one,none,no,gt35-lt100,1,52400,0,0
+2012000908734,1,one,none,no,gt35-lt100,1,69400,0,0
+2012001043047,1,one,none,no,gt35-lt100,1,60800,0,0
+2012001379752,1,one,none,no,gt35-lt100,1,52200,0,0
+2013000006433,1,one,none,no,gt35-lt100,1,48800,0,0
+2013000092909,1,one,none,no,gt35-lt100,1,38300,0,0
+2013000119844,1,one,none,no,gt35-lt100,1,50000,0,0
+2013000452041,1,one,none,no,gt35-lt100,1,51500,0,0
+2013000823343,1,one,none,no,gt35-lt100,1,42200,0,0
+2013001472995,1,one,none,no,gt35-lt100,1,63800,0,0
+2009000022898,1,one,none,no,gt35-lt100,1,48000,0,0
+2009000901642,1,one,none,no,gt35-lt100,1,41800,0,0
+2009000957140,1,one,none,no,gt35-lt100,1,64400,0,0
+2009000999104,1,one,none,no,gt35-lt100,1,36100,0,0
+2009001297391,1,one,none,no,gt35-lt100,1,38100,0,0
+2010000074272,1,one,none,no,gt35-lt100,1,68900,0,0
+2010000279955,1,one,none,no,gt35-lt100,1,52000,0,0
+2010000374468,1,one,none,no,gt35-lt100,1,51100,0,0
+2010000425753,1,one,none,no,gt35-lt100,1,67000,0,0
+2010000487336,1,one,none,no,gt35-lt100,1,90200,0,0
+2010000696457,1,one,none,no,gt35-lt100,1,54500,0,0
+2010000969483,1,one,none,no,gt35-lt100,1,37200,0,0
+2011000293717,1,one,none,no,gt35-lt100,1,37600,0,0
+2011000517780,1,one,none,no,gt35-lt100,1,99010,0,0
+2011000642715,1,one,none,no,gt35-lt100,1,59100,0,0
+2011000701700,1,one,none,no,gt35-lt100,1,41100,0,0
+2011001152503,1,one,none,no,gt35-lt100,1,66100,0,0
+2012000362009,1,one,one,no,gt100,1,221200,0,1
+2013000803359,1,one,one,no,gt100,1,153300,0,1
+2011000654468,1,one,one,no,gt100,1,124600,0,1
+2012000369831,1,none,one,yes,lt35,0,9530,1,1
+2012000870231,1,none,one,yes,lt35,0,15000,1,1
+2012000963128,1,none,one,yes,lt35,0,10800,4,1
+2012001148835,1,none,one,yes,lt35,0,13340,3,1
+2013000701152,1,none,one,yes,lt35,0,21900,1,1
+2009000149763,1,none,one,yes,lt35,0,35000,1,1
+2009000252356,1,none,one,yes,lt35,0,3290,1,1
+2009000915924,1,none,one,yes,lt35,0,5000,4,1
+2009001310826,1,none,one,yes,lt35,0,17100,1,1
+2010000051555,1,none,one,yes,lt35,0,-8800,2,1
+2011000735431,1,none,one,yes,lt35,0,24000,2,1
+2011001099305,1,none,one,yes,lt35,0,30000,3,1
+2012000461826,1,one,none,no,gt100,1,330800,0,0
+2012001273219,1,one,none,no,gt100,1,106700,0,0
+2010000343823,1,one,none,no,gt100,1,161900,0,0
+2011000069466,1,one,none,no,gt100,1,169000,0,0
+2011001009891,1,one,none,no,gt100,1,226900,0,0
+2012000472638,1,two or more,one,no,gt100,3,158300,0,1
+2012000982219,1,two or more,one,no,gt100,2,206200,0,1
+2012001134892,1,two or more,one,no,gt100,2,160500,0,1
+2012001402550,1,two or more,one,no,gt100,4,152000,0,1
+2013000269836,1,two or more,one,no,gt100,2,114910,0,1
+2013000295245,1,two or more,one,no,gt100,3,110000,0,1
+2013000440617,1,two or more,one,no,gt100,3,150000,0,1
+2013000612943,1,two or more,one,no,gt100,3,297600,0,1
+2013000885686,1,two or more,one,no,gt100,2,174000,0,1
+2013001371360,1,two or more,one,no,gt100,2,170000,0,1
+2013001385535,1,two or more,one,no,gt100,2,104200,0,1
+2009000350651,1,two or more,one,no,gt100,2,190600,0,1
+2009000440411,1,two or more,one,no,gt100,2,173000,0,1
+2009000527417,1,two or more,one,no,gt100,3,381200,0,1
+2009000841927,1,two or more,one,no,gt100,3,106200,0,1
+2009001157164,1,two or more,one,no,gt100,2,113200,0,1
+2010000081103,1,two or more,one,no,gt100,3,130600,0,1
+2010000139639,1,two or more,one,no,gt100,3,195670,0,1
+2010000172448,1,two or more,one,no,gt100,3,111800,0,1
+2010001091626,1,two or more,one,no,gt100,3,167200,0,1
+2010001169144,1,two or more,one,no,gt100,2,214000,0,1
+2011000010289,1,two or more,one,no,gt100,4,232700,0,1
+2011000449574,1,two or more,one,no,gt100,2,128400,0,1
+2011000714797,1,two or more,one,no,gt100,2,368930,0,1
+2011001086882,1,two or more,one,no,gt100,2,113300,0,1
+2011001310819,1,two or more,one,no,gt100,2,109000,0,1
+2011001478644,1,two or more,one,no,gt100,2,123800,0,1
+2012000496330,1,one,none,yes,lt35,1,13000,1,0
+2012000557035,1,one,none,yes,lt35,1,0,1,0
+2012000731177,1,one,none,yes,lt35,1,6970,1,0
+2012000833471,1,one,none,yes,lt35,1,21500,2,0
+2013000958542,1,one,none,yes,lt35,1,11200,1,0
+2013001007732,1,one,none,yes,lt35,1,0,1,0
+2013001113515,1,one,none,yes,lt35,1,11200,2,0
+2013001202657,1,one,none,yes,lt35,1,9000,1,0
+2009000106969,1,one,none,yes,lt35,1,2380,1,0
+2009000147478,1,one,none,yes,lt35,1,8600,3,0
+2009000569360,1,one,none,yes,lt35,1,3500,2,0
+2009000853064,1,one,none,yes,lt35,1,0,1,0
+2010000341738,1,one,none,yes,lt35,1,2600,1,0
+2010000755730,1,one,none,yes,lt35,1,0,2,0
+2010000886382,1,one,none,yes,lt35,1,0,1,0
+2011000010465,1,one,none,yes,lt35,1,9100,2,0
+2011000103312,1,one,none,yes,lt35,1,0,2,0
+2011000195940,1,one,none,yes,lt35,1,11500,1,0
+2011000340095,1,one,none,yes,lt35,1,0,1,0
+2011000350664,1,one,none,yes,lt35,1,3500,2,0
+2011000366584,1,one,none,yes,lt35,1,19600,3,0
+2011000664813,1,one,none,yes,lt35,1,7600,6,0
+2011001310448,1,one,none,yes,lt35,1,9700,1,0
+2011001391785,1,one,none,yes,lt35,1,9750,3,0
+2012000528095,1,one,two or more,no,gt35-lt100,1,91000,0,2
+2012000987575,1,one,two or more,no,gt35-lt100,1,53690,0,2
+2012001051980,1,one,two or more,no,gt35-lt100,1,37000,0,2
+2012001436937,1,one,two or more,no,gt35-lt100,1,60000,0,2
+2012001477640,1,one,two or more,no,gt35-lt100,1,61620,0,2
+2013000117271,1,one,two or more,no,gt35-lt100,1,43800,0,2
+2013000170151,1,one,two or more,no,gt35-lt100,1,69000,0,2
+2013000328723,1,one,two or more,no,gt35-lt100,1,47100,0,2
+2013000340597,1,one,two or more,no,gt35-lt100,1,85000,0,2
+2013000443951,1,one,two or more,no,gt35-lt100,1,40400,0,3
+2013000529951,1,one,two or more,no,gt35-lt100,1,79430,0,2
+2013001217469,1,one,two or more,no,gt35-lt100,1,68400,0,2
+2009000047077,1,one,two or more,no,gt35-lt100,1,37000,0,2
+2009000362862,1,one,two or more,no,gt35-lt100,1,49900,0,2
+2009001211544,1,one,two or more,no,gt35-lt100,1,54000,0,2
+2009001387742,1,one,two or more,no,gt35-lt100,1,51000,0,2
+2010000223403,1,one,two or more,no,gt35-lt100,1,42000,0,2
+2010000295281,1,one,two or more,no,gt35-lt100,1,60000,0,2
+2010000639502,1,one,two or more,no,gt35-lt100,1,83000,0,2
+2010000672239,1,one,two or more,no,gt35-lt100,1,43500,0,3
+2010000910417,1,one,two or more,no,gt35-lt100,1,91500,0,2
+2010000994074,1,one,two or more,no,gt35-lt100,1,35400,0,2
+2010001304444,1,one,two or more,no,gt35-lt100,1,83000,0,2
+2011000052983,1,one,two or more,no,gt35-lt100,1,74000,0,2
+2011000161834,1,one,two or more,no,gt35-lt100,1,49500,0,2
+2011000230302,1,one,two or more,no,gt35-lt100,1,45000,0,2
+2011001420451,1,one,two or more,no,gt35-lt100,1,59000,0,2
+2012000564340,1,two or more,none,yes,lt35,2,0,3,0
+2012001140432,1,two or more,none,yes,lt35,3,26000,1,0
+2009000070816,1,two or more,none,yes,lt35,2,0,1,0
+2009000673246,1,two or more,none,yes,lt35,2,0,3,0
+2010000323495,1,two or more,none,yes,lt35,2,0,2,0
+2010000339067,1,two or more,none,yes,lt35,2,19200,3,0
+2011000512404,1,two or more,none,yes,lt35,2,22730,2,0
+2011001007387,1,two or more,none,yes,lt35,2,11600,2,0
+2011001332068,1,two or more,none,yes,lt35,2,0,2,0
+2012000814308,1,one,one,no,gt35-lt100,1,58100,0,1
+2012001126858,1,one,one,no,gt35-lt100,1,50000,0,1
+2012001373767,1,one,one,no,gt35-lt100,1,76200,0,1
+2013000083650,1,one,one,no,gt35-lt100,1,59300,0,1
+2013000280634,1,one,one,no,gt35-lt100,1,65300,0,1
+2013000422677,1,one,one,no,gt35-lt100,1,49000,0,1
+2013000773549,1,one,one,no,gt35-lt100,1,37000,0,1
+2013001081264,1,one,one,no,gt35-lt100,1,94000,0,1
+2013001108077,1,one,one,no,gt35-lt100,1,42000,0,1
+2009000168230,1,one,one,no,gt35-lt100,1,42800,0,1
+2009001008572,1,one,one,no,gt35-lt100,1,37000,0,1
+2009001302709,1,one,one,no,gt35-lt100,1,38100,0,1
+2009001390405,1,one,one,no,gt35-lt100,1,40900,0,1
+2010000068740,1,one,one,no,gt35-lt100,1,68100,0,1
+2010000099021,1,one,one,no,gt35-lt100,1,40900,0,1
+2010000383430,1,one,one,no,gt35-lt100,1,36000,0,1
+2010000787744,1,one,one,no,gt35-lt100,1,40860,0,1
+2010000810480,1,one,one,no,gt35-lt100,1,89000,0,1
+2011000056377,1,one,one,no,gt35-lt100,1,85750,0,1
+2011000506589,1,one,one,no,gt35-lt100,1,42900,0,1
+2011000525892,1,one,one,no,gt35-lt100,1,76000,0,1
+2011000832258,1,one,one,no,gt35-lt100,1,100000,0,1
+2011001034839,1,one,one,no,gt35-lt100,1,55000,0,1
+2012000853550,1,none,one,no,gt35-lt100,0,61550,0,1
+2010000312358,1,none,one,no,gt35-lt100,0,43500,0,1
+2010000514225,1,none,one,no,gt35-lt100,0,49400,0,1
+2010000572654,1,none,one,no,gt35-lt100,0,44530,0,1
+2010000881681,1,none,one,no,gt35-lt100,0,77700,0,1
+2012000888965,1,none,two or more,no,gt35-lt100,0,60770,0,2
+2009001146128,1,none,two or more,no,gt35-lt100,0,50004,0,2
+2009001263864,1,none,two or more,no,gt35-lt100,0,52000,0,3
+2010001169889,1,none,two or more,no,gt35-lt100,0,62900,0,2
+2011001005156,1,none,two or more,no,gt35-lt100,0,45100,0,2
+2012001013207,1,none,two or more,yes,lt35,0,30800,1,2
+2010000137191,1,none,two or more,yes,lt35,0,4480,1,2
+2012001020305,1,one,two or more,no,gt100,1,123000,0,2
+2013001089821,1,one,two or more,no,gt100,1,111600,0,2
+2009000016069,1,one,two or more,no,gt100,1,177500,0,2
+2009000286254,1,one,two or more,no,gt100,1,115400,0,2
+2009000493398,1,one,two or more,no,gt100,1,114200,0,2
+2010001088695,1,one,two or more,no,gt100,1,206620,0,2
+2011001053379,1,one,two or more,no,gt100,1,254000,0,2
+2011001463584,1,one,two or more,no,gt100,1,215000,0,2
+2013000747804,1,one,two or more,yes,gt100,1,173000,8,3
+2013001388077,1,none,one,no,lt35,0,22000,0,1
+2009000367491,1,none,one,no,lt35,0,12800,0,1
+2010000709282,1,none,one,no,lt35,0,9700,0,1
+2011000235016,1,none,one,no,lt35,0,1100,0,1
+2011000370837,1,none,one,no,lt35,0,22370,0,1
+2009000205662,1,none,none,no,gt100,0,105000,0,0
+2009000544634,1,none,one,yes,gt35-lt100,0,62300,3,1
+2011000936877,1,none,one,yes,gt35-lt100,0,46000,3,1
+2010000684158,1,none,two or more,no,lt35,0,35000,0,2
