@@ -46,14 +46,8 @@ def test_run(hh_marg, p_marg, hh_sample, p_sample):
 
 
 def test_run_multi(hh_marg, p_marg, hh_sample, p_sample):
-    hh_marg, p_marg, hh_sample, p_sample, xwalk = zs.load_data(hh_marg,
-                                                               p_marg,
-                                                               hh_sample,
-                                                               p_sample)
-    all_persons,
-    all_households,
-    all_stats = zs.multiprocess_synthesize(hh_marg,
-                                           p_marg,
-                                           hh_sample,
-                                           p_sample,
-                                           xwalk)
+    hhm, pm, hhs, ps, xwalk = zs.load_data(hh_marg, p_marg,
+                                           hh_sample, p_sample)
+    all_persons, all_households, all_stats = zs.multiprocess_synthesize(hhm, pm,
+                                                                        hhs, ps,
+                                                                        xwalk)
