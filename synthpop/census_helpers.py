@@ -49,23 +49,23 @@ class Census:
         return df
 
     def block_group_query(self, census_columns, state, county, tract=None,
-                          year=None, id=None):
+                          year=2016, id=None):
         if id is None:
             id = "*"
         return self._query(census_columns, state, county,
                            forstr="block group:%s" % id,
-                           tract=tract, year=year)
+                           tract=tract, year=2016)
 
     def tract_query(self, census_columns, state, county, tract=None,
-                    year=None):
+                    year=2016):
         if tract is None:
             tract = "*"
         return self._query(census_columns, state, county,
                            forstr="tract:%s" % tract,
-                           year=year)
+                           year=2016)
 
     def _query(self, census_columns, state, county, forstr,
-               tract=None, year=None):
+               tract=None, year=2016):
         c = self.c
 
         state, county = self.try_fips_lookup(state, county)
@@ -89,7 +89,7 @@ class Census:
             census_column_batch = list(census_column_batch)
             d = c.acs.get(['NAME'] + census_column_batch,
                           geo={'for': forstr,
-                               'in': in_str})
+                               'in': in_str}, year=year)
             df = pd.DataFrame(d)
             df[census_column_batch] = df[census_column_batch].astype('int')
             dfs.append(df)
@@ -106,11 +106,11 @@ class Census:
     def block_group_and_tract_query(self, block_group_columns,
                                     tract_columns, state, county,
                                     merge_columns, block_group_size_attr,
-                                    tract_size_attr, tract=None, year=None):
+                                    tract_size_attr, tract=None, year=2016):
         df2 = self.tract_query(tract_columns, state, county, tract=tract,
-                               year=year)
+                               year=2016)
         df1 = self.block_group_query(block_group_columns, state, county,
-                                     tract=tract, year=year)
+                                     tract=tract, year=2016)
 
         df = self._scale_and_merge(df1, block_group_size_attr, df2,
                                    tract_size_attr, tract_columns,
