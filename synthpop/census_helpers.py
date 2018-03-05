@@ -54,7 +54,7 @@ class Census:
             id = "*"
         return self._query(census_columns, state, county,
                            forstr="block group:%s" % id,
-                           tract=tract, year=2016)
+                           tract=tract, year=year)
 
     def tract_query(self, census_columns, state, county, tract=None,
                     year=2016):
@@ -62,7 +62,7 @@ class Census:
             tract = "*"
         return self._query(census_columns, state, county,
                            forstr="tract:%s" % tract,
-                           year=2016)
+                           year=year)
 
     def _query(self, census_columns, state, county, forstr,
                tract=None, year=2016):
@@ -108,9 +108,9 @@ class Census:
                                     merge_columns, block_group_size_attr,
                                     tract_size_attr, tract=None, year=2016):
         df2 = self.tract_query(tract_columns, state, county, tract=tract,
-                               year=2016)
+                               year=year)
         df1 = self.block_group_query(block_group_columns, state, county,
-                                     tract=tract, year=2016)
+                                     tract=tract, year=year)
 
         df = self._scale_and_merge(df1, block_group_size_attr, df2,
                                    tract_size_attr, tract_columns,
