@@ -82,7 +82,7 @@ class Census:
         def chunks(l, n):
             """ Yield successive n-sized chunks from l.
             """
-            for i in xrange(0, len(l), n):
+            for i in range(0, len(l), n):
                 yield l[i:i+n]
 
         for census_column_batch in chunks(census_columns, 45):
@@ -99,7 +99,7 @@ class Census:
         df = dfs[0]
         for mdf in dfs[1:]:
             df = pd.merge(df, mdf, on="NAME", suffixes=("", "_ignore"))
-            drop_cols = filter(lambda x: "_ignore" in x, df.columns)
+            drop_cols = list(filter(lambda x: "_ignore" in x, df.columns))
             df = df.drop(drop_cols, axis=1)
 
         return df
@@ -116,7 +116,7 @@ class Census:
         df = self._scale_and_merge(df1, block_group_size_attr, df2,
                                    tract_size_attr, tract_columns,
                                    merge_columns, suffixes=("", "_ignore"))
-        drop_cols = filter(lambda x: "_ignore" in x, df.columns)
+        drop_cols = list(filter(lambda x: "_ignore" in x, df.columns))
         df = df.drop(drop_cols, axis=1)
 
         return df
@@ -152,9 +152,10 @@ class Census:
         state, county = self.try_fips_lookup(state, county)
 
         df = self._get_pums_relationship()
-        q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % \
-            (state, county, tract)
+        q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % (state, county, tract)
         r = df.query(q)
+        # Another way:
+        # pums_relat[(pums_relat.statefp==state) & (pums_relat.countyfp==county) & (pums_relat.tractce==tract)]
         return r["puma10_id"].values[0], r["puma00_id"].values[0]
 
     def _read_csv(self, loc, **kargs):

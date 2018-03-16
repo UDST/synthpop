@@ -134,7 +134,8 @@ class Starter:
         all_columns = population + sex + race + male_age_columns + \
             female_age_columns + hh_population + hispanic
         p_acs = c.block_group_query(all_columns, state, county, tract=tract)
-
+        self.p_acs = p_acs
+        
         self.p_acs_cat = cat.categorize(p_acs, {
             ("person_age", "19 and under"):
                 "(B01001_003E + B01001_004E + B01001_005E + "
@@ -203,6 +204,7 @@ class Starter:
         c = self.c
 
         puma10, puma00 = c.tract_to_puma(ind.state, ind.county, ind.tract)
+
         # this is cached so won't download more than once
         if type(puma00) == str:
             h_pums = self.c.download_household_pums(ind.state, puma10, puma00,

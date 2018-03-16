@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-from synthpop.recipes.starter import Starter
+from synthpop.recipes.starter2 import Starter
 from synthpop.synthesizer import synthesize_all
 import pandas as pd
 import os

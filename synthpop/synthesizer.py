@@ -81,7 +81,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     logger.debug(iterations)
 
     num_households = int(h_marg.groupby(level=0).sum().mean())
-    print "Drawing %d households" % num_households
+    print ("Drawing %d households" % num_households)
 
     best_chisq = np.inf
 
@@ -102,8 +102,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         and ``people_p``.
 
     """
-    print "Synthesizing at geog level: '{}' (number of geographies is {})".\
-        format(recipe.get_geography_name(), recipe.get_num_geographies())
+    print ("Synthesizing at geog level: '{}' (number of geographies is {})".\
+        format(recipe.get_geography_name(), recipe.get_num_geographies()))
 
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
@@ -116,7 +116,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
     # TODO will parallelization work here?
     for geog_id in indexes:
-        print "Synthesizing geog id:\n", geog_id
+        print ("Synthesizing geog id:\n", geog_id)
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
         logger.debug("Household marginal")

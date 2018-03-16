@@ -8,7 +8,7 @@ import pandas as pd
 def categorize(df, eval_d, index_cols=None):
     cat_df = pd.DataFrame(index=df.index)
 
-    for index, expr in eval_d.iteritems():
+    for index, expr in eval_d.items():
         cat_df[index] = df.eval(expr)
 
     if index_cols is not None:
@@ -40,18 +40,18 @@ def sum_accross_category(df, subtract_mean=True):
 def category_combinations(index):
     """
     THis method converts a hierarchical multindex of category names and
-    category values and converts to the cross-product of all possible
+    category values into the cross-product of all possible
     category combinations.
     """
     d = {}
     for cat_name, cat_value in index:
         d.setdefault(cat_name, [])
         d[cat_name].append(cat_value)
-    for cat_name in d.keys():
+    for cat_name in list(d): #make a static list of the keys
         if len(d[cat_name]) == 1:
             del d[cat_name]
-    df = pd.DataFrame(list(itertools.product(*d.values())))
-    df.columns = cols = d.keys()
+    df = pd.DataFrame(list(itertools.product(*list(d.values()))))
+    df.columns = cols = list(d.keys())
     df.index.name = "cat_id"
     df = df.reset_index().set_index(cols)
     return df
@@ -62,7 +62,7 @@ def joint_distribution(sample_df, category_df, mapping_functions=None):
     # set counts to zero
     category_df["frequency"] = 0
 
-    category_names = category_df.index.names
+    category_names = list (category_df.index.names)
     if mapping_functions:
         for name in category_names:
             assert name in mapping_functions, "Every category needs to have " \
