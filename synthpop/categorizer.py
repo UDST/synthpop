@@ -30,6 +30,7 @@ def sum_accross_category(df, subtract_mean=True):
     cells in the table should be close to zero.  The reason why it's not
     exactly zero is because of rounding errors in the scaling of any tract
     variables down to block group variables
+
     """
     df = df.stack(level=1).fillna(0).groupby(level=0).sum()
     if subtract_mean:
@@ -47,7 +48,7 @@ def category_combinations(index):
     for cat_name, cat_value in index:
         d.setdefault(cat_name, [])
         d[cat_name].append(cat_value)
-    for cat_name in list(d): #make a static list of the keys
+    for cat_name in list(d):
         if len(d[cat_name]) == 1:
             del d[cat_name]
     df = pd.DataFrame(list(itertools.product(*list(d.values()))))
@@ -62,7 +63,7 @@ def joint_distribution(sample_df, category_df, mapping_functions=None):
     # set counts to zero
     category_df["frequency"] = 0
 
-    category_names = list (category_df.index.names)
+    category_names = list(category_df.index.names)
     if mapping_functions:
         for name in category_names:
             assert name in mapping_functions, "Every category needs to have " \

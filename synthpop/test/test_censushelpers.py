@@ -4,9 +4,10 @@ import numpy as np
 from pandas.util.testing import assert_series_equal
 import os
 
+
 @pytest.fixture
 def c():
-    return Census(os.environ['CENSUS'])
+    return Census('bfa6b4e541243011fab6307a31aed9e91015ba90')
 
 
 def test_block_group_and_tract_query(c):

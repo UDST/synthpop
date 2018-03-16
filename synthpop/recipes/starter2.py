@@ -135,7 +135,6 @@ class Starter:
             female_age_columns + hh_population + hispanic
         p_acs = c.block_group_query(all_columns, state, county, tract=tract)
         self.p_acs = p_acs
-        
         self.p_acs_cat = cat.categorize(p_acs, {
             ("person_age", "19 and under"):
                 "(B01001_003E + B01001_004E + B01001_005E + "

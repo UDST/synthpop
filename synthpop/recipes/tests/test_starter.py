@@ -1,6 +1,6 @@
 import pytest
 from ...synthesizer import *
-from ..starter import Starter
+from ..starter2 import Starter
 # from ..starter2 import Starter as Starter2
 
 

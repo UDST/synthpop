@@ -154,8 +154,6 @@ class Census:
         df = self._get_pums_relationship()
         q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % (state, county, tract)
         r = df.query(q)
-        # Another way:
-        # pums_relat[(pums_relat.statefp==state) & (pums_relat.countyfp==county) & (pums_relat.tractce==tract)]
         return r["puma10_id"].values[0], r["puma00_id"].values[0]
 
     def _read_csv(self, loc, **kargs):

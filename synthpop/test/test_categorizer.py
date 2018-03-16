@@ -4,9 +4,10 @@ from synthpop.census_helpers import Census
 from synthpop import categorizer as cat
 import os
 
+
 @pytest.fixture
 def c():
-    return Census(os.environ['CENSUS'])
+    return Census('bfa6b4e541243011fab6307a31aed9e91015ba90')
 
 
 @pytest.fixture
