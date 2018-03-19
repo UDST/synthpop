@@ -210,3 +210,4 @@ class Census:
         except:
             pass
         return state, county
+        
