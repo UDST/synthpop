@@ -10,5 +10,4 @@ def key():
 
 def test_starter(key):
     st = Starter(key, "CA", "Napa County")
-    # just run it for now
     synthesize_all(st, num_geogs=1)
