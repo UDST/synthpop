@@ -104,8 +104,6 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         and ``people_p``.
 
     """
-    # print("Synthesizing at geog level: '{}' (number of geographies is {})".\
-        # format(recipe.get_geography_name(), recipe.get_num_geographies()))
 
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
