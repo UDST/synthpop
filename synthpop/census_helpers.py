@@ -98,7 +98,7 @@ class Census:
         df = dfs[0]
         for mdf in dfs[1:]:
             df = pd.merge(df, mdf, on="NAME", suffixes=("", "_ignore"))
-            drop_cols = filter(lambda x: "_ignore" in x, df.columns)
+            drop_cols = list(filter(lambda x: "_ignore" in x, df.columns))
             df = df.drop(drop_cols, axis=1)
 
         return df
@@ -115,7 +115,7 @@ class Census:
         df = self._scale_and_merge(df1, block_group_size_attr, df2,
                                    tract_size_attr, tract_columns,
                                    merge_columns, suffixes=("", "_ignore"))
-        drop_cols = filter(lambda x: "_ignore" in x, df.columns)
+        drop_cols = list(filter(lambda x: "_ignore" in x, df.columns))
         df = df.drop(drop_cols, axis=1)
 
         return df

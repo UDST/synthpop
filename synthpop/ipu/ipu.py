@@ -7,6 +7,7 @@ from collections import OrderedDict
 
 import numpy as np
 import pandas as pd
+import warnings
 
 
 def _drop_zeros(df):
@@ -187,7 +188,7 @@ def _update_weights(column, weights, constraint):
     new_weights : ndarray
 
     """
-    adj = constraint / (column * weights).sum()
+    adj = constraint / float((column * weights).sum())
     return weights * adj
 
 
@@ -259,9 +260,9 @@ def household_weights(
         iterations += 1
 
         if iterations > max_iterations:
-            # raise RuntimeError(
-            #     'Maximum number of iterations reached during IPU: {}'.format(
-            #         max_iterations))
+            warnings.warn(
+                'Maximum number of iterations reached during IPU: {}'.format(
+                    max_iterations), UserWarning)
             return (
                 pd.Series(best_weights, index=household_freq.index),
                 best_fit_qual, iterations)

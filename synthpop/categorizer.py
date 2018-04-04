@@ -47,10 +47,10 @@ def category_combinations(index):
     for cat_name, cat_value in index:
         d.setdefault(cat_name, [])
         d[cat_name].append(cat_value)
-    for cat_name in d.keys():
+    for cat_name in list(d):
         if len(d[cat_name]) == 1:
             del d[cat_name]
-    df = pd.DataFrame(list(itertools.product(*d.values())))
+    df = pd.DataFrame(list(itertools.product(*list(d.values()))))
     df.columns = cols = list(d.keys())
     df.index.name = "cat_id"
     df = df.reset_index().set_index(cols)
@@ -62,7 +62,7 @@ def joint_distribution(sample_df, category_df, mapping_functions=None):
     # set counts to zero
     category_df["frequency"] = 0
 
-    category_names = category_df.index.names
+    category_names = list(category_df.index.names)
     if mapping_functions:
         for name in category_names:
             assert name in mapping_functions, "Every category needs to have " \
