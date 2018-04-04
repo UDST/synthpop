@@ -99,7 +99,7 @@ class _FrequencyAndConstraints(object):
         The returned column contains only the non-zero elements.
 
         """
-        return self._everything.itervalues()
+        return self._everything.values()
 
     def get_column(self, key):
         """
@@ -259,9 +259,12 @@ def household_weights(
         iterations += 1
 
         if iterations > max_iterations:
-            raise RuntimeError(
-                'Maximum number of iterations reached during IPU: {}'.format(
-                    max_iterations))
+            # raise RuntimeError(
+            #     'Maximum number of iterations reached during IPU: {}'.format(
+            #         max_iterations))
+            return (
+                pd.Series(best_weights, index=household_freq.index),
+                best_fit_qual, iterations)
 
     return (
         pd.Series(best_weights, index=household_freq.index),

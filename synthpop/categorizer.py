@@ -8,7 +8,7 @@ import pandas as pd
 def categorize(df, eval_d, index_cols=None):
     cat_df = pd.DataFrame(index=df.index)
 
-    for index, expr in eval_d.iteritems():
+    for index, expr in eval_d.items():
         cat_df[index] = df.eval(expr)
 
     if index_cols is not None:
@@ -51,7 +51,7 @@ def category_combinations(index):
         if len(d[cat_name]) == 1:
             del d[cat_name]
     df = pd.DataFrame(list(itertools.product(*d.values())))
-    df.columns = cols = d.keys()
+    df.columns = cols = list(d.keys())
     df.index.name = "cat_id"
     df = df.reset_index().set_index(cols)
     return df
