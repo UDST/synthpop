@@ -169,7 +169,7 @@ def test_household_weights(
 def test_household_weights_max_iter(
         household_freqs, person_freqs, household_constraints,
         person_constraints):
-    with pytest.raises(RuntimeError):
+    with pytest.warns(UserWarning):
         ipu.household_weights(
             household_freqs, person_freqs, household_constraints,
             person_constraints, convergence=1e-7, max_iterations=10)
