@@ -233,43 +233,9 @@ def synthesize_all_in_parallel(
             break
 
     print('Processing function args in parallel:')
-    for finished_arg in tqdm(as_completed(geog_synth_args), total=len(geog_synth_args)):
+    for finished_arg in tqdm(
+            as_completed(geog_synth_args), total=len(geog_synth_args)):
         finished_args.append(finished_arg.result())
-    # for geog_id in tqdm(indexes, total=recipe.get_num_geographies()):
-    #     # print("Synthesizing geog id:\n", geog_id)
-
-    #     # h_marg = recipe.get_household_marginal_for_geography(geog_id)
-    #     h_marg = ex.submit(recipe.get_household_marginal_for_geography, geog_id)
-    #     logger.debug("Household marginal")
-    #     logger.debug(h_marg)
-
-    #     # p_marg = recipe.get_person_marginal_for_geography(geog_id)
-    #     p_marg = ex.submit(recipe.get_person_marginal_for_geography, geog_id)
-    #     logger.debug("Person marginal")
-    #     logger.debug(p_marg)
-
-    #     # h_pums, h_jd = recipe.\
-    #         # get_household_joint_dist_for_geography(geog_id)
-    #     h_pums, h_jd = ex.submit(recipe.get_household_joint_dist_for_geography, geog_id)
-    #     logger.debug("Household joint distribution")
-    #     logger.debug(h_jd)
-
-    #     # p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
-    #     p_pums, p_jd = ex.submit(recipe.get_person_joint_dist_for_geography, geog_id)
-    #     logger.debug("Person joint distribution")
-    #     logger.debug(p_jd)
-    #     # geog_synth_args.append((
-    #     #     h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, marginal_zero_sub,
-    #     #     jd_zero_sub))
-    #     geog_ids.append(geog_id)
-
-    #     future = ex.submit(
-    #         synthesize, h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-    #         marginal_zero_sub,jd_zero_sub)
-    #     futures.append(future)
-    #     cnt += 1
-    #     if num_geogs is not None and cnt >= num_geogs:
-    #         break
 
     print('Submitting {0} geographies for parallel processing.'.format(
         len(finished_args)))
@@ -279,8 +245,6 @@ def synthesize_all_in_parallel(
     print('Beginning population synthesis in parallel:')
     for f in tqdm(as_completed(futures), total=len(futures)):
         pass
-
-    # return futures
 
     print('Processing results:')
     for i, future in tqdm(enumerate(futures), total=len(futures)):
