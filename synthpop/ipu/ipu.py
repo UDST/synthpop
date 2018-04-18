@@ -25,7 +25,7 @@ def _drop_zeros(df):
         nz = col.nonzero()[0]
         return col[nz], nz
 
-    for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=True).iteritems():
+    for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=True).items():
         yield (col_idx, col, nz)
 
 
@@ -99,7 +99,7 @@ class _FrequencyAndConstraints(object):
         The returned column contains only the non-zero elements.
 
         """
-        return self._everything.itervalues()
+        return list(self._everything.values())
 
     def get_column(self, key):
         """
@@ -187,7 +187,7 @@ def _update_weights(column, weights, constraint):
     new_weights : ndarray
 
     """
-    adj = constraint / (column * weights).sum()
+    adj = constraint / float((column * weights).sum())
     return weights * adj
 
 

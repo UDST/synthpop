@@ -42,7 +42,7 @@ def load_data(hh_marginal_file, person_marginal_file,
     hh_marg.columns.levels[0].name = 'cat_name'
     hh_marg.columns.levels[1].name = 'cat_values'
 
-    xwalk = zip(hh_marg.index, hh_marg.sample_geog.unstack().values)
+    xwalk = list(zip(hh_marg.index, hh_marg.sample_geog.unstack().values))
     hh_marg = hh_marg.drop('sample_geog', axis=1, level=0)
 
     p_marg = pd.read_csv(person_marginal_file, header=[0, 1], index_col=0)
