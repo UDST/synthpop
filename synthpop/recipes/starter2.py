@@ -23,27 +23,31 @@ class Starter:
         FIPS code for the county
     tract : string, optional
         FIPS code for a specific track or None for all tracts in the county
+    acsyear : integer, optional
+        Final year in the 5-year estimates ACS dataset.
+        Default: 2016, which corresponds to 2011-2016 ACS dataset
 
     Returns
     -------
     household_marginals : DataFrame
-        Marginals per block group for the household data (from ACS)
+        Marginals per block group for the household data (from ACS 5-year estimates)
     person_marginals : DataFrame
-        Marginals per block group for the person data (from ACS)
+        Marginals per block group for the person data (from ACS 5-year estimates)
     household_jointdist : DataFrame
-        joint distributions for the households (from PUMS), one joint
+        joint distributions for the households (from PUMS 2010-2000), one joint
         distribution for each PUMA (one row per PUMA)
     person_jointdist : DataFrame
-        joint distributions for the persons (from PUMS), one joint
+        joint distributions for the persons (from PUMS 2010-2000), one joint
         distribution for each PUMA (one row per PUMA)
     tract_to_puma_map : dictionary
         keys are tract ids and pumas are puma ids
     """
-    def __init__(self, key, state, county, tract=None):
+    def __init__(self, key, state, county, tract=None, acsyear= 2016):
         self.c = c = Census(key)
         self.state = state
         self.county = county
         self.tract = tract
+        self.acsyear = acsyear
 
         structure_size_columns = ['B25032_0%02dE' % i for i in range(1, 24)]
         age_of_head_columns = ['B25007_0%02dE' % i for i in range(1, 22)]
@@ -68,7 +72,7 @@ class Starter:
             merge_columns=['tract', 'county', 'state'],
             block_group_size_attr="B11005_001E",
             tract_size_attr="B08201_001E",
-            tract=tract)
+            tract=tract, year=acsyear)
         self.h_acs = h_acs
 
         self.h_acs_cat = cat.categorize(h_acs, {
@@ -133,7 +137,7 @@ class Starter:
         female_age_columns = ['B01001_0%02dE' % i for i in range(27, 50)]
         all_columns = population + sex + race + male_age_columns + \
             female_age_columns + hh_population + hispanic
-        p_acs = c.block_group_query(all_columns, state, county, tract=tract)
+        p_acs = c.block_group_query(all_columns, state, county, tract=tract, year=acsyear)
         self.p_acs = p_acs
         self.p_acs_cat = cat.categorize(p_acs, {
             ("person_age", "19 and under"):
