@@ -42,8 +42,8 @@ class Starter:
     tract_to_puma_map : dictionary
         keys are tract ids and pumas are puma ids
     """
-    def __init__(self, key, state, county, tract=None, acsyear= 2016):
-        self.c = c = Census(key, acsyear = acsyear)
+    def __init__(self, key, state, county, tract=None, acsyear=2016):
+        self.c = c = Census(key, acsyear=acsyear)
         self.state = state
         self.county = county
         self.tract = tract
