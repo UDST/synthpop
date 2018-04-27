@@ -7,7 +7,7 @@ import us
 # TODO DOCSTRING!!
 class Census:
 
-    def __init__(self, key, acsyear = 2016):
+    def __init__(self, key):
         self.c = census.Census(key)
         self.base_url = "https://s3-us-west-1.amazonaws.com/synthpop-data2/"
         self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
@@ -27,7 +27,6 @@ class Census:
         self.fips_url = self.base_url + "national_county.txt"
         self.fips_df = None
         self.pums_cache = {}
-        self.acsyear = acsyear
 
     # df1 is the disaggregate data frame (e.g. block groups)
     # df2 is the aggregate data frame (e.g. tracts)
@@ -49,7 +48,7 @@ class Census:
             df[col] = df[col].fillna(0).astype('int')
         return df
 
-    def block_group_query(self, census_columns, state, county, year= self.acsyear, 
+    def block_group_query(self, census_columns, state, county, year= 2016, 
                         tract=None,id=None):
         if id is None:
             id = "*"
@@ -57,7 +56,7 @@ class Census:
                            forstr="block group:%s" % id,
                            tract=tract, year=year)
 
-    def tract_query(self, census_columns, state, county, year= self.acsyear,
+    def tract_query(self, census_columns, state, county, year= 2016,
                     tract=None):
         if tract is None:
             tract = "*"
@@ -107,7 +106,7 @@ class Census:
     def block_group_and_tract_query(self, block_group_columns,
                                     tract_columns, state, county,
                                     merge_columns, block_group_size_attr,
-                                    tract_size_attr, year= self.acsyear, tract=None):
+                                    tract_size_attr, year= 2016, tract=None):
         df2 = self.tract_query(tract_columns, state, county, tract=tract,
                                year=year)
         df1 = self.block_group_query(block_group_columns, state, county,
