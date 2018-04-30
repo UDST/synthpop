@@ -38,11 +38,12 @@ class Starter:
     tract_to_puma_map : dictionary
         keys are tract ids and pumas are puma ids
     """
-    def __init__(self, key, state, county, tract=None):
+    def __init__(self, key, state, county, tract=None, acsyear=2016):
         self.c = c = Census(key)
         self.state = state
         self.county = county
         self.tract = tract
+        self.acsyear = acsyear
 
         income_columns = ['B19001_0%02dE' % i for i in range(1, 18)]
         vehicle_columns = ['B08201_0%02dE' % i for i in range(1, 7)]
@@ -55,7 +56,8 @@ class Starter:
             merge_columns=['tract', 'county', 'state'],
             block_group_size_attr="B11001_001E",
             tract_size_attr="B08201_001E",
-            tract=tract)
+            tract=tract, year=acsyear)
+        self.h_acs = h_acs
 
         self.h_acs_cat = cat.categorize(h_acs, {
             ("children", "yes"): "B11001_002E",
@@ -82,8 +84,9 @@ class Starter:
         female_age_columns = ['B01001_0%02dE' % i for i in range(27, 50)]
         all_columns = population + sex + race + male_age_columns + \
             female_age_columns
-        p_acs = c.block_group_query(all_columns, state, county, tract=tract)
-
+        p_acs = c.block_group_query(all_columns, state, county, tract=tract, year=acsyear)
+        self.p_acs = p_acs
+        
         self.p_acs_cat = cat.categorize(p_acs, {
             ("age", "19 and under"): (
                 "B01001_003E + B01001_004E + B01001_005E + "
