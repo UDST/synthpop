@@ -8,6 +8,6 @@ def key():
     return "bfa6b4e541243011fab6307a31aed9e91015ba90"
 
 
-def test_starter2(key):
-    st = Starter2(key, "CA", "Napa County")
-    synthesize_all(st, num_geogs=1)
+# def test_starter2(key):
+#     st = Starter2(key, "CA", "Napa County")
+#     synthesize_all(st, num_geogs=1)
