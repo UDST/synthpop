@@ -109,6 +109,7 @@ def _frequency_table(sample_df, category_ids):
 
     return df
 
+
 def frequency_tables(persons_sample_df, households_sample_df,
                      person_cat_ids, household_cat_ids):
 
