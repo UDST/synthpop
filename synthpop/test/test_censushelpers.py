@@ -1,8 +1,7 @@
 import pytest
-from ..census_helpers import Census
+from synthpop.census_helpers import Census
 import numpy as np
 from pandas.util.testing import assert_series_equal
-import os
 
 
 @pytest.fixture
