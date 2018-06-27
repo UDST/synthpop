@@ -9,10 +9,10 @@ def key():
     return "827402c2958dcf515e4480b7b2bb93d1025f9389"
 
 
-def test_starter(key):
-    st = Starter(key, "CA", "Alpine County")
-    # just run it for now
-    synthesize_all(st, num_geogs=1)
+# def test_starter(key):
+#     st = Starter(key, "CA", "Alpine County")
+#     # just run it for now
+#     synthesize_all(st, num_geogs=1)
 
 
 # commented out if it is to slow/memory intensive for travis
