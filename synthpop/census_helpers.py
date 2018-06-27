@@ -83,7 +83,7 @@ class Census:
             """ Yield successive n-sized chunks from l.
             """
             for i in range(0, len(l), n):
-                yield l[i:i+n]
+                yield l[i: i + n]
 
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)

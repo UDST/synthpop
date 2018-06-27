@@ -4,7 +4,6 @@ from collections import namedtuple
 
 import numpy as np
 import pandas as pd
-from scipy.stats import chisquare
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
@@ -84,8 +83,6 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
         logger.debug("Number of iterations: {0}".format(str(iterations)))
     num_households = int(h_marg.groupby(level=0).sum().mean())
     # print("Drawing %d households" % num_households)
-
-    best_chisq = np.inf
 
     return draw.draw_households(
         num_households, h_pums, p_pums, household_freq, h_constraint,

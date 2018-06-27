@@ -69,7 +69,6 @@ class Starter:
             block_group_size_attr="B11005_001E",
             tract_size_attr="B08201_001E",
             tract=tract)
-        self.h_acs = h_acs
 
         self.h_acs_cat = cat.categorize(h_acs, {
             ("sf_detached", "yes"): "B25032_003E + B25032_014E",
