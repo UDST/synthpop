@@ -1,7 +1,7 @@
 import pytest
 from synthpop.synthesizer import *
 from synthpop.recipes.starter import Starter
-# from synthpop.recipes.starter2 import Starter as Starter2
+from synthpop.recipes.starter2 import Starter as Starter2
 
 
 @pytest.fixture
@@ -15,8 +15,8 @@ def test_starter(key):
     synthesize_all(st, num_geogs=1)
 
 
-# commented out as it is to slow for travis
-# def test_starter2(key):
-#     st = Starter2(key, "CA", "Napa County")
-#     # just run it for now
-#     synthesize_all(st, num_geogs=1)
+# commented out if it is to slow for travis
+def test_starter2(key):
+    st = Starter2(key, "CA", "Napa County")
+    # just run it for now
+    synthesize_all(st, num_geogs=1)
