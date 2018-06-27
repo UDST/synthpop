@@ -3,6 +3,7 @@ sudo: false
 python:
 - '2.7'
 - '3.5'
+- '3.6'
 install:
 - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
   -O miniconda.sh; else wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -13,13 +14,12 @@ install:
 - conda config --set always_yes yes --set changeps1 no
 - conda update -q conda
 - conda info -a
-- |
-  conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pip numexpr numpy pandas scipy pytest tqdm futures
+- conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pip numexpr numpy pandas scipy pytest tqdm futures
 - source activate test-environment
-- pip install pytest-cov coveralls pep8
+- pip install pytest-cov coveralls pycodestyle
 - pip install .
 script:
-- pep8 synthpop
+- pycodestyle synthpop
 - py.test --cov synthpop --cov-report term-missing
 after_success:
 - coveralls
