@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 from pandas.util import testing as pdt
 
-from .. import ipf
+from synthpop.ipf import ipf
 
 
 def test_trivial_ipf():

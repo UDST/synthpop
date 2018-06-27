@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
-from ..census_helpers import Census
-from .. import categorizer as cat
+from synthpop.census_helpers import Census
+from synthpop import categorizer as cat
 
 
 @pytest.fixture
