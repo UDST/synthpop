@@ -4,8 +4,8 @@ import pandas as pd
 import pytest
 from pandas.util import testing as pdt
 
-from synthpop import draw
-from synthpop.ipu.ipu import _FrequencyAndConstraints
+from .. import draw
+from ..ipu.ipu import _FrequencyAndConstraints
 
 
 @pytest.fixture

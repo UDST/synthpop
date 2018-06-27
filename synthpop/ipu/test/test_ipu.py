@@ -2,7 +2,9 @@ import numpy as np
 import numpy.testing as npt
 import pandas as pd
 import pytest
-from synthpop.ipu import ipu
+from pandas.util import testing as pdt
+
+from .. import ipu
 
 
 @pytest.fixture(scope='module')

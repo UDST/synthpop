@@ -1,7 +1,6 @@
 import pytest
-from synthpop.synthesizer import *
-from synthpop.recipes.starter import Starter
-from synthpop.recipes.starter2 import Starter as Starter2
+from ...synthesizer import *
+from ..starter import Starter
 
 
 @pytest.fixture
@@ -11,9 +10,4 @@ def key():
 
 def test_starter(key):
     st = Starter(key, "CA", "Napa County")
-    synthesize_all(st, num_geogs=1)
-
-
-def test_starter2(key):
-    st = Starter2(key, "CA", "Napa County")
     synthesize_all(st, num_geogs=1)
