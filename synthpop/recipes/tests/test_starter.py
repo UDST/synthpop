@@ -10,12 +10,12 @@ def key():
 
 
 def test_starter(key):
-    st = Starter(key, "CA", "Napa County")
+    st = Starter(key, "CA", "Alpine County")
     # just run it for now
     synthesize_all(st, num_geogs=1)
 
 
-# commented out if it is to slow for travis
+# commented out if it is to slow/memory intensive for travis
 def test_starter2(key):
     st = Starter2(key, "CA", "Alpine County")
     # just run it for now
