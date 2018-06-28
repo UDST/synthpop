@@ -30,6 +30,7 @@ def sum_accross_category(df, subtract_mean=True):
     cells in the table should be close to zero.  The reason why it's not
     exactly zero is because of rounding errors in the scaling of any tract
     variables down to block group variables
+
     """
     df = df.stack(level=1).fillna(0).groupby(level=0).sum()
     if subtract_mean:
@@ -40,7 +41,7 @@ def sum_accross_category(df, subtract_mean=True):
 def category_combinations(index):
     """
     THis method converts a hierarchical multindex of category names and
-    category values and converts to the cross-product of all possible
+    category values into the cross-product of all possible
     category combinations.
     """
     d = {}

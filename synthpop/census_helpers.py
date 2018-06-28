@@ -48,16 +48,16 @@ class Census:
             df[col] = df[col].fillna(0).astype('int')
         return df
 
-    def block_group_query(self, census_columns, state, county, tract=None,
-                          year=2016, id=None):
+    def block_group_query(self, census_columns, state, county, year=2016,
+                          tract=None, id=None):
         if id is None:
             id = "*"
         return self._query(census_columns, state, county,
                            forstr="block group:%s" % id,
                            tract=tract, year=year)
 
-    def tract_query(self, census_columns, state, county, tract=None,
-                    year=2016):
+    def tract_query(self, census_columns, state, county, year=2016,
+                    tract=None):
         if tract is None:
             tract = "*"
         return self._query(census_columns, state, county,
@@ -65,7 +65,7 @@ class Census:
                            year=year)
 
     def _query(self, census_columns, state, county, forstr,
-               tract=None, year=2016):
+               year, tract=None):
         c = self.c
 
         state, county = self.try_fips_lookup(state, county)
@@ -87,9 +87,9 @@ class Census:
 
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
-            d = c.acs.get(['NAME'] + census_column_batch,
-                          geo={'for': forstr,
-                               'in': in_str}, year=year)
+            d = c.acs5.get(['NAME'] + census_column_batch,
+                           geo={'for': forstr,
+                                'in': in_str}, year=year)
             df = pd.DataFrame(d)
             df[census_column_batch] = df[census_column_batch].astype('int')
             dfs.append(df)
@@ -106,7 +106,7 @@ class Census:
     def block_group_and_tract_query(self, block_group_columns,
                                     tract_columns, state, county,
                                     merge_columns, block_group_size_attr,
-                                    tract_size_attr, tract=None, year=2016):
+                                    tract_size_attr, year=2016, tract=None):
         df2 = self.tract_query(tract_columns, state, county, tract=tract,
                                year=year)
         df1 = self.block_group_query(block_group_columns, state, county,
@@ -151,8 +151,7 @@ class Census:
         state, county = self.try_fips_lookup(state, county)
 
         df = self._get_pums_relationship()
-        q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % \
-            (state, county, tract)
+        q = "statefp == '%s' and countyfp == '%s' and tractce == '%s'" % (state, county, tract)
         r = df.query(q)
         return r["puma10_id"].values[0], r["puma00_id"].values[0]
 

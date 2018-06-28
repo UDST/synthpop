@@ -1,0 +1,4 @@
+[
+  "synthpop/recipes/tests/test_starter.py::test_starter", 
+  "synthpop/recipes/tests/test_starter2.py::test_starter2"
+]

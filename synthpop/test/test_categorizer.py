@@ -6,7 +6,7 @@ from synthpop import categorizer as cat
 
 @pytest.fixture
 def c():
-    return Census("827402c2958dcf515e4480b7b2bb93d1025f9389")
+    return Census('bfa6b4e541243011fab6307a31aed9e91015ba90')
 
 
 @pytest.fixture

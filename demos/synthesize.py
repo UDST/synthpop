@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-from synthpop.recipes.starter import Starter
+from synthpop.recipes.starter2 import Starter
 from synthpop.synthesizer import synthesize_all
 import pandas as pd
 import os
@@ -24,9 +24,9 @@ else:
 households, people, fit_quality = synthesize_all(starter, indexes=indexes)
 
 for geo, qual in fit_quality.items():
-    print 'Geography: {} {} {} {}'.format(
-        geo.state, geo.county, geo.tract, geo.block_group)
+    print ('Geography: {} {} {} {}'.format(
+        geo.state, geo.county, geo.tract, geo.block_group))
     # print '    household chisq: {}'.format(qual.household_chisq)
     # print '    household p:     {}'.format(qual.household_p)
-    print '    people chisq:    {}'.format(qual.people_chisq)
-    print '    people p:        {}'.format(qual.people_p)
+    print ('    people chisq:    {}'.format(qual.people_chisq))
+    print ('    people p:        {}'.format(qual.people_p))

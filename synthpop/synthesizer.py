@@ -82,6 +82,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     else:
         logger.debug("Number of iterations: {0}".format(str(iterations)))
     num_households = int(h_marg.groupby(level=0).sum().mean())
+
     # print("Drawing %d households" % num_households)
 
     return draw.draw_households(
@@ -101,7 +102,6 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         and ``people_p``.
 
     """
-
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
 
@@ -111,8 +111,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     fit_quality = {}
     hh_index_start = 0
 
-    # TODO will parallelization work here?
-    for geog_id in tqdm(indexes, total=recipe.get_num_geographies()):
+    for geog_id in tqdm(indexes, total=num_geogs):
         # print("Synthesizing geog id:\n", geog_id)
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
