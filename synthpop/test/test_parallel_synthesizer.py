@@ -22,5 +22,5 @@ def test_parallel_synth(key):
             str(x) for x in list(range(1, num_geogs + 1))]
 
     for fit_named_tuple in list(fit.values()):
-        assert fit_named_tuple.people_chisq > 20
-        assert fit_named_tuple.people_p < 0.1
+        assert fit_named_tuple.people_chisq > 10
+        assert fit_named_tuple.people_p < 0.5
