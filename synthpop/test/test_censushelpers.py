@@ -2,11 +2,12 @@ import pytest
 from synthpop.census_helpers import Census
 import numpy as np
 from pandas.util.testing import assert_series_equal
+import os
 
 
 @pytest.fixture
 def c():
-    return Census("827402c2958dcf515e4480b7b2bb93d1025f9389")
+    return Census('bfa6b4e541243011fab6307a31aed9e91015ba90')
 
 
 def test_block_group_and_tract_query(c):

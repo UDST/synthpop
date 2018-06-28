@@ -1,4 +1,5 @@
 import pytest
+
 from synthpop.synthesizer import *
 from synthpop.recipes.starter import Starter
 from synthpop.recipes.starter2 import Starter as Starter2
