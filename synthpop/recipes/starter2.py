@@ -181,7 +181,7 @@ class Starter:
         self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP', 'TYPE',
                             'R65', 'HINCP', 'VEH', 'MV', 'TEN', 'BLD', 'R18')
         self.p_pums_cols = ('serialno', 'SPORDER', 'PUMA00', 'PUMA10', 'RELP', 'AGEP',
-                            'ESR', 'SCHL', 'SCH', 'JWTR', 'PERNP', 'WKHP', 'RAC1P', 'HISP', 'SEX')
+                            'ESR', 'SCHL', 'SCH', 'JWTR', 'PERNP', 'WKHP', 'RAC1P', 'HISP', 'SEX', 'COW')
 
     def get_geography_name(self):
         # this synthesis is at the block group level for most variables
