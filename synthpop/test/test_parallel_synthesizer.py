@@ -1,6 +1,6 @@
 import pytest
 
-from synthpop.synthesizer import synthesize_all_in_parallel
+from synthpop.synthesizer import synthesize_all_in_parallel_full
 from synthpop.recipes.starter import Starter
 
 
@@ -12,7 +12,7 @@ def key():
 def test_parallel_synth(key):
     num_geogs = 2
     st = Starter(key, "CA", "Napa County")
-    _, _, fit = synthesize_all_in_parallel(st, num_geogs=num_geogs)
+    _, _, fit = synthesize_all_in_parallel_full(st, num_geogs=num_geogs)
 
     for bg_named_tuple in list(fit.keys()):
         assert bg_named_tuple.state == '06'
