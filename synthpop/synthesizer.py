@@ -8,7 +8,8 @@ from datetime import datetime as dt
 from time import sleep, time
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from multiprocessing import Pool, TimeoutError
+import multiprocessing
+from multiprocessing import Pool
 from itertools import repeat
 
 from . import categorizer as cat
@@ -188,8 +189,10 @@ def geog_preprocessing(geog_id, recipe, marginal_zero_sub, jd_zero_sub):
         jd_zero_sub
 
 
-def synth_worker(geog_id, recipe, marginal_zero_sub, jd_zero_sub):
-    # geog_id, recipe, marginal_zero_sub, jd_zero_sub = arg_tuple
+def synth_worker(
+        arg_tuple):
+    # geog_id, recipe, marginal_zero_sub, jd_zero_sub):
+    geog_id, recipe, marginal_zero_sub, jd_zero_sub = arg_tuple
 
     synth_args = geog_preprocessing(
         geog_id, recipe, marginal_zero_sub, jd_zero_sub)
@@ -400,25 +403,71 @@ def synthesize_all_in_parallel_full(
         if num_geogs is not None and cnt >= num_geogs:
             break
 
-    results = []
-    timeouts = []
+    count_geogs = len(geog_ids)
+    finished = 0
+    timeouts = 0
+    hh_index_start = 0
+    hh_list = []
+    people_list = []
+    fit_quality = {}
     print('Synthesizing geographies in parallel.')
     pool = Pool()
-    # arg_tuple = ((geog_id, recipe, marginal_zero_sub, jd_zero_sub))
-    procs = [pool.apply_async(
-        synth_worker, (geog_id, recipe, marginal_zero_sub, jd_zero_sub)
-    ) for geog_id in geog_ids]
-    print('Initialized all processes. Now recovering results:')
-    # for proc in tqdm(procs, total=len(procs)):
-    for proc in procs:
-        try:
-            result = proc.get(120)
-            results.append(result)
-            print('{0} results completed'.format(str(len(results))))
-        except TimeoutError:
-            timeouts.append(geog_id)
-            print('{0} timeouts'.format(str(len(timeouts))))
 
+    # APPLY_ASYNC VERSION
+    # procs = [pool.apply_async(
+    #     synth_worker, (geog_id, recipe, marginal_zero_sub, jd_zero_sub)
+    # ) for geog_id in geog_ids]
+
+    # print('Initialized all processes. Now recovering results:')
+    # for proc in procs:
+    #     try:
+    #         result = proc.get(120)
+    #         results.append(result)
+    #         print('{0} results completed'.format(str(len(results))))
+    #     except multiprocessing.TimeoutError:
+    #         timeouts.append(proc)
+    #         print('{0} timeouts'.format(str(len(timeouts))))
+
+    # IMAP VERSION W TIMEOUTS
+    sttm = time()
+    arg_tuples = zip(
+        geog_ids, repeat(recipe), repeat(marginal_zero_sub),
+        repeat(jd_zero_sub))
+    imap_it = pool.imap_unordered(synth_worker, arg_tuples)
+    # pbar = tqdm(total=len(geog_ids))
+    while 1:
+        try:
+            result = imap_it.next(timeout=120)
+
+            households, people, key, people_chisq, people_p = result
+
+            households.index += hh_index_start
+            people.hh_id += hh_index_start
+
+            hh_list.append(households)
+            people_list.append(people)
+            fit_quality[key] = FitQuality(people_chisq, people_p)
+
+            if len(households) > 0:
+                hh_index_start = households.index.values[-1] + 1
+            finished += 1
+            # pbar.update(1)
+        except StopIteration:
+            break
+        except multiprocessing.TimeoutError:
+            timeouts += 1
+        elapsed_min = np.round((time() - sttm) / 60, 1)
+        min_per_geog = elapsed_min / finished
+        min_remaining = np.round(min_per_geog * (count_geogs - finished), 1)
+        print(
+            '{0} of {1} geographies completed // {2} minutes '
+            'elapsed // {3} minutes remaining'.format(
+                str(finished), str(count_geogs),
+                str(elapsed_min), str(min_remaining)
+        ))
+    # pbar.close()
+
+    # IMAP_UNORDERED VERSION
     # arg_tuples = zip(
     #     geog_ids, repeat(recipe), repeat(marginal_zero_sub),
     #     repeat(jd_zero_sub))
@@ -427,31 +476,20 @@ def synthesize_all_in_parallel_full(
     #             synth_worker, arg_tuples),
     #         total=len(geog_ids), ncols=80):
     #     results.append(result)
+
     print('Shutting down the worker pool.')
     pool.close()
     pool.join()
     print('Pool closed.')
 
-    return results, timeouts
-    hh_index_start = 0
-    hh_list = []
-    people_list = []
-    fit_quality = {}
-    print('Processing results:')
-    for i, result in tqdm(enumerate(results), total=len(results)):
-        households, people, key, people_chisq, people_p = result
+    # return results, timeouts
+    # print('Processing results:')
+    # for i, result in tqdm(enumerate(results), total=len(results)):
+        
 
         # update the household_ids since we can't do it in the call to
         # synthesize when we execute in parallel
-        households.index += hh_index_start
-        people.hh_id += hh_index_start
-
-        hh_list.append(households)
-        people_list.append(people)
-        fit_quality[key] = FitQuality(people_chisq, people_p)
-
-        if len(households) > 0:
-            hh_index_start = households.index.values[-1] + 1
+        
 
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)

@@ -41,7 +41,7 @@ if __name__ == '__main__':
         county_dfs = synthesize_all_in_parallel_full(
             starter,
             # max_workers=20,
-            num_geogs=30
+            # num_geogs=100
         )
         print('#' * 80)
 
