@@ -441,6 +441,8 @@ def synthesize_all_in_parallel_full(
 
             households, people, key, people_chisq, people_p = result
 
+            # update the household_ids since we can't do it in the call to
+            # synthesize when we execute in parallel
             households.index += hh_index_start
             people.hh_id += hh_index_start
 
@@ -463,8 +465,7 @@ def synthesize_all_in_parallel_full(
             '{0} of {1} geographies completed // {2} minutes '
             'elapsed // {3} minutes remaining'.format(
                 str(finished), str(count_geogs),
-                str(elapsed_min), str(min_remaining)
-        ))
+                str(elapsed_min), str(min_remaining)))
     # pbar.close()
 
     # IMAP_UNORDERED VERSION
@@ -485,11 +486,6 @@ def synthesize_all_in_parallel_full(
     # return results, timeouts
     # print('Processing results:')
     # for i, result in tqdm(enumerate(results), total=len(results)):
-        
-
-        # update the household_ids since we can't do it in the call to
-        # synthesize when we execute in parallel
-        
 
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
