@@ -30,9 +30,11 @@ class Starter:
     Returns
     -------
     household_marginals : DataFrame
-        Marginals per block group for the household data (from ACS 5-year estimates)
+        Marginals per block group for the household
+        data (from ACS 5-year estimates)
     person_marginals : DataFrame
-        Marginals per block group for the person data (from ACS 5-year estimates)
+        Marginals per block group for the person
+        data (from ACS 5-year estimates)
     household_jointdist : DataFrame
         joint distributions for the households (from PUMS 2010-2000), one joint
         distribution for each PUMA (one row per PUMA)
@@ -57,7 +59,8 @@ class Starter:
         income_columns = ['B19001_0%02dE' % i for i in range(1, 18)]
         vehicle_columns = ['B08201_0%02dE' % i for i in range(1, 7)]
         workers_columns = ['B08202_0%02dE' % i for i in range(1, 6)]
-        presence_of_children_columns = ['B11005_001E', 'B11005_002E', 'B11005_011E']
+        presence_of_children_columns = [
+            'B11005_001E', 'B11005_002E', 'B11005_011E']
         presence_of_seniors_columns = ['B11007_002E', 'B11007_007E']
         tenure_mover_columns = ['B25038_0%02dE' % i for i in range(1, 16)]
         block_group_columns = (
@@ -136,7 +139,8 @@ class Starter:
         female_age_columns = ['B01001_0%02dE' % i for i in range(27, 50)]
         all_columns = population + sex + race + male_age_columns + \
             female_age_columns + hh_population + hispanic
-        p_acs = c.block_group_query(all_columns, state, county, tract=tract, year=acsyear)
+        p_acs = c.block_group_query(
+            all_columns, state, county, tract=tract, year=acsyear)
         self.p_acs = p_acs
         self.p_acs_cat = cat.categorize(p_acs, {
             ("person_age", "19 and under"):
@@ -161,11 +165,11 @@ class Starter:
                 "B01001_043E + B01001_044E + B01001_045E + "
                 "B01001_046E + B01001_047E + B01001_048E + "
                 "B01001_049E) * B11002_001E*1.0/B01001_001E",
-            ("race", "white"):   "(B02001_002E) * B11002_001E*1.0/B01001_001E",
-            ("race", "black"):   "(B02001_003E) * B11002_001E*1.0/B01001_001E",
-            ("race", "asian"):   "(B02001_005E) * B11002_001E*1.0/B01001_001E",
-            ("race", "other"):   "(B02001_004E + B02001_006E + B02001_007E + "
-                                 "B02001_008E) * B11002_001E*1.0/B01001_001E",
+            ("race", "white"): "(B02001_002E) * B11002_001E*1.0/B01001_001E",
+            ("race", "black"): "(B02001_003E) * B11002_001E*1.0/B01001_001E",
+            ("race", "asian"): "(B02001_005E) * B11002_001E*1.0/B01001_001E",
+            ("race", "other"): "(B02001_004E + B02001_006E + B02001_007E + "
+                "B02001_008E) * B11002_001E*1.0/B01001_001E",
             ("person_sex", "male"):
                 "(B01001_002E) * B11002_001E*1.0/B01001_001E",
             ("person_sex", "female"):
@@ -176,12 +180,14 @@ class Starter:
                 "(B03003_002E) * B11002_001E*1.0/B01001_001E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
-        # Put the needed PUMS variables here.  These are also the PUMS variables
-        # that will be in the outputted synthetic population
+        # Put the needed PUMS variables here.  These are also the PUMS
+        # variables that will be in the outputted synthetic population
         self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP', 'TYPE',
                             'R65', 'HINCP', 'VEH', 'MV', 'TEN', 'BLD', 'R18')
-        self.p_pums_cols = ('serialno', 'SPORDER', 'PUMA00', 'PUMA10', 'RELP', 'AGEP',
-                            'ESR', 'SCHL', 'SCH', 'JWTR', 'PERNP', 'WKHP', 'RAC1P', 'HISP', 'SEX', 'COW')
+        self.p_pums_cols = (
+            'serialno', 'SPORDER', 'PUMA00', 'PUMA10', 'RELP', 'AGEP', 'ESR',
+            'SCHL', 'SCH', 'JWTR', 'PERNP', 'WKHP', 'RAC1P', 'HISP', 'SEX',
+            'COW')
 
     def get_geography_name(self):
         # this synthesis is at the block group level for most variables
