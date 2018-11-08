@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='SynthPop',
-    version='0.1dev',
+    version='0.1.1',
     description='Population Synthesis',
     author='UrbanSim Inc.',
     author_email='udst@urbansim.com',
