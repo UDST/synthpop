@@ -32,7 +32,7 @@ def enable_logging():
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0):
+               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0, ignore_max_iters=False):
 
     # this is the zero marginal problem
     h_marg = h_marg.replace(0, marginal_zero_sub)
@@ -76,14 +76,14 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     max_iterations = 20000
     best_weights, fit_quality, iterations = household_weights(
         household_freq, person_freq, h_constraint, p_constraint,
-        max_iterations=max_iterations)
+        max_iterations=max_iterations, ignore_max_iters=ignore_max_iters)
 
     logger.info("Time to run ipu: %.3fs" % (time.time() - t1))
     logger.debug("IPU weights:")
     logger.debug(best_weights.describe())
     logger.debug("Fit quality: {0}".format(fit_quality))
     if iterations == 20000:
-        logger.warn("Number of iterations: {0}".format(str(iterations)))
+        logger.warning("Number of iterations: {0}".format(str(iterations)))
     else:
         logger.debug("Number of iterations: {0}".format(str(iterations)))
     num_households = int(h_marg.groupby(level=0).sum().mean())
@@ -96,7 +96,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
-                   marginal_zero_sub=.01, jd_zero_sub=.001):
+                   marginal_zero_sub=.01, jd_zero_sub=.001, ignore_max_iters=False):
     """
     Returns
     -------
@@ -140,7 +140,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
             synthesize(
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
-                hh_index_start=hh_index_start)
+                hh_index_start=hh_index_start, ignore_max_iters=ignore_max_iters)
 
         # Append location identifiers to the synthesized households
         for geog_cat in geog_id.keys():
@@ -167,7 +167,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     return (all_households, all_persons, fit_quality)
 
 
-def geog_preprocessing(geog_id, recipe, marginal_zero_sub, jd_zero_sub):
+def geog_preprocessing(geog_id, recipe, marginal_zero_sub, jd_zero_sub,
+                       hh_index_start, ignore_max_iters):
     h_marg = recipe.get_household_marginal_for_geography(geog_id)
     logger.debug("Household marginal")
     logger.debug(h_marg)
@@ -186,16 +187,16 @@ def geog_preprocessing(geog_id, recipe, marginal_zero_sub, jd_zero_sub):
     logger.debug(p_jd)
 
     return h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, marginal_zero_sub,\
-        jd_zero_sub
+        jd_zero_sub, hh_index_start, ignore_max_iters
 
 
 def synth_worker(
-        arg_tuple):
+        arg_tuple, hh_index_start=0, ignore_max_iters=False):
     # geog_id, recipe, marginal_zero_sub, jd_zero_sub):
     geog_id, recipe, marginal_zero_sub, jd_zero_sub = arg_tuple
 
     synth_args = geog_preprocessing(
-        geog_id, recipe, marginal_zero_sub, jd_zero_sub)
+        geog_id, recipe, marginal_zero_sub, jd_zero_sub, hh_index_start, ignore_max_iters)
     households, people, people_chisq, people_p = synthesize(*synth_args)
 
     for geog_cat in geog_id.keys():
@@ -210,7 +211,7 @@ def synth_worker(
 
 def synthesize_all_in_parallel(
         recipe, num_geogs=None, indexes=None, marginal_zero_sub=.01,
-        jd_zero_sub=.001, max_workers=None):
+        jd_zero_sub=.001, max_workers=None, hh_index_start=0, ignore_max_iters=False):
     """
     Returns
     -------
@@ -219,7 +220,7 @@ def synthesize_all_in_parallel(
         Keys are geographic IDs, values are namedtuples with attributes
         ``.household_chisq``, ``household_p``, ``people_chisq``,
         and ``people_p``.
-
+    ignore_max_iters: boolean which indicates to ignore the max iterations in the ipu. Default, False.
     """
     # cluster = LocalCluster()
     # client = Client(cluster)
@@ -242,7 +243,7 @@ def synthesize_all_in_parallel(
         for i, geog_id in enumerate(indexes):
             geog_synth_args.append(ex.submit(
                 geog_preprocessing, geog_id, recipe, marginal_zero_sub,
-                jd_zero_sub))
+                jd_zero_sub, hh_index_start, ignore_max_iters))
             geog_ids.append(geog_id)
             cnt += 1
             if num_geogs is not None and cnt >= num_geogs:
