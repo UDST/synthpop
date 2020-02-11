@@ -23,6 +23,12 @@ else:
 
 households, people, fit_quality = synthesize_all(starter, indexes=indexes)
 
+hh_file_name = "household_{}_{}.csv".format(state_abbr, county_name)
+people_file_name = "people_{}_{}.csv".format(state_abbr, county_name)
+
+households.to_csv(hh_file_name, index=None, header=True)
+people.to_csv(people_file_name, index=None, header=True)
+
 for geo, qual in fit_quality.items():
     print ('Geography: {} {} {} {}'.format(
         geo.state, geo.county, geo.tract, geo.block_group))
