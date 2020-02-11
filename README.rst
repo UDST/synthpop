@@ -22,3 +22,13 @@ The paper is available here:
 http://www.scag.ca.gov/Documents/PopulationSynthesizerPaper_TRB.pdf
 
 .. _PopGen: http://urbanmodel.asu.edu/popgen.html
+
+==============
+How to run it
+==============
+0. You need to have installed Python >= 3.6
+1. You have forked repo
+2. Open terminal
+3. If it is first time, install all dependencies via running `python3 setup.py install`
+4. You need to have Census API key in order to query the date. Sign up using the following link: https://api.census.gov/data/key_signup.html
+5. Run `CENSUS=#API_KEY# python3 demos/synthesize.py TX "Travis County"` to start generating population for the state Texas (TX) and state Travis County. If you want to generate the data on census tract level, you can pass extra parameteres, an example: `python3 demos/synthesize.py "TX" "Travis County" 48 453 001804 1`, where 48 - FIPS code of Texas, 453 - FIPS code of Travis county, 001804 - tract code, 1 - block group
