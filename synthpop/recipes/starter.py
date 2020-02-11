@@ -71,10 +71,13 @@ class Starter:
                                  "+ B19001_017E",
             ("cars", "none"): "B08201_002E",
             ("cars", "one"): "B08201_003E",
-            ("cars", "two or more"): "B08201_004E + B08201_005E + B08201_006E",
+            ("cars", "two"): "B08201_004E",
+            ("cars", "three"): "B08201_005E",
+            ("cars", "four or more"): "B08201_006E",
             ("workers", "none"): "B08202_002E",
             ("workers", "one"): "B08202_003E",
-            ("workers", "two or more"): "B08202_004E + B08202_005E"
+            ("workers", "two"): "B08202_004E",
+            ("workers", "three or more"): "B08202_005E"
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
         population = ['B01001_001E']
@@ -157,7 +160,11 @@ class Starter:
                 return "none"
             elif r.VEH == 1:
                 return "one"
-            return "two or more"
+            elif r.VEH == 2:
+                return "two"
+            elif r.VEH == 3:
+                return "three"
+            return "five or more"
 
         def children_cat(r):
             if r.NOC > 0:
@@ -172,10 +179,10 @@ class Starter:
             return "lt35"
 
         def workers_cat(r):
-            if r.WIF == 3:
-                return "two or more"
+            if r.WIF >= 3:
+                return "three or more"
             elif r.WIF == 2:
-                return "two or more"
+                return "two"
             elif r.WIF == 1:
                 return "one"
             return "none"
