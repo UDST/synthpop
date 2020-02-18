@@ -172,5 +172,6 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
 
     logger.info("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
+    print("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
 
     return (all_households, all_persons, fit_quality)
