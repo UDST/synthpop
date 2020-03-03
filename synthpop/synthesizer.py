@@ -116,8 +116,12 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
     t1 = time.time()
 
+    indexes = list(indexes)
+    print("Will process %d indexes" % (len(indexes)))
+
     # TODO will parallelization work here?
     for geog_id in indexes:
+        started_time_for_geo_id = time.time()
         print("Synthesizing geog id:\n", geog_id)
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
@@ -160,6 +164,9 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
             cnt += 1
             if len(households) > 0:
                 hh_index_start = households.index.values[-1] + 1
+
+            logger.info("Synthesizing household and population for %s: %.3fs" % (str(geog_id), time.time() - started_time_for_geo_id))
+            logger.info("Done %d out of %d"  % (cnt, len(indexes)))
 
             if num_geogs is not None and cnt >= num_geogs:
                 break
