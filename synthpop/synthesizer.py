@@ -1,6 +1,7 @@
 import logging
 import sys
 from collections import namedtuple
+import time
 
 import numpy as np
 import pandas as pd
@@ -22,7 +23,7 @@ BlockGroupID = namedtuple(
 def enable_logging():
     handler = logging.StreamHandler(stream=sys.stdout)
     logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
@@ -65,7 +66,6 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
     # do the ipu to match person marginals
     logger.info("Running ipu")
-    import time
     t1 = time.time()
     best_weights, fit_quality, iterations = household_weights(household_freq,
                                                               person_freq,
@@ -114,8 +114,14 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     fit_quality = {}
     hh_index_start = 0
 
+    t1 = time.time()
+
+    indexes = list(indexes)
+    print("Will process %d indexes" % (len(indexes)))
+
     # TODO will parallelization work here?
     for geog_id in indexes:
+        started_time_for_geo_id = time.time()
         print("Synthesizing geog id:\n", geog_id)
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
@@ -135,32 +141,44 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         logger.debug("Person joint distribution")
         logger.debug(p_jd)
 
-        households, people, people_chisq, people_p = \
-            synthesize(
-                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-                marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
-                hh_index_start=hh_index_start)
+        try:
+            households, people, people_chisq, people_p = \
+                synthesize(
+                    h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                    marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
+                    hh_index_start=hh_index_start)
 
-        # Append location identifiers to the synthesized households
-        for geog_cat in geog_id.keys():
-            households[geog_cat] = geog_id[geog_cat]
+            # Append location identifiers to the synthesized households
+            for geog_cat in geog_id.keys():
+                households[geog_cat] = geog_id[geog_cat]
 
-        hh_list.append(households)
-        people_list.append(people)
-        key = BlockGroupID(
-            geog_id['state'], geog_id['county'], geog_id['tract'],
-            geog_id['block group'])
-        fit_quality[key] = FitQuality(people_chisq, people_p)
+            households['id'] = households.index
+            people['id'] = people.index
+            hh_list.append(households)
+            people_list.append(people)
+            key = BlockGroupID(
+                geog_id['state'], geog_id['county'], geog_id['tract'],
+                geog_id['block group'])
+            fit_quality[key] = FitQuality(people_chisq, people_p)
 
-        cnt += 1
-        if len(households) > 0:
-            hh_index_start = households.index.values[-1] + 1
+            cnt += 1
+            if len(households) > 0:
+                hh_index_start = households.index.values[-1] + 1
 
-        if num_geogs is not None and cnt >= num_geogs:
-            break
+            logger.info("Synthesizing household and population for %s: %.3fs" % (str(geog_id), time.time() - started_time_for_geo_id))
+            logger.info("Done %d out of %d"  % (cnt, len(indexes)))
+
+            if num_geogs is not None and cnt >= num_geogs:
+                break
+        except Exception as e:
+            logger.error(e)
 
     # TODO might want to write this to disk as we go?
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
+
+
+    logger.info("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
+    print("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
 
     return (all_households, all_persons, fit_quality)
