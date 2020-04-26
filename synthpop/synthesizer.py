@@ -181,8 +181,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
 
-
-    logger.info("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), time.time() - t1))
-    print("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), time.time() - t1))
+    end_time = time.time()
+    logger.info("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), end_time - t1))
+    print("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), end_time - t1))
 
     return (all_households, all_persons, fit_quality)
