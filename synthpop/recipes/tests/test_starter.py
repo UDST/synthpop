@@ -9,5 +9,12 @@ def key():
 
 
 def test_starter(key):
-    st = Starter(key, "CA", "Napa County")
-    synthesize_all(st, num_geogs=1)
+    enable_logging()
+    st = Starter(key, "TX", "Travis County")
+    all_households, all_persons, fit_quality = synthesize_all(st)
+
+    hh_file_name = "result/household_{}_{}.csv".format(geog_id.state, geog_id.county)
+    people_file_name = "result/people_{}_{}.csv".format(geog_id.state, geog_id.county)
+
+    all_households.to_csv(hh_file_name, index=None, header=True)
+    all_persons.to_csv(people_file_name, index=None, header=True)

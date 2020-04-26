@@ -189,6 +189,12 @@ class Starter:
         # this synthesis is at the block group level for most variables
         return "block_group"
 
+    def get_state(self):
+        return self.state
+
+    def get_county(self):
+        return self.county
+
     def get_num_geographies(self):
         return len(self.p_acs_cat)
 
