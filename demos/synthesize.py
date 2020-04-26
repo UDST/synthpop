@@ -11,12 +11,8 @@ from multiprocessing import Manager
 
 
 def run_all(ns, offset):
-    print('module name:', __name__)
-    print('parent process:', os.getppid())
-    print('process id:', os.getpid())
-
     index_to_process = ns.jobs_per_process[offset]
-    print("Got %d indexes" % (len(index_to_process)))
+    print("Process[%d] Got %d indexes" % (os.getpid(), len(index_to_process)))
 
     indexes = []
     for item in index_to_process:
@@ -26,9 +22,8 @@ def run_all(ns, offset):
 
     households, people, fit_quality = synthesize_all(starter, indexes=indexes)
 
-    id = uuid.uuid4().hex
-    hh_file_name = "household_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, id)
-    people_file_name = "people_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, id)
+    hh_file_name = "household_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, offset)
+    people_file_name = "people_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, offset)
 
     households.to_csv(hh_file_name, index=None, header=True)
     people.to_csv(people_file_name, index=None, header=True)
@@ -85,4 +80,4 @@ if __name__ == "__main__":
         p.join()
         print("Process %d exit code is: %d" % (p.pid, p.exitcode))
         if p.exitcode != 0:
-            print("Process %d has exited unexpectedly, the results are not correct or full!")
+            print("Process %d has exited unexpectedly, the results are not correct or full!"  % (p.pid))

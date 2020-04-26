@@ -6,13 +6,17 @@ import time
 import numpy as np
 import pandas as pd
 from scipy.stats import chisquare
+import os
 
 from . import categorizer as cat
 from . import draw
 from .ipf.ipf import calculate_constraints
 from .ipu.ipu import household_weights
 
+FORMAT = '%(asctime)-15s %(process)d %(message)s'
+logging.basicConfig(format=FORMAT)
 logger = logging.getLogger("synthpop")
+
 FitQuality = namedtuple(
     'FitQuality',
     ('people_chisq', 'people_p'))
@@ -117,7 +121,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     t1 = time.time()
 
     indexes = list(indexes)
-    print("Will process %d indexes" % (len(indexes)))
+    print("Process[%d] Will process %d indexes" % (os.getpid(), len(indexes)))
 
     # TODO will parallelization work here?
     for geog_id in indexes:
@@ -165,8 +169,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
             if len(households) > 0:
                 hh_index_start = households.index.values[-1] + 1
 
-            logger.info("Synthesizing household and population for %s: %.3fs" % (str(geog_id), time.time() - started_time_for_geo_id))
-            logger.info("Done %d out of %d"  % (cnt, len(indexes)))
+            logger.info("Process[%d] Synthesizing household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), time.time() - started_time_for_geo_id))
+            logger.info("Process[%d] Done %d out of %d"  % (os.getpgid(), cnt, len(indexes)))
 
             if num_geogs is not None and cnt >= num_geogs:
                 break
@@ -178,7 +182,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     all_persons = pd.concat(people_list, ignore_index=True)
 
 
-    logger.info("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
-    print("Time to create household and population for %s: %.3fs" % (str(geog_id), time.time() - t1))
+    logger.info("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), time.time() - t1))
+    print("Process[%d] Time to create household and population for %s: %.3fs" % (os.getpgid(), str(geog_id), time.time() - t1))
 
     return (all_households, all_persons, fit_quality)
