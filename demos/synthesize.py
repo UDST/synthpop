@@ -27,8 +27,8 @@ def run_all(ns, offset):
     households, people, fit_quality = synthesize_all(starter, indexes=indexes)
 
     id = uuid.uuid4().hex
-    hh_file_name = "household_{}_{}_{}.csv".format(starter.get_state(), starter.get_county(), id)
-    people_file_name = "people_{}_{}_{}.csv".format(starter.get_state(), starter.get_county(), id)
+    hh_file_name = "household_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, id)
+    people_file_name = "people_{}_{}_{}.csv".format(ns.state_abbr, ns.county_name, id)
 
     households.to_csv(hh_file_name, index=None, header=True)
     people.to_csv(people_file_name, index=None, header=True)
