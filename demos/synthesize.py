@@ -22,7 +22,6 @@ def run_all(ns, offset):
     for item in index_to_process:
         indexes.append(pd.Series(item, index=["state", "county", "tract", "block group"]))
 
-    enable_logging()
     starter = Starter(os.environ["CENSUS"], ns.state_abbr, ns.county_name)
 
     households, people, fit_quality = synthesize_all(starter, indexes=indexes)
