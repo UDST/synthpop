@@ -270,7 +270,13 @@ class Starter:
                 return "two"
             elif r.NP == 3:
                 return "three"
-            return "four or more"
+            elif r.NP == 4:
+                return "four"
+            elif r.NP == 5:
+                return "five"
+            elif r.NP == 6:
+                return "six"
+            return "seven or more"
 
         def cars_cat(r):
             if r.VEH == 0:
