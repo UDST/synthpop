@@ -65,8 +65,8 @@ class Starter:
             income_columns + presence_of_children_columns +
             presence_of_seniors_columns + tenure_mover_columns +
             hh_size_columns + age_of_head_columns + structure_size_columns +
-            race_of_head_columns + hispanic_head_columns + education_of_head_columns)
-        tract_columns = vehicle_columns + workers_columns
+            race_of_head_columns + hispanic_head_columns)
+        tract_columns = vehicle_columns + workers_columns + education_of_head_columns
         h_acs = c.block_group_and_tract_query(
             block_group_columns,
             tract_columns, state, county,
