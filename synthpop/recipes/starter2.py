@@ -60,11 +60,12 @@ class Starter:
         presence_of_children_columns = ['B11005_001E', 'B11005_002E', 'B11005_011E']
         presence_of_seniors_columns = ['B11007_002E', 'B11007_007E']
         tenure_mover_columns = ['B25038_0%02dE' % i for i in range(1, 16)]
+        education_of_head_columns = ['B25038_0%02dE' % i for i in range(1, 12)]
         block_group_columns = (
             income_columns + presence_of_children_columns +
             presence_of_seniors_columns + tenure_mover_columns +
             hh_size_columns + age_of_head_columns + structure_size_columns +
-            race_of_head_columns + hispanic_head_columns)
+            race_of_head_columns + hispanic_head_columns + education_of_head_columns)
         tract_columns = vehicle_columns + workers_columns
         h_acs = c.block_group_and_tract_query(
             block_group_columns,
@@ -120,10 +121,13 @@ class Starter:
             ("hh_size", "one"): "B25009_003E + B25009_011E",
             ("hh_size", "two"): "B25009_004E + B25009_012E",
             ("hh_size", "three"): "B25009_005E + B25009_013E",
-            ("hh_size", "four or more"): "B25009_006E + B25009_014E + "
-                                         "B25009_007E + B25009_015E + "
-                                         "B25009_008E + B25009_016E + "
-                                         "B25009_009E + B25009_017E",
+            ("hh_size", "four"): "B25009_006E + B25009_014E",
+            ("hh_size", "five"): "B25009_007E + B25009_015E",
+            ("hh_size", "six"): "B25009_008E + B25009_016E",
+            ("hh_size", "seven or more"): "B25009_009E + B25009_017E",
+            ("education_of_head", "highschool or less"): "B25013_003E + B25013_004E + B25013_008E + B25013_009E",
+            ("education_of_head", "college or associate"): "B25013_005E + B25013_0010E",
+            ("education_of_head", "bachelor or more"): "B25013_006E + B25013_011E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
         # gq_population = ['B26001_001E']
@@ -232,6 +236,8 @@ class Starter:
             'serialno').RAC1P.max()
         h_pums['hispanic_head'] = p_pums[p_pums.RELP == 0].groupby(
             'serialno').HISP.max()
+        h_pums['education_head'] = p_pums[p_pums.RELP == 0].groupby(
+            'serialno').SCHL.max()
         h_pums['age_of_head'] = age_of_head
         h_pums['workers'] = num_workers
         h_pums.workers = h_pums.workers.fillna(0)
@@ -322,6 +328,14 @@ class Starter:
                 return "rent recent"
             return "rent not recent"
 
+        def education_of_head(r):
+            if r.education_head >= 21:
+                return "bachelor or more"
+            elif (r.education_head >= 17) & (r.education_head <= 20):
+                return "college or associate"
+            else:
+                return "highschool or less"
+
         h_pums, jd_households = cat.joint_distribution(
             h_pums,
             cat.category_combinations(self.h_acs_cat.columns),
@@ -335,7 +349,8 @@ class Starter:
              "hh_age_of_head": age_of_head_cat,
              "sf_detached": sf_detached_cat,
              "hh_race_of_head": race_of_head_cat,
-             "hispanic_head": hispanic_head_cat}
+             "hispanic_head": hispanic_head_cat,
+             "education_head": education_of_head}
         )
         return h_pums, jd_households
 
