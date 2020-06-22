@@ -60,7 +60,7 @@ class Starter:
         presence_of_children_columns = ['B11005_001E', 'B11005_002E', 'B11005_011E']
         presence_of_seniors_columns = ['B11007_002E', 'B11007_007E']
         tenure_mover_columns = ['B25038_0%02dE' % i for i in range(1, 16)]
-        education_of_head_columns = ['B25038_0%02dE' % i for i in range(1, 12)]
+        education_of_head_columns = ['B25013_0%02dE' % i for i in range(1, 12)]
         block_group_columns = (
             income_columns + presence_of_children_columns +
             presence_of_seniors_columns + tenure_mover_columns +
