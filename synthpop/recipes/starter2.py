@@ -126,7 +126,7 @@ class Starter:
             ("hh_size", "six"): "B25009_008E + B25009_016E",
             ("hh_size", "seven or more"): "B25009_009E + B25009_017E",
             ("education_of_head", "highschool or less"): "B25013_003E + B25013_004E + B25013_008E + B25013_009E",
-            ("education_of_head", "college or associate"): "B25013_005E + B25013_0010E",
+            ("education_of_head", "college or associate"): "B25013_005E + B25013_010E",
             ("education_of_head", "bachelor or more"): "B25013_006E + B25013_011E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
