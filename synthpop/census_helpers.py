@@ -49,32 +49,32 @@ class Census:
         return df
 
     def census_call(census_column_batch, forstr, in_str, year, c):
-    """
-    Executes call to census library and retries if it gets an error
-    Parameters
-    ----------
-    type : str
-        string with variables to query the census with
+        """
+        Executes call to census library and retries if it gets an error
+        Parameters
+        ----------
+        type : str
+            string with variables to query the census with
 
-    forstr: str
-        geograhy to query. The format of the string must be in accordance with the census api format
+        forstr: str
+            geograhy to query. The format of the string must be in accordance with the census api format
 
-    instr: str
-        hihger geography level in which we query for the forstr
+        instr: str
+            hihger geography level in which we query for the forstr
 
-    year: int
-        year of desired information
+        year: int
+            year of desired information
 
-    Returns
-    -------
-    list of dictionaries with query results
-    """
-    while 1:
-        try:
-            retunr c.acs5.get(['NAME'] + census_column_batch,
-                            geo={'for': forstr, 'in': in_str}, year=year)
-        except Exception:
-            continue
+        Returns
+        -------
+        list of dictionaries with query results
+        """
+        while 1:
+            try:
+                retunr c.acs5.get(['NAME'] + census_column_batch,
+                                geo={'for': forstr, 'in': in_str}, year=year)
+            except Exception:
+                continue
 
     def block_group_query(self, census_columns, state, county, year=2016,
                           tract=None, id=None):
