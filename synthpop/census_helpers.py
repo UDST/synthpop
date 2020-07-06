@@ -2,13 +2,18 @@ import census
 import pandas as pd
 import numpy as np
 import us
+import requests
 
+# code to retry when census api fails
+sess = requests.Session()
+adapter = requests.adapters.HTTPAdapter(max_retries = 100)
+sess.mount('https://', adapter)
 
 # TODO DOCSTRING!!
 class Census:
 
     def __init__(self, key):
-        self.c = census.Census(key)
+        self.c = census.Census(key, session = sess)
         self.base_url = "https://s3-us-west-1.amazonaws.com/synthpop-data2/"
         self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
         self.pums_relationship_df = None
@@ -87,7 +92,6 @@ class Census:
 
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
-            self.c.acs5.retries = 100
             d = c.acs5.get(['NAME'] + census_column_batch,
                            geo={'for': forstr,
                                 'in': in_str}, year=year)
