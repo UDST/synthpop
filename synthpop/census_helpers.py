@@ -71,7 +71,7 @@ class Census:
         """
         while 1:
             try:
-                retunr c.acs5.get(['NAME'] + census_column_batch,
+                return c.acs5.get(['NAME'] + census_column_batch,
                                 geo={'for': forstr, 'in': in_str}, year=year)
             except Exception:
                 continue
