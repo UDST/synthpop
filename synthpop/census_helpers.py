@@ -87,6 +87,7 @@ class Census:
 
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
+            self.c.acs5.retries = 100
             d = c.acs5.get(['NAME'] + census_column_batch,
                            geo={'for': forstr,
                                 'in': in_str}, year=year)
