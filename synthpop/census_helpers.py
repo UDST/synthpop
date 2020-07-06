@@ -85,11 +85,34 @@ class Census:
             for i in range(0, len(l), n):
                 yield l[i:i+n]
 
+        def census_call(census_column_batch, forstr, in_str, year, c):
+            """
+            Executes call to census library and retries if it gets an error
+            Parameters
+            ----------
+            type : str
+                string with variables to query the census with
+            forstr: str
+                geograhy to query. The format of the string must be in accordance with the census api format
+            instr: str
+                hihger geography level in which where the forstr is contained
+            year: int
+                year of desired information
+            c: census object
+            Returns
+            -------
+            list of dictionaries with query results
+            """
+            while 1:
+                try:
+                    return c.acs5.get(['NAME'] + census_column_batch,
+                                    geo={'for': forstr, 'in': in_str}, year=year)
+                except Exception:
+                    continue
+
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
-            d = c.acs5.get(['NAME'] + census_column_batch,
-                           geo={'for': forstr,
-                                'in': in_str}, year=year)
+            d = census_call(census_column_batch, forstr, in_str, year, c)
             df = pd.DataFrame(d)
             df[census_column_batch] = df[census_column_batch].astype('int')
             dfs.append(df)
