@@ -122,7 +122,8 @@ class Starter:
             ("hh_size", "three"): "B25009_005E + B25009_013E",
             ("hh_size", "four"): "B25009_006E + B25009_014E",
             ("hh_size", "five"): "B25009_007E + B25009_015E",
-            ("hh_size", "six or more"): "B25009_008E + B25009_016E",
+            ("hh_size", "six or more"): "B25009_008E + B25009_016E + "
+                                         "B25009_009E + B25009_017E",
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
         # gq_population = ['B26001_001E']
