@@ -157,52 +157,44 @@ def synthesize_all_in_parallel(
             if num_geogs is not None and cnt >= num_geogs:
                 break
 
-        # print('Processing function args in parallel:')
-        # for finished_arg in tqdm(
-        #         as_completed(geog_synth_args), total=len(geog_synth_args)):
-        #     finished_args.append(finished_arg.result())
-
+    with ProcessPoolExecutor(max_workers=5) as ex:
         print('Submitting {0} geographies for parallel processing.'.format(
             len(finished_args)))
         futures = [
             ex.submit(synthesize, *geog_args.result()) for geog_args in geog_synth_args]
 
-        # print('Beginning population synthesis in parallel:')
-        # for f in tqdm(as_completed(futures), total=len(futures)):
-        #     pass
+    print('Processing results:')
+    for i, future in tqdm(enumerate(futures), total=len(futures)):
+        try:
+            households, people, people_chisq, people_p = future.result()
+        except Exception as e:
+            print('Generated an exception: {0}'.format(e))
+        else:
+            geog_id = geog_ids[i]
 
-        print('Processing results:')
-        for i, future in tqdm(enumerate(futures), total=len(futures)):
-            try:
-                households, people, people_chisq, people_p = future.result()
-            except Exception as e:
-                print('Generated an exception: {0}'.format(e))
-            else:
-                geog_id = geog_ids[i]
+            # Append location identifiers to the synthesized households
+            for geog_cat in geog_id.keys():
+                households[geog_cat] = geog_id[geog_cat]
 
-                # Append location identifiers to the synthesized households
-                for geog_cat in geog_id.keys():
-                    households[geog_cat] = geog_id[geog_cat]
+            # update the household_ids since we can't do it in the call to
+            # synthesize when we execute in parallel
+            households.index += hh_index_start
+            people.hh_id += hh_index_start
 
-                # update the household_ids since we can't do it in the call to
-                # synthesize when we execute in parallel
-                households.index += hh_index_start
-                people.hh_id += hh_index_start
+            hh_list.append(households)
+            people_list.append(people)
+            key = BlockGroupID(
+                geog_id['state'], geog_id['county'], geog_id['tract'],
+                geog_id['block group'])
+            fit_quality[key] = FitQuality(people_chisq, people_p)
 
-                hh_list.append(households)
-                people_list.append(people)
-                key = BlockGroupID(
-                    geog_id['state'], geog_id['county'], geog_id['tract'],
-                    geog_id['block group'])
-                fit_quality[key] = FitQuality(people_chisq, people_p)
+            if len(households) > 0:
+                hh_index_start = households.index.values[-1] + 1
 
-                if len(households) > 0:
-                    hh_index_start = households.index.values[-1] + 1
+    all_households = pd.concat(hh_list)
+    all_persons = pd.concat(people_list, ignore_index=True)
 
-        all_households = pd.concat(hh_list)
-        all_persons = pd.concat(people_list, ignore_index=True)
-
-        return (all_households, all_persons, fit_quality)
+    return (all_households, all_persons, fit_quality)
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
                    marginal_zero_sub=.01, jd_zero_sub=.001):
