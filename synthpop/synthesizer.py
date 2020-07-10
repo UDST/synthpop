@@ -157,19 +157,19 @@ def synthesize_all_in_parallel(
             if num_geogs is not None and cnt >= num_geogs:
                 break
 
-        print('Processing function args in parallel:')
-        for finished_arg in tqdm(
-                as_completed(geog_synth_args), total=len(geog_synth_args)):
-            finished_args.append(finished_arg.result())
+        # print('Processing function args in parallel:')
+        # for finished_arg in tqdm(
+        #         as_completed(geog_synth_args), total=len(geog_synth_args)):
+        #     finished_args.append(finished_arg.result())
 
         print('Submitting {0} geographies for parallel processing.'.format(
             len(finished_args)))
         futures = [
-            ex.submit(synthesize, *geog_args) for geog_args in finished_args]
+            ex.submit(synthesize, *geog_args) for geog_args in geog_synth_args]
 
-        print('Beginning population synthesis in parallel:')
-        for f in tqdm(as_completed(futures), total=len(futures)):
-            pass
+        # print('Beginning population synthesis in parallel:')
+        # for f in tqdm(as_completed(futures), total=len(futures)):
+        #     pass
 
         print('Processing results:')
         for i, future in tqdm(enumerate(futures), total=len(futures)):
