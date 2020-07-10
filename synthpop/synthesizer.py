@@ -165,7 +165,7 @@ def synthesize_all_in_parallel(
         print('Submitting {0} geographies for parallel processing.'.format(
             len(finished_args)))
         futures = [
-            ex.submit(synthesize, *geog_args) for geog_args in geog_synth_args]
+            ex.submit(synthesize, *geog_args.result()) for geog_args in geog_synth_args]
 
         # print('Beginning population synthesis in parallel:')
         # for f in tqdm(as_completed(futures), total=len(futures)):
