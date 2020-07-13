@@ -160,6 +160,7 @@ def synthesize_all_in_parallel(
 
     print('Processing results:')
     for i, future in tqdm(enumerate(futures), total=len(futures)):
+        print ('Processing results for {}'.format(geog_id[geog_cat]))
         households, people, people_chisq, people_p = future.result()
         geog_id = geog_ids[i]
 
