@@ -7,9 +7,6 @@ import pandas as pd
 from scipy.stats import chisquare
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
-import multiprocessing
-from multiprocessing import Pool
-from itertools import repeat
 
 from . import categorizer as cat
 from . import draw
@@ -132,7 +129,7 @@ def synthesize_all_in_parallel(
     """
 
     with ProcessPoolExecutor(max_workers=5) as ex:
-        
+
         if indexes is None:
             indexes = recipe.get_available_geography_ids()
 
