@@ -130,10 +130,9 @@ def synthesize_all_in_parallel(
         and ``people_p``.
     ignore_max_iters: boolean which indicates to ignore the max iterations in the ipu. Default, False.
     """
-    # cluster = LocalCluster()
-    # client = Client(cluster)
-    with ProcessPoolExecutor(max_workers=5) as ex:
 
+    with ProcessPoolExecutor(max_workers=5) as ex:
+        
         if indexes is None:
             indexes = recipe.get_available_geography_ids()
 
@@ -141,7 +140,6 @@ def synthesize_all_in_parallel(
         people_list = []
         cnt = 0
         fit_quality = {}
-        # hh_index_start = 0
         geog_synth_args = []
         finished_args = []
         geog_ids = []
@@ -165,31 +163,27 @@ def synthesize_all_in_parallel(
 
     print('Processing results:')
     for i, future in tqdm(enumerate(futures), total=len(futures)):
-        try:
-            households, people, people_chisq, people_p = future.result()
-        except Exception as e:
-            print('Generated an exception: {0}'.format(e))
-        else:
-            geog_id = geog_ids[i]
+        households, people, people_chisq, people_p = future.result()
+        geog_id = geog_ids[i]
 
-            # Append location identifiers to the synthesized households
-            for geog_cat in geog_id.keys():
-                households[geog_cat] = geog_id[geog_cat]
+        # Append location identifiers to the synthesized households
+        for geog_cat in geog_id.keys():
+            households[geog_cat] = geog_id[geog_cat]
 
-            # update the household_ids since we can't do it in the call to
-            # synthesize when we execute in parallel
-            households.index += hh_index_start
-            people.hh_id += hh_index_start
+        # update the household_ids since we can't do it in the call to
+        # synthesize when we execute in parallel
+        households.index += hh_index_start
+        people.hh_id += hh_index_start
 
-            hh_list.append(households)
-            people_list.append(people)
-            key = BlockGroupID(
-                geog_id['state'], geog_id['county'], geog_id['tract'],
-                geog_id['block group'])
-            fit_quality[key] = FitQuality(people_chisq, people_p)
+        hh_list.append(households)
+        people_list.append(people)
+        key = BlockGroupID(
+            geog_id['state'], geog_id['county'], geog_id['tract'],
+            geog_id['block group'])
+        fit_quality[key] = FitQuality(people_chisq, people_p)
 
-            if len(households) > 0:
-                hh_index_start = households.index.values[-1] + 1
+        if len(households) > 0:
+            hh_index_start = households.index.values[-1] + 1
 
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
