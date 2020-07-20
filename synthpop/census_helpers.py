@@ -14,7 +14,7 @@ sess.mount('https://', adapter)
 
 class Census:
 
-    def __init__(self, key, acsyear=2013):
+    def __init__(self, key, acsyear=2016):
         self.c = census.Census(key, session=sess)
 
         if acsyear >= 2018:
