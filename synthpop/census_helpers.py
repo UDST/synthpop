@@ -14,7 +14,7 @@ sess.mount('https://', adapter)
 
 class Census:
 
-    def __init__(self, key, acsyear):
+    def __init__(self, key, acsyear=2013):
         self.c = census.Census(key, session=sess)
 
         if acsyear >= 2018:
@@ -184,6 +184,7 @@ class Census:
         return self.pums_cache[loc]
 
     def download_population_pums(self, state, puma10=None, puma00=None, **kargs):
+        print('Downloading population pums from %s' % (self.base_url))
         state = self.try_fips_lookup(state)
         if (puma10 is None) & (puma00 is None):
             return self._read_csv(self.pums_population_state_base_url % (state), **kargs)
@@ -195,6 +196,7 @@ class Census:
         return pums
 
     def download_household_pums(self, state, puma10=None, puma00=None, **kargs):
+        print('Downloading households pums from %s' % (self.base_url))
         state = self.try_fips_lookup(state)
         if (puma10 is None) & (puma00 is None):
             return self._read_csv(self.pums_household_state_base_url % (state), **kargs)
