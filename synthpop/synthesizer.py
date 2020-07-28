@@ -4,7 +4,13 @@ from collections import namedtuple
 
 import numpy as np
 import pandas as pd
-from scipy.stats import chisquare
+from datetime import datetime as dt
+from time import sleep, time
+from tqdm import tqdm
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import multiprocessing
+from multiprocessing import Pool
+from itertools import repeat
 
 from . import categorizer as cat
 from . import draw
@@ -26,7 +32,7 @@ def enable_logging():
 
 
 def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
-               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0):
+               marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0, ignore_max_iters=False):
 
     # this is the zero marginal problem
     h_marg = h_marg.replace(0, marginal_zero_sub)
@@ -67,23 +73,22 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     logger.info("Running ipu")
     import time
     t1 = time.time()
-    best_weights, fit_quality, iterations = household_weights(household_freq,
-                                                              person_freq,
-                                                              h_constraint,
-                                                              p_constraint)
-    logger.info("Time to run ipu: %.3fs" % (time.time()-t1))
+    max_iterations = 20000
+    best_weights, fit_quality, iterations = household_weights(
+        household_freq, person_freq, h_constraint, p_constraint,
+        max_iterations=max_iterations, ignore_max_iters=ignore_max_iters)
 
+    logger.info("Time to run ipu: %.3fs" % (time.time() - t1))
     logger.debug("IPU weights:")
     logger.debug(best_weights.describe())
-    logger.debug("Fit quality:")
-    logger.debug(fit_quality)
-    logger.debug("Number of iterations:")
-    logger.debug(iterations)
-
+    logger.debug("Fit quality: {0}".format(fit_quality))
+    if iterations == 20000:
+        logger.warning("Number of iterations: {0}".format(str(iterations)))
+    else:
+        logger.debug("Number of iterations: {0}".format(str(iterations)))
     num_households = int(h_marg.groupby(level=0).sum().mean())
-    print("Drawing %d households" % num_households)
 
-    best_chisq = np.inf
+    # print("Drawing %d households" % num_households)
 
     return draw.draw_households(
         num_households, h_pums, p_pums, household_freq, h_constraint,
@@ -91,7 +96,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
 
 
 def synthesize_all(recipe, num_geogs=None, indexes=None,
-                   marginal_zero_sub=.01, jd_zero_sub=.001):
+                   marginal_zero_sub=.01, jd_zero_sub=.001, ignore_max_iters=False):
     """
     Returns
     -------
@@ -102,9 +107,6 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
         and ``people_p``.
 
     """
-    print("Synthesizing at geog level: '{}' (number of geographies is {})"
-          .format(recipe.get_geography_name(), recipe.get_num_geographies()))
-
     if indexes is None:
         indexes = recipe.get_available_geography_ids()
 
@@ -114,9 +116,8 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
     fit_quality = {}
     hh_index_start = 0
 
-    # TODO will parallelization work here?
-    for geog_id in indexes:
-        print("Synthesizing geog id:\n", geog_id)
+    for geog_id in tqdm(indexes, total=num_geogs):
+        # print("Synthesizing geog id:\n", geog_id)
 
         h_marg = recipe.get_household_marginal_for_geography(geog_id)
         logger.debug("Household marginal")
@@ -139,7 +140,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
             synthesize(
                 h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
-                hh_index_start=hh_index_start)
+                hh_index_start=hh_index_start, ignore_max_iters=ignore_max_iters)
 
         # Append location identifiers to the synthesized households
         for geog_cat in geog_id.keys():
@@ -160,6 +161,333 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
             break
 
     # TODO might want to write this to disk as we go?
+    all_households = pd.concat(hh_list)
+    all_persons = pd.concat(people_list, ignore_index=True)
+
+    return (all_households, all_persons, fit_quality)
+
+
+def geog_preprocessing(geog_id, recipe, marginal_zero_sub, jd_zero_sub,
+                       hh_index_start, ignore_max_iters):
+    h_marg = recipe.get_household_marginal_for_geography(geog_id)
+    logger.debug("Household marginal")
+    logger.debug(h_marg)
+
+    p_marg = recipe.get_person_marginal_for_geography(geog_id)
+    logger.debug("Person marginal")
+    logger.debug(p_marg)
+
+    h_pums, h_jd = recipe.\
+        get_household_joint_dist_for_geography(geog_id)
+    logger.debug("Household joint distribution")
+    logger.debug(h_jd)
+
+    p_pums, p_jd = recipe.get_person_joint_dist_for_geography(geog_id)
+    logger.debug("Person joint distribution")
+    logger.debug(p_jd)
+
+    return h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, marginal_zero_sub,\
+        jd_zero_sub, hh_index_start, ignore_max_iters
+
+
+def synth_worker(
+        arg_tuple, hh_index_start=0, ignore_max_iters=False):
+    # geog_id, recipe, marginal_zero_sub, jd_zero_sub):
+    geog_id, recipe, marginal_zero_sub, jd_zero_sub = arg_tuple
+
+    synth_args = geog_preprocessing(
+        geog_id, recipe, marginal_zero_sub, jd_zero_sub, hh_index_start, ignore_max_iters)
+    households, people, people_chisq, people_p = synthesize(*synth_args)
+
+    for geog_cat in geog_id.keys():
+        households[geog_cat] = geog_id[geog_cat]
+
+    key = BlockGroupID(
+        geog_id['state'], geog_id['county'], geog_id['tract'],
+        geog_id['block group'])
+
+    return households, people, key, people_chisq, people_p
+
+
+def synthesize_all_in_parallel(
+        recipe, num_geogs=None, indexes=None, marginal_zero_sub=.01,
+        jd_zero_sub=.001, max_workers=None, hh_index_start=0, ignore_max_iters=False):
+    """
+    Returns
+    -------
+    households, people : pandas.DataFrame
+    fit_quality : dict of FitQuality
+        Keys are geographic IDs, values are namedtuples with attributes
+        ``.household_chisq``, ``household_p``, ``people_chisq``,
+        and ``people_p``.
+    ignore_max_iters: boolean which indicates to ignore the max iterations in the ipu. Default, False.
+    """
+    # cluster = LocalCluster()
+    # client = Client(cluster)
+    with ProcessPoolExecutor(max_workers=5) as ex:
+
+        if indexes is None:
+            indexes = recipe.get_available_geography_ids()
+
+        hh_list = []
+        people_list = []
+        cnt = 0
+        fit_quality = {}
+        hh_index_start = 0
+        geog_synth_args = []
+        finished_args = []
+        geog_ids = []
+        futures = []
+
+        print('Submitting function args for parallel processing:')
+        for i, geog_id in enumerate(indexes):
+            geog_synth_args.append(ex.submit(
+                geog_preprocessing, geog_id, recipe, marginal_zero_sub,
+                jd_zero_sub, hh_index_start, ignore_max_iters))
+            geog_ids.append(geog_id)
+            cnt += 1
+            if num_geogs is not None and cnt >= num_geogs:
+                break
+
+        print('Processing function args in parallel:')
+        for finished_arg in tqdm(
+                as_completed(geog_synth_args), total=len(geog_synth_args)):
+            finished_args.append(finished_arg.result())
+
+        print('Submitting {0} geographies for parallel processing.'.format(
+            len(finished_args)))
+        futures = [
+            ex.submit(synthesize, *geog_args) for geog_args in finished_args]
+
+        print('Beginning population synthesis in parallel:')
+        for f in tqdm(as_completed(futures), total=len(futures)):
+            pass
+
+        print('Processing results:')
+        for i, future in tqdm(enumerate(futures), total=len(futures)):
+            try:
+                households, people, people_chisq, people_p = future.result()
+            except Exception as e:
+                print('Generated an exception: {0}'.format(e))
+            else:
+                geog_id = geog_ids[i]
+
+                # Append location identifiers to the synthesized households
+                for geog_cat in geog_id.keys():
+                    households[geog_cat] = geog_id[geog_cat]
+
+                # update the household_ids since we can't do it in the call to
+                # synthesize when we execute in parallel
+                households.index += hh_index_start
+                people.hh_id += hh_index_start
+
+                hh_list.append(households)
+                people_list.append(people)
+                key = BlockGroupID(
+                    geog_id['state'], geog_id['county'], geog_id['tract'],
+                    geog_id['block group'])
+                fit_quality[key] = FitQuality(people_chisq, people_p)
+
+                if len(households) > 0:
+                    hh_index_start = households.index.values[-1] + 1
+
+        all_households = pd.concat(hh_list)
+        all_persons = pd.concat(people_list, ignore_index=True)
+
+        return (all_households, all_persons, fit_quality)
+
+
+def synthesize_all_in_parallel_mp(
+        recipe, num_geogs=None, indexes=None, marginal_zero_sub=.01,
+        jd_zero_sub=.001, max_workers=None):
+    """
+    Returns
+    -------
+    households, people : pandas.DataFrame
+    fit_quality : dict of FitQuality
+        Keys are geographic IDs, values are namedtuples with attributes
+        ``.household_chisq``, ``household_p``, ``people_chisq``,
+        and ``people_p``.
+
+    """
+    if indexes is None:
+        indexes = recipe.get_available_geography_ids()
+
+    hh_list = []
+    people_list = []
+    cnt = 0
+    fit_quality = {}
+    hh_index_start = 0
+    geog_ids = []
+
+    for i, geog_id in enumerate(indexes):
+        geog_ids.append(geog_id)
+        cnt += 1
+        if num_geogs is not None and cnt >= num_geogs:
+            break
+
+    with Pool(processes=max_workers) as pool:
+        print('{0} - Generating function args for parallel processing.'.format(
+            str(dt.now())))
+        geog_synth_args = pool.starmap(
+            geog_preprocessing, zip(
+                geog_ids, repeat(recipe), repeat(marginal_zero_sub),
+                repeat(jd_zero_sub)))
+        pool.close()
+        pool.join()
+        print('{0} - Finished.'.format(str(dt.now())))
+
+    with Pool(processes=max_workers) as pool:
+        print(
+            '{0} - Submitting funtion args to synthesizers '
+            'in parallel.'.format(str(dt.now())))
+        results = pool.starmap(synthesize, geog_synth_args)
+        pool.close()
+        print('{0} - Waiting for parallel synthesizer to finish.'.format(
+            str(dt.now())))
+        pool.join()
+        print('{0} - Finished synthesizing geographies in parallel.'.format(
+            str(dt.now())))
+
+    print('Processing results:')
+    for i, result in tqdm(enumerate(results), total=len(results)):
+        households, people, people_chisq, people_p = result
+        geog_id = geog_ids[i]
+
+        # Append location identifiers to the synthesized households
+        for geog_cat in geog_id.keys():
+            households[geog_cat] = geog_id[geog_cat]
+
+        # update the household_ids since we can't do it in the call to
+        # synthesize when we execute in parallel
+        households.index += hh_index_start
+        people.hh_id += hh_index_start
+
+        hh_list.append(households)
+        people_list.append(people)
+        key = BlockGroupID(
+            geog_id['state'], geog_id['county'], geog_id['tract'],
+            geog_id['block group'])
+        fit_quality[key] = FitQuality(people_chisq, people_p)
+
+        if len(households) > 0:
+            hh_index_start = households.index.values[-1] + 1
+
+    all_households = pd.concat(hh_list)
+    all_persons = pd.concat(people_list, ignore_index=True)
+
+    return (all_households, all_persons, fit_quality)
+
+
+def synthesize_all_in_parallel_full(
+        recipe, num_geogs=None, indexes=None, marginal_zero_sub=.01,
+        jd_zero_sub=.001, max_workers=None):
+    """
+    Returns
+    -------
+    households, people : pandas.DataFrame
+    fit_quality : dict of FitQuality
+        Keys are geographic IDs, values are namedtuples with attributes
+        ``.household_chisq``, ``household_p``, ``people_chisq``,
+        and ``people_p``.
+
+    """
+    if indexes is None:
+        indexes = recipe.get_available_geography_ids()
+
+    cnt = 0
+    geog_ids = []
+
+    for i, geog_id in enumerate(indexes):
+        geog_ids.append(geog_id)
+        cnt += 1
+        if num_geogs is not None and cnt >= num_geogs:
+            break
+
+    count_geogs = len(geog_ids)
+    finished = 0
+    timeouts = 0
+    hh_index_start = 0
+    hh_list = []
+    people_list = []
+    fit_quality = {}
+    print('Synthesizing geographies in parallel.')
+    pool = Pool()
+
+    # APPLY_ASYNC VERSION
+    # procs = [pool.apply_async(
+    #     synth_worker, (geog_id, recipe, marginal_zero_sub, jd_zero_sub)
+    # ) for geog_id in geog_ids]
+
+    # print('Initialized all processes. Now recovering results:')
+    # for proc in procs:
+    #     try:
+    #         result = proc.get(120)
+    #         results.append(result)
+    #         print('{0} results completed'.format(str(len(results))))
+    #     except multiprocessing.TimeoutError:
+    #         timeouts.append(proc)
+    #         print('{0} timeouts'.format(str(len(timeouts))))
+
+    # IMAP VERSION W TIMEOUTS
+    sttm = time()
+    arg_tuples = zip(
+        geog_ids, repeat(recipe), repeat(marginal_zero_sub),
+        repeat(jd_zero_sub))
+    imap_it = pool.imap_unordered(synth_worker, arg_tuples)
+    # pbar = tqdm(total=len(geog_ids))
+    while 1:
+        try:
+            result = imap_it.next(timeout=120)
+
+            households, people, key, people_chisq, people_p = result
+
+            # update the household_ids since we can't do it in the call to
+            # synthesize when we execute in parallel
+            households.index += hh_index_start
+            people.hh_id += hh_index_start
+
+            hh_list.append(households)
+            people_list.append(people)
+            fit_quality[key] = FitQuality(people_chisq, people_p)
+
+            if len(households) > 0:
+                hh_index_start = households.index.values[-1] + 1
+            finished += 1
+            # pbar.update(1)
+        except StopIteration:
+            break
+        except multiprocessing.TimeoutError:
+            timeouts += 1
+        elapsed_min = np.round((time() - sttm) / 60, 1)
+        min_per_geog = elapsed_min / finished
+        min_remaining = np.round(min_per_geog * (count_geogs - finished), 1)
+        print(
+            '{0} of {1} geographies completed // {2} minutes '
+            'elapsed // {3} minutes remaining'.format(
+                str(finished), str(count_geogs),
+                str(elapsed_min), str(min_remaining)))
+    # pbar.close()
+
+    # IMAP_UNORDERED VERSION
+    # arg_tuples = zip(
+    #     geog_ids, repeat(recipe), repeat(marginal_zero_sub),
+    #     repeat(jd_zero_sub))
+    # for result in tqdm(
+    #         pool.imap_unordered(
+    #             synth_worker, arg_tuples),
+    #         total=len(geog_ids), ncols=80):
+    #     results.append(result)
+
+    print('Shutting down the worker pool.')
+    pool.close()
+    pool.join()
+    print('Pool closed.')
+
+    # return results, timeouts
+    # print('Processing results:')
+    # for i, result in tqdm(enumerate(results), total=len(results)):
+
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list, ignore_index=True)
 

@@ -1,5 +1,5 @@
 import pytest
-from ..census_helpers import Census
+from synthpop.census_helpers import Census
 import numpy as np
 from pandas.util.testing import assert_series_equal
 import os
@@ -74,3 +74,11 @@ def test_download_pums(c):
     c.download_household_pums("06", puma)
     c.download_population_pums("10")
     c.download_household_pums("10")
+
+
+def test_read_csv_cache(c):
+    puma10 = "07506"
+    state = "06"
+    c.download_population_pums(state, puma10)
+    loc = c.pums10_population_base_url % (state, puma10)
+    assert loc in c.pums_cache

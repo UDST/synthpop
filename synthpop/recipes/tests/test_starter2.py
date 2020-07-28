@@ -11,11 +11,12 @@ def key():
 
 
 def test_starter(key):
-    st = Starter(key, "CA", "Alpine County")
+    st = Starter(key, "IL", "Kendall County")
     # just run it for now
     synthesize_all(st, num_geogs=1)
 
 
 # no synthesizer bc it's too memory intensive for travis
 def test_starter2(key):
-    Starter2(key, "CA", "Alpine County")
+    Starter2(key, "IL", "Kendall County")
+    synthesize_all_in_parallel(st, num_geogs=1) 

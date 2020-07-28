@@ -88,7 +88,7 @@ class Census:
             """ Yield successive n-sized chunks from l.
             """
             for i in range(0, len(l), n):
-                yield l[i:i+n]
+                yield l[i: i + n]
 
         for census_column_batch in chunks(census_columns, 45):
             census_column_batch = list(census_column_batch)
@@ -205,12 +205,12 @@ class Census:
         if county is None:
             try:
                 return getattr(us.states, state).fips
-            except:
+            except (KeyError, NameError, ValueError, AttributeError, IndexError):
                 pass
             return state
 
         try:
             return df.loc[(state, county)]
-        except:
+        except (KeyError, NameError, ValueError, AttributeError, IndexError):
             pass
         return state, county

@@ -2,9 +2,8 @@ import numpy as np
 import numpy.testing as npt
 import pandas as pd
 import pytest
-from pandas.util import testing as pdt
 
-from .. import ipu
+from synthpop.ipu import ipu
 
 
 @pytest.fixture(scope='module')
@@ -169,10 +168,18 @@ def test_household_weights(
 def test_household_weights_max_iter(
         household_freqs, person_freqs, household_constraints,
         person_constraints):
+
+    with pytest.warns(UserWarning):
+        ipu.household_weights(
+            household_freqs, person_freqs, household_constraints,
+            person_constraints, convergence=1e-7, max_iterations=10,
+            ignore_max_iters=True)
+
     with pytest.raises(RuntimeError):
         ipu.household_weights(
             household_freqs, person_freqs, household_constraints,
-            person_constraints, convergence=1e-7, max_iterations=10)
+            person_constraints, convergence=1e-7, max_iterations=10,
+            ignore_max_iters=False)
 
 
 def test_FrequencyAndConstraints(freq_wrap):
