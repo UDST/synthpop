@@ -275,7 +275,7 @@ def household_weights(
                     'Maximum number of iterations reached '
                     'during IPU: {}'.format(max_iterations), UserWarning)
                 return (
-                    pd.Series(best_weights, index=hf.index),
+                    pd.Series(best_weights, index=household_freq.index),
                     best_fit_qual, iterations)
             else:
                 raise RuntimeError(
