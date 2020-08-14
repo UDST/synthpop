@@ -42,8 +42,9 @@ class Starter:
     tract_to_puma_map : dictionary
         keys are tract ids and pumas are puma ids
     """
+
     def __init__(self, key, state, county, tract=None, acsyear=2016):
-        self.c = c = Census(key)
+        self.c = c = Census(key, acsyear)
         self.state = state
         self.county = county
         self.tract = tract
@@ -179,11 +180,18 @@ class Starter:
 
         # Put the needed PUMS variables here.  These are also the PUMS variables
         # that will be in the outputted synthetic population
-        self.h_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RT', 'NP', 'TYPE',
+        self.h_pums_cols = ('serialno', 'PUMA10', 'RT', 'NP', 'TYPE',
                             'R65', 'HINCP', 'VEH', 'MV', 'TEN', 'BLD', 'R18')
-        self.p_pums_cols = ('serialno', 'PUMA00', 'PUMA10', 'RELP', 'AGEP',
+        self.p_pums_cols = ('serialno', 'PUMA10', 'RELP', 'AGEP',
                             'ESR', 'RAC1P', 'HISP', 'SEX', 'SPORDER',
                             'PERNP', 'SCHL', 'WKHP', 'JWTR', 'SCH')
+        if self.acsyear < 2018:
+            self.h_pums_cols = list(self.h_pums_cols)
+            self.h_pums_cols.insert(1, 'PUMA00')
+            self.h_pums_cols = tuple(self.h_pums_cols)
+            self.p_pums_cols = list(self.p_pums_cols)
+            self.p_pums_cols.insert(1, 'PUMA00')
+            self.p_pums_cols = tuple(self.p_pums_cols)
 
     def get_geography_name(self):
         # this synthesis is at the block group level for most variables
