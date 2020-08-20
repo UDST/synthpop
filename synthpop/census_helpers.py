@@ -173,7 +173,8 @@ class Census:
             pums_df = pd.read_csv(loc, dtype={
                 "PUMA10": "object",
                 "PUMA00": "object",
-                "ST": "object"
+                "ST": "object",
+                "SERIALNO": 'str'
             }, **kargs)
             pums_df = pums_df.rename(columns={
                 'PUMA10': 'puma10',
