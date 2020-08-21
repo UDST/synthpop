@@ -174,7 +174,8 @@ class Census:
                 "PUMA10": "object",
                 "PUMA00": "object",
                 "ST": "object",
-                "SERIALNO": 'str'
+                "SERIALNO": 'str',
+                "serialno": 'str',
             }, **kargs)
             pums_df = pums_df.rename(columns={
                 'PUMA10': 'puma10',
