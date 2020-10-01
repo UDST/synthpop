@@ -157,7 +157,7 @@ def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
             p_sample[p_sample.sample_geog == xwalk[1]],
             cat.category_combinations(p_marg.columns))
     households, people, people_chisq, people_p = synthesize(
-            hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps,
+            hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps, xwalk[0],
             hh_index_start=1)
     households['geog'] = xwalk[0]
     people['geog'] = xwalk[0]
