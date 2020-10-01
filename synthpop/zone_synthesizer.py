@@ -207,4 +207,4 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list)
     all_households, all_persons = synch_hhids(all_households, all_persons)
-    return all_persons, all_households, all_stats
+    return all_households, all_persons,  all_stats
