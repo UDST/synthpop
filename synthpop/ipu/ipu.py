@@ -22,8 +22,8 @@ def _drop_zeros(df):
 
     """
     def for_each_col(col):
-        nz = col.nonzero()[0]
-        return col[nz], nz
+        nz = col.to_numpy().nonzero()[0]
+        return col.iloc[nz], nz
 
     for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=True).items():
         yield (col_idx, col, nz)
@@ -63,6 +63,7 @@ class _FrequencyAndConstraints(object):
         Total number of columns across household and person classes.
 
     """
+
     def __init__(self, household_freq, household_constraints, person_freq=None,
                  person_constraints=None):
         hh_cols = ((key, col, household_constraints[key], nz)
@@ -161,7 +162,7 @@ def _average_fit_quality(freq_wrap, weights):
     return sum(
         _fit_quality(col, weights[nz], constraint)
         for _, col, constraint, nz in freq_wrap.iter_columns()
-        ) / freq_wrap.ncols
+    ) / freq_wrap.ncols
 
 
 def _update_weights(column, weights, constraint):
