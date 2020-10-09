@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import us
 import requests
+from .config import synthpop_config
 
 # code to retry when census api fails
 sess = requests.Session()
@@ -16,12 +17,7 @@ class Census:
 
     def __init__(self, key, acsyear=2016):
         self.c = census.Census(key, session=sess)
-
-        if acsyear >= 2018:
-            storage = "https://storage.googleapis.com/synthpop-public/PUMS2018/pums_2018_acs5/"
-        else:
-            storage = "https://s3-us-west-1.amazonaws.com/synthpop-data2/"
-        self.base_url = storage
+        self.base_url = synthpop_config(acsyear).pums_storage()
         self.acsyear_files = acsyear
         self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
         self.pums_relationship_df = None
