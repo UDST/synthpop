@@ -26,7 +26,7 @@ def _drop_zeros(df):
         return col.iloc[nz], nz
 
     for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=False).items():
-        yield (col_idx, col, nz)
+        yield (col_idx, col.values, nz)
 
 
 class _FrequencyAndConstraints(object):
@@ -66,6 +66,7 @@ class _FrequencyAndConstraints(object):
 
     def __init__(self, household_freq, household_constraints, person_freq=None,
                  person_constraints=None):
+
         hh_cols = ((key, col, household_constraints[key], nz)
                    for key, col, nz in _drop_zeros(household_freq))
 
