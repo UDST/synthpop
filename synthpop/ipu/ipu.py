@@ -23,10 +23,10 @@ def _drop_zeros(df):
 
     """
     def for_each_col(col):
-        nz = col.nonzero()[0]
-        return col[nz], nz
+        nz = col.to_numpy().nonzero()[0]
+        return col.iloc[nz], nz
 
-    for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=True).items():
+    for (col_idx, (col, nz)) in df.apply(lambda row: for_each_col(row), axis=0).items():
         yield (col_idx, col, nz)
 
 
@@ -269,8 +269,14 @@ def household_weights(
                             'fit_change': fit_change,
                             'fitting_tolerance': fitting_tolerance,
                             'geog_id': geography}
-                np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
-                                                          geography['tract'], geography['block group']), ipu_dict)
+                if isinstance(geography, pd.Series):
+                    np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
+                                                              geography['tract'], geography['block group']), ipu_dict)
+                elif isinstance(geography, list):
+                    np.save('max_iter_{}_{}.npy'.format(geography[0], geography[1]), ipu_dict)
+                else:
+                    np.save('max_iter_{}.npy'.format(str(geography)), ipu_dict)
+
                 warnings.warn(
                     'Maximum number of iterations reached '
                     'during IPU: {}'.format(max_iterations), UserWarning)
@@ -284,4 +290,92 @@ def household_weights(
 
     return (
         pd.Series(best_weights, index=household_freq.index),
+        best_fit_qual, iterations)
+
+def unit_weights(
+        units_freq, units_constraints,
+        geography,
+        convergence=1e-4, max_iterations=20000, ignore_max_iters=True):
+    """
+    Calculate the units weights that best match unit level attributes.
+
+    Parameters
+    ----------
+    units_freq : pandas.DataFrame
+        Frequency table for unit attributes. Columns should be
+        a MultiIndex matching the index of `units_constraints`
+    units_constraints : pandas.Series
+        Target marginal constraints for units classes.
+        Index must be the same as the columns of `units_freq`.
+    convergence : float, optional
+        When the average fit quality metric changes by less than this value
+        after an iteration we declare done and send back the weights
+        from the best fit.
+    max_iterations, int, optional
+        Maximum number of iterations to do before stopping and raising
+        an exception.
+
+    Returns
+    -------
+    weights : pandas.Series
+    fit_qual : float
+        The final average fit quality metric.
+    iterations : int
+        Number of iterations made.
+
+    """
+    weights = np.ones(len(units_freq), dtype='float')
+    best_weights = weights.copy()
+
+    freq_wrap = _FrequencyAndConstraints(
+        units_freq, units_constraints)
+
+    fit_qual = _average_fit_quality(freq_wrap, weights)
+    best_fit_qual = fit_qual
+    fit_change = np.inf
+    iterations = 0
+
+    while fit_change > convergence:
+        for _, col, constraint, nz in freq_wrap.iter_columns():
+            weights[nz] = _update_weights(col, weights[nz], constraint)
+
+        new_fit_qual = _average_fit_quality(freq_wrap, weights)
+        fit_change = abs(new_fit_qual - fit_qual)
+
+        if new_fit_qual < fit_qual:
+            best_fit_qual = new_fit_qual
+            best_weights = weights.copy()
+
+        fit_qual = new_fit_qual
+        iterations += 1
+
+        if iterations > max_iterations:
+            if ignore_max_iters:
+                fitting_tolerance = fit_change - convergence
+                print('Fitting tolerance before 20000 iterations: %s' % str(fitting_tolerance))
+                ipu_dict = {'best_fit_qual': best_fit_qual,
+                            'fit_change': fit_change,
+                            'fitting_tolerance': fitting_tolerance,
+                            'geog_id': geography}
+                if isinstance(geography, pd.Series):
+                    np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
+                                                              geography['tract'], geography['block group']), ipu_dict)
+                elif isinstance(geography, list):
+                    np.save('max_iter_{}_{}.npy'.format(geography[0], geography[1]), ipu_dict)
+                else:
+                    np.save('max_iter_{}.npy'.format(str(geography)), ipu_dict)
+
+                warnings.warn(
+                    'Maximum number of iterations reached '
+                    'during IPF: {}'.format(max_iterations), UserWarning)
+                return (
+                    pd.Series(best_weights, index=units_freq.index),
+                    best_fit_qual, iterations)
+            else:
+                raise RuntimeError(
+                    'Maximum number of iterations reached '
+                    'during IPU: {}'.format(max_iterations))
+
+    return (
+        pd.Series(best_weights, index=units_freq.index),
         best_fit_qual, iterations)

@@ -83,12 +83,12 @@ def joint_distribution(sample_df, category_df, mapping_functions=None):
     return sample_df, category_df
 
 
-def _frequency_table(sample_df, category_ids):
+def _frequency_table(sample_df, category_ids, df_index_name='hh_id'):
     """
     Take the result that comes out of the method above and turn it in to the
     frequencytable format used by the ipu
     """
-    df = sample_df.groupby(['hh_id', 'cat_id']).size().unstack().fillna(0)
+    df = sample_df.groupby([df_index_name, 'cat_id']).size().unstack().fillna(0)
 
     # need to manually add in case we missed a whole cat_id in the sample
     missing_ids = list(set(category_ids) - set(df.columns))

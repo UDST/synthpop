@@ -232,3 +232,60 @@ def draw_households(
             best_households, best_people = synth_hh, synth_people
 
     return best_households, best_people, best_chisq, best_p
+
+def draw_units(
+        num, unit_pums, unit_freq, unit_constraints,
+        weights, index_start=0):
+    """
+    Draw Units according to weights.
+
+    Parameters
+    ----------
+    num : int
+        The total number of units to draw.
+    unit_pums : pandas.DataFrame
+        Table of units data.
+    unit_freq : pandas.DataFrame
+        Frequency table for unit attributes. Columns should be
+        a MultiIndex matching the index of `unit_constraints` and
+        index should be unit IDs matching the index `unit_pums`
+        and `weights`.
+    unit_constraints : pandas.Series
+        Target marginal constraints for unit classes.
+        Index must be the same as the columns of `units_freq`.
+    weights : pandas.Series
+        Weights. Index should match `unit_pums` and `unit_freq`.
+    index_start : int, optional
+        Index at which to start the indexing of returned units.
+
+    Returns
+    -------
+    best_units : pandas.DataFrame
+        Index will be  ``unit_id`` column
+    people_chisq : float
+    people_p : float
+
+    """
+    if num == 0:
+        return (
+            pd.DataFrame(columns=unit_pums.columns),
+            0, 1)
+
+    fac = _FrequencyAndConstraints(unit_freq, unit_constraints)
+
+    best_chisq = np.inf
+
+    for _ in range(20):
+        indexes = _draw_indexes(num, fac, weights)
+        synth_units = unit_pums.loc[indexes].reset_index(drop=True)
+        synth_units.index += index_start
+
+        unit_chisq, unit_p = compare_to_constraints(
+            synth_units.cat_id, unit_constraints)
+
+        if unit_chisq < best_chisq:
+            best_chisq = unit_chisq
+            best_p = unit_p
+            best_units = synth_units
+
+    return best_units, best_chisq, best_p
