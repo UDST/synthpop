@@ -22,3 +22,15 @@ The paper is available here:
 http://www.scag.ca.gov/Documents/PopulationSynthesizerPaper_TRB.pdf
 
 .. _PopGen: http://urbanmodel.asu.edu/popgen.html
+
+# Installation
+
+```
+virtualenv venv --python=python3.7
+source venv/bin/activate
+pip install -r requierements.txt
+cd synthpop/
+python setup.py develop
+```
+To run `Synthpop` you need a Census API that you can get one from [here](https://api.census.gov/data/key_signup.html). After you get and validate the API key you can add it as an enviromental variable to your environment as by adding to `/venv/bin/activate` the following line: 
+`export CENSUS='yourApiKey'`
