@@ -72,10 +72,10 @@ class Starter:
                                  "+ B19001_017E",
             ("cars", "none"): "B08201_002E",
             ("cars", "one"): "B08201_003E",
-            ("cars", "two or more"): "B08201_004E + B08201_005E + B08201_006E",
+            ("cars", "two or more"): "B08201_001E - (B08201_002E + B08201_003E)",
             ("workers", "none"): "B08202_002E",
             ("workers", "one"): "B08202_003E",
-            ("workers", "two or more"): "B08202_004E + B08202_005E"
+            ("workers", "two or more"): "B08201_001E - (B08202_002E + B08202_003E)"
         }, index_cols=['state', 'county', 'tract', 'block group'])
 
         population = ['B01001_001E']
