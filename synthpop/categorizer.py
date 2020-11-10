@@ -100,7 +100,12 @@ def _frequency_table(sample_df, category_ids):
         df = df.merge(missing_df, left_index=True, right_index=True)
 
     assert len(df.columns) == len(category_ids)
-    assert df.sum().sum() == len(sample_df)
+
+    pd.options.compute.use_bottleneck = False
+    sumsum = 0
+    for i, x in df.iteritems():
+        sumsum += x.sum()
+    assert sumsum == len(sample_df)
 
     return df
 
