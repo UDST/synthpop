@@ -18,4 +18,4 @@ script:
   - py.test --cov synthpop --cov-report term-missing
 
 after_success:
-- coveralls
+  - coveralls
