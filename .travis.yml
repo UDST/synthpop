@@ -1,28 +1,21 @@
 language: python
-sudo: false
+
 python:
-- '2.7'
-- '3.5'
+  - '2.7'
+  - '3.5'
+  - '3.6'
+  - '3.7'
+  - '3.8'
+
 install:
-- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-  -O miniconda.sh; else wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-  -O miniconda.sh; fi
-- bash miniconda.sh -b -p $HOME/miniconda
-- export PATH="$HOME/miniconda/bin:$PATH"
-- hash -r
-- conda config --set always_yes yes --set changeps1 no
-- conda update -q conda
-- conda info -a
-- |
-  conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pip numexpr numpy pandas scipy pytest
-- source activate test-environment
-- pip install pytest-cov coveralls pep8
-- pip install .
+  - pip install .
+  - pip install -r requirements-dev.txt
+  - pip list
+  - pip show synthpop
+
 script:
-- pep8 synthpop
-- py.test --cov synthpop --cov-report term-missing
+  - pycodestyle synthpop
+  - py.test --cov synthpop --cov-report term-missing
+
 after_success:
-- coveralls
-notifications:
-  slack:
-    secure: AauAe1pvhJ/siv7ed2j34NAubBAMA9FaMuw7nFWk6i0lKQmhMh3ykqWY39OINpHe+4GJnedTpJQ1foZGYPSMZn5euEDqdtsg7SCzVQhlwFwD9jJ9a55HyZx6awYAbaxwGuSkrQ3glrSzG02ZgO9FnhCqAKk4TH9SI/sdEZ7W/7A=
+  - coveralls

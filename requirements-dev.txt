@@ -1,0 +1,12 @@
+# Additional requirements for development and testing
+
+# testing
+coveralls
+pytest
+pytest-cov<2.10  # 2.10 raised errors in Travis
+pycodestyle
+
+# building documentation
+numpydoc
+sphinx
+sphinx_rtd_theme
