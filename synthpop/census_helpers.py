@@ -4,8 +4,6 @@ import numpy as np
 import us
 import requests
 from .config import synthpop_config, geog_changes_path
-import yaml
-import os
 
 # code to retry when census api fails
 sess = requests.Session()
