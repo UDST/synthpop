@@ -157,7 +157,7 @@ def synthesize_zone(hh_marg, p_marg, hh_sample, p_sample, xwalk):
             p_sample[p_sample.sample_geog == xwalk[1]],
             cat.category_combinations(p_marg.columns))
     households, people, people_chisq, people_p = synthesize(
-            hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps,
+            hh_marg.loc[xwalk[0]], p_marg.loc[xwalk[0]], hh_jd, p_jd, hhs, ps, xwalk[0],
             hh_index_start=1)
     households['geog'] = xwalk[0]
     people['geog'] = xwalk[0]
@@ -207,4 +207,4 @@ def multiprocess_synthesize(hh_marg, p_marg, hh_sample,
     all_households = pd.concat(hh_list)
     all_persons = pd.concat(people_list)
     all_households, all_persons = synch_hhids(all_households, all_persons)
-    return all_persons, all_households, all_stats
+    return all_households, all_persons,  all_stats

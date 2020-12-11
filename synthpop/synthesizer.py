@@ -25,7 +25,7 @@ def enable_logging():
     logger.setLevel(logging.DEBUG)
 
 
-def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, geography,
                marginal_zero_sub=.01, jd_zero_sub=.001, hh_index_start=0):
 
     # this is the zero marginal problem
@@ -70,7 +70,8 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
     best_weights, fit_quality, iterations = household_weights(household_freq,
                                                               person_freq,
                                                               h_constraint,
-                                                              p_constraint)
+                                                              p_constraint,
+                                                              geography)
     logger.info("Time to run ipu: %.3fs" % (time.time()-t1))
 
     logger.debug("IPU weights:")
@@ -137,7 +138,7 @@ def synthesize_all(recipe, num_geogs=None, indexes=None,
 
         households, people, people_chisq, people_p = \
             synthesize(
-                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums,
+                h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, geog_id,
                 marginal_zero_sub=marginal_zero_sub, jd_zero_sub=jd_zero_sub,
                 hh_index_start=hh_index_start)
 

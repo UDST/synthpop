@@ -4,6 +4,7 @@ from __future__ import division
 
 import itertools
 from collections import OrderedDict
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -60,7 +61,7 @@ class _FrequencyAndConstraints(object):
     Attributes
     ----------
     ncols : int
-        Total number of columns across household and person classes.
+        Total number household_wof columns across household and person classes.
 
     """
 
@@ -194,8 +195,9 @@ def _update_weights(column, weights, constraint):
 
 
 def household_weights(
-        household_freq, person_freq, household_constraints, person_constraints,
-        convergence=1e-4, max_iterations=20000):
+        household_freq, person_freq, household_constraints,
+        person_constraints, geography,
+        convergence=1e-4, max_iterations=20000, ignore_max_iters=True):
     """
     Calculate the household weights that best match household and
     person level attributes.
@@ -261,9 +263,25 @@ def household_weights(
         iterations += 1
 
         if iterations > max_iterations:
-            raise RuntimeError(
-                'Maximum number of iterations reached during IPU: {}'.format(
-                    max_iterations))
+            if ignore_max_iters:
+                fitting_tolerance = fit_change - convergence
+                print('Fitting tolerance before 20000 iterations: %s' % str(fitting_tolerance))
+                ipu_dict = {'best_fit_qual': best_fit_qual,
+                            'fit_change': fit_change,
+                            'fitting_tolerance': fitting_tolerance,
+                            'geog_id': geography}
+                np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
+                                                          geography['tract'], geography['block group']), ipu_dict)
+                warnings.warn(
+                    'Maximum number of iterations reached '
+                    'during IPU: {}'.format(max_iterations), UserWarning)
+                return (
+                    pd.Series(best_weights, index=household_freq.index),
+                    best_fit_qual, iterations)
+            else:
+                raise RuntimeError(
+                    'Maximum number of iterations reached '
+                    'during IPU: {}'.format(max_iterations))
 
     return (
         pd.Series(best_weights, index=household_freq.index),
