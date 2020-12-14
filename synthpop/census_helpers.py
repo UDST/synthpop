@@ -20,7 +20,7 @@ class Census:
         self.base_url = synthpop_config(acsyear).pums_storage()
         self.support_files = geog_changes_path(acsyear).geog_change_storage()
         self.acsyear_files = acsyear
-        self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
+        self.pums_relationship_file_url = self.support_files + "tract10_to_puma.csv"
         self.pums_relationship_df = None
         self.pums10_population_base_url = \
             self.base_url + "puma10_p_%s_%s.csv"
