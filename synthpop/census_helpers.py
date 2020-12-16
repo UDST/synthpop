@@ -157,7 +157,7 @@ class Census:
                         df.loc[idx, 'puma00_id'] = old_puma00
                     else:
                         df_change = df[(df['statefp']==state_old)&(df['countyfp']==county_old)].copy()
-                        df_change.loc[:, 'county_fp'] = county_new
+                        df_change.loc[:, 'countyfp'] = county_new
                         df = pd.concat([df, df_change])
         return df
 
@@ -171,7 +171,7 @@ class Census:
                     "puma10_id": "object",
                     "puma00_id": "object",
                 })
-        self.pums_relationship_df = self.update_geographies(self.pums_relationship_df)
+            self.pums_relationship_df = self.update_geographies(self.pums_relationship_df)
         return self.pums_relationship_df
 
     def _get_fips_lookup(self):
