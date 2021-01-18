@@ -9,6 +9,7 @@ import warnings
 import numpy as np
 import pandas as pd
 
+import pdb
 
 def _drop_zeros(df):
     """
@@ -261,6 +262,8 @@ def household_weights(
         fit_qual = new_fit_qual
         iterations += 1
 
+        pdb.set_trace()
+
         if iterations > max_iterations:
             if ignore_max_iters:
                 fitting_tolerance = fit_change - convergence
@@ -269,8 +272,14 @@ def household_weights(
                             'fit_change': fit_change,
                             'fitting_tolerance': fitting_tolerance,
                             'geog_id': geography}
-                np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
-                                                          geography['tract'], geography['block group']), ipu_dict)
+                if isinstance(geography, pd.Series):
+                    np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
+                                                              geography['tract'], geography['block group']), ipu_dict)
+                elif isinstance(geography, list):
+                    np.save('max_iter_{}_{}.npy'.format(geography[0], geography[1]), ipu_dict)
+                else:
+                    np.save('max_iter_{}.npy'.format(str(geography)), ipu_dict)
+
                 warnings.warn(
                     'Maximum number of iterations reached '
                     'during IPU: {}'.format(max_iterations), UserWarning)
