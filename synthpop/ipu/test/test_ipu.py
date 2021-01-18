@@ -154,7 +154,7 @@ def test_update_weights(
 
 def test_household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints):
+        person_constraints,geography, ignore_max_iters):
     weights, fit_qual, iterations = ipu.household_weights(
         household_freqs, person_freqs, household_constraints,
         person_constraints, convergence=1e-7)
@@ -168,11 +168,11 @@ def test_household_weights(
 
 def test_household_weights_max_iter(
         household_freqs, person_freqs, household_constraints,
-        person_constraints):
+        person_constraints,geography, ignore_max_iters):
     with pytest.raises(RuntimeError):
         ipu.household_weights(
             household_freqs, person_freqs, household_constraints,
-            person_constraints, convergence=1e-7, max_iterations=10)
+            person_constraints, geography, ignore_max_iters, convergence=1e-7, max_iterations=10)
 
 
 def test_FrequencyAndConstraints(freq_wrap):
