@@ -9,8 +9,6 @@ import warnings
 import numpy as np
 import pandas as pd
 
-import pdb
-
 def _drop_zeros(df):
     """
     Drop zeros from a DataFrame, returning an iterator over the columns
@@ -261,8 +259,6 @@ def household_weights(
 
         fit_qual = new_fit_qual
         iterations += 1
-
-        pdb.set_trace()
 
         if iterations > max_iterations:
             if ignore_max_iters:
