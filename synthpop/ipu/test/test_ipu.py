@@ -157,7 +157,7 @@ def test_household_weights(
         person_constraints,geography, ignore_max_iters):
     weights, fit_qual, iterations = ipu.household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints, convergence=1e-7)
+        person_constraints, geography, ignore_max_iters, convergence=1e-7)
     npt.assert_allclose(
         weights.as_matrix(),
         [1.36, 25.66, 7.98, 27.79, 18.45, 8.64, 1.47, 8.64],
