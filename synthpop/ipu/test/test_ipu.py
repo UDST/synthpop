@@ -60,6 +60,13 @@ def person_constraints(person_columns):
     return pd.Series([91, 65, 104], index=person_columns)
 
 
+@pytest.fixture(scope='module')
+def geography():
+    return pd.Series({'state': '02',
+                      'county':'270',
+                      'tract':'000100',
+                      'block group': '1'})
+
 @pytest.fixture
 def freq_wrap(
         household_freqs, person_freqs, household_constraints,
@@ -154,7 +161,7 @@ def test_update_weights(
 
 def test_household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints,geography, ignore_max_iters):
+        person_constraints,geography, ignore_max_iters=False):
     weights, fit_qual, iterations = ipu.household_weights(
         household_freqs, person_freqs, household_constraints,
         person_constraints, geography, ignore_max_iters, convergence=1e-7)
@@ -168,7 +175,7 @@ def test_household_weights(
 
 def test_household_weights_max_iter(
         household_freqs, person_freqs, household_constraints,
-        person_constraints,geography, ignore_max_iters):
+        person_constraints, geography, ignore_max_iters=False):
     with pytest.raises(RuntimeError):
         ipu.household_weights(
             household_freqs, person_freqs, household_constraints,
