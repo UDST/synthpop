@@ -161,7 +161,7 @@ def test_update_weights(
 
 def test_household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints,geography, ignore_max_iters=False):
+        person_constraints, geography, ignore_max_iters=False):
     weights, fit_qual, iterations = ipu.household_weights(
         household_freqs, person_freqs, household_constraints,
         person_constraints, geography, ignore_max_iters, convergence=1e-7)
