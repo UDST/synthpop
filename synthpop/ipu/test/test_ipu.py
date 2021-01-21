@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.testing as npt
 import pandas as pd
+import random
 import pytest
 from pandas.util import testing as pdt
 
@@ -62,10 +63,18 @@ def person_constraints(person_columns):
 
 @pytest.fixture(scope='module')
 def geography():
-    return pd.Series({'state': '02',
-                      'county': '270',
-                      'tract': '000100',
-                      'block group': '1'})
+    dtypes = ['serie', 'list']
+    dtype = random.choice(dtypes)
+
+    if dtype == 'serie':
+        geography = pd.Series({'state': '02',
+                               'county': '270',
+                               'tract': '000100',
+                               'block group': '1'})
+    else:
+        geography = ['02', '270']
+
+    return geography
 
 
 @pytest.fixture
