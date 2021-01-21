@@ -63,9 +63,10 @@ def person_constraints(person_columns):
 @pytest.fixture(scope='module')
 def geography():
     return pd.Series({'state': '02',
-                      'county':'270',
-                      'tract':'000100',
+                      'county': '270',
+                      'tract': '000100',
                       'block group': '1'})
+
 
 @pytest.fixture
 def freq_wrap(

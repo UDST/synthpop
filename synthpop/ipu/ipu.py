@@ -9,6 +9,7 @@ import warnings
 import numpy as np
 import pandas as pd
 
+
 def _drop_zeros(df):
     """
     Drop zeros from a DataFrame, returning an iterator over the columns
@@ -269,8 +270,10 @@ def household_weights(
                             'fitting_tolerance': fitting_tolerance,
                             'geog_id': geography}
                 if isinstance(geography, pd.Series):
-                    np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
-                                                              geography['tract'], geography['block group']), ipu_dict)
+                    state, county = geography['state'], geography['county']
+                    tract, bgroup = geography['tract'], geography['block group']
+                    np.save('max_iter_{}_{}_{}_{}.npy'.format(state, county,
+                                                              tract, bgroup), ipu_dict)
                 elif isinstance(geography, list):
                     np.save('max_iter_{}_{}.npy'.format(geography[0], geography[1]), ipu_dict)
                 else:

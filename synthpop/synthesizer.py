@@ -92,7 +92,7 @@ def synthesize(h_marg, p_marg, h_jd, p_jd, h_pums, p_pums, geography, ignore_max
         p_constraint, best_weights, hh_index_start=hh_index_start)
 
 
-def synthesize_all(recipe, num_geogs=None, indexes=None, ignore_max_iters = True,
+def synthesize_all(recipe, num_geogs=None, indexes=None, ignore_max_iters=True,
                    marginal_zero_sub=.01, jd_zero_sub=.001):
     """
     Returns
