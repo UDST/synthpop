@@ -39,15 +39,15 @@ def load_data(hh_marginal_file, person_marginal_file,
     p_sample = pd.read_csv(person_sample_file)
 
     hh_marg = pd.read_csv(hh_marginal_file, header=[0, 1], index_col=0)
-    hh_marg.columns.levels[0].name = 'cat_name'
-    hh_marg.columns.levels[1].name = 'cat_values'
+    hh_marg.columns.levels[0].set_names('cat_name', inplace=True)
+    hh_marg.columns.levels[1].set_names('cat_values', inplace=True)
 
     xwalk = list(zip(hh_marg.index, hh_marg.sample_geog.unstack().values))
     hh_marg = hh_marg.drop('sample_geog', axis=1, level=0)
 
     p_marg = pd.read_csv(person_marginal_file, header=[0, 1], index_col=0)
-    p_marg.columns.levels[0].name = 'cat_name'
-    p_marg.columns.levels[1].name = 'cat_values'
+    p_marg.columns.levels[0].set_names('cat_name', inplace=True)
+    p_marg.columns.levels[1].set_names('cat_values', inplace=True)
 
     return hh_marg, p_marg, hh_sample, p_sample, xwalk
 

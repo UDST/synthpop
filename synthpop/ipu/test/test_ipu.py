@@ -145,7 +145,7 @@ def test_update_weights(
         household_freqs, person_freqs, household_constraints,
         person_constraints):
     column = household_freqs[('yes', 'blue')]
-    column = column.iloc[column.nonzero()[0]]
+    column = column.iloc[column.values.nonzero()[0]]
     constraint = household_constraints[('yes', 'blue')]
     weights = pd.Series(
         np.ones(len(column)),
@@ -157,7 +157,7 @@ def test_update_weights(
         atol=0.01)
 
     column = person_freqs[(9, 'pink')]
-    column = column.iloc[column.nonzero()[0]]
+    column = column.iloc[column.values.nonzero()[0]]
     constraint = person_constraints[(9, 'pink')]
     weights = pd.Series(
         [8.05, 9.51, 8.05, 10.59, 11.0, 8.97, 8.97, 8.97],
@@ -176,7 +176,7 @@ def test_household_weights(
         household_freqs, person_freqs, household_constraints,
         person_constraints, geography, ignore_max_iters, convergence=1e-7)
     npt.assert_allclose(
-        weights.as_matrix(),
+        weights.values,
         [1.36, 25.66, 7.98, 27.79, 18.45, 8.64, 1.47, 8.64],
         atol=0.02)
     npt.assert_allclose(fit_qual, 8.51e-6, atol=1e-8)

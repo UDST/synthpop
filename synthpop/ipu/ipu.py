@@ -67,6 +67,7 @@ class _FrequencyAndConstraints(object):
 
     def __init__(self, household_freq, household_constraints, person_freq=None,
                  person_constraints=None):
+
         hh_cols = ((key, col, household_constraints[key], nz)
                    for key, col, nz in _drop_zeros(household_freq))
 
