@@ -19,7 +19,7 @@ setup(
     install_requires=[
         'census>=0.5',
         'numexpr>=2.3.1',
-        'numpy>=1.8.0',
+        'numpy>=1.16.5 ',
         'pandas>=0.15.0',
         'scipy>=0.13.3',
         'us>=0.8'

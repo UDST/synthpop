@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.testing as npt
 import pandas as pd
+import random
 import pytest
 from pandas.util import testing as pdt
 
@@ -58,6 +59,22 @@ def household_constraints(household_columns):
 @pytest.fixture(scope='module')
 def person_constraints(person_columns):
     return pd.Series([91, 65, 104], index=person_columns)
+
+
+@pytest.fixture(scope='module')
+def geography():
+    dtypes = ['serie', 'list']
+    dtype = random.choice(dtypes)
+
+    if dtype == 'serie':
+        geography = pd.Series({'state': '02',
+                               'county': '270',
+                               'tract': '000100',
+                               'block group': '1'})
+    else:
+        geography = ['02', '270']
+
+    return geography
 
 
 @pytest.fixture
@@ -154,10 +171,10 @@ def test_update_weights(
 
 def test_household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints):
+        person_constraints, geography, ignore_max_iters=False):
     weights, fit_qual, iterations = ipu.household_weights(
         household_freqs, person_freqs, household_constraints,
-        person_constraints, convergence=1e-7)
+        person_constraints, geography, ignore_max_iters, convergence=1e-7)
     npt.assert_allclose(
         weights.values,
         [1.36, 25.66, 7.98, 27.79, 18.45, 8.64, 1.47, 8.64],
@@ -168,11 +185,11 @@ def test_household_weights(
 
 def test_household_weights_max_iter(
         household_freqs, person_freqs, household_constraints,
-        person_constraints):
+        person_constraints, geography, ignore_max_iters=False):
     with pytest.raises(RuntimeError):
         ipu.household_weights(
             household_freqs, person_freqs, household_constraints,
-            person_constraints, convergence=1e-7, max_iterations=10)
+            person_constraints, geography, ignore_max_iters, convergence=1e-7, max_iterations=10)
 
 
 def test_FrequencyAndConstraints(freq_wrap):
