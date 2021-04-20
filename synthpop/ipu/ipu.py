@@ -196,8 +196,8 @@ def _update_weights(column, weights, constraint):
 
 def household_weights(
         household_freq, person_freq, household_constraints,
-        person_constraints, geography,
-        convergence=1e-4, max_iterations=20000, ignore_max_iters=True):
+        person_constraints, geography, ignore_max_iters,
+        convergence=1e-4, max_iterations=20000):
     """
     Calculate the household weights that best match household and
     person level attributes.
@@ -270,8 +270,16 @@ def household_weights(
                             'fit_change': fit_change,
                             'fitting_tolerance': fitting_tolerance,
                             'geog_id': geography}
-                np.save('max_iter_{}_{}_{}_{}.npy'.format(geography['state'], geography['county'],
-                                                          geography['tract'], geography['block group']), ipu_dict)
+                if isinstance(geography, pd.Series):
+                    state, county = geography['state'], geography['county']
+                    tract, bgroup = geography['tract'], geography['block group']
+                    np.save('max_iter_{}_{}_{}_{}.npy'.format(state, county,
+                                                              tract, bgroup), ipu_dict)
+                elif isinstance(geography, list):
+                    np.save('max_iter_{}_{}.npy'.format(geography[0], geography[1]), ipu_dict)
+                else:
+                    np.save('max_iter_{}.npy'.format(str(geography)), ipu_dict)
+
                 warnings.warn(
                     'Maximum number of iterations reached '
                     'during IPU: {}'.format(max_iterations), UserWarning)
