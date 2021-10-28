@@ -132,9 +132,10 @@ class Census:
 
     def update_geographies(self, df):
         acsyear = self.acsyear_files
-        changes = pd.read_csv(self.support_files + 'geog_changes.csv', dtype = {'new_geog': 'str', 'old_geog': 'str'})
+        changes = pd.read_csv(self.support_files + 'geog_changes.csv',
+                              dtype={'new_geog': 'str', 'old_geog': 'str'})
         for year in range(2011, acsyear):
-            year_change = changes[changes['year']==year].copy()
+            year_change = changes[changes['year'] == year].copy()
             import pdb
             if len(year_change) > 0:
                 for index, row in year_change.iterrows():
@@ -147,16 +148,21 @@ class Census:
                     if len(new) > 5:
                         tract_new = new[5:]
                         tract_old = old[5:]
-                        idx = df.index.max() +1
+                        idx = df.index.max() + 1
                         df.loc[idx, 'statefp'] = state_new
                         df.loc[idx, 'countyfp'] = county_new
                         df.loc[idx, 'tractce'] = tract_new
-                        old_puma10 = df[(df['statefp']==state_old)&(df['countyfp']==county_old)&(df['tractce']==tract_old)]['puma10_id'].values[0]
-                        old_puma00 = df[(df['statefp']==state_old)&(df['countyfp']==county_old)&(df['tractce']==tract_old)]['puma00_id'].values[0]
+                        old_puma10 = df[(df['statefp'] == state_old) &
+                                        (df['countyfp'] == county_old) &
+                                        (df['tractce'] == tract_old)]['puma10_id'].values[0]
+                        old_puma00 = df[(df['statefp'] == state_old) &
+                                        (df['countyfp'] == county_old) &
+                                        (df['tractce'] == tract_old)]['puma00_id'].values[0]
                         df.loc[idx, 'puma10_id'] = old_puma10
                         df.loc[idx, 'puma00_id'] = old_puma00
                     else:
-                        df_change = df[(df['statefp']==state_old)&(df['countyfp']==county_old)].copy()
+                        df_change = df[(df['statefp'] == state_old) &
+                                       (df['countyfp'] == county_old)].copy()
                         df_change.loc[:, 'countyfp'] = county_new
                         df = pd.concat([df, df_change])
         return df

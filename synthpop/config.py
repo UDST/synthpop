@@ -13,8 +13,8 @@ class synthpop_config:
     def __call__(self):
         return self.pums_storage()
 
-class geog_changes_path:
 
+class geog_changes_path:
     def __init__(self, acsyear):
         self.acsyear = acsyear
 
