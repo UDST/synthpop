@@ -12,3 +12,15 @@ class synthpop_config:
 
     def __call__(self):
         return self.pums_storage()
+
+
+class geog_changes_path:
+    def __init__(self, acsyear):
+        self.acsyear = acsyear
+
+    def geog_change_storage(self):
+        storage = "https://storage.googleapis.com/synthpop-public/support_files/"
+        return storage
+
+    def __call__(self):
+        return self.geog_change_storage()

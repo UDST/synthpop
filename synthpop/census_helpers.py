@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import us
 import requests
-from .config import synthpop_config
+from .config import synthpop_config, geog_changes_path
 
 # code to retry when census api fails
 sess = requests.Session()
@@ -18,8 +18,9 @@ class Census:
     def __init__(self, key, acsyear=2016):
         self.c = census.Census(key, session=sess)
         self.base_url = synthpop_config(acsyear).pums_storage()
+        self.support_files = geog_changes_path(acsyear).geog_change_storage()
         self.acsyear_files = acsyear
-        self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
+        self.pums_relationship_file_url = self.support_files + "tract10_to_puma.csv"
         self.pums_relationship_df = None
         self.pums10_population_base_url = \
             self.base_url + "puma10_p_%s_%s.csv"
@@ -129,6 +130,43 @@ class Census:
 
         return df
 
+    def update_geographies(self, df):
+        acsyear = self.acsyear_files
+        changes = pd.read_csv(self.support_files + 'geog_changes.csv',
+                              dtype={'new_geog': 'str', 'old_geog': 'str'})
+        for year in range(2011, acsyear):
+            year_change = changes[changes['year'] == year].copy()
+            import pdb
+            if len(year_change) > 0:
+                for index, row in year_change.iterrows():
+                    new = row['new_geog']
+                    old = row['old_geog']
+                    state_new = new[:2]
+                    state_old = old[:2]
+                    county_new = new[2:5]
+                    county_old = old[2:5]
+                    if len(new) > 5:
+                        tract_new = new[5:]
+                        tract_old = old[5:]
+                        idx = df.index.max() + 1
+                        df.loc[idx, 'statefp'] = state_new
+                        df.loc[idx, 'countyfp'] = county_new
+                        df.loc[idx, 'tractce'] = tract_new
+                        old_puma10 = df[(df['statefp'] == state_old) &
+                                        (df['countyfp'] == county_old) &
+                                        (df['tractce'] == tract_old)]['puma10_id'].values[0]
+                        old_puma00 = df[(df['statefp'] == state_old) &
+                                        (df['countyfp'] == county_old) &
+                                        (df['tractce'] == tract_old)]['puma00_id'].values[0]
+                        df.loc[idx, 'puma10_id'] = old_puma10
+                        df.loc[idx, 'puma00_id'] = old_puma00
+                    else:
+                        df_change = df[(df['statefp'] == state_old) &
+                                       (df['countyfp'] == county_old)].copy()
+                        df_change.loc[:, 'countyfp'] = county_new
+                        df = pd.concat([df, df_change])
+        return df
+
     def _get_pums_relationship(self):
         if self.pums_relationship_df is None:
             self.pums_relationship_df = \
@@ -139,6 +177,7 @@ class Census:
                     "puma10_id": "object",
                     "puma00_id": "object",
                 })
+            self.pums_relationship_df = self.update_geographies(self.pums_relationship_df)
         return self.pums_relationship_df
 
     def _get_fips_lookup(self):
