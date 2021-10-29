@@ -7,7 +7,7 @@ import pandas as pd
 from datetime import datetime as dt
 from time import sleep, time
 from tqdm import tqdm
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor
 import multiprocessing
 from multiprocessing import Pool
 from itertools import repeat
