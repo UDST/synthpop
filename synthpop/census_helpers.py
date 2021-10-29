@@ -2,14 +2,23 @@ import census
 import pandas as pd
 import numpy as np
 import us
+import requests
+from .config import synthpop_config
 
+# code to retry when census api fails
+sess = requests.Session()
+adapter = requests.adapters.HTTPAdapter(max_retries=100)
+sess.mount('https://', adapter)
 
 # TODO DOCSTRING!!
+
+
 class Census:
 
-    def __init__(self, key):
-        self.c = census.Census(key)
-        self.base_url = "https://s3-us-west-1.amazonaws.com/synthpop-data2/"
+    def __init__(self, key, acsyear=2016):
+        self.c = census.Census(key, session=sess)
+        self.base_url = synthpop_config(acsyear).pums_storage()
+        self.acsyear_files = acsyear
         self.pums_relationship_file_url = self.base_url + "tract10_to_puma.csv"
         self.pums_relationship_df = None
         self.pums10_population_base_url = \
@@ -160,7 +169,9 @@ class Census:
             pums_df = pd.read_csv(loc, dtype={
                 "PUMA10": "object",
                 "PUMA00": "object",
-                "ST": "object"
+                "ST": "object",
+                "SERIALNO": 'str',
+                "serialno": 'str',
             }, **kargs)
             pums_df = pums_df.rename(columns={
                 'PUMA10': 'puma10',
@@ -175,7 +186,7 @@ class Census:
         if (puma10 is None) & (puma00 is None):
             return self._read_csv(self.pums_population_state_base_url % (state), **kargs)
         pums = self._read_csv(self.pums10_population_base_url % (state, puma10), **kargs)
-        if puma00 is not None:
+        if (puma00 is not None) & (self.acsyear_files < 2018):
             pums00 = self._read_csv(self.pums00_population_base_url % (state, puma00), **kargs)
             pums = pd.concat([pums, pums00], ignore_index=True)
         return pums
@@ -185,7 +196,7 @@ class Census:
         if (puma10 is None) & (puma00 is None):
             return self._read_csv(self.pums_household_state_base_url % (state), **kargs)
         pums = self._read_csv(self.pums10_household_base_url % (state, puma10), **kargs)
-        if puma00 is not None:
+        if (puma00 is not None) & (self.acsyear_files < 2018):
             pums00 = self._read_csv(self.pums00_household_base_url % (state, puma00), **kargs)
             pums = pd.concat([pums, pums00], ignore_index=True)
 
