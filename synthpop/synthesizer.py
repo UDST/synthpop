@@ -258,7 +258,7 @@ def synthesize_all_in_parallel(
                 if len(households) > 0:
                     hh_index_start = households.index.values[-1] + 1
 
-            all_households = pd.concat(hh_list)
-            all_persons = pd.concat(people_list, ignore_index=True)
+        all_households = pd.concat(hh_list)
+        all_persons = pd.concat(people_list, ignore_index=True)
 
-            return (all_households, all_persons, fit_quality)
+        return (all_households, all_persons, fit_quality)
