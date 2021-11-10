@@ -25,8 +25,8 @@ def _drop_zeros(df):
         nz = col.nonzero()[0]
         return col[nz], nz
 
-    for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=True).items():
-        yield (col_idx, col, nz)
+    for (col_idx, (col, nz)) in df.apply(for_each_col, axis=0, raw=False).items():
+        yield (col_idx, col.values, nz)
 
 
 class _FrequencyAndConstraints(object):
